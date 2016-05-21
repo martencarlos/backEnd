@@ -1,0 +1,9 @@
+install:
+
+- Node JS  
+- Mongo DB ~ 200MB
+
+Initiate database:
+
+- start database: C:\Program Files\MongoDB\Server\3.2\bin\mongod --dbpath C:\Users\carlos\Desktop\loginapp\db
+- launch app in dev mode: C:\Users\carlos\Desktop\loginapp\node_modules\.bin\node-dev app
