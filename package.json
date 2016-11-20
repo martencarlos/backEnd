@@ -1,7 +1,7 @@
 {
   "name": "App",
   "version": "1.0.0",
-  "description": "Simple application with user management",
+  "description": "Carlos Marten - One frame to rule them all",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

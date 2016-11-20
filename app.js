@@ -21,7 +21,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/loginapp');
 var db = mongoose.connection;
 
-var routes = require('./routes/index');
+var index = require('./routes/index');
 var users = require('./routes/users');
 
 // Init App
@@ -82,12 +82,12 @@ app.use(function (req, res, next) {
 });
 
 
-app.use('/', routes);
+app.use('/', index);
 app.use('/users', users);
 
-// Set Port
-app.set('port', (process.env.PORT || 3000));
 
+// Set Port
+app.set('port', (process.env.PORT || 80));
 app.listen(app.get('port'), function(){
 	console.log('Server started on port '+app.get('port'));
 });
