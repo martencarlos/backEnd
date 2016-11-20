@@ -1,13 +1,20 @@
+
 var express = require('express');
+
+//Basic
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
+
+//Authentication
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+
+//Database
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 

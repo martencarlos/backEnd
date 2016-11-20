@@ -5,5 +5,5 @@ install:
 
 Initiate database:
 
-- start database: C:\Program Files\MongoDB\Server\3.2\bin\mongod --dbpath C:\Users\carlos\Desktop\loginapp\db
-- launch app in dev mode: C:\Users\carlos\Desktop\loginapp\node_modules\.bin\node-dev app
+- start database: "C:\Program Files"\MongoDB\Server\3.2\bin\mongod --dbpath C:\Users\carlos\Desktop\App\db
+- launch app in dev mode: C:\Users\carlos\Desktop\App\node_modules\.bin\node-dev C:\Users\carlos\Desktop\App\app.js
