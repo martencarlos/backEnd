@@ -1,9 +1,19 @@
-install:
 
+// Dev Applications
+Dev env apps required:
 - Node JS  
-- Mongo DB ~ 200MB
+- Github desktop
+- Visual Studio Code
 
-Initiate database:
+// Steps
+- Install Dev Applications
+- Change mongoDB URL in App.js & start DB server
+- Start basicApp server: npm run dev
 
-- start database: "C:\Program Files"\MongoDB\Server\3.2\bin\mongod --dbpath C:\Users\carlos\Desktop\Web\App\db
-- launch app in dev mode: C:\Users\carlos\Desktop\Web\App\node_modules\.bin\node-dev C:\Users\carlos\Desktop\Web\App\app.js
+// Database
+[Database info can be found in onedrive]
+Needed for the application:
+ - URL
+ - User
+ - Password
+

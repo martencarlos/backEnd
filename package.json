@@ -1,13 +1,18 @@
 {
-  "name": "App",
+  "name": "basicapp",
+  "main": "app.js",
   "version": "1.0.0",
   "description": "Carlos Marten - One frame to rule them all",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Brad Traversy",
+
+  "author": "Carlos Marten",
   "license": "ISC",
+
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "test": "newman run ./tests/api-tests.postman.json -e ./tests/env-api-tests.postman.json",
+    "stop": "lsof -ti :3000 | xargs kill"
+  },
   "dependencies": {
     "bcryptjs": "*",
     "body-parser": "*",
@@ -24,5 +29,8 @@
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

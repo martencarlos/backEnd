@@ -1,3 +1,5 @@
+# mac/linux files
 .DS_*
+
+# Node modules (use 'npm install' to add them later)
 node_modules
-db

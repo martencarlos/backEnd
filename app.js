@@ -18,7 +18,10 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/loginapp');
+var dev_db_url = 'mongodb://admin:admin89@ds231374.mlab.com:31374/appdb';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
 var db = mongoose.connection;
 
 var index = require('./routes/index');
