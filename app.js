@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 
+
 //Authentication
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
@@ -92,5 +93,5 @@ app.use('/users', users);
 // Set Port
 app.set('port', (process.env.PORT || 80));
 app.listen(app.get('port'), function(){
-	console.log('Server started on port '+app.get('port'));
+	console.log('Server started on port '+ app.get('port'));
 });

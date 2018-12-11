@@ -1,50 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
+<!-- HEAD -->
 <head>
   <title>LoginApp</title>
-  <link rel="stylesheet" href="/css/bootstrap.css" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- mobile-->
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 
 <body>
-  <div class="container">
-    <div class="header clearfix">
-      <nav>
-        <ul class="nav nav-pills pull-right">
-          {{#if user}}
-          <li role="presentation"><a href="/">Dashboard</a></li>
-          <li role="presentation"><a href="/users/logout">Logout</a></li>
-          {{else}}
-          <li role="presentation"><a href="/users/login">Login</a></li>
-          <li role="presentation"><a href="/users/register">Register</a></li>
-          {{/if}}
-        </ul>
-      </nav>
-      <h3 class="text-muted">LoginApp</h3>
-    </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-light">
+    <!-- Brand Name -->
+    <a class="navbar-brand" href="/">WebFrame</a>
 
 
-    <div class="row">
-      <div class="col-lg-12">
+    
+    <!-- Buttons -->
+    <ul class="nav justify-content-end">
+      {{#if user}}
+      <li class="nav-item"><a  class="nav-link active" href="/">Dashboard</a></li>
+      <li class="nav-item"><a  class="nav-link active" href="/users/logout">Logout</a></li>
+      {{else}}
+      <li class="nav-item"><a  class="nav-link active" href="/users/login">Login</a></li>
+      <li class="nav-item"><a  class="nav-link active" href="/users/register">Register</a></li>
+      {{/if}}
+    </ul>
+  </nav>
+
+  <!-- Notifications -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="text-center">
         {{#if success_msg}}
         <div class="alert alert-success">{{success_msg}}</div>
         {{/if}} {{#if error_msg}}
         <div class="alert alert-danger">{{error_msg}}</div>
         {{/if}} {{#if error}}
         <div class="alert alert-danger">{{error}}</div>
-        {{/if}} {{{body}}}
+        {{/if}}
       </div>
-
-
     </div>
-
-    <footer class="footer">
-      <p>&copy; 2016 WebFrame, Inc.</p>
-    </footer>
-
   </div>
-  <!-- /container -->
+
+  {{{body}}}
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="text-center">
+      <p>&copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>
+        WebFrame, Inc.</p>
+    </div>
+  </footer>
+  
+  <!-- SCRIPTS -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
 </body>
 
 </html>

@@ -3,10 +3,8 @@
   "main": "app.js",
   "version": "1.0.0",
   "description": "Carlos Marten - One frame to rule them all",
-
   "author": "Carlos Marten",
   "license": "ISC",
-
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js",
@@ -16,6 +14,7 @@
   "dependencies": {
     "bcryptjs": "*",
     "body-parser": "*",
+    "bootstrap": "^4.1.3",
     "connect-flash": "*",
     "cookie-parser": "^1.4.1",
     "express": "*",
@@ -23,6 +22,7 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
+    "jquery": "^3.3.1",
     "mongodb": "*",
     "mongoose": "*",
     "node-dev": "^3.1.1",
