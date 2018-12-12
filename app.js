@@ -7,7 +7,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 
-
 //Authentication
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
@@ -42,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname,'public')));
 
 // Express Session
 app.use(session({
