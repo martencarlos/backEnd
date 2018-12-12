@@ -6481,6 +6481,8 @@ html, body {
     content: ' ';
     background: linear-gradient(white, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); }
 
+
+    
 .footer {
   position: absolute;
   bottom: 0;
