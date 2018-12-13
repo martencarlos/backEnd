@@ -33,6 +33,7 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "npm-install-missing": "^0.1.4"
   }
 }
