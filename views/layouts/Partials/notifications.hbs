@@ -1,0 +1,28 @@
+  
+  
+<!-- Notifications -->
+<div class="container">
+    <div class="row mx-5">
+        <div class="col-md-12">
+            <div class="text-center">
+                {{#if success_msg}}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">{{success_msg}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {{/if}} {{#if error_msg}}
+                <div class="alert alert-danger" role="alert">{{error_msg}}</div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{/if}} {{#if error}}
+                <div class="alert alert-danger" role="alert">{{error}}</div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

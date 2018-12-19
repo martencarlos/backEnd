@@ -5,7 +5,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
+var hbs = require('express-handlebars');
 
 //Authentication
 var expressValidator = require('express-validator');
@@ -23,16 +23,18 @@ mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 var db = mongoose.connection;
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-
 // Init App
 var app = express();
 
-// View Engine
+// View Engine Handlebars
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
+app.engine( 'hbs', hbs( { 
+  extname: 'hbs', 
+  defaultLayout: 'main', 
+  layoutsDir: __dirname + '/views/layouts/',
+  partialsDir: __dirname + '/views/layouts/partials/'
+} ) );
+app.set('view engine', 'hbs');
 
 // BodyParser Middleware
 app.use(bodyParser.json());
@@ -74,7 +76,7 @@ app.use(expressValidator({
 // Connect Flash
 app.use(flash());
 
-// Global Vars
+// Flash res variables
 app.use(function (req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
@@ -83,10 +85,32 @@ app.use(function (req, res, next) {
   next();
 });
 
+// Application wide persisting global variables
+app.locals = {
+  site: {
+      title: 'WebFrame',
+      description: 'A boilerplate for a simple web application with a Node.JS and Express backend, with an Hdb template with using Twitter Bootstrap.'
+  },
+  author: {
+      name: 'Carlos Marten',
+      contact: 'martencarlos@gmail.com'
+  }
+};
 
-app.use('/', index);
+// Routes
+var index = require('./routes/index');
+var users = require('./routes/users');
+
+app.all('/', index);
 app.use('/users', users);
 
+app.get('*', function(req, res){
+  res.render('404', {layout: false});
+});
+
+app.use('*', function (err, req, res, next){
+    
+});
 
 // Set Port
 app.set('port', (process.env.PORT || 80));
