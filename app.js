@@ -1,30 +1,26 @@
 
-var express = require('express');
+//Express
+const express = require('express');
+const app = express();
 
 //Basic
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var hbs = require('express-handlebars');
+const path = require('path');
+const bodyParser = require('body-parser');
+const hbs = require('express-handlebars');
 
 //Authentication
-var expressValidator = require('express-validator');
-var flash = require('connect-flash');
-var session = require('express-session');
-var passport = require('passport');
+const expressValidator = require('express-validator');
+const session = require('express-session');
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
+require('dotenv').config({path: __dirname + '/secrets.env'}); //load secrests to process environment
 
 //Database
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-
-var dev_db_url = 'mongodb://admin:admin89@ds231374.mlab.com:31374/appdb';
-var mongoDB = process.env.MONGODB_URI || dev_db_url;
-mongoose.connect(mongoDB, { useNewUrlParser: true });
-mongoose.set('useCreateIndex', true);
-var db = mongoose.connection;
-
-// Init App
-var app = express();
+const mongoose = require('mongoose');
+const dev_db_url = 'mongodb://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST +':' + process.env.DB_PORT + '/'+ process.env.DB_APPNAME;
+const mongodbFullURL = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongodbFullURL, { useNewUrlParser: true, useCreateIndex:true });
 
 // View Engine Handlebars
 app.set('views', path.join(__dirname, 'views'));
@@ -58,7 +54,7 @@ app.use(passport.session());
 // Express Validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
+      const namespace = param.split('.')
       , root    = namespace.shift()
       , formParam = root;
 
@@ -98,8 +94,8 @@ app.locals = {
 };
 
 // Routes
-var index = require('./routes/index');
-var users = require('./routes/users');
+const index = require('./routes/index');
+const users = require('./routes/users');
 
 app.all('/', index);
 app.use('/users', users);
@@ -115,5 +111,5 @@ app.use('*', function (err, req, res, next){
 // Set Port
 app.set('port', (process.env.PORT || 80));
 app.listen(app.get('port'), function(){
-	console.log('Server started on port '+ app.get('port'));
+  console.log('Server started on port '+ app.get('port'));
 });
