@@ -3,7 +3,6 @@ var express = require('express');
 var router = express.Router();
 
 var logger = require('winston');
-const path = require('path');
   
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
@@ -16,7 +15,6 @@ function ensureAuthenticated(req, res, next){
 		return next();
 	} else {
         //req.flash('error_msg','You are not logged in');
-       
 		res.redirect('/users/login');
 	}
 }

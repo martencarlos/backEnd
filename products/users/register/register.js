@@ -1,18 +1,15 @@
+
 var express = require('express');
 var router = express.Router();
+
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var User = require('../models/user');
+var User = require('../user');
 
 // Register
-router.get('/register', function(req, res){
+router.get('/', function(req, res){
 	res.render('register');
-});
-
-// Login
-router.get('/login', function(req, res){
-	res.render('login');
 });
 
 // Register User
@@ -84,12 +81,6 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
-
-router.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
-  function(req, res) {
-    res.redirect('/');
-  });
 
 router.get('/logout', function(req, res){
 	req.logout();

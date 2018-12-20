@@ -8,37 +8,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 
-const winston = require('winston');
-const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.combine(
-    winston.format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss'
-    }),
-    winston.format.printf(info => {
-        return `${info.timestamp} ${info.level}: ${info.message}`;
-    })
-  ),
-  transports: [
-    new winston.transports.File({
-        level: 'info', //  error: 0,  warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 
-        filename: path.join(__dirname,'logs/all-logs.log'),
-        handleExceptions: true,
-        json: true,
-        maxsize: 5242880, //5MB
-        maxFiles: 5,
-        colorize: false
-    }),
-    new winston.transports.Console({
-        level: 'info',
-        handleExceptions: true,
-        json: false,
-        colorize: true
-    })
-    ],
-    exitOnError: false
-});
-logger.info('logger setup and running');
+const logger = require('./logs/logger.js'); 
 
 //Authentication
 const expressValidator = require('express-validator');
@@ -46,7 +16,10 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
-require('dotenv').config({path: path.join(__dirname,'config/secrets.env')}); //load secrests to process environment
+
+if (!process.env.I_AM_HEROKU){
+  require('dotenv').config({path: path.join(__dirname,'config/secrets.env')}); //load secrests to process environment
+}
 
 logger.info('Authentication required loaded');
 
@@ -59,7 +32,12 @@ mongoose.connect(mongodbFullURL, { useNewUrlParser: true, useCreateIndex:true })
 logger.info('Database connected successfully');
 
 // View Engine Handlebars
-app.set('views', [path.join(__dirname,'views'),path.join(__dirname,'products/home')]);
+app.set('views', [path.join(__dirname,'views'),
+  path.join(__dirname,'products/home'),
+  path.join(__dirname,'products/users/login'),
+  path.join(__dirname,'products/users/register'),
+  path.join(__dirname,'products/errors')
+]);
 app.engine( 'hbs', hbs( { 
   extname: 'hbs', 
   defaultLayout: 'main', 
@@ -68,7 +46,7 @@ app.engine( 'hbs', hbs( {
 } ) );
 app.set('view engine', 'hbs');
 
-// Middleware
+// MIDDLEWARE
 var nRequests = 0;
 app.use(function (req, res, next) {
     logger.info((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
@@ -113,7 +91,6 @@ app.use(expressValidator({
 
 // Connect Flash
 app.use(flash());
-
 // Flash res variables
 app.use(function (req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
@@ -148,21 +125,18 @@ app.locals = {
 };
 
 // Routes
-const users = require('./routes/users');
 const home = require('./products/home/home');
+const users = require('./products/users/users');
+const errors = require('./products/errors/errors');
 
 app.use('/', home);
 app.use('/users', users);
-
-app.get('*', function(req, res){
-  logger.info('Not found');
-  res.render('404', {layout: false});
-});
+app.use('/', errors); // always keep at the end of the routes
 
 logger.info('Routes in place');
 
-// Set Port
+// Start Server
 app.set('port', (process.env.PORT || 80));
 app.listen(app.get('port'), function(){
-  logger.info('Server started on port '+ app.get('port'));
+  logger.warn('Server started on port '+ app.get('port'));
 });
