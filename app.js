@@ -126,7 +126,7 @@ app.locals = {
 };
 
 // Routes
-const home = require('./products/home/home');
+const home = require('./products/home/index');
 const users = require('./products/users/users');
 const errors = require('./products/errors/errors');
 

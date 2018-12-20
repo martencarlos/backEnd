@@ -7,7 +7,7 @@ var logger = require('winston');
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
     logger.info('home');
-	res.render('home');
+	res.render('index');
 });
 
 function ensureAuthenticated(req, res, next){
