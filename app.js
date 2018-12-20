@@ -16,7 +16,6 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 require('dotenv').config({path: __dirname + '/secrets.env'}); //load secrests to process environment
 
-
 //Database
 const mongoose = require('mongoose');
 const dev_db_url = 'mongodb://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST +':' + process.env.DB_PORT + '/'+ process.env.DB_APPNAME;
@@ -33,9 +32,9 @@ app.engine( 'hbs', hbs( {
 } ) );
 app.set('view engine', 'hbs');
 
-// BodyParser Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// Middleware
+app.use(bodyParser.json()); //puts a jason formatted body object in req object accessed by req.body 
+app.use(bodyParser.urlencoded({ extended: false })); //UTF-8 encoded only string or arrays
 app.use(cookieParser());
 
 // Set Static Folder

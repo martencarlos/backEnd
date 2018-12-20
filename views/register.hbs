@@ -3,7 +3,14 @@
 <form class="form-signin" method="post" action="/users/register">
     
     <h3 class="mb-4" style="margin-top: 10px" id="login-heading">Register</h3>
-   
+      {{#if errors}}
+        {{#each errors}}
+          <div class="alert alert-danger">
+            {{msg}}
+          </div>
+        {{/each}}
+      {{/if}}
+
     <!-- Name --> 
     <div class="form-group">
       <div class="input-group">
