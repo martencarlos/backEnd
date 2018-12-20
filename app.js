@@ -17,7 +17,7 @@ const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 
-if (!process.env.I_AM_HEROKU){
+if (!process.env.HOST_HEROKU_DEPLOYED){
   require('dotenv').config({path: path.join(__dirname,'config/secrets.env')}); //load secrests to process environment
 }
 
@@ -38,6 +38,7 @@ app.set('views', [path.join(__dirname,'views'),
   path.join(__dirname,'products/users/register'),
   path.join(__dirname,'products/errors')
 ]);
+
 app.engine( 'hbs', hbs( { 
   extname: 'hbs', 
   defaultLayout: 'main', 
