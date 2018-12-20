@@ -22,7 +22,7 @@ const logger = winston.createLogger({
   transports: [
     new winston.transports.File({
         level: 'info', //  error: 0,  warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 
-        filename: 'all-logs.log',
+        filename: path.join(__dirname,'logs/all-logs.log'),
         handleExceptions: true,
         json: true,
         maxsize: 5242880, //5MB
@@ -46,7 +46,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
-require('dotenv').config({path: __dirname + '/secrets.env'}); //load secrests to process environment
+require('dotenv').config({path: path.join(__dirname,'config/secrets.env')}); //load secrests to process environment
 
 logger.info('Authentication required loaded');
 
@@ -59,7 +59,7 @@ mongoose.connect(mongodbFullURL, { useNewUrlParser: true, useCreateIndex:true })
 logger.info('Database connected successfully');
 
 // View Engine Handlebars
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', [path.join(__dirname,'views'),path.join(__dirname,'products/home')]);
 app.engine( 'hbs', hbs( { 
   extname: 'hbs', 
   defaultLayout: 'main', 
@@ -131,6 +131,16 @@ app.locals = {
       title: 'WebFrame',
       description: 'A boilerplate for a simple web application with a Node.JS and Express backend, with an Hdb template with using Twitter Bootstrap.'
   },
+  path: {
+      //main
+      home: '/',
+      //users
+      login: '/users/login',
+      logout: '/users/logout',
+      register: '/users/register',
+      //errors
+      notFound: '/404'
+  },
   author: {
       name: 'Carlos Marten',
       contact: 'martencarlos@gmail.com'
@@ -138,10 +148,10 @@ app.locals = {
 };
 
 // Routes
-const index = require('./routes/index');
 const users = require('./routes/users');
+const home = require('./products/home/home');
 
-app.all('/', index);
+app.use('/', home);
 app.use('/users', users);
 
 app.get('*', function(req, res){

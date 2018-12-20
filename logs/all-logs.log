@@ -1,0 +1,852 @@
+
+2018-12-20 17:15:06 info: logger setup and running
+2018-12-20 17:15:06 info: Authentication required loaded
+2018-12-20 17:15:07 info: Database connected successfully
+2018-12-20 17:15:07 info: Middleware loaded
+2018-12-20 17:15:07 info: Routes in place
+2018-12-20 17:15:07 info: Server started on port 80
+2018-12-20 17:16:17 info: logger setup and running
+2018-12-20 17:16:17 info: Authentication required loaded
+2018-12-20 17:16:18 info: Database connected successfully
+2018-12-20 17:16:18 info: Middleware loaded
+2018-12-20 17:16:18 info: Routes in place
+2018-12-20 17:16:18 info: Server started on port 80
+2018-12-20 17:16:57 info: logger setup and running
+2018-12-20 17:16:57 info: Authentication required loaded
+2018-12-20 17:16:58 info: Database connected successfully
+2018-12-20 17:16:58 info: Middleware loaded
+2018-12-20 17:16:58 info: Routes in place
+2018-12-20 17:16:58 info: Server started on port 80
+2018-12-20 17:23:04 info: logger setup and running
+2018-12-20 17:23:04 info: Authentication required loaded
+2018-12-20 17:23:05 info: Database connected successfully
+2018-12-20 17:23:05 info: Middleware loaded
+2018-12-20 17:23:05 info: Routes in place
+2018-12-20 17:23:05 info: Server started on port 80
+2018-12-20 17:23:14 info: 1 - Request method GET at path: /users/login
+2018-12-20 17:23:14 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 17:23:24 info: 3 - Request method GET at path: /users/login
+2018-12-20 17:23:24 info: 4 - Request method GET at path: /css/theme.css
+2018-12-20 17:23:30 info: 5 - Request method GET at path: /users/register
+2018-12-20 17:23:30 info: 6 - Request method GET at path: /css/theme.css
+2018-12-20 17:23:31 info: 7 - Request method GET at path: /users/login
+2018-12-20 17:23:31 info: 8 - Request method GET at path: /css/theme.css
+2018-12-20 17:23:34 info: 9 - Request method GET at path: /users/register
+2018-12-20 17:23:34 info: 10 - Request method GET at path: /css/theme.css
+2018-12-20 17:24:59 info: logger setup and running
+2018-12-20 17:24:59 info: Authentication required loaded
+2018-12-20 17:25:00 info: Database connected successfully
+2018-12-20 17:25:00 info: Middleware loaded
+2018-12-20 17:25:00 info: Routes in place
+2018-12-20 17:25:00 info: Server started on port 80
+2018-12-20 17:27:07 info: logger setup and running
+2018-12-20 17:27:07 info: Authentication required loaded
+2018-12-20 17:27:08 info: Database connected successfully
+2018-12-20 17:27:08 info: Middleware loaded
+2018-12-20 17:27:08 info: Routes in place
+2018-12-20 17:27:08 info: Server started on port 80
+2018-12-20 17:31:21 info: logger setup and running
+2018-12-20 17:31:21 info: Authentication required loaded
+2018-12-20 17:31:22 info: Database connected successfully
+2018-12-20 17:31:22 info: Middleware loaded
+2018-12-20 17:31:22 error: uncaughtException: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+Error: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:580:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:506:25)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:151:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:739:3)
+2018-12-20 17:32:16 info: logger setup and running
+2018-12-20 17:32:16 info: Authentication required loaded
+2018-12-20 17:32:17 info: Database connected successfully
+2018-12-20 17:32:17 info: Middleware loaded
+2018-12-20 17:32:17 error: uncaughtException: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+Error: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:580:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:506:25)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:151:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:739:3)
+2018-12-20 17:33:31 info: logger setup and running
+2018-12-20 17:33:31 info: Authentication required loaded
+2018-12-20 17:33:32 info: Database connected successfully
+2018-12-20 17:33:32 info: Middleware loaded
+2018-12-20 17:33:32 error: uncaughtException: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+Error: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:580:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:506:25)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:151:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:739:3)
+2018-12-20 17:34:14 info: logger setup and running
+2018-12-20 17:34:15 info: Authentication required loaded
+2018-12-20 17:34:16 info: Database connected successfully
+2018-12-20 17:34:16 info: Middleware loaded
+2018-12-20 17:34:16 error: uncaughtException: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+Error: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:580:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:506:25)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:151:14)
+    at Module._compile (internal/modules/cjs/loader.js:685:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:739:3)
+2018-12-20 17:41:22 info: logger setup and running
+2018-12-20 17:41:23 info: Authentication required loaded
+2018-12-20 17:41:23 info: Database connected successfully
+2018-12-20 17:41:23 info: Middleware loaded
+2018-12-20 17:41:23 error: uncaughtException: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+Error: Cannot find module 'C:\Users\Administrator\Desktop\basicApp\products\home'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:580:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:506:25)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:739:3)
+2018-12-20 17:43:38 info: logger setup and running
+2018-12-20 17:43:38 info: Authentication required loaded
+2018-12-20 17:43:39 info: Database connected successfully
+2018-12-20 17:43:39 info: Middleware loaded
+2018-12-20 17:43:39 info: Routes in place
+2018-12-20 17:43:39 info: Server started on port 80
+2018-12-20 17:43:51 info: 1 - Request method GET at path: /users/register
+2018-12-20 17:43:51 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 17:43:55 info: 3 - Request method GET at path: /users/login
+2018-12-20 17:43:55 info: 4 - Request method GET at path: /css/theme.css
+2018-12-20 17:44:04 info: 5 - Request method GET at path: /users/login
+2018-12-20 17:44:04 info: 6 - Request method GET at path: /css/theme.css
+2018-12-20 17:44:06 info: 7 - Request method POST at path: /users/login
+2018-12-20 17:44:06 info: 8 - Request method GET at path: /
+2018-12-20 17:46:21 info: logger setup and running
+2018-12-20 17:46:21 info: Authentication required loaded
+2018-12-20 17:46:22 info: Database connected successfully
+2018-12-20 17:46:22 info: Middleware loaded
+2018-12-20 17:46:22 info: Routes in place
+2018-12-20 17:46:22 info: Server started on port 80
+2018-12-20 17:46:26 info: 1 - Request method GET at path: /
+2018-12-20 17:46:26 info: 2 - Request method GET at path: /users/login
+2018-12-20 17:46:26 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 17:46:28 info: 4 - Request method POST at path: /users/login
+2018-12-20 17:46:28 info: 5 - Request method GET at path: /
+2018-12-20 17:48:00 info: logger setup and running
+2018-12-20 17:48:00 info: Authentication required loaded
+2018-12-20 17:48:01 info: Database connected successfully
+2018-12-20 17:48:01 info: Middleware loaded
+2018-12-20 17:48:01 info: Routes in place
+2018-12-20 17:48:01 info: Server started on port 80
+2018-12-20 17:48:03 info: 1 - Request method GET at path: /
+2018-12-20 17:48:03 info: 2 - Request method GET at path: /users/login
+2018-12-20 17:48:03 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 17:48:04 info: 4 - Request method POST at path: /users/login
+2018-12-20 17:48:04 info: 5 - Request method GET at path: /
+2018-12-20 17:50:47 info: logger setup and running
+2018-12-20 17:50:47 info: Authentication required loaded
+2018-12-20 17:50:48 info: Database connected successfully
+2018-12-20 17:50:48 info: Middleware loaded
+2018-12-20 17:50:48 info: Routes in place
+2018-12-20 17:50:48 info: Server started on port 80
+2018-12-20 17:50:54 info: 1 - Request method GET at path: /
+2018-12-20 17:50:54 info: 2 - Request method GET at path: /users/login
+2018-12-20 17:50:54 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 17:50:57 info: 4 - Request method POST at path: /users/login
+2018-12-20 17:50:57 info: 5 - Request method GET at path: /
+2018-12-20 17:53:52 info: logger setup and running
+2018-12-20 17:53:52 info: Authentication required loaded
+2018-12-20 17:53:53 info: Database connected successfully
+2018-12-20 17:53:53 info: Middleware loaded
+2018-12-20 17:53:53 info: Routes in place
+2018-12-20 17:53:53 info: Server started on port 80
+2018-12-20 17:53:58 info: 1 - Request method GET at path: /users/login
+2018-12-20 17:53:59 info: 2 - Request method POST at path: /users/login
+2018-12-20 17:54:00 info: 3 - Request method GET at path: /
+2018-12-20 17:55:51 info: logger setup and running
+2018-12-20 17:55:52 info: Authentication required loaded
+2018-12-20 17:55:52 info: Database connected successfully
+2018-12-20 17:55:52 info: Middleware loaded
+2018-12-20 17:55:52 info: Routes in place
+2018-12-20 17:55:52 info: Server started on port 80
+2018-12-20 17:55:57 info: 1 - Request method GET at path: /
+2018-12-20 17:55:57 info: 2 - Request method GET at path: /users/login
+2018-12-20 17:55:57 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 17:55:59 info: 4 - Request method POST at path: /users/login
+2018-12-20 17:55:59 info: 5 - Request method GET at path: /
+2018-12-20 17:56:16 info: logger setup and running
+2018-12-20 17:56:16 info: Authentication required loaded
+2018-12-20 17:56:17 info: Database connected successfully
+2018-12-20 17:56:17 info: Middleware loaded
+2018-12-20 17:56:17 info: Routes in place
+2018-12-20 17:56:17 info: Server started on port 80
+2018-12-20 17:56:19 info: 1 - Request method GET at path: /
+2018-12-20 17:56:19 info: 2 - Request method GET at path: /users/login
+2018-12-20 17:56:19 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 17:56:21 info: 4 - Request method GET at path: /users/register
+2018-12-20 17:56:21 info: 5 - Request method GET at path: /css/theme.css
+2018-12-20 17:56:22 info: 6 - Request method GET at path: /users/login
+2018-12-20 17:56:22 info: 7 - Request method GET at path: /css/theme.css
+2018-12-20 17:56:23 info: 8 - Request method POST at path: /users/login
+2018-12-20 17:56:23 info: 9 - Request method GET at path: /
+2018-12-20 18:11:16 info: logger setup and running
+2018-12-20 18:11:16 info: Authentication required loaded
+2018-12-20 18:11:17 info: Database connected successfully
+2018-12-20 18:11:17 info: Middleware loaded
+2018-12-20 18:11:17 error: uncaughtException: express is not defined
+ReferenceError: express is not defined
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:2:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:11:58 info: logger setup and running
+2018-12-20 18:11:59 info: Authentication required loaded
+2018-12-20 18:12:00 info: Database connected successfully
+2018-12-20 18:12:00 info: Middleware loaded
+2018-12-20 18:12:00 error: uncaughtException: hbs is not a function
+TypeError: hbs is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:12:28)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:12:01 info: logger setup and running
+2018-12-20 18:12:01 info: Authentication required loaded
+2018-12-20 18:12:02 info: Database connected successfully
+2018-12-20 18:12:02 info: Middleware loaded
+2018-12-20 18:12:02 error: uncaughtException: hbs is not a function
+TypeError: hbs is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:12:28)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:12:40 info: logger setup and running
+2018-12-20 18:12:40 info: Authentication required loaded
+2018-12-20 18:12:41 info: Database connected successfully
+2018-12-20 18:12:41 info: Middleware loaded
+2018-12-20 18:12:41 error: uncaughtException: homeExpress.engine is not a function
+TypeError: homeExpress.engine is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:15:34 info: logger setup and running
+2018-12-20 18:15:34 info: Authentication required loaded
+2018-12-20 18:15:35 info: Database connected successfully
+2018-12-20 18:15:35 info: Middleware loaded
+2018-12-20 18:15:35 error: uncaughtException: homeExpress.engine is not a function
+TypeError: homeExpress.engine is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:18:26 info: logger setup and running
+2018-12-20 18:18:26 info: Authentication required loaded
+2018-12-20 18:18:28 info: Database connected successfully
+2018-12-20 18:18:28 info: Middleware loaded
+2018-12-20 18:18:28 error: uncaughtException: homeHbs is not defined
+ReferenceError: homeHbs is not defined
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:18:36 info: logger setup and running
+2018-12-20 18:18:36 info: Authentication required loaded
+2018-12-20 18:18:37 info: Database connected successfully
+2018-12-20 18:18:37 info: Middleware loaded
+2018-12-20 18:18:37 error: uncaughtException: homeExpress.engine is not a function
+TypeError: homeExpress.engine is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:19:23 info: logger setup and running
+2018-12-20 18:19:23 info: Authentication required loaded
+2018-12-20 18:19:24 info: Database connected successfully
+2018-12-20 18:19:24 info: Middleware loaded
+2018-12-20 18:19:24 error: uncaughtException: app.engine is not a function
+TypeError: app.engine is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:10:5)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:21:05 info: logger setup and running
+2018-12-20 18:21:06 info: Authentication required loaded
+2018-12-20 18:21:07 info: Database connected successfully
+2018-12-20 18:21:07 info: Middleware loaded
+2018-12-20 18:21:07 error: uncaughtException: app.engine is not a function
+TypeError: app.engine is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:10:5)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:22:32 info: logger setup and running
+2018-12-20 18:22:33 info: Authentication required loaded
+2018-12-20 18:22:33 info: Database connected successfully
+2018-12-20 18:22:33 info: Middleware loaded
+2018-12-20 18:22:33 error: uncaughtException: app.engine is not a function
+TypeError: app.engine is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:10:5)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:25:27 info: logger setup and running
+2018-12-20 18:25:27 info: Authentication required loaded
+2018-12-20 18:25:28 info: Database connected successfully
+2018-12-20 18:25:28 info: Middleware loaded
+2018-12-20 18:25:28 info: Routes in place
+2018-12-20 18:25:28 info: Server started on port 80
+2018-12-20 18:25:50 info: 1 - Request method GET at path: /users/login
+2018-12-20 18:25:54 info: 2 - Request method GET at path: /users/login
+2018-12-20 18:25:54 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 18:25:55 info: 4 - Request method POST at path: /users/login
+2018-12-20 18:25:56 info: 5 - Request method GET at path: /
+2018-12-20 18:27:42 info: logger setup and running
+2018-12-20 18:27:42 info: Authentication required loaded
+2018-12-20 18:27:43 info: Database connected successfully
+2018-12-20 18:27:43 info: Middleware loaded
+2018-12-20 18:27:43 error: uncaughtException: app.engine is not a function
+TypeError: app.engine is not a function
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:10:5)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:30:36 info: logger setup and running
+2018-12-20 18:30:36 info: Authentication required loaded
+2018-12-20 18:30:37 info: Database connected successfully
+2018-12-20 18:30:37 info: Middleware loaded
+2018-12-20 18:30:37 error: uncaughtException: Cannot read property 'Router' of undefined
+TypeError: Cannot read property 'Router' of undefined
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:2:18)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:32:14 info: logger setup and running
+2018-12-20 18:32:15 info: Authentication required loaded
+2018-12-20 18:32:15 info: Database connected successfully
+2018-12-20 18:32:15 info: Middleware loaded
+2018-12-20 18:32:15 error: uncaughtException: Cannot read property 'Router' of undefined
+TypeError: Cannot read property 'Router' of undefined
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\products\home\home.js:2:18)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:154:14)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+2018-12-20 18:36:34 info: logger setup and running
+2018-12-20 18:36:34 info: Authentication required loaded
+2018-12-20 18:36:35 info: Database connected successfully
+2018-12-20 18:36:35 info: Middleware loaded
+2018-12-20 18:36:35 info: Routes in place
+2018-12-20 18:36:35 info: Server started on port 80
+2018-12-20 18:36:36 info: logger setup and running
+2018-12-20 18:36:36 info: Authentication required loaded
+2018-12-20 18:36:37 info: Database connected successfully
+2018-12-20 18:36:37 info: Middleware loaded
+2018-12-20 18:36:37 info: Routes in place
+2018-12-20 18:36:37 info: Server started on port 80
+2018-12-20 18:36:46 info: 1 - Request method GET at path: /
+2018-12-20 18:36:46 info: 2 - Request method GET at path: /users/login
+2018-12-20 18:36:46 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 18:36:47 info: 4 - Request method POST at path: /users/login
+2018-12-20 18:36:47 info: 5 - Request method GET at path: /
+2018-12-20 18:42:15 info: logger setup and running
+2018-12-20 18:42:16 info: Authentication required loaded
+2018-12-20 18:42:17 info: Database connected successfully
+2018-12-20 18:42:17 info: Middleware loaded
+2018-12-20 18:42:17 info: Routes in place
+2018-12-20 18:42:17 info: Server started on port 80
+2018-12-20 18:42:20 info: 1 - Request method GET at path: /
+2018-12-20 18:42:20 info: 2 - Request method GET at path: /users/login
+2018-12-20 18:42:46 info: logger setup and running
+2018-12-20 18:42:46 info: Authentication required loaded
+2018-12-20 18:42:47 info: Database connected successfully
+2018-12-20 18:42:47 info: Middleware loaded
+2018-12-20 18:42:47 info: Routes in place
+2018-12-20 18:42:47 info: Server started on port 80
+2018-12-20 18:42:48 info: 1 - Request method GET at path: /users/login
+2018-12-20 18:43:10 info: logger setup and running
+2018-12-20 18:43:10 info: Authentication required loaded
+2018-12-20 18:43:11 info: Database connected successfully
+2018-12-20 18:43:11 info: Middleware loaded
+2018-12-20 18:43:11 info: Routes in place
+2018-12-20 18:43:11 info: Server started on port 80
+2018-12-20 18:43:20 info: 1 - Request method GET at path: /
+2018-12-20 18:43:20 info: 2 - Request method GET at path: /users/login
+2018-12-20 18:43:23 info: 3 - Request method GET at path: /users/login
+2018-12-20 18:43:23 info: 4 - Request method GET at path: /users/login
+2018-12-20 18:43:34 info: logger setup and running
+2018-12-20 18:43:34 info: Authentication required loaded
+2018-12-20 18:43:35 info: Database connected successfully
+2018-12-20 18:43:35 info: Middleware loaded
+2018-12-20 18:43:35 info: Routes in place
+2018-12-20 18:43:35 info: Server started on port 80
+2018-12-20 18:43:39 info: 1 - Request method GET at path: /users/login
+2018-12-20 18:43:39 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 18:43:40 info: 3 - Request method POST at path: /users/login
+2018-12-20 18:43:40 info: 4 - Request method GET at path: /
+2018-12-20 18:44:49 info: logger setup and running
+2018-12-20 18:44:50 info: Authentication required loaded
+2018-12-20 18:44:50 info: Database connected successfully
+2018-12-20 18:44:50 info: Middleware loaded
+2018-12-20 18:44:50 info: Routes in place
+2018-12-20 18:44:50 info: Server started on port 80
+2018-12-20 18:44:53 info: 1 - Request method GET at path: /
+2018-12-20 18:44:53 info: 2 - Request method GET at path: /users/login
+2018-12-20 18:44:53 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 18:44:54 info: 4 - Request method POST at path: /users/login
+2018-12-20 18:44:54 info: 5 - Request method GET at path: /
+2018-12-20 18:49:21 info: logger setup and running
+2018-12-20 18:49:21 info: Authentication required loaded
+2018-12-20 18:49:22 info: Database connected successfully
+2018-12-20 18:49:22 info: Middleware loaded
+2018-12-20 18:49:22 info: Routes in place
+2018-12-20 18:49:22 info: Server started on port 80
+2018-12-20 18:49:25 info: 1 - Request method GET at path: /
+2018-12-20 18:49:25 info: 2 - Request method GET at path: /users/login
+2018-12-20 18:49:26 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 18:49:27 info: 4 - Request method POST at path: /users/login
+2018-12-20 18:49:27 info: 5 - Request method GET at path: /
+2018-12-20 18:57:31 info: logger setup and running
+2018-12-20 18:57:31 info: Authentication required loaded
+2018-12-20 18:57:32 info: Database connected successfully
+2018-12-20 18:57:32 info: Middleware loaded
+2018-12-20 18:57:32 info: Routes in place
+2018-12-20 18:57:32 info: Server started on port 80
+2018-12-20 18:58:10 info: logger setup and running
+2018-12-20 18:58:10 info: Authentication required loaded
+2018-12-20 18:58:11 info: Database connected successfully
+2018-12-20 18:58:11 info: Middleware loaded
+2018-12-20 18:58:11 info: Routes in place
+2018-12-20 18:58:11 info: Server started on port 80
+2018-12-20 18:58:17 info: 1 - Request method GET at path: /users/login
+2018-12-20 18:58:23 info: 2 - Request method GET at path: /users/login
+2018-12-20 19:01:36 info: logger setup and running
+2018-12-20 19:01:37 info: Authentication required loaded
+2018-12-20 19:01:37 info: Database connected successfully
+2018-12-20 19:01:37 info: Middleware loaded
+2018-12-20 19:01:37 info: Routes in place
+2018-12-20 19:01:37 info: Server started on port 80
+2018-12-20 19:01:41 info: 1 - Request method GET at path: /users/login
+2018-12-20 19:01:42 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 19:01:44 info: 3 - Request method POST at path: /users/login
+2018-12-20 19:01:45 info: 4 - Request method GET at path: /
+2018-12-20 19:02:57 info: logger setup and running
+2018-12-20 19:02:57 info: Authentication required loaded
+2018-12-20 19:02:58 info: Database connected successfully
+2018-12-20 19:02:58 info: Middleware loaded
+2018-12-20 19:02:58 info: Routes in place
+2018-12-20 19:02:58 info: Server started on port 80
+2018-12-20 19:03:00 info: 1 - Request method GET at path: /
+2018-12-20 19:03:00 info: 2 - Request method GET at path: /users/login
+2018-12-20 19:03:00 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 19:03:01 info: 4 - Request method POST at path: /users/login
+2018-12-20 19:03:01 info: 5 - Request method GET at path: /
+2018-12-20 19:03:45 info: logger setup and running
+2018-12-20 19:03:45 info: Authentication required loaded
+2018-12-20 19:03:46 info: Database connected successfully
+2018-12-20 19:03:46 info: Middleware loaded
+2018-12-20 19:03:46 info: Routes in place
+2018-12-20 19:03:46 info: Server started on port 80
+2018-12-20 19:03:48 info: 1 - Request method GET at path: /
+2018-12-20 19:03:49 info: 2 - Request method GET at path: /users/login
+2018-12-20 19:03:49 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 19:03:50 info: 4 - Request method POST at path: /users/login
+2018-12-20 19:03:50 info: 5 - Request method GET at path: /
+2018-12-20 19:03:50 info: 6 - Request method GET at path: /css/theme.css
+2018-12-20 19:12:25 info: logger setup and running
+2018-12-20 19:12:25 info: Authentication required loaded
+2018-12-20 19:12:27 info: Database connected successfully
+2018-12-20 19:12:27 info: Middleware loaded
+2018-12-20 19:12:27 info: Routes in place
+2018-12-20 19:12:27 info: Server started on port 80
+2018-12-20 19:12:28 info: logger setup and running
+2018-12-20 19:12:28 info: Authentication required loaded
+2018-12-20 19:12:29 info: Database connected successfully
+2018-12-20 19:12:29 info: Middleware loaded
+2018-12-20 19:12:29 info: Routes in place
+2018-12-20 19:12:29 info: Server started on port 80
+2018-12-20 19:12:36 info: logger setup and running
+2018-12-20 19:12:36 info: Authentication required loaded
+2018-12-20 19:12:37 info: Database connected successfully
+2018-12-20 19:12:37 info: Middleware loaded
+2018-12-20 19:12:37 info: Routes in place
+2018-12-20 19:12:37 info: Server started on port 80
+2018-12-20 19:12:42 info: 1 - Request method GET at path: /
+2018-12-20 19:12:42 info: 2 - Request method GET at path: /users/login
+2018-12-20 19:12:42 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 19:12:44 info: 4 - Request method POST at path: /users/login
+2018-12-20 19:12:44 info: 5 - Request method GET at path: /
+2018-12-20 19:13:17 info: logger setup and running
+2018-12-20 19:13:18 info: Authentication required loaded
+2018-12-20 19:13:18 info: Database connected successfully
+2018-12-20 19:13:18 info: Middleware loaded
+2018-12-20 19:13:18 info: Routes in place
+2018-12-20 19:13:18 info: Server started on port 80
+2018-12-20 19:13:22 info: 1 - Request method GET at path: /
+2018-12-20 19:13:22 info: 2 - Request method GET at path: /users/login
+2018-12-20 19:14:06 info: logger setup and running
+2018-12-20 19:14:07 info: Authentication required loaded
+2018-12-20 19:14:07 info: Database connected successfully
+2018-12-20 19:14:07 info: Middleware loaded
+2018-12-20 19:14:07 info: Routes in place
+2018-12-20 19:14:07 info: Server started on port 80
+2018-12-20 19:14:09 info: 1 - Request method GET at path: /users/login
+2018-12-20 19:14:09 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 19:14:11 info: 3 - Request method POST at path: /users/login
+2018-12-20 19:14:11 info: 4 - Request method GET at path: /
+2018-12-20 19:15:22 info: logger setup and running
+2018-12-20 19:15:22 info: Authentication required loaded
+2018-12-20 19:15:23 info: Database connected successfully
+2018-12-20 19:15:23 info: Middleware loaded
+2018-12-20 19:15:23 info: Routes in place
+2018-12-20 19:15:23 info: Server started on port 80
+2018-12-20 19:15:25 info: 1 - Request method GET at path: /
+2018-12-20 19:15:25 info: 2 - Request method GET at path: /users/login
+2018-12-20 19:15:25 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 19:15:26 info: 4 - Request method POST at path: /users/login
+2018-12-20 19:15:26 info: 5 - Request method GET at path: /
+2018-12-20 19:15:39 info: logger setup and running
+2018-12-20 19:15:40 info: Authentication required loaded
+2018-12-20 19:15:40 info: Database connected successfully
+2018-12-20 19:15:40 info: Middleware loaded
+2018-12-20 19:15:40 info: Routes in place
+2018-12-20 19:15:40 info: Server started on port 80
+2018-12-20 19:15:43 info: 1 - Request method GET at path: /
+2018-12-20 19:15:43 info: 2 - Request method GET at path: /users/login
+2018-12-20 19:15:43 info: 3 - Request method GET at path: /css/theme.css
+2018-12-20 19:15:44 info: 4 - Request method POST at path: /users/login
+2018-12-20 19:15:44 info: 5 - Request method GET at path: /
+2018-12-20 19:15:44 info: 6 - Request method GET at path: /css/theme.css
+2018-12-20 19:15:46 info: 7 - Request method GET at path: /users/logout
+2018-12-20 19:15:46 info: 8 - Request method GET at path: /users/login
+2018-12-20 19:15:46 info: 9 - Request method GET at path: /css/theme.css
+2018-12-20 19:16:38 info: logger setup and running
+2018-12-20 19:16:39 info: Authentication required loaded
+2018-12-20 19:16:39 info: Database connected successfully
+2018-12-20 19:16:39 info: Middleware loaded
+2018-12-20 19:16:39 info: Routes in place
+2018-12-20 19:16:39 info: Server started on port 80
+2018-12-20 19:18:01 info: logger setup and running
+2018-12-20 19:18:02 info: Authentication required loaded
+2018-12-20 19:18:03 info: Database connected successfully
+2018-12-20 19:18:03 info: Middleware loaded
+2018-12-20 19:18:03 info: Routes in place
+2018-12-20 19:18:03 info: Server started on port 80
+2018-12-20 19:18:44 info: logger setup and running
+2018-12-20 19:18:45 info: Authentication required loaded
+2018-12-20 19:18:45 info: Database connected successfully
+2018-12-20 19:18:45 info: Middleware loaded
+2018-12-20 19:18:45 info: Routes in place
+2018-12-20 19:18:45 info: Server started on port 80
+2018-12-20 19:18:49 info: 1 - Request method GET at path: /users/login
+2018-12-20 19:18:49 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 19:18:50 info: 3 - Request method POST at path: /users/login
+2018-12-20 19:18:50 info: 4 - Request method GET at path: /
+2018-12-20 19:18:50 info: 5 - Request method GET at path: /css/theme.css
+2018-12-20 19:18:52 info: 6 - Request method GET at path: /users/logout
+2018-12-20 19:18:52 info: 7 - Request method GET at path: /users/login
+2018-12-20 19:18:52 info: 8 - Request method GET at path: /css/theme.css
+2018-12-20 19:18:54 info: 9 - Request method GET at path: /users/register
+2018-12-20 19:18:54 info: 10 - Request method GET at path: /css/theme.css
+2018-12-20 19:19:14 info: logger setup and running
+2018-12-20 19:19:15 info: Authentication required loaded
+2018-12-20 19:19:15 info: Database connected successfully
+2018-12-20 19:19:15 info: Middleware loaded
+2018-12-20 19:19:15 info: Routes in place
+2018-12-20 19:19:15 info: Server started on port 80
+2018-12-20 19:19:19 info: 1 - Request method GET at path: /users/register
+2018-12-20 19:19:19 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 19:19:21 info: 3 - Request method GET at path: /users/register
+2018-12-20 19:19:21 info: 4 - Request method GET at path: /css/theme.css
+2018-12-20 19:19:21 info: 5 - Request method GET at path: /users/login
+2018-12-20 19:19:22 info: 6 - Request method GET at path: /css/theme.css
+2018-12-20 19:19:23 info: 7 - Request method GET at path: /users/register
+2018-12-20 19:19:23 info: 8 - Request method GET at path: /css/theme.css
+2018-12-20 19:20:36 info: logger setup and running
+2018-12-20 19:20:37 info: Authentication required loaded
+2018-12-20 19:20:37 info: Database connected successfully
+2018-12-20 19:20:37 info: Middleware loaded
+2018-12-20 19:20:38 info: Routes in place
+2018-12-20 19:20:38 info: Server started on port 80
+2018-12-20 19:20:44 info: 1 - Request method GET at path: /users/register
+2018-12-20 19:20:44 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 19:20:46 info: 3 - Request method GET at path: /users/register
+2018-12-20 19:20:46 info: 4 - Request method GET at path: /css/theme.css
+2018-12-20 19:20:47 info: 5 - Request method GET at path: /users/login
+2018-12-20 19:20:47 info: 6 - Request method GET at path: /css/theme.css
+2018-12-20 19:20:48 info: 7 - Request method GET at path: /users/register
+2018-12-20 19:20:48 info: 8 - Request method GET at path: /css/theme.css
+2018-12-20 19:20:49 info: 9 - Request method GET at path: /products/home/home
+2018-12-20 19:20:49 info: Not found
+2018-12-20 19:20:49 info: 10 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:06 info: logger setup and running
+2018-12-20 19:21:06 info: Authentication required loaded
+2018-12-20 19:21:07 info: Database connected successfully
+2018-12-20 19:21:07 info: Middleware loaded
+2018-12-20 19:21:07 info: Routes in place
+2018-12-20 19:21:07 info: Server started on port 80
+2018-12-20 19:21:10 info: 1 - Request method GET at path: /products/home/home
+2018-12-20 19:21:10 info: Not found
+2018-12-20 19:21:10 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:13 info: 3 - Request method GET at path: /
+2018-12-20 19:21:13 info: 4 - Request method GET at path: /users/login
+2018-12-20 19:21:13 info: 5 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:15 info: 6 - Request method GET at path: /users/register
+2018-12-20 19:21:15 info: 7 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:16 info: 8 - Request method GET at path: /users/login
+2018-12-20 19:21:16 info: 9 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:17 info: 10 - Request method POST at path: /users/login
+2018-12-20 19:21:17 info: 11 - Request method GET at path: /
+2018-12-20 19:21:17 info: 12 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:18 info: 13 - Request method GET at path: /users/logout
+2018-12-20 19:21:18 info: 14 - Request method GET at path: /users/login
+2018-12-20 19:21:18 info: 15 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:20 info: 16 - Request method GET at path: /users/register
+2018-12-20 19:21:20 info: 17 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:21 info: 18 - Request method GET at path: /
+2018-12-20 19:21:21 info: 19 - Request method GET at path: /users/login
+2018-12-20 19:21:21 info: 20 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:23 info: 21 - Request method GET at path: /
+2018-12-20 19:21:23 info: 22 - Request method GET at path: /users/login
+2018-12-20 19:21:23 info: 23 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:24 info: 24 - Request method POST at path: /users/login
+2018-12-20 19:21:24 info: 25 - Request method GET at path: /
+2018-12-20 19:21:24 info: 26 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:25 info: 27 - Request method GET at path: /users/logout
+2018-12-20 19:21:25 info: 28 - Request method GET at path: /users/login
+2018-12-20 19:21:25 info: 29 - Request method GET at path: /css/theme.css
+2018-12-20 19:21:52 info: logger setup and running
+2018-12-20 19:21:52 info: Authentication required loaded
+2018-12-20 19:21:53 info: Database connected successfully
+2018-12-20 19:21:53 info: Middleware loaded
+2018-12-20 19:21:53 info: Routes in place
+2018-12-20 19:21:53 info: Server started on port 80
+2018-12-20 19:23:33 info: logger setup and running
+2018-12-20 19:23:33 info: Authentication required loaded
+2018-12-20 19:23:34 info: Database connected successfully
+2018-12-20 19:23:34 info: Middleware loaded
+2018-12-20 19:23:34 info: Routes in place
+2018-12-20 19:23:34 info: Server started on port 80
+2018-12-20 19:23:47 info: logger setup and running
+2018-12-20 19:23:47 info: Authentication required loaded
+2018-12-20 19:23:48 info: Database connected successfully
+2018-12-20 19:23:48 info: Middleware loaded
+2018-12-20 19:23:48 info: Routes in place
+2018-12-20 19:23:48 info: Server started on port 80
+2018-12-20 19:24:39 info: logger setup and running
+2018-12-20 19:24:39 info: Authentication required loaded
+2018-12-20 19:24:40 info: Database connected successfully
+2018-12-20 19:24:40 info: Middleware loaded
+2018-12-20 19:24:40 info: Routes in place
+2018-12-20 19:24:40 info: Server started on port 80
+2018-12-20 19:24:44 info: 1 - Request method GET at path: /users/login
+2018-12-20 19:24:44 info: 2 - Request method GET at path: /css/theme.css
+2018-12-20 19:24:47 info: 3 - Request method POST at path: /users/login
+2018-12-20 19:24:47 info: 4 - Request method GET at path: /
+2018-12-20 19:24:47 info: 5 - Request method GET at path: /css/theme.css
+2018-12-20 19:24:48 info: 6 - Request method GET at path: /users/logout
+2018-12-20 19:24:48 info: 7 - Request method GET at path: /users/login
+2018-12-20 19:24:48 info: 8 - Request method GET at path: /css/theme.css
+2018-12-20 19:24:50 info: 9 - Request method GET at path: /
+2018-12-20 19:24:50 info: 10 - Request method GET at path: /users/login
+2018-12-20 19:24:50 info: 11 - Request method GET at path: /css/theme.css
+2018-12-20 19:24:50 info: 12 - Request method GET at path: /
+2018-12-20 19:24:51 info: 13 - Request method GET at path: /users/login
+2018-12-20 19:24:51 info: 14 - Request method GET at path: /css/theme.css
+2018-12-20 19:24:52 info: 15 - Request method GET at path: /users/login
+2018-12-20 19:24:52 info: 16 - Request method GET at path: /css/theme.css
+2018-12-20 19:24:53 info: 17 - Request method POST at path: /users/login
+2018-12-20 19:24:53 info: 18 - Request method GET at path: /
+2018-12-20 19:24:54 info: 19 - Request method GET at path: /css/theme.css
+2018-12-20 19:24:55 info: 20 - Request method GET at path: /
+2018-12-20 19:24:55 info: 21 - Request method GET at path: /css/theme.css
+2018-12-20 19:24:56 info: 22 - Request method GET at path: /users/logout
+2018-12-20 19:24:56 info: 23 - Request method GET at path: /users/login
+2018-12-20 19:24:56 info: 24 - Request method GET at path: /css/theme.css
