@@ -21,7 +21,7 @@ const logger = winston.createLogger({
   ),
   transports: [
     new winston.transports.File({
-        levels: winston.config.syslog.levels, //  error: 0,  warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 
+        level: 'info', //  error: 0,  warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 
         filename: 'all-logs.log',
         handleExceptions: true,
         json: true,
@@ -30,7 +30,7 @@ const logger = winston.createLogger({
         colorize: false
     }),
     new winston.transports.Console({
-        levels: winston.config.syslog.levels,
+        level: 'info',
         handleExceptions: true,
         json: false,
         colorize: true
@@ -69,10 +69,12 @@ app.engine( 'hbs', hbs( {
 app.set('view engine', 'hbs');
 
 // Middleware
-app.use('*',function (req, res, next){
-  logger.info('Request method '+ req.method + " at path: " + req.path );
-  next();
+var nRequests = 0;
+app.use(function (req, res, next) {
+    logger.info((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
+    next();
 });
+
 app.use(bodyParser.json()); //puts a jason formatted body object in req object accessed by req.body 
 app.use(bodyParser.urlencoded({ extended: false })); //UTF-8 encoded only string or arrays
 app.use(cookieParser());
@@ -146,7 +148,6 @@ app.get('*', function(req, res){
   logger.info('Not found');
   res.render('404', {layout: false});
 });
-
 
 logger.info('Routes in place');
 
