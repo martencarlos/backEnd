@@ -8,6 +8,38 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 
+const winston = require('winston');
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp({
+      format: 'YYYY-MM-DD HH:mm:ss'
+    }),
+    winston.format.printf(info => {
+        return `${info.timestamp} ${info.level}: ${info.message}`;
+    })
+  ),
+  transports: [
+    new winston.transports.File({
+        levels: winston.config.syslog.levels, //  error: 0,  warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 
+        filename: 'all-logs.log',
+        handleExceptions: true,
+        json: true,
+        maxsize: 5242880, //5MB
+        maxFiles: 5,
+        colorize: false
+    }),
+    new winston.transports.Console({
+        levels: winston.config.syslog.levels,
+        handleExceptions: true,
+        json: false,
+        colorize: true
+    })
+    ],
+    exitOnError: false
+});
+logger.info('logger setup and running');
+
 //Authentication
 const expressValidator = require('express-validator');
 const session = require('express-session');
@@ -16,11 +48,15 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 require('dotenv').config({path: __dirname + '/secrets.env'}); //load secrests to process environment
 
+logger.info('Authentication required loaded');
+
 //Database
 const mongoose = require('mongoose');
 const dev_db_url = 'mongodb://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST +':' + process.env.DB_PORT + '/'+ process.env.DB_APPNAME;
 const mongodbFullURL = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongodbFullURL, { useNewUrlParser: true, useCreateIndex:true });
+
+logger.info('Database connected successfully');
 
 // View Engine Handlebars
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +69,10 @@ app.engine( 'hbs', hbs( {
 app.set('view engine', 'hbs');
 
 // Middleware
+app.use('*',function (req, res, next){
+  logger.info('Request method '+ req.method + " at path: " + req.path );
+  next();
+});
 app.use(bodyParser.json()); //puts a jason formatted body object in req object accessed by req.body 
 app.use(bodyParser.urlencoded({ extended: false })); //UTF-8 encoded only string or arrays
 app.use(cookieParser());
@@ -81,6 +121,8 @@ app.use(function (req, res, next) {
   next();
 });
 
+logger.info('Middleware loaded');
+
 // Application wide persisting global variables
 app.locals = {
   site: {
@@ -101,15 +143,15 @@ app.all('/', index);
 app.use('/users', users);
 
 app.get('*', function(req, res){
+  logger.info('Not found');
   res.render('404', {layout: false});
 });
 
-app.use('*', function (err, req, res, next){
-    
-});
+
+logger.info('Routes in place');
 
 // Set Port
 app.set('port', (process.env.PORT || 80));
 app.listen(app.get('port'), function(){
-  console.log('Server started on port '+ app.get('port'));
+  logger.info('Server started on port '+ app.get('port'));
 });

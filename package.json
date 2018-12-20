@@ -31,7 +31,8 @@
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
