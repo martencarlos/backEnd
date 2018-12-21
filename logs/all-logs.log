@@ -160,3 +160,25 @@
 2018-12-21 11:45:29 info: Middleware loaded
 2018-12-21 11:45:29 info: Routes in place
 2018-12-21 11:45:29 warn: Server started on port 80
+2018-12-21 11:51:37 info: logger setup and running
+2018-12-21 11:51:37 info: Authentication required loaded
+2018-12-21 11:51:38 info: Database connected successfully
+2018-12-21 11:51:38 info: ./views/layouts/partials/
+2018-12-21 11:51:38 info: Middleware loaded
+2018-12-21 11:51:38 info: Routes in place
+2018-12-21 11:51:38 warn: Server started on port 80
+2018-12-21 11:51:40 info: 1 - Request method GET at path: /users/login
+2018-12-21 11:51:40 info: 2 - Request method GET at path: /css/theme.css
+2018-12-21 11:51:42 info: 3 - Request method POST at path: /users/login
+2018-12-21 11:51:42 info: 4 - Request method GET at path: /
+2018-12-21 11:51:42 info: 5 - Request method GET at path: /css/theme.css
+2018-12-21 11:51:43 info: 6 - Request method GET at path: /users/logout
+2018-12-21 11:51:43 info: 7 - Request method GET at path: /users/login
+2018-12-21 11:51:43 info: 8 - Request method GET at path: /css/theme.css
+2018-12-21 11:52:01 info: logger setup and running
+2018-12-21 11:52:02 info: Authentication required loaded
+2018-12-21 11:52:03 info: Database connected successfully
+2018-12-21 11:52:03 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 11:52:03 info: Middleware loaded
+2018-12-21 11:52:03 info: Routes in place
+2018-12-21 11:52:03 warn: Server started on port 80

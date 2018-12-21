@@ -38,12 +38,12 @@ app.set('views', [path.join(__dirname,'views'),
   path.join(__dirname,'products/users/register'),
   path.join(__dirname,'products/errors')
 ]);
-logger.info('./views/layouts/partials/');
+logger.info(path.join(__dirname,'views/layouts/partials'));
 app.engine( 'hbs', hbs( { 
   extname: 'hbs', 
   defaultLayout: 'main', 
-  layoutsDir: "./views/layouts/",
-  partialsDir:  "./views/layouts/partials/"
+  layoutsDir:  path.join(__dirname,'views/layouts'),
+  partialsDir: path.join(__dirname,'views/layouts/partials')
 } ) );
 app.set('view engine', 'hbs');
 
