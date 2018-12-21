@@ -7,7 +7,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
-
+//var methodOverride = require('method-override')
 const logger = require('./logs/logger.js'); 
 
 //Authentication
