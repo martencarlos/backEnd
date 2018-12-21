@@ -4,11 +4,15 @@ html {
 
 body {
   height: 100%;
-  padding-top: 70px;
+  padding-top: 60px;
   padding-bottom: 60px;
   min-width:375px;
   -ms-flex-align: center;
   align-items: center;
+}
+
+header{
+  height: 100%;
 }
 
 .form-signin {

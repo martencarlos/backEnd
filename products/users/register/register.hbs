@@ -1,67 +1,68 @@
 
+<div class="container my-auto d-flex" style="height:80%">
+  <form class="form-signin" method="post" action="/users/register">
+      
+      <h3 class="mb-4" style="margin-top: 10px" id="login-heading">Register</h3>
+        {{#if errors}}
+          {{#each errors}}
+            <div class="alert alert-danger">
+              {{msg}}
+            </div>
+          {{/each}}
+        {{/if}}
 
-<form class="form-signin" method="post" action="/users/register">
-    
-    <h3 class="mb-4" style="margin-top: 10px" id="login-heading">Register</h3>
-      {{#if errors}}
-        {{#each errors}}
-          <div class="alert alert-danger">
-            {{msg}}
+      <!-- Name --> 
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" style="width:40px"><i class="fa fa-user fa-fw"></i></span>
           </div>
-        {{/each}}
-      {{/if}}
-
-    <!-- Name --> 
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width:40px"><i class="fa fa-user fa-fw"></i></span>
+          <input class="form-control" name="name" placeholder="Name" type="text" required="required">
         </div>
-        <input class="form-control" name="name" placeholder="Name" type="text" required="required">
       </div>
-    </div>
 
-    <!-- Username -->
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width:40px"><i class="fa fa-at fa-fw"></i></span>
+      <!-- Username -->
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" style="width:40px"><i class="fa fa-at fa-fw"></i></span>
+          </div>
+          <input class="form-control" name="username" placeholder="Username" type="text" required="required">
         </div>
-        <input class="form-control" name="username" placeholder="Username" type="text" required="required">
       </div>
-    </div>
 
-    <!-- Email -->
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width:40px"><i class="fa fa-envelope fa-fw"></i></span>
+      <!-- Email -->
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" style="width:40px"><i class="fa fa-envelope fa-fw"></i></span>
+          </div>
+          <input class="form-control" name="email" placeholder="Email" type="email" required="required">
         </div>
-        <input class="form-control" name="email" placeholder="Email" type="email" required="required">
       </div>
-    </div>
 
-    <!-- Password -->
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width:40px"><i class="fa fa-key fa-fw"></i></span>
+      <!-- Password -->
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" style="width:40px"><i class="fa fa-key fa-fw"></i></span>
+          </div>
+          <input class="form-control" name="password" placeholder="Password" type="password" required="required">
         </div>
-        <input class="form-control" name="password" placeholder="Password" type="password" required="required">
       </div>
-    </div>
 
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width:40px"><i class="fa fa-key fa-fw"></i></span>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" style="width:40px"><i class="fa fa-key fa-fw"></i></span>
+          </div>
+          <input class="form-control" name="password2" placeholder="Re-Password" type="password" required="required">
         </div>
-        <input class="form-control" name="password2" placeholder="Re-Password" type="password" required="required">
       </div>
-    </div>
-    
-    <div class="col-sm-12 text-center">
-      <button class="btn btn-primary w-75 text-center" style="margin-top: 10px" type="submit">Submit</button>
-    </div>
-    
-  </form>
+      
+      <div class="col-sm-12 text-center">
+        <button class="btn btn-primary w-75 text-center" style="margin-top: 10px" type="submit">Submit</button>
+      </div>
+      
+    </form>
+  </div>

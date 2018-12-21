@@ -7,7 +7,7 @@ var logger = require('winston');
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
     logger.info('home');
-	res.render('index');
+	res.render('auth-home');
 });
 
 function ensureAuthenticated(req, res, next){
@@ -15,7 +15,7 @@ function ensureAuthenticated(req, res, next){
 		return next();
 	} else {
         //req.flash('error_msg','You are not logged in');
-		res.redirect('/users/login');
+		res.render('home');
 	}
 }
 
