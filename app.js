@@ -42,8 +42,8 @@ logger.info(path.join(__dirname,'views/layouts/partials/'));
 app.engine( 'hbs', hbs( { 
   extname: 'hbs', 
   defaultLayout: 'main', 
-  layoutsDir: path.join(__dirname,'views/layouts/'),
-  partialsDir:  path.join(__dirname,'views/layouts/partials/')
+  layoutsDir: path.join('.','/views/layouts/'),
+  partialsDir:  path.join('.','/views/layouts/partials/')
 } ) );
 app.set('view engine', 'hbs');
 

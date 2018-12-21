@@ -81,3 +81,39 @@
 2018-12-21 11:34:35 info: Middleware loaded
 2018-12-21 11:34:35 info: Routes in place
 2018-12-21 11:34:35 warn: Server started on port 80
+2018-12-21 11:39:59 info: logger setup and running
+2018-12-21 11:40:00 info: Authentication required loaded
+2018-12-21 11:40:01 info: Database connected successfully
+2018-12-21 11:40:01 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials\
+2018-12-21 11:40:01 info: Middleware loaded
+2018-12-21 11:40:01 info: Routes in place
+2018-12-21 11:40:01 warn: Server started on port 80
+2018-12-21 11:40:05 info: 1 - Request method GET at path: /users/login
+2018-12-21 11:40:23 info: logger setup and running
+2018-12-21 11:40:24 info: Authentication required loaded
+2018-12-21 11:40:25 info: Database connected successfully
+2018-12-21 11:40:25 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials\
+2018-12-21 11:40:25 info: Middleware loaded
+2018-12-21 11:40:25 info: Routes in place
+2018-12-21 11:40:25 warn: Server started on port 80
+2018-12-21 11:40:26 info: logger setup and running
+2018-12-21 11:40:26 info: Authentication required loaded
+2018-12-21 11:40:27 info: Database connected successfully
+2018-12-21 11:40:27 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials\
+2018-12-21 11:40:27 info: Middleware loaded
+2018-12-21 11:40:27 info: Routes in place
+2018-12-21 11:40:27 warn: Server started on port 80
+2018-12-21 11:40:29 info: 1 - Request method GET at path: /users/login
+2018-12-21 11:40:29 info: 2 - Request method GET at path: /css/theme.css
+2018-12-21 11:40:30 info: 3 - Request method POST at path: /users/login
+2018-12-21 11:40:31 info: 4 - Request method GET at path: /
+2018-12-21 11:40:31 info: 5 - Request method GET at path: /css/theme.css
+2018-12-21 11:40:32 info: 6 - Request method GET at path: /users/logout
+2018-12-21 11:40:32 info: 7 - Request method GET at path: /users/login
+2018-12-21 11:40:32 info: 8 - Request method GET at path: /css/theme.css
+2018-12-21 11:40:33 info: 9 - Request method GET at path: /
+2018-12-21 11:40:33 info: 10 - Request method GET at path: /users/login
+2018-12-21 11:40:33 info: 11 - Request method GET at path: /css/theme.css
+2018-12-21 11:40:33 info: 12 - Request method GET at path: /
+2018-12-21 11:40:33 info: 13 - Request method GET at path: /users/login
+2018-12-21 11:40:33 info: 14 - Request method GET at path: /css/theme.css
