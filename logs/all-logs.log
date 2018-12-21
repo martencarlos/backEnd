@@ -117,3 +117,46 @@
 2018-12-21 11:40:33 info: 12 - Request method GET at path: /
 2018-12-21 11:40:33 info: 13 - Request method GET at path: /users/login
 2018-12-21 11:40:33 info: 14 - Request method GET at path: /css/theme.css
+2018-12-21 11:42:58 info: logger setup and running
+2018-12-21 11:42:59 info: Authentication required loaded
+2018-12-21 11:42:59 info: Database connected successfully
+2018-12-21 11:42:59 info: views\layouts\partials\
+2018-12-21 11:42:59 info: Middleware loaded
+2018-12-21 11:42:59 info: Routes in place
+2018-12-21 11:42:59 warn: Server started on port 80
+2018-12-21 11:43:23 info: logger setup and running
+2018-12-21 11:43:24 info: Authentication required loaded
+2018-12-21 11:43:25 info: Database connected successfully
+2018-12-21 11:43:25 info: views\layouts\partials\
+2018-12-21 11:43:25 info: Middleware loaded
+2018-12-21 11:43:25 info: Routes in place
+2018-12-21 11:43:25 warn: Server started on port 80
+2018-12-21 11:43:35 info: logger setup and running
+2018-12-21 11:43:35 info: Authentication required loaded
+2018-12-21 11:43:36 info: Database connected successfully
+2018-12-21 11:43:36 info: views\layouts\partials\
+2018-12-21 11:43:36 info: Middleware loaded
+2018-12-21 11:43:36 info: Routes in place
+2018-12-21 11:43:36 warn: Server started on port 80
+2018-12-21 11:44:50 info: logger setup and running
+2018-12-21 11:44:51 info: Authentication required loaded
+2018-12-21 11:44:52 info: Database connected successfully
+2018-12-21 11:44:52 info: ./views/layouts/partials/
+2018-12-21 11:44:52 info: Middleware loaded
+2018-12-21 11:44:52 info: Routes in place
+2018-12-21 11:44:52 warn: Server started on port 80
+2018-12-21 11:45:00 info: 1 - Request method GET at path: /users/login
+2018-12-21 11:45:00 info: 2 - Request method GET at path: /css/theme.css
+2018-12-21 11:45:01 info: 3 - Request method POST at path: /users/login
+2018-12-21 11:45:01 info: 4 - Request method GET at path: /
+2018-12-21 11:45:01 info: 5 - Request method GET at path: /css/theme.css
+2018-12-21 11:45:02 info: 6 - Request method GET at path: /users/logout
+2018-12-21 11:45:02 info: 7 - Request method GET at path: /users/login
+2018-12-21 11:45:02 info: 8 - Request method GET at path: /css/theme.css
+2018-12-21 11:45:28 info: logger setup and running
+2018-12-21 11:45:28 info: Authentication required loaded
+2018-12-21 11:45:29 info: Database connected successfully
+2018-12-21 11:45:29 info: ./views/layouts/partials/
+2018-12-21 11:45:29 info: Middleware loaded
+2018-12-21 11:45:29 info: Routes in place
+2018-12-21 11:45:29 warn: Server started on port 80
