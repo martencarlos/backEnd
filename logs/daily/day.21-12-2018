@@ -167,3 +167,32 @@
 2018-12-21 11:54:42 info: 6 - Request method GET at path: /users/logout
 2018-12-21 11:54:42 info: 7 - Request method GET at path: /users/login
 2018-12-21 11:54:43 info: 8 - Request method GET at path: /css/theme.css
+2018-12-21 11:59:51 info: logger setup and running
+2018-12-21 11:59:52 info: Authentication required loaded
+2018-12-21 11:59:52 info: Database connected successfully
+2018-12-21 11:59:52 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 11:59:53 info: Middleware loaded
+2018-12-21 11:59:53 info: Routes in place
+2018-12-21 11:59:53 warn: Server started on port 80
+2018-12-21 12:04:35 info: logger setup and running
+2018-12-21 12:04:36 info: Authentication required loaded
+2018-12-21 12:04:37 info: Database connected successfully
+2018-12-21 12:04:37 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 12:04:37 info: Middleware loaded
+2018-12-21 12:04:37 info: Routes in place
+2018-12-21 12:04:37 warn: Server started on port 80
+2018-12-21 12:04:49 info: 1 - Request method GET at path: /users/login
+2018-12-21 12:04:49 info: 2 - Request method GET at path: /css/theme.css
+2018-12-21 12:04:50 info: 3 - Request method POST at path: /users/login
+2018-12-21 12:04:51 info: 4 - Request method GET at path: /
+2018-12-21 12:04:51 info: 5 - Request method GET at path: /css/theme.css
+2018-12-21 12:04:51 info: 6 - Request method GET at path: /users/logout
+2018-12-21 12:04:51 info: 7 - Request method GET at path: /users/login
+2018-12-21 12:04:51 info: 8 - Request method GET at path: /css/theme.css
+2018-12-21 12:05:29 info: logger setup and running
+2018-12-21 12:05:29 info: Authentication required loaded
+2018-12-21 12:05:30 info: Database connected successfully
+2018-12-21 12:05:30 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 12:05:30 info: Middleware loaded
+2018-12-21 12:05:30 info: Routes in place
+2018-12-21 12:05:30 warn: Server started on port 80
