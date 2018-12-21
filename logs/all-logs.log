@@ -52,3 +52,25 @@
 2018-12-21 10:49:44 info: Middleware loaded
 2018-12-21 10:49:44 info: Routes in place
 2018-12-21 10:49:44 warn: Server started on port 80
+2018-12-21 10:51:03 info: 1 - Request method GET at path: /users/login
+2018-12-21 10:51:03 info: 2 - Request method GET at path: /css/theme.css
+2018-12-21 10:51:04 info: 3 - Request method POST at path: /users/login
+2018-12-21 10:51:04 info: 4 - Request method GET at path: /
+2018-12-21 10:51:04 info: 5 - Request method GET at path: /css/theme.css
+2018-12-21 10:51:05 info: 6 - Request method GET at path: /users/logout
+2018-12-21 10:51:05 info: 7 - Request method GET at path: /users/login
+2018-12-21 10:51:05 info: 8 - Request method GET at path: /css/theme.css
+2018-12-21 11:31:43 info: logger setup and running
+2018-12-21 11:31:43 info: Authentication required loaded
+2018-12-21 11:31:44 info: Database connected successfully
+2018-12-21 11:31:44 info: Middleware loaded
+2018-12-21 11:31:44 info: Routes in place
+2018-12-21 11:31:44 warn: Server started on port 80
+2018-12-21 11:31:49 info: 1 - Request method GET at path: /users/login
+2018-12-21 11:31:50 info: 2 - Request method GET at path: /css/theme.css
+2018-12-21 11:31:51 info: 3 - Request method POST at path: /users/login
+2018-12-21 11:31:51 info: 4 - Request method GET at path: /
+2018-12-21 11:31:51 info: 5 - Request method GET at path: /css/theme.css
+2018-12-21 11:31:52 info: 6 - Request method GET at path: /users/logout
+2018-12-21 11:31:52 info: 7 - Request method GET at path: /users/login
+2018-12-21 11:31:52 info: 8 - Request method GET at path: /css/theme.css
