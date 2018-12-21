@@ -226,3 +226,96 @@
 2018-12-21 12:05:30 info: Middleware loaded
 2018-12-21 12:05:30 info: Routes in place
 2018-12-21 12:05:30 warn: Server started on port 80
+2018-12-21 12:18:54 info: logger setup and running
+2018-12-21 12:18:54 info: Authentication required loaded
+2018-12-21 12:18:55 info: Database connected successfully
+2018-12-21 12:18:55 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 12:18:55 info: Middleware loaded
+2018-12-21 12:18:55 info: Routes in place
+2018-12-21 12:18:55 warn: Server started on port 80
+2018-12-21 12:19:55 info: logger setup and running
+2018-12-21 12:19:55 info: Authentication required loaded
+2018-12-21 12:19:56 info: Database connected successfully
+2018-12-21 12:19:56 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 12:19:56 info: Middleware loaded
+2018-12-21 12:19:56 info: Routes in place
+2018-12-21 12:19:56 warn: Server started on port 80
+2018-12-21 12:20:35 info: logger setup and running
+2018-12-21 12:20:35 info: Authentication required loaded
+2018-12-21 12:20:36 info: Database connected successfully
+2018-12-21 12:20:36 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 12:20:36 info: Middleware loaded
+2018-12-21 12:20:36 info: Routes in place
+2018-12-21 12:20:36 warn: Server started on port 80
+2018-12-21 14:09:47 error: uncaughtException: write after end
+Error [ERR_STREAM_WRITE_AFTER_END]: write after end
+    at writeAfterEnd (_stream_writable.js:243:12)
+    at Socket.Writable.write (_stream_writable.js:291:5)
+    at Connection.write (C:\Users\Administrator\Desktop\basicApp\node_modules\mongodb-core\lib\connection\connection.js:734:57)
+    at C:\Users\Administrator\Desktop\basicApp\node_modules\mongodb-core\lib\connection\pool.js:1563:44
+    at waitForAuth (C:\Users\Administrator\Desktop\basicApp\node_modules\mongodb-core\lib\connection\pool.js:1417:40)
+    at C:\Users\Administrator\Desktop\basicApp\node_modules\mongodb-core\lib\connection\pool.js:1425:5
+    at C:\Users\Administrator\Desktop\basicApp\node_modules\mongodb-core\lib\connection\pool.js:1278:23
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+2018-12-21 14:11:28 info: logger setup and running
+2018-12-21 14:11:28 info: Authentication required loaded
+2018-12-21 14:11:29 info: Database connected successfully
+2018-12-21 14:11:29 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 14:11:29 info: Middleware loaded
+2018-12-21 14:11:29 info: Routes in place
+2018-12-21 14:11:29 warn: Server started on port 80
+2018-12-21 14:11:30 info: logger setup and running
+2018-12-21 14:11:31 info: Authentication required loaded
+2018-12-21 14:11:31 info: Database connected successfully
+2018-12-21 14:11:31 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 14:11:31 info: Middleware loaded
+2018-12-21 14:11:32 info: Routes in place
+2018-12-21 14:11:32 warn: Server started on port 80
+2018-12-21 14:11:39 info: 1 - Request method GET at path: /users/login
+2018-12-21 14:11:40 info: 2 - Request method GET at path: /css/theme.css
+2018-12-21 14:11:40 info: 3 - Request method POST at path: /users/login
+2018-12-21 14:11:41 info: 4 - Request method GET at path: /
+2018-12-21 14:11:41 info: 5 - Request method GET at path: /css/theme.css
+2018-12-21 14:11:41 info: 6 - Request method GET at path: /users/logout
+2018-12-21 14:11:41 info: 7 - Request method GET at path: /users/login
+2018-12-21 14:11:41 info: 8 - Request method GET at path: /css/theme.css
+2018-12-21 14:11:43 info: 9 - Request method GET at path: /
+2018-12-21 14:11:43 info: 10 - Request method GET at path: /users/login
+2018-12-21 14:11:43 info: 11 - Request method GET at path: /css/theme.css
+2018-12-21 14:11:43 info: 12 - Request method GET at path: /
+2018-12-21 14:11:43 info: 13 - Request method GET at path: /users/login
+2018-12-21 14:11:43 info: 14 - Request method GET at path: /css/theme.css
+2018-12-21 14:11:44 info: 15 - Request method GET at path: /users/register
+2018-12-21 14:11:44 info: 16 - Request method GET at path: /css/theme.css
+2018-12-21 14:11:45 info: 17 - Request method GET at path: /users/login
+2018-12-21 14:11:45 info: 18 - Request method GET at path: /css/theme.css
+2018-12-21 14:18:32 info: logger setup and running
+2018-12-21 14:18:33 info: Authentication required loaded
+2018-12-21 14:18:33 info: Database connected successfully
+2018-12-21 14:18:33 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 14:18:33 error: uncaughtException: relative is not defined
+ReferenceError: relative is not defined
+    at Object.<anonymous> (C:\Users\Administrator\Desktop\basicApp\app.js:46:16)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
+    at startup (internal/bootstrap/node.js:285:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:739:3)
+2018-12-21 14:19:40 info: logger setup and running
+2018-12-21 14:19:40 info: Authentication required loaded
+2018-12-21 14:19:41 info: Database connected successfully
+2018-12-21 14:19:41 info: C:\Users\Administrator\Desktop\basicApp\views\layouts\partials
+2018-12-21 14:19:41 info: Middleware loaded
+2018-12-21 14:19:41 info: Routes in place
+2018-12-21 14:19:41 warn: Server started on port 80
+2018-12-21 14:19:45 info: 1 - Request method GET at path: /users/login
+2018-12-21 14:19:45 info: 2 - Request method GET at path: /css/theme.css
+2018-12-21 14:19:45 info: 3 - Request method POST at path: /users/login
+2018-12-21 14:19:46 info: 4 - Request method GET at path: /
+2018-12-21 14:19:46 info: 5 - Request method GET at path: /css/theme.css
+2018-12-21 14:19:47 info: 6 - Request method GET at path: /users/logout
+2018-12-21 14:19:47 info: 7 - Request method GET at path: /users/login
+2018-12-21 14:19:47 info: 8 - Request method GET at path: /css/theme.css
