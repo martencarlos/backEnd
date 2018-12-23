@@ -668,3 +668,105 @@ ReferenceError: relative is not defined
 2018-12-21 17:30:24 info: 34 - Request method GET at path: /css/theme.css
 2018-12-21 17:30:27 info: 35 - Request method GET at path: /
 2018-12-21 17:30:27 info: 36 - Request method GET at path: /css/theme.css
+2018-12-23 09:26:29 info: logger setup and running
+2018-12-23 09:26:29 info: Authentication required loaded
+2018-12-23 09:26:30 info: Database connected successfully
+2018-12-23 09:26:30 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 09:26:30 info: Middleware loaded
+2018-12-23 09:26:30 info: Routes in place
+2018-12-23 09:26:30 warn: Server started on port 80
+2018-12-23 09:26:45 info: 1 - Request method GET at path: /
+2018-12-23 09:26:46 info: 2 - Request method GET at path: /css/theme.css
+2018-12-23 09:26:46 info: 3 - Request method GET at path: /favicon.ico
+2018-12-23 09:26:47 info: 4 - Request method GET at path: /users/login
+2018-12-23 09:26:47 info: 5 - Request method GET at path: /css/theme.css
+2018-12-23 09:26:48 info: 6 - Request method GET at path: /favicon.ico
+2018-12-23 09:26:50 info: 7 - Request method GET at path: /users/register
+2018-12-23 09:26:50 info: 8 - Request method GET at path: /css/theme.css
+2018-12-23 09:26:50 info: 9 - Request method GET at path: /favicon.ico
+2018-12-23 09:26:51 info: 10 - Request method GET at path: /users/login
+2018-12-23 09:26:51 info: 11 - Request method GET at path: /css/theme.css
+2018-12-23 09:26:51 info: 12 - Request method GET at path: /favicon.ico
+2018-12-23 09:26:52 info: 13 - Request method GET at path: /
+2018-12-23 09:26:52 info: 14 - Request method GET at path: /css/theme.css
+2018-12-23 09:26:52 info: 15 - Request method GET at path: /favicon.ico
+2018-12-23 09:54:08 info: logger setup and running
+2018-12-23 09:54:10 info: Authentication required loaded
+2018-12-23 09:54:15 info: Database connected successfully
+2018-12-23 09:54:15 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 09:54:15 info: Middleware loaded
+2018-12-23 09:54:15 info: Routes in place
+2018-12-23 09:54:15 warn: Server started on port 80
+2018-12-23 10:50:54 error: uncaughtException: write after end
+Error [ERR_STREAM_WRITE_AFTER_END]: write after end
+    at writeAfterEnd (_stream_writable.js:243:12)
+    at Socket.Writable.write (_stream_writable.js:291:5)
+    at Connection.write (C:\Users\marte\OneDrive\Desktop\basicApp\node_modules\mongodb-core\lib\connection\connection.js:734:57)
+    at C:\Users\marte\OneDrive\Desktop\basicApp\node_modules\mongodb-core\lib\connection\pool.js:1563:44
+    at waitForAuth (C:\Users\marte\OneDrive\Desktop\basicApp\node_modules\mongodb-core\lib\connection\pool.js:1417:40)
+    at C:\Users\marte\OneDrive\Desktop\basicApp\node_modules\mongodb-core\lib\connection\pool.js:1425:5
+    at C:\Users\marte\OneDrive\Desktop\basicApp\node_modules\mongodb-core\lib\connection\pool.js:1278:23
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+2018-12-23 18:14:05 info: logger setup and running
+2018-12-23 18:14:05 info: Authentication required loaded
+2018-12-23 18:14:06 info: Database connected successfully
+2018-12-23 18:14:06 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 18:14:06 info: Middleware loaded
+2018-12-23 18:14:06 info: Routes in place
+2018-12-23 18:14:06 warn: Server started on port 80
+2018-12-23 18:15:33 info: logger setup and running
+2018-12-23 18:15:33 info: Authentication required loaded
+2018-12-23 18:15:33 info: Database connected successfully
+2018-12-23 18:15:33 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 18:15:34 info: Middleware loaded
+2018-12-23 18:15:34 info: Routes in place
+2018-12-23 18:15:34 warn: Server started on port 80
+2018-12-23 18:15:45 info: logger setup and running
+2018-12-23 18:15:46 info: Authentication required loaded
+2018-12-23 18:15:47 info: Database connected successfully
+2018-12-23 18:15:47 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 18:15:47 info: Middleware loaded
+2018-12-23 18:15:47 info: Routes in place
+2018-12-23 18:15:47 warn: Server started on port 80
+2018-12-23 18:16:12 info: logger setup and running
+2018-12-23 18:16:12 info: Authentication required loaded
+2018-12-23 18:16:13 info: Database connected successfully
+2018-12-23 18:16:13 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 18:16:13 info: Middleware loaded
+2018-12-23 18:16:13 info: Routes in place
+2018-12-23 18:16:13 warn: Server started on port 80
+2018-12-23 18:17:46 info: logger setup and running
+2018-12-23 18:17:47 info: Authentication required loaded
+2018-12-23 18:17:48 info: Database connected successfully
+2018-12-23 18:17:48 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 18:17:48 error: uncaughtException: ENOENT: no such file or directory, stat 'C:\Users\marte\OneDrive\Desktop\basicApp\public\img\favicon.ico'
+Error: ENOENT: no such file or directory, stat 'C:\Users\marte\OneDrive\Desktop\basicApp\public\img\favicon.ico'
+    at Object.statSync (fs.js:851:3)
+    at resolveSync (C:\Users\marte\OneDrive\Desktop\basicApp\node_modules\serve-favicon\index.js:187:17)
+    at favicon (C:\Users\marte\OneDrive\Desktop\basicApp\node_modules\serve-favicon\index.js:61:12)
+    at Object.<anonymous> (C:\Users\marte\OneDrive\Desktop\basicApp\app.js:57:9)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)
+    at startup (internal/bootstrap/node.js:282:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:743:3)
+2018-12-23 18:27:38 info: logger setup and running
+2018-12-23 18:27:38 info: Authentication required loaded
+2018-12-23 18:27:39 info: Database connected successfully
+2018-12-23 18:27:39 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 18:27:39 info: Middleware loaded
+2018-12-23 18:27:39 info: Routes in place
+2018-12-23 18:27:39 warn: Server started on port 80
+2018-12-23 18:27:45 info: 1 - Request method GET at path: /
+2018-12-23 18:27:45 info: 2 - Request method GET at path: /css/theme.css
+2018-12-23 18:27:45 info: 3 - Request method GET at path: /favicon.ico
+2018-12-23 18:29:23 info: logger setup and running
+2018-12-23 18:29:23 info: Authentication required loaded
+2018-12-23 18:29:23 info: Database connected successfully
+2018-12-23 18:29:23 info: C:\Users\marte\OneDrive\Desktop\basicApp\views\layouts\partials
+2018-12-23 18:29:23 info: Middleware loaded
+2018-12-23 18:29:24 info: Routes in place
+2018-12-23 18:29:24 warn: Server started on port 80

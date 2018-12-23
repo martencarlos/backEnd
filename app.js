@@ -5,9 +5,9 @@ const app = express();
 
 //Basic
 const path = require('path');
+var favicon = require('serve-favicon')
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
-//var methodOverride = require('method-override')
 const logger = require('./logs/logger.js'); 
 
 //Authentication
@@ -54,6 +54,7 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use(favicon(path.join(__dirname, 'public/img', 'favicon-anchor.ico')))
 app.use(bodyParser.json()); //puts a jason formatted body object in req object accessed by req.body 
 app.use(bodyParser.urlencoded({ extended: false })); //UTF-8 encoded only string or arrays
 app.use(cookieParser());
