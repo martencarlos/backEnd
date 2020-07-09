@@ -1,0 +1,133 @@
+2020-07-09 12:51:16 info: 24 - Request method GET at path: /users/login
+2020-07-09 12:51:16 info: 25 - Request method GET at path: /css/theme.css
+2020-07-09 12:51:16 info: 26 - Request method GET at path: /favicon.ico
+2020-07-09 12:51:17 info: 27 - Request method POST at path: /users/login
+2020-07-09 12:51:25 info: 28 - Request method GET at path: /
+2020-07-09 12:51:25 info: 29 - Request method GET at path: /css/theme.css
+2020-07-09 12:51:26 info: 30 - Request method GET at path: /favicon.ico
+2020-07-09 12:51:27 info: 31 - Request method GET at path: /users/login
+2020-07-09 12:51:27 info: 32 - Request method GET at path: /css/theme.css
+2020-07-09 12:51:27 info: 33 - Request method GET at path: /favicon.ico
+2020-07-09 12:51:28 info: 34 - Request method POST at path: /users/login
+2020-07-09 12:51:35 info: 35 - Request method GET at path: /users/register
+2020-07-09 12:51:35 info: 36 - Request method GET at path: /css/theme.css
+2020-07-09 12:51:35 info: 37 - Request method GET at path: /favicon.ico
+2020-07-09 12:51:36 info: 38 - Request method GET at path: /users/login
+2020-07-09 12:51:36 info: 39 - Request method GET at path: /css/theme.css
+2020-07-09 12:51:36 info: 40 - Request method GET at path: /favicon.ico
+2020-07-09 12:51:37 info: 41 - Request method POST at path: /users/login
+2020-07-09 12:51:49 info: logger setup and running
+2020-07-09 12:51:49 info: Authentication required loaded
+2020-07-09 12:51:50 info: Database connected successfully
+2020-07-09 12:51:50 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2020-07-09 12:51:50 info: Middleware loaded
+2020-07-09 12:51:50 info: Routes in place
+2020-07-09 12:51:50 warn: Server started on port 80
+2020-07-09 12:51:57 info: 1 - Request method POST at path: /users/login
+2020-07-09 12:51:57 info: 2 - Request method GET at path: /
+2020-07-09 12:51:58 info: 3 - Request method GET at path: /css/theme.css
+2020-07-09 12:51:58 info: 4 - Request method GET at path: /favicon.ico
+2020-07-09 12:52:01 info: 5 - Request method GET at path: /
+2020-07-09 12:52:01 info: 6 - Request method GET at path: /css/theme.css
+2020-07-09 12:52:01 info: 7 - Request method GET at path: /favicon.ico
+2020-07-09 12:52:02 info: 8 - Request method GET at path: /users/logout
+2020-07-09 12:52:02 info: 9 - Request method GET at path: /users/login
+2020-07-09 12:52:02 info: 10 - Request method GET at path: /css/theme.css
+2020-07-09 12:52:03 info: 11 - Request method GET at path: /favicon.ico
+2020-07-09 12:52:04 info: 12 - Request method POST at path: /users/login
+2020-07-09 12:52:05 info: 13 - Request method GET at path: /
+2020-07-09 12:52:05 info: 14 - Request method GET at path: /css/theme.css
+2020-07-09 12:52:05 info: 15 - Request method GET at path: /favicon.ico
+2020-07-09 12:52:06 info: 16 - Request method GET at path: /users/logout
+2020-07-09 12:52:06 info: 17 - Request method GET at path: /users/login
+2020-07-09 12:52:06 info: 18 - Request method GET at path: /css/theme.css
+2020-07-09 12:52:07 info: 19 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:03 info: 20 - Request method POST at path: /users/login
+2020-07-09 13:27:04 info: 21 - Request method GET at path: /
+2020-07-09 13:27:04 info: 22 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:04 info: 23 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:07 info: 24 - Request method GET at path: /users/logout
+2020-07-09 13:27:07 info: 25 - Request method GET at path: /users/login
+2020-07-09 13:27:07 info: 26 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:07 info: 27 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:10 info: 28 - Request method GET at path: /users/login
+2020-07-09 13:27:10 info: 29 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:10 info: 30 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:15 info: 31 - Request method POST at path: /users/login
+2020-07-09 13:27:15 info: 32 - Request method GET at path: /users/login
+2020-07-09 13:27:15 info: 33 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:16 info: 34 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:18 info: 35 - Request method POST at path: /users/login
+2020-07-09 13:27:18 info: 36 - Request method GET at path: /
+2020-07-09 13:27:19 info: 37 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:19 info: 38 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:20 info: 39 - Request method GET at path: /users/logout
+2020-07-09 13:27:20 info: 40 - Request method GET at path: /users/login
+2020-07-09 13:27:20 info: 41 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:21 info: 42 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:25 info: 43 - Request method POST at path: /users/login
+2020-07-09 13:27:26 info: 44 - Request method GET at path: /
+2020-07-09 13:27:26 info: 45 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:26 info: 46 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:27 info: 47 - Request method GET at path: /users/logout
+2020-07-09 13:27:27 info: 48 - Request method GET at path: /users/login
+2020-07-09 13:27:27 info: 49 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:27 info: 50 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:28 info: 51 - Request method POST at path: /users/login
+2020-07-09 13:27:29 info: 52 - Request method GET at path: /
+2020-07-09 13:27:29 info: 53 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:29 info: 54 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:30 info: 55 - Request method GET at path: /users/logout
+2020-07-09 13:27:30 info: 56 - Request method GET at path: /users/login
+2020-07-09 13:27:30 info: 57 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:30 info: 58 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:52 info: 59 - Request method GET at path: /
+2020-07-09 13:27:52 info: 60 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:52 info: 61 - Request method GET at path: /favicon.ico
+2020-07-09 13:27:57 info: 62 - Request method GET at path: /users/login
+2020-07-09 13:27:57 info: 63 - Request method GET at path: /css/theme.css
+2020-07-09 13:27:57 info: 64 - Request method GET at path: /favicon.ico
+2020-07-09 13:28:00 info: 65 - Request method POST at path: /users/login
+2020-07-09 13:28:00 info: 66 - Request method GET at path: /
+2020-07-09 13:28:00 info: 67 - Request method GET at path: /css/theme.css
+2020-07-09 13:28:01 info: 68 - Request method GET at path: /favicon.ico
+2020-07-09 13:28:05 info: 69 - Request method GET at path: /users/logout
+2020-07-09 13:28:05 info: 70 - Request method GET at path: /users/login
+2020-07-09 13:28:05 info: 71 - Request method GET at path: /css/theme.css
+2020-07-09 13:28:05 info: 72 - Request method GET at path: /favicon.ico
+2020-07-09 13:28:12 info: 73 - Request method GET at path: /users/login
+2020-07-09 13:28:12 info: 74 - Request method GET at path: /css/theme.css
+2020-07-09 13:28:13 info: 75 - Request method GET at path: /favicon.ico
+2020-07-09 13:28:17 info: 76 - Request method GET at path: /users/dashboard
+2020-07-09 13:28:17 info: 77 - Request method GET at path: /css/theme.css
+2020-07-09 13:28:17 info: 78 - Request method GET at path: /favicon.ico
+2020-07-09 13:28:23 info: 79 - Request method GET at path: //dashboard
+2020-07-09 13:28:23 info: 80 - Request method GET at path: /css/theme.css
+2020-07-09 13:28:23 info: 81 - Request method GET at path: /favicon.ico
+2020-07-09 13:28:29 info: 82 - Request method GET at path: /dashboard
+2020-07-09 13:28:29 info: 83 - Request method GET at path: /css/theme.css
+2020-07-09 13:28:29 info: 84 - Request method GET at path: /favicon.ico
+2020-07-09 14:59:31 info: logger setup and running
+2020-07-09 14:59:31 info: Authentication required loaded
+2020-07-09 14:59:32 info: Database connected successfully
+2020-07-09 14:59:32 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2020-07-09 14:59:32 info: Middleware loaded
+2020-07-09 14:59:32 info: Routes in place
+2020-07-09 14:59:32 warn: Server started on port 80
+2020-07-09 14:59:42 info: 1 - Request method GET at path: /
+2020-07-09 14:59:43 info: 2 - Request method GET at path: /css/theme.css
+2020-07-09 14:59:43 info: 3 - Request method GET at path: /favicon.ico
+2020-07-09 14:59:47 info: 4 - Request method GET at path: /users/login
+2020-07-09 14:59:47 info: 5 - Request method GET at path: /css/theme.css
+2020-07-09 14:59:47 info: 6 - Request method GET at path: /favicon.ico
+2020-07-09 14:59:48 info: 7 - Request method POST at path: /users/login
+2020-07-09 14:59:49 info: 8 - Request method GET at path: /
+2020-07-09 14:59:49 info: 9 - Request method GET at path: /css/theme.css
+2020-07-09 14:59:49 info: 10 - Request method GET at path: /favicon.ico
+2020-07-09 14:59:51 info: 11 - Request method GET at path: /users/logout
+2020-07-09 14:59:51 info: 12 - Request method GET at path: /users/login
+2020-07-09 14:59:51 info: 13 - Request method GET at path: /css/theme.css
+2020-07-09 14:59:51 info: 14 - Request method GET at path: /favicon.ico
+2020-07-09 14:59:55 info: 15 - Request method GET at path: /
+2020-07-09 14:59:55 info: 16 - Request method GET at path: /css/theme.css
+2020-07-09 14:59:55 info: 17 - Request method GET at path: /favicon.ico
