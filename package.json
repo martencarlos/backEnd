@@ -25,7 +25,6 @@
     "express-session": "*",
     "express-validator": "*",
     "jquery": "^3.3.1",
-    "method-override": "^3.0.0",
     "mongodb": "*",
     "mongoose": "^5.4.0",
     "node-dev": "^3.1.1",
@@ -33,6 +32,7 @@
     "passport-http": "*",
     "passport-local": "*",
     "path": "^0.12.7",
+    "serve-favicon": "^2.5.0",
     "winston": "^3.1.0",
     "winston-daily-rotate-file": "^3.5.1"
   },
