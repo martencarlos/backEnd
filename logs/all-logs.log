@@ -1241,3 +1241,23 @@ Error: ENOENT: no such file or directory, stat 'C:\Users\marte\OneDrive\Desktop\
 2018-12-23 18:29:24 info: Routes in place
 2018-12-23 18:29:24 warn: Server started on port 80
 >>>>>>> 693362b83b40cf25621935770ac058ee23d22a24
+2020-07-09 15:18:33 info: logger setup and running
+2020-07-09 15:18:33 info: Authentication required loaded
+2020-07-09 15:18:34 info: Database connected successfully
+2020-07-09 15:18:34 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2020-07-09 15:18:34 info: Middleware loaded
+2020-07-09 15:18:34 info: Routes in place
+2020-07-09 15:18:34 warn: Server started on port 80
+2020-07-09 15:18:38 info: 1 - Request method GET at path: /
+2020-07-09 15:18:38 info: 2 - Request method GET at path: /css/theme.css
+2020-07-09 15:18:38 info: 3 - Request method GET at path: /favicon.ico
+2020-07-09 15:18:53 info: 4 - Request method GET at path: /users/login
+2020-07-09 15:18:53 info: 5 - Request method GET at path: /css/theme.css
+2020-07-09 15:18:55 info: 6 - Request method POST at path: /users/login
+2020-07-09 15:18:55 info: 7 - Request method GET at path: /
+2020-07-09 15:18:55 info: 8 - Request method GET at path: /css/theme.css
+2020-07-09 15:18:58 info: 9 - Request method GET at path: /users/logout
+2020-07-09 15:18:58 info: 10 - Request method GET at path: /users/login
+2020-07-09 15:18:58 info: 11 - Request method GET at path: /css/theme.css
+2020-07-09 15:19:01 info: 12 - Request method GET at path: /
+2020-07-09 15:19:01 info: 13 - Request method GET at path: /css/theme.css
