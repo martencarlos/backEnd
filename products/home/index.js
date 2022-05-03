@@ -2,11 +2,9 @@
 var express = require('express');
 var router = express.Router();
 
-var logger = require('winston');
-  
+
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
-    logger.info('home');
 	res.render('auth-home');
 });
 

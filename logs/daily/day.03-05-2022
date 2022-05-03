@@ -1,0 +1,1708 @@
+2022-05-03 08:42:09 info: logger setup and running
+2022-05-03 08:42:09 info: Authentication required loaded
+2022-05-03 08:42:10 info: Database connected successfully
+2022-05-03 08:42:10 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 08:42:10 info: Middleware loaded
+2022-05-03 08:42:10 info: Routes in place
+2022-05-03 08:42:10 warn: Server started on port 80
+2022-05-03 08:54:01 info: logger setup and running
+2022-05-03 08:54:02 info: Authentication required loaded
+2022-05-03 08:54:02 info: Database connected successfully
+2022-05-03 08:54:02 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 08:54:02 info: Middleware loaded
+2022-05-03 08:54:02 info: Routes in place
+2022-05-03 08:54:02 warn: Server started on port 80
+2022-05-03 08:54:39 info: logger setup and running
+2022-05-03 08:54:39 info: Authentication required loaded
+2022-05-03 08:54:39 info: Database connected successfully
+2022-05-03 08:54:39 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 08:54:39 info: Middleware loaded
+2022-05-03 08:54:39 info: Routes in place
+2022-05-03 08:54:39 warn: Server started on port 80
+2022-05-03 08:55:24 info: logger setup and running
+2022-05-03 08:55:25 info: Authentication required loaded
+2022-05-03 08:55:25 info: Database connected successfully
+2022-05-03 08:55:25 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 08:55:25 info: Middleware loaded
+2022-05-03 08:55:25 info: Routes in place
+2022-05-03 08:55:25 warn: Server started on port 80
+2022-05-03 09:11:31 info: logger setup and running
+2022-05-03 09:11:31 info: Authentication required loaded
+2022-05-03 09:11:31 info: Database connected successfully
+2022-05-03 09:11:31 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 09:11:31 info: Middleware loaded
+2022-05-03 09:11:31 info: Routes in place
+2022-05-03 09:11:32 warn: Server started on port 80
+2022-05-03 09:16:16 info: logger setup and running
+2022-05-03 09:16:16 info: Authentication required loaded
+2022-05-03 09:16:17 info: Database connected successfully
+2022-05-03 09:16:17 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 09:16:17 info: Middleware loaded
+2022-05-03 09:16:17 info: Routes in place
+2022-05-03 09:16:17 warn: Server started on port 80
+2022-05-03 09:16:52 info: logger setup and running
+2022-05-03 09:16:53 info: Authentication required loaded
+2022-05-03 09:16:53 info: Database connected successfully
+2022-05-03 09:16:53 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 09:16:53 info: Middleware loaded
+2022-05-03 09:16:53 info: Routes in place
+2022-05-03 09:16:53 warn: Server started on port 80
+2022-05-03 09:37:01 info: logger setup and running
+2022-05-03 09:37:01 info: Authentication required loaded
+2022-05-03 09:37:02 info: Database connected successfully
+2022-05-03 09:37:02 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 09:37:02 info: Middleware loaded
+2022-05-03 09:37:02 info: Routes in place
+2022-05-03 09:37:02 warn: Server started on port 80
+2022-05-03 09:37:24 info: 1 - Request method GET at path: /
+2022-05-03 09:37:24 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 09:37:25 info: 3 - Request method GET at path: /favicon.ico
+2022-05-03 09:37:26 info: 4 - Request method GET at path: /users/login
+2022-05-03 09:37:26 info: 5 - Request method GET at path: /css/theme.css
+2022-05-03 09:37:28 info: 6 - Request method POST at path: /users/login
+2022-05-03 09:37:28 info: 7 - Request method GET at path: /users/login
+2022-05-03 09:37:28 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 09:37:30 info: 9 - Request method GET at path: /users/register
+2022-05-03 09:37:30 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 09:37:55 info: 11 - Request method POST at path: /users/register
+2022-05-03 09:37:55 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 09:39:28 info: 13 - Request method GET at path: /
+2022-05-03 09:39:29 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 09:39:30 info: 15 - Request method GET at path: /
+2022-05-03 09:39:30 info: 16 - Request method GET at path: /css/theme.css
+2022-05-03 09:39:32 info: 17 - Request method GET at path: /users/login
+2022-05-03 09:39:32 info: 18 - Request method GET at path: /css/theme.css
+2022-05-03 09:39:38 info: 19 - Request method POST at path: /users/login
+2022-05-03 09:39:38 info: 20 - Request method GET at path: /users/login
+2022-05-03 09:39:38 info: 21 - Request method GET at path: /css/theme.css
+2022-05-03 09:39:46 info: 22 - Request method GET at path: /users/register
+2022-05-03 09:39:46 info: 23 - Request method GET at path: /css/theme.css
+2022-05-03 09:39:52 info: 24 - Request method GET at path: /users/register
+2022-05-03 09:39:52 info: 25 - Request method GET at path: /css/theme.css
+2022-05-03 09:39:52 info: 26 - Request method GET at path: /users/login
+2022-05-03 09:39:52 info: 27 - Request method GET at path: /css/theme.css
+2022-05-03 09:39:53 info: 28 - Request method POST at path: /users/login
+2022-05-03 09:39:53 info: 29 - Request method GET at path: /users/login
+2022-05-03 09:39:53 info: 30 - Request method GET at path: /css/theme.css
+2022-05-03 09:57:50 info: logger setup and running
+2022-05-03 09:57:50 info: Authentication required loaded
+2022-05-03 09:57:51 info: Database connected successfully
+2022-05-03 09:57:51 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 09:57:51 info: Middleware loaded
+2022-05-03 09:57:51 info: Routes in place
+2022-05-03 09:57:51 warn: Server started on port 80
+2022-05-03 09:58:07 info: 1 - Request method GET at path: /
+2022-05-03 09:58:07 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 09:58:09 info: 3 - Request method GET at path: /users/register
+2022-05-03 09:58:09 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 09:58:16 info: 5 - Request method POST at path: /users/register
+2022-05-03 09:58:17 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 10:09:42 info: logger setup and running
+2022-05-03 10:09:42 info: Authentication required loaded
+2022-05-03 10:09:42 info: Database connected successfully
+2022-05-03 10:09:42 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 10:09:42 info: Middleware loaded
+2022-05-03 10:09:42 info: Routes in place
+2022-05-03 10:09:42 warn: Server started on port 80
+2022-05-03 10:09:52 info: 1 - Request method GET at path: /
+2022-05-03 10:09:52 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 10:09:54 info: 3 - Request method GET at path: /users/login
+2022-05-03 10:09:54 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 10:09:57 info: 5 - Request method POST at path: /users/login
+2022-05-03 10:09:57 info: 6 - Request method GET at path: /users/login
+2022-05-03 10:09:57 info: 7 - Request method GET at path: /css/theme.css
+2022-05-03 10:09:59 info: 8 - Request method GET at path: /users/register
+2022-05-03 10:09:59 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 10:10:05 info: 10 - Request method POST at path: /users/register
+2022-05-03 10:10:05 info: 11 - Request method GET at path: /css/theme.css
+2022-05-03 10:11:54 info: logger setup and running
+2022-05-03 10:11:55 info: Authentication required loaded
+2022-05-03 10:11:55 info: Database connected successfully
+2022-05-03 10:11:55 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 10:11:55 info: Middleware loaded
+2022-05-03 10:11:55 info: Routes in place
+2022-05-03 10:11:55 warn: Server started on port 80
+2022-05-03 10:12:50 info: logger setup and running
+2022-05-03 10:12:51 info: Authentication required loaded
+2022-05-03 10:12:51 info: Database connected successfully
+2022-05-03 10:12:51 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 10:12:51 info: Middleware loaded
+2022-05-03 10:12:51 info: Routes in place
+2022-05-03 10:12:51 warn: Server started on port 80
+2022-05-03 10:13:04 info: logger setup and running
+2022-05-03 10:13:04 info: Authentication required loaded
+2022-05-03 10:13:05 info: mongodb+srv://admin:admin89@cluster0.ef7sv.mongodb.net/appdb?retryWrites=true&w=majority
+2022-05-03 10:13:05 info: Database connected successfully
+2022-05-03 10:13:05 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 10:13:05 info: Middleware loaded
+2022-05-03 10:13:05 info: Routes in place
+2022-05-03 10:13:05 warn: Server started on port 80
+2022-05-03 10:16:17 info: logger setup and running
+2022-05-03 10:16:17 info: Authentication required loaded
+2022-05-03 10:16:18 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 10:16:18 info: Middleware loaded
+2022-05-03 10:16:18 info: Routes in place
+2022-05-03 10:16:18 warn: Server started on port 80
+2022-05-03 10:16:18 info: Database connected successfully
+2022-05-03 11:51:32 info: logger setup and running
+2022-05-03 11:51:32 info: Authentication required loaded
+2022-05-03 11:51:33 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 11:51:33 info: Middleware loaded
+2022-05-03 11:51:33 info: Routes in place
+2022-05-03 11:51:33 warn: Server started on port 80
+2022-05-03 11:51:33 info: Database connected successfully
+2022-05-03 11:51:42 info: 1 - Request method GET at path: /
+2022-05-03 11:51:42 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 11:51:43 info: 3 - Request method GET at path: /users/register
+2022-05-03 11:51:43 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 11:52:06 info: 5 - Request method POST at path: /users/register
+2022-05-03 11:52:07 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 11:54:20 info: logger setup and running
+2022-05-03 11:54:20 info: Authentication required loaded
+2022-05-03 11:54:21 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 11:54:21 info: Middleware loaded
+2022-05-03 11:54:21 info: Routes in place
+2022-05-03 11:54:21 warn: Server started on port 80
+2022-05-03 11:54:21 info: Database connected successfully
+2022-05-03 11:54:32 info: 1 - Request method GET at path: /users/register
+2022-05-03 11:54:43 info: 2 - Request method POST at path: /users/register
+2022-05-03 11:54:43 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 12:08:05 info: logger setup and running
+2022-05-03 12:08:05 info: Authentication required loaded
+2022-05-03 12:08:05 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 12:08:05 info: Middleware loaded
+2022-05-03 12:08:05 info: Routes in place
+2022-05-03 12:08:05 warn: Server started on port 80
+2022-05-03 12:08:06 info: Database connected successfully
+2022-05-03 12:09:23 info: logger setup and running
+2022-05-03 12:09:23 info: Authentication required loaded
+2022-05-03 12:09:24 info: C:\Users\Administrator\Desktop\web\basicApp\views\layouts\partials
+2022-05-03 12:09:24 info: Middleware loaded
+2022-05-03 12:09:24 info: Routes in place
+2022-05-03 12:09:24 warn: Server started on port 80
+2022-05-03 12:09:24 info: Database connected successfully
+2022-05-03 12:10:43 info: logger setup and running
+2022-05-03 12:10:44 info: Authentication required loaded
+2022-05-03 12:10:44 info: Middleware loaded
+2022-05-03 12:10:44 info: Database connected successfully
+2022-05-03 12:11:25 info: logger setup and running
+2022-05-03 12:11:26 info: Authentication required loaded
+2022-05-03 12:11:26 info: Middleware loaded
+2022-05-03 12:11:27 info: Database connected successfully
+2022-05-03 12:11:57 info: logger setup and running
+2022-05-03 12:11:57 info: Authentication required loaded
+2022-05-03 12:11:58 info: Middleware loaded
+2022-05-03 12:11:58 info: Database connected successfully
+2022-05-03 12:12:53 info: logger setup and running
+2022-05-03 12:12:53 info: Authentication required loaded
+2022-05-03 12:12:54 info: Middleware loaded
+2022-05-03 12:12:54 info: Routes in place
+2022-05-03 12:12:54 warn: Server started on port 80
+2022-05-03 12:12:54 info: Database connected successfully
+2022-05-03 12:13:08 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:13:16 info: 2 - Request method GET at path: /
+2022-05-03 12:13:31 info: 3 - Request method GET at path: /
+2022-05-03 12:13:31 info: 4 - Request method GET at path: /favicon.ico
+2022-05-03 12:13:34 info: 5 - Request method GET at path: /
+2022-05-03 12:13:35 info: 6 - Request method GET at path: /
+2022-05-03 12:14:48 info: logger setup and running
+2022-05-03 12:14:48 info: Authentication required loaded
+2022-05-03 12:14:48 info: Middleware loaded
+2022-05-03 12:14:48 info: Routes in place
+2022-05-03 12:14:48 warn: Server started on port 80
+2022-05-03 12:14:49 info: Database connected successfully
+2022-05-03 12:14:52 info: 1 - Request method GET at path: /
+2022-05-03 12:14:53 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:14:54 info: 3 - Request method GET at path: /users/register
+2022-05-03 12:14:54 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:14:58 info: 5 - Request method POST at path: /users/register
+2022-05-03 12:14:58 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 12:16:00 info: logger setup and running
+2022-05-03 12:16:00 info: Authentication required loaded
+2022-05-03 12:16:01 info: Middleware loaded
+2022-05-03 12:16:01 info: Routes in place
+2022-05-03 12:16:01 warn: Server started on port 80
+2022-05-03 12:16:02 info: Database connected successfully
+2022-05-03 12:16:05 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:16:08 info: 2 - Request method POST at path: /users/register
+2022-05-03 12:16:08 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 12:19:00 info: logger setup and running
+2022-05-03 12:19:00 info: Authentication required loaded
+2022-05-03 12:19:01 info: Middleware loaded
+2022-05-03 12:19:01 info: Routes in place
+2022-05-03 12:19:01 warn: Server started on port 80
+2022-05-03 12:19:01 info: Database connected successfully
+2022-05-03 12:19:07 info: 1 - Request method POST at path: /users/register
+2022-05-03 12:19:07 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:25:17 info: logger setup and running
+2022-05-03 12:25:17 info: Authentication required loaded
+2022-05-03 12:25:17 info: Middleware loaded
+2022-05-03 12:25:17 info: Routes in place
+2022-05-03 12:25:17 warn: Server started on port 80
+2022-05-03 12:25:18 info: Database connected successfully
+2022-05-03 12:25:23 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:25:23 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:25:28 info: 3 - Request method POST at path: /users/register
+2022-05-03 12:25:28 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:27:03 info: logger setup and running
+2022-05-03 12:27:03 info: Authentication required loaded
+2022-05-03 12:27:04 info: Middleware loaded
+2022-05-03 12:27:04 info: Routes in place
+2022-05-03 12:27:04 warn: Server started on port 80
+2022-05-03 12:27:04 info: Database connected successfully
+2022-05-03 12:27:09 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:27:09 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:27:14 info: 3 - Request method POST at path: /users/register
+2022-05-03 12:27:15 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:33:37 info: logger setup and running
+2022-05-03 12:33:37 info: Authentication required loaded
+2022-05-03 12:33:38 info: Middleware loaded
+2022-05-03 12:33:38 info: Routes in place
+2022-05-03 12:33:38 warn: Server started on port 80
+2022-05-03 12:33:38 info: Database connected successfully
+2022-05-03 12:33:42 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:33:42 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:33:46 info: 3 - Request method POST at path: /users/register
+2022-05-03 12:33:46 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:34:24 info: logger setup and running
+2022-05-03 12:34:24 info: Authentication required loaded
+2022-05-03 12:34:24 info: Middleware loaded
+2022-05-03 12:34:24 info: Routes in place
+2022-05-03 12:34:24 warn: Server started on port 80
+2022-05-03 12:34:25 info: Database connected successfully
+2022-05-03 12:34:29 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:34:29 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:34:34 info: 3 - Request method POST at path: /users/register
+2022-05-03 12:34:34 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:36:54 info: logger setup and running
+2022-05-03 12:36:54 info: Authentication required loaded
+2022-05-03 12:36:55 info: Middleware loaded
+2022-05-03 12:36:55 info: Routes in place
+2022-05-03 12:36:55 warn: Server started on port 80
+2022-05-03 12:36:55 info: Database connected successfully
+2022-05-03 12:37:09 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:37:09 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:37:13 info: 3 - Request method POST at path: /users/register
+2022-05-03 12:37:13 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:42:22 info: logger setup and running
+2022-05-03 12:42:23 info: Authentication required loaded
+2022-05-03 12:42:23 info: Middleware loaded
+2022-05-03 12:42:23 info: Routes in place
+2022-05-03 12:42:23 warn: Server started on port 80
+2022-05-03 12:42:24 info: Database connected successfully
+2022-05-03 12:43:03 info: logger setup and running
+2022-05-03 12:43:03 info: Authentication required loaded
+2022-05-03 12:43:04 info: Middleware loaded
+2022-05-03 12:43:04 info: Routes in place
+2022-05-03 12:43:04 warn: Server started on port 80
+2022-05-03 12:43:04 info: Database connected successfully
+2022-05-03 12:43:11 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:43:11 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:43:15 info: 3 - Request method POST at path: /users/register
+2022-05-03 12:43:15 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:52:13 info: logger setup and running
+2022-05-03 12:52:14 info: Authentication required loaded
+2022-05-03 12:52:15 info: Middleware loaded
+2022-05-03 12:52:15 info: Routes in place
+2022-05-03 12:52:15 warn: Server started on port 80
+2022-05-03 12:52:16 info: logger setup and running
+2022-05-03 12:52:16 info: Authentication required loaded
+2022-05-03 12:52:17 info: Middleware loaded
+2022-05-03 12:52:17 info: Routes in place
+2022-05-03 12:52:17 warn: Server started on port 80
+2022-05-03 12:52:17 info: Database connected successfully
+2022-05-03 12:53:32 info: 1 - Request method GET at path: /
+2022-05-03 12:53:33 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:53:34 info: 3 - Request method GET at path: /
+2022-05-03 12:53:34 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:54:30 info: logger setup and running
+2022-05-03 12:54:30 info: Authentication required loaded
+2022-05-03 12:54:31 info: Middleware loaded
+2022-05-03 12:54:31 info: Routes in place
+2022-05-03 12:54:31 warn: Server started on port 80
+2022-05-03 12:54:32 info: Database connected successfully
+2022-05-03 12:54:36 info: 1 - Request method GET at path: /users/login
+2022-05-03 12:54:36 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:54:38 info: 3 - Request method POST at path: /users/login
+2022-05-03 12:54:38 info: 4 - Request method GET at path: /users/login
+2022-05-03 12:54:38 info: 5 - Request method GET at path: /css/theme.css
+2022-05-03 12:54:40 info: 6 - Request method GET at path: /users/register
+2022-05-03 12:54:40 info: 7 - Request method GET at path: /css/theme.css
+2022-05-03 12:54:44 info: 8 - Request method POST at path: /users/register
+2022-05-03 12:54:44 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 12:56:35 info: logger setup and running
+2022-05-03 12:56:35 info: Authentication required loaded
+2022-05-03 12:56:36 info: Middleware loaded
+2022-05-03 12:56:36 info: Routes in place
+2022-05-03 12:56:36 warn: Server started on port 80
+2022-05-03 12:56:36 info: Database connected successfully
+2022-05-03 12:56:42 info: 1 - Request method GET at path: /users/register
+2022-05-03 12:56:42 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 12:56:46 info: 3 - Request method POST at path: /users/register
+2022-05-03 12:56:46 info: Not foundadf
+2022-05-03 12:56:46 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 12:57:07 info: logger setup and running
+2022-05-03 12:57:07 info: Authentication required loaded
+2022-05-03 12:57:08 info: Middleware loaded
+2022-05-03 12:57:08 info: Routes in place
+2022-05-03 12:57:08 warn: Server started on port 80
+2022-05-03 12:57:09 info: Database connected successfully
+2022-05-03 13:41:10 info: logger setup and running
+2022-05-03 13:41:11 info: Authentication required loaded
+2022-05-03 13:41:11 info: Middleware loaded
+2022-05-03 13:41:11 info: Routes in place
+2022-05-03 13:41:11 warn: Server started on port 80
+2022-05-03 13:41:12 info: Database connected successfully
+2022-05-03 13:47:50 info: logger setup and running
+2022-05-03 13:47:50 info: Authentication required loaded
+2022-05-03 13:47:51 info: Middleware loaded
+2022-05-03 13:47:51 info: Routes in place
+2022-05-03 13:47:51 warn: Server started on port 80
+2022-05-03 13:47:51 info: Database connected successfully
+2022-05-03 13:47:56 info: logger setup and running
+2022-05-03 13:47:57 info: Authentication required loaded
+2022-05-03 13:47:57 info: Middleware loaded
+2022-05-03 13:47:57 info: Routes in place
+2022-05-03 13:47:57 warn: Server started on port 80
+2022-05-03 13:47:58 info: Database connected successfully
+2022-05-03 13:48:06 info: 1 - Request method GET at path: /users/register
+2022-05-03 13:48:06 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 13:48:12 info: 3 - Request method POST at path: /users/register
+2022-05-03 13:48:12 info: Not found
+2022-05-03 13:48:12 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 13:50:24 info: logger setup and running
+2022-05-03 13:50:25 info: Authentication required loaded
+2022-05-03 13:50:25 info: Middleware loaded
+2022-05-03 13:50:25 info: Routes in place
+2022-05-03 13:50:25 warn: Server started on port 80
+2022-05-03 13:50:26 info: Database connected successfully
+2022-05-03 13:53:45 info: logger setup and running
+2022-05-03 13:53:46 info: Authentication required loaded
+2022-05-03 13:53:47 info: Middleware loaded
+2022-05-03 13:53:47 info: Routes in place
+2022-05-03 13:53:47 warn: Server started on port 80
+2022-05-03 13:53:48 info: logger setup and running
+2022-05-03 13:53:48 info: Authentication required loaded
+2022-05-03 13:53:49 info: Middleware loaded
+2022-05-03 13:53:49 info: Routes in place
+2022-05-03 13:53:49 warn: Server started on port 80
+2022-05-03 13:53:49 info: Database connected successfully
+2022-05-03 13:53:56 info: 1 - Request method GET at path: /users/register
+2022-05-03 13:53:56 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 13:54:15 info: 3 - Request method POST at path: /users/register
+2022-05-03 13:54:15 info: Not found
+2022-05-03 13:54:15 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 13:57:33 info: 5 - Request method GET at path: /users
+2022-05-03 13:57:33 info: Not found
+2022-05-03 13:57:33 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 13:57:40 info: 7 - Request method GET at path: /
+2022-05-03 13:57:40 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 13:57:43 info: 9 - Request method GET at path: /users/register
+2022-05-03 13:57:43 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 13:59:22 info: 11 - Request method GET at path: /
+2022-05-03 13:59:22 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 13:59:45 info: 13 - Request method GET at path: /users/login
+2022-05-03 13:59:45 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 14:05:55 info: logger setup and running
+2022-05-03 14:05:55 info: Authentication required loaded
+2022-05-03 14:05:56 info: Middleware loaded
+2022-05-03 14:05:56 info: Routes in place
+2022-05-03 14:05:56 warn: Server started on port 80
+2022-05-03 14:05:57 info: Database connected successfully
+2022-05-03 14:06:00 info: 1 - Request method GET at path: /users/register
+2022-05-03 14:06:00 info: rendering register
+2022-05-03 14:06:00 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 14:06:34 info: logger setup and running
+2022-05-03 14:06:35 info: Authentication required loaded
+2022-05-03 14:06:35 info: Middleware loaded
+2022-05-03 14:06:35 info: Routes in place
+2022-05-03 14:06:36 warn: Server started on port 80
+2022-05-03 14:06:36 info: Database connected successfully
+2022-05-03 14:06:39 info: 1 - Request method GET at path: /users/register
+2022-05-03 14:06:39 info: rendering register
+2022-05-03 14:06:39 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 14:06:47 info: 3 - Request method POST at path: /users/register
+2022-05-03 14:06:47 info: entering post
+2022-05-03 14:06:47 info: 4 - Request method GET at path: /users/login
+2022-05-03 14:06:47 info: 5 - Request method GET at path: /css/theme.css
+2022-05-03 14:07:01 info: 6 - Request method POST at path: /users/login
+2022-05-03 14:07:01 info: 7 - Request method GET at path: /
+2022-05-03 14:07:01 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 14:07:08 info: 9 - Request method GET at path: /
+2022-05-03 14:07:08 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 14:07:10 info: 11 - Request method GET at path: /
+2022-05-03 14:07:10 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 14:07:11 info: 13 - Request method GET at path: /users/logout
+2022-05-03 14:07:11 info: 14 - Request method GET at path: /users/login
+2022-05-03 14:07:11 info: 15 - Request method GET at path: /css/theme.css
+2022-05-03 14:07:17 info: 16 - Request method POST at path: /users/login
+2022-05-03 14:07:17 info: 17 - Request method GET at path: /users/login
+2022-05-03 14:07:17 info: 18 - Request method GET at path: /css/theme.css
+2022-05-03 14:07:37 info: logger setup and running
+2022-05-03 14:07:37 info: Authentication required loaded
+2022-05-03 14:07:38 info: Middleware loaded
+2022-05-03 14:07:38 info: Routes in place
+2022-05-03 14:07:38 warn: Server started on port 80
+2022-05-03 14:07:38 info: Database connected successfully
+2022-05-03 14:08:35 info: 1 - Request method POST at path: /users/login
+2022-05-03 14:08:35 info: 2 - Request method GET at path: /
+2022-05-03 14:08:35 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 14:12:21 info: 4 - Request method GET at path: /
+2022-05-03 14:12:21 info: 5 - Request method GET at path: /css/theme.css
+2022-05-03 14:12:22 info: 6 - Request method GET at path: /
+2022-05-03 14:12:22 info: 7 - Request method GET at path: /css/theme.css
+2022-05-03 14:12:23 info: 8 - Request method GET at path: /
+2022-05-03 14:12:23 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 14:12:24 info: 10 - Request method GET at path: /
+2022-05-03 14:12:24 info: 11 - Request method GET at path: /css/theme.css
+2022-05-03 14:12:27 info: 12 - Request method GET at path: /users/logout
+2022-05-03 14:12:27 info: 13 - Request method GET at path: /users/login
+2022-05-03 14:12:27 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 14:19:08 info: logger setup and running
+2022-05-03 14:19:08 info: Authentication required loaded
+2022-05-03 14:19:09 info: Middleware loaded
+2022-05-03 14:19:09 info: Routes in place
+2022-05-03 14:19:09 warn: Server started on port 80
+2022-05-03 14:19:09 info: Database connected successfully
+2022-05-03 14:20:14 info: logger setup and running
+2022-05-03 14:20:14 info: Authentication required loaded
+2022-05-03 14:20:14 info: Middleware loaded
+2022-05-03 14:20:14 info: Routes in place
+2022-05-03 14:20:14 warn: Server started on port 80
+2022-05-03 14:20:21 info: 1 - Request method POST at path: /users/login
+2022-05-03 14:20:25 info: 2 - Request method POST at path: /users/login
+2022-05-03 14:20:27 info: 3 - Request method GET at path: /users/login
+2022-05-03 14:20:27 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:28 info: 5 - Request method POST at path: /users/login
+2022-05-03 14:20:30 info: 6 - Request method POST at path: /users/login
+2022-05-03 14:20:32 info: Database connected successfully
+2022-05-03 14:20:33 info: 7 - Request method GET at path: /
+2022-05-03 14:20:33 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:35 info: 9 - Request method GET at path: /users/logout
+2022-05-03 14:20:35 info: 10 - Request method GET at path: /users/login
+2022-05-03 14:20:36 info: 11 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:39 info: 12 - Request method POST at path: /users/login
+2022-05-03 14:20:40 info: 13 - Request method GET at path: /
+2022-05-03 14:20:40 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:42 info: 15 - Request method GET at path: /
+2022-05-03 14:20:42 info: 16 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:44 info: 17 - Request method GET at path: /users/logout
+2022-05-03 14:20:44 info: 18 - Request method GET at path: /users/login
+2022-05-03 14:20:44 info: 19 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:48 info: 20 - Request method POST at path: /users/login
+2022-05-03 14:20:48 info: 21 - Request method GET at path: /
+2022-05-03 14:20:48 info: 22 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:49 info: 23 - Request method GET at path: /users/logout
+2022-05-03 14:20:49 info: 24 - Request method GET at path: /users/login
+2022-05-03 14:20:50 info: 25 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:53 info: 26 - Request method POST at path: /users/login
+2022-05-03 14:20:53 info: 27 - Request method GET at path: /
+2022-05-03 14:20:53 info: 28 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:57 info: 29 - Request method GET at path: /
+2022-05-03 14:20:57 info: 30 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:58 info: 31 - Request method GET at path: /
+2022-05-03 14:20:58 info: 32 - Request method GET at path: /css/theme.css
+2022-05-03 14:20:59 info: 33 - Request method GET at path: /users/logout
+2022-05-03 14:20:59 info: 34 - Request method GET at path: /users/login
+2022-05-03 14:20:59 info: 35 - Request method GET at path: /css/theme.css
+2022-05-03 14:21:14 info: 36 - Request method POST at path: /users/login
+2022-05-03 14:21:14 info: 37 - Request method GET at path: /users/login
+2022-05-03 14:21:14 info: 38 - Request method GET at path: /css/theme.css
+2022-05-03 14:26:47 info: logger setup and running
+2022-05-03 14:26:47 info: Authentication required loaded
+2022-05-03 14:26:48 info: Middleware loaded
+2022-05-03 14:26:48 info: Routes in place
+2022-05-03 14:26:48 warn: Server started on port 80
+2022-05-03 14:26:48 info: Database connected successfully
+2022-05-03 14:26:54 info: 1 - Request method POST at path: /users/login
+2022-05-03 14:26:54 info: 2 - Request method GET at path: /
+2022-05-03 14:26:54 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 14:26:56 info: 4 - Request method GET at path: /users/logout
+2022-05-03 14:26:56 info: 5 - Request method GET at path: /users/login
+2022-05-03 14:26:56 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 14:27:02 info: 7 - Request method POST at path: /users/login
+2022-05-03 14:27:02 info: 8 - Request method GET at path: /users/login
+2022-05-03 14:27:02 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 14:27:07 info: 10 - Request method POST at path: /users/login
+2022-05-03 14:27:07 info: 11 - Request method GET at path: /users/login
+2022-05-03 14:27:07 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 14:27:12 info: 13 - Request method POST at path: /users/login
+2022-05-03 14:27:12 info: 14 - Request method GET at path: /users/login
+2022-05-03 14:27:12 info: 15 - Request method GET at path: /css/theme.css
+2022-05-03 14:27:30 info: 16 - Request method POST at path: /users/login
+2022-05-03 14:27:30 info: 17 - Request method GET at path: /users/login
+2022-05-03 14:27:31 info: 18 - Request method GET at path: /css/theme.css
+2022-05-03 14:27:34 info: 19 - Request method POST at path: /users/login
+2022-05-03 14:27:34 info: 20 - Request method GET at path: /users/login
+2022-05-03 14:27:35 info: 21 - Request method GET at path: /css/theme.css
+2022-05-03 14:38:24 info: logger setup and running
+2022-05-03 14:38:24 info: Authentication required loaded
+2022-05-03 14:38:25 info: Middleware loaded
+2022-05-03 14:38:25 info: Routes in place
+2022-05-03 14:38:25 warn: Server started on port 80
+2022-05-03 14:38:25 info: Database connected successfully
+2022-05-03 14:38:32 info: 1 - Request method POST at path: /users/login
+2022-05-03 14:38:32 info: 2 - Request method GET at path: /
+2022-05-03 14:38:32 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 14:38:34 info: 4 - Request method GET at path: /users/logout
+2022-05-03 14:38:34 info: 5 - Request method GET at path: /users/login
+2022-05-03 14:38:34 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 14:38:41 info: 7 - Request method POST at path: /users/login
+2022-05-03 14:38:41 info: 8 - Request method GET at path: /users/login
+2022-05-03 14:38:41 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 14:38:46 info: 10 - Request method POST at path: /users/login
+2022-05-03 14:38:46 info: 11 - Request method GET at path: /users/login
+2022-05-03 14:38:46 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 14:39:50 info: logger setup and running
+2022-05-03 14:39:50 info: Authentication required loaded
+2022-05-03 14:39:51 info: Middleware loaded
+2022-05-03 14:39:51 info: Routes in place
+2022-05-03 14:39:51 warn: Server started on port 80
+2022-05-03 14:39:51 info: Database connected successfully
+2022-05-03 14:39:58 info: 1 - Request method POST at path: /users/login
+2022-05-03 14:39:58 info: 2 - Request method GET at path: /users/login
+2022-05-03 14:40:38 info: logger setup and running
+2022-05-03 14:40:38 info: Authentication required loaded
+2022-05-03 14:40:38 info: Middleware loaded
+2022-05-03 14:40:39 info: Routes in place
+2022-05-03 14:40:39 warn: Server started on port 80
+2022-05-03 14:40:40 info: Database connected successfully
+2022-05-03 14:40:42 info: 1 - Request method GET at path: /users/login
+2022-05-03 14:40:42 info: undefined
+2022-05-03 14:40:42 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 14:40:47 info: 3 - Request method POST at path: /users/login
+2022-05-03 14:40:47 info: 4 - Request method GET at path: /users/login
+2022-05-03 14:40:47 info: Unknown User
+2022-05-03 14:40:47 info: 5 - Request method GET at path: /css/theme.css
+2022-05-03 14:44:34 info: logger setup and running
+2022-05-03 14:44:34 info: Authentication required loaded
+2022-05-03 14:44:35 info: Middleware loaded
+2022-05-03 14:44:35 info: Routes in place
+2022-05-03 14:44:35 warn: Server started on port 80
+2022-05-03 14:44:35 info: Database connected successfully
+2022-05-03 14:44:38 info: logger setup and running
+2022-05-03 14:44:38 info: Authentication required loaded
+2022-05-03 14:44:39 info: Middleware loaded
+2022-05-03 14:44:39 info: Routes in place
+2022-05-03 14:44:39 warn: Server started on port 80
+2022-05-03 14:44:42 info: 1 - Request method POST at path: /users/login
+2022-05-03 14:44:45 info: Database connected successfully
+2022-05-03 14:45:26 info: logger setup and running
+2022-05-03 14:45:26 info: Authentication required loaded
+2022-05-03 14:45:27 info: Middleware loaded
+2022-05-03 14:45:27 info: Routes in place
+2022-05-03 14:45:27 warn: Server started on port 80
+2022-05-03 14:45:28 info: Database connected successfully
+2022-05-03 14:45:32 info: 1 - Request method POST at path: /users/login
+2022-05-03 14:45:32 info: 2 - Request method GET at path: /
+2022-05-03 14:45:32 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 14:45:34 info: 4 - Request method GET at path: /users/logout
+2022-05-03 14:45:34 info: 5 - Request method GET at path: /users/login
+2022-05-03 14:45:34 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 14:45:36 info: 7 - Request method POST at path: /users/login
+2022-05-03 14:45:36 info: 8 - Request method GET at path: /
+2022-05-03 14:45:36 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 14:45:38 info: 10 - Request method GET at path: /users/logout
+2022-05-03 14:45:38 info: 11 - Request method GET at path: /users/login
+2022-05-03 14:45:38 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 14:45:43 info: 13 - Request method POST at path: /users/login
+2022-05-03 14:45:43 info: 14 - Request method GET at path: /users/login
+2022-05-03 14:45:43 info: 15 - Request method GET at path: /css/theme.css
+2022-05-03 14:46:39 info: logger setup and running
+2022-05-03 14:46:39 info: Authentication required loaded
+2022-05-03 14:46:40 info: Middleware loaded
+2022-05-03 14:46:40 info: Routes in place
+2022-05-03 14:46:40 warn: Server started on port 80
+2022-05-03 14:46:40 info: Database connected successfully
+2022-05-03 14:58:43 info: logger setup and running
+2022-05-03 14:58:44 info: Authentication required loaded
+2022-05-03 14:58:45 info: Middleware loaded
+2022-05-03 14:58:45 info: Routes in place
+2022-05-03 14:58:45 warn: Server started on port 80
+2022-05-03 14:58:46 info: logger setup and running
+2022-05-03 14:58:46 info: Authentication required loaded
+2022-05-03 14:58:46 info: Middleware loaded
+2022-05-03 14:58:46 info: Routes in place
+2022-05-03 14:58:46 warn: Server started on port 80
+2022-05-03 14:58:47 info: Database connected successfully
+2022-05-03 14:59:09 info: 1 - Request method POST at path: /users/login
+2022-05-03 14:59:09 info: 2 - Request method GET at path: /
+2022-05-03 14:59:09 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:11 info: 4 - Request method GET at path: /
+2022-05-03 14:59:11 info: 5 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:12 info: 6 - Request method GET at path: /
+2022-05-03 14:59:13 info: 7 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:14 info: 8 - Request method GET at path: /users/logout
+2022-05-03 14:59:14 info: 9 - Request method GET at path: /users/login
+2022-05-03 14:59:14 info: undefined
+2022-05-03 14:59:14 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:20 info: 11 - Request method POST at path: /users/login
+2022-05-03 14:59:20 info: 12 - Request method GET at path: /users/login
+2022-05-03 14:59:20 info: undefined
+2022-05-03 14:59:20 info: 13 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:24 info: 14 - Request method POST at path: /users/login
+2022-05-03 14:59:24 info: 15 - Request method GET at path: /users/login
+2022-05-03 14:59:24 info: undefined
+2022-05-03 14:59:24 info: 16 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:29 info: 17 - Request method POST at path: /users/login
+2022-05-03 14:59:29 info: 18 - Request method GET at path: /users/login
+2022-05-03 14:59:29 info: undefined
+2022-05-03 14:59:30 info: 19 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:35 info: 20 - Request method POST at path: /users/login
+2022-05-03 14:59:35 info: 21 - Request method GET at path: /
+2022-05-03 14:59:35 info: 22 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:36 info: 23 - Request method GET at path: /users/logout
+2022-05-03 14:59:36 info: 24 - Request method GET at path: /users/login
+2022-05-03 14:59:36 info: undefined
+2022-05-03 14:59:36 info: 25 - Request method GET at path: /css/theme.css
+2022-05-03 14:59:40 info: 26 - Request method POST at path: /users/login
+2022-05-03 14:59:40 info: 27 - Request method GET at path: /users/login
+2022-05-03 14:59:40 info: undefined
+2022-05-03 14:59:41 info: 28 - Request method GET at path: /css/theme.css
+2022-05-03 15:00:08 info: logger setup and running
+2022-05-03 15:00:08 info: Authentication required loaded
+2022-05-03 15:00:09 info: Middleware loaded
+2022-05-03 15:00:09 info: Routes in place
+2022-05-03 15:00:09 warn: Server started on port 80
+2022-05-03 15:00:10 info: Database connected successfully
+2022-05-03 15:00:16 info: 1 - Request method POST at path: /users/login
+2022-05-03 15:00:16 info: 2 - Request method GET at path: /
+2022-05-03 15:00:17 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 15:00:18 info: 4 - Request method GET at path: /
+2022-05-03 15:00:18 info: 5 - Request method GET at path: /css/theme.css
+2022-05-03 15:00:19 info: 6 - Request method GET at path: /users/logout
+2022-05-03 15:00:19 info: 7 - Request method GET at path: /users/login
+2022-05-03 15:00:19 info: undefined
+2022-05-03 15:00:19 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 15:00:22 info: 9 - Request method POST at path: /users/login
+2022-05-03 15:00:22 info: 10 - Request method GET at path: /users/login
+2022-05-03 15:00:22 info: undefined
+2022-05-03 15:00:22 info: 11 - Request method GET at path: /css/theme.css
+2022-05-03 15:00:25 info: 12 - Request method POST at path: /users/login
+2022-05-03 15:00:25 info: 13 - Request method GET at path: /users/login
+2022-05-03 15:00:25 info: undefined
+2022-05-03 15:00:25 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 15:02:33 info: logger setup and running
+2022-05-03 15:02:33 info: Authentication required loaded
+2022-05-03 15:02:34 info: Middleware loaded
+2022-05-03 15:02:34 info: Routes in place
+2022-05-03 15:02:34 warn: Server started on port 80
+2022-05-03 15:02:34 info: Database connected successfully
+2022-05-03 15:02:39 info: 1 - Request method POST at path: /users/login
+2022-05-03 15:02:39 info: 2 - Request method GET at path: /users/login
+2022-05-03 15:02:39 info: undefined
+2022-05-03 15:02:39 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 15:03:27 info: logger setup and running
+2022-05-03 15:03:28 info: Authentication required loaded
+2022-05-03 15:03:28 info: Middleware loaded
+2022-05-03 15:03:28 info: Routes in place
+2022-05-03 15:03:28 warn: Server started on port 80
+2022-05-03 15:03:29 info: Database connected successfully
+2022-05-03 15:03:36 info: 1 - Request method POST at path: /users/login
+2022-05-03 15:03:36 info: 2 - Request method GET at path: /users/login
+2022-05-03 15:03:36 info: null
+2022-05-03 15:03:36 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 15:05:17 info: logger setup and running
+2022-05-03 15:05:17 info: Authentication required loaded
+2022-05-03 15:05:17 info: Middleware loaded
+2022-05-03 15:05:18 info: Routes in place
+2022-05-03 15:05:18 warn: Server started on port 80
+2022-05-03 15:05:18 info: Database connected successfully
+2022-05-03 15:05:20 info: 1 - Request method POST at path: /users/login
+2022-05-03 15:05:21 info: 2 - Request method GET at path: /
+2022-05-03 15:05:21 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 15:05:22 info: 4 - Request method GET at path: /users/logout
+2022-05-03 15:05:22 info: 5 - Request method GET at path: /users/login
+2022-05-03 15:05:22 info: undefined
+2022-05-03 15:05:22 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 15:05:24 info: 7 - Request method POST at path: /users/login
+2022-05-03 15:05:24 info: 8 - Request method GET at path: /users/login
+2022-05-03 15:05:24 info: undefined
+2022-05-03 15:05:24 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 15:05:55 info: logger setup and running
+2022-05-03 15:05:55 info: Authentication required loaded
+2022-05-03 15:05:56 info: Middleware loaded
+2022-05-03 15:05:56 info: Routes in place
+2022-05-03 15:05:56 warn: Server started on port 80
+2022-05-03 15:05:57 info: Database connected successfully
+2022-05-03 15:06:00 info: 1 - Request method POST at path: /users/login
+2022-05-03 15:06:00 info: 2 - Request method GET at path: /users/login
+2022-05-03 15:06:00 info: undefined
+2022-05-03 15:06:00 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 15:06:33 info: 4 - Request method POST at path: /users/login
+2022-05-03 15:06:33 info: 5 - Request method GET at path: /users/login
+2022-05-03 15:06:33 info: undefined
+2022-05-03 15:06:33 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 15:06:38 info: logger setup and running
+2022-05-03 15:06:39 info: Authentication required loaded
+2022-05-03 15:06:39 info: Middleware loaded
+2022-05-03 15:06:39 info: Routes in place
+2022-05-03 15:06:39 warn: Server started on port 80
+2022-05-03 15:06:40 info: Database connected successfully
+2022-05-03 15:06:43 info: 1 - Request method POST at path: /users/login
+2022-05-03 15:06:43 info: 2 - Request method GET at path: /users/login
+2022-05-03 15:06:43 info: undefined
+2022-05-03 15:06:43 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 15:07:20 info: logger setup and running
+2022-05-03 15:07:20 info: Authentication required loaded
+2022-05-03 15:07:21 info: Middleware loaded
+2022-05-03 15:07:21 info: Routes in place
+2022-05-03 15:07:21 warn: Server started on port 80
+2022-05-03 15:07:21 info: Database connected successfully
+2022-05-03 15:07:26 info: 1 - Request method POST at path: /users/login
+2022-05-03 15:07:26 info: 2 - Request method GET at path: /
+2022-05-03 15:07:26 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 15:07:33 info: 4 - Request method GET at path: /users/logout
+2022-05-03 15:07:33 info: 5 - Request method GET at path: /users/login
+2022-05-03 15:07:33 info: rendering loggin in
+2022-05-03 15:07:33 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 15:07:39 info: 7 - Request method POST at path: /users/login
+2022-05-03 15:07:39 info: 8 - Request method GET at path: /users/login
+2022-05-03 15:07:39 info: rendering loggin in
+2022-05-03 15:07:39 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 15:55:04 info: 10 - Request method POST at path: /users/login
+2022-05-03 15:55:04 info: 11 - Request method GET at path: /users/login
+2022-05-03 15:55:04 info: rendering loggin in
+2022-05-03 15:55:04 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 15:58:54 info: logger setup and running
+2022-05-03 15:58:54 info: Authentication required loaded
+2022-05-03 15:58:55 info: Middleware loaded
+2022-05-03 15:58:55 info: Routes in place
+2022-05-03 15:58:55 warn: Server started on port 80
+2022-05-03 15:58:56 info: Database connected successfully
+2022-05-03 15:58:58 info: logger setup and running
+2022-05-03 15:58:58 info: Authentication required loaded
+2022-05-03 15:58:58 info: Middleware loaded
+2022-05-03 15:58:58 info: Routes in place
+2022-05-03 15:58:58 warn: Server started on port 80
+2022-05-03 15:58:59 info: Database connected successfully
+2022-05-03 15:59:27 info: logger setup and running
+2022-05-03 15:59:27 info: Authentication required loaded
+2022-05-03 15:59:28 info: Middleware loaded
+2022-05-03 15:59:28 info: Routes in place
+2022-05-03 15:59:28 warn: Server started on port 80
+2022-05-03 15:59:28 info: Database connected successfully
+2022-05-03 15:59:33 info: 1 - Request method POST at path: /users/login
+2022-05-03 15:59:34 info: 2 - Request method GET at path: /
+2022-05-03 15:59:34 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 15:59:35 info: 4 - Request method GET at path: /users/logout
+2022-05-03 15:59:35 info: 5 - Request method GET at path: /users/login
+2022-05-03 15:59:35 info: rendering loggin in
+2022-05-03 15:59:35 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 15:59:38 info: 7 - Request method POST at path: /users/login
+2022-05-03 15:59:38 info: incorrect username
+2022-05-03 15:59:39 info: 8 - Request method GET at path: /users/login
+2022-05-03 15:59:39 info: rendering loggin in
+2022-05-03 15:59:39 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 16:54:48 info: 10 - Request method POST at path: /users/login
+2022-05-03 16:54:48 info: incorrect username
+2022-05-03 16:54:48 info: 11 - Request method GET at path: /users/login
+2022-05-03 16:54:48 info: rendering loggin in
+2022-05-03 16:54:49 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 16:58:24 info: 13 - Request method GET at path: /users/register
+2022-05-03 16:58:24 info: rendering register
+2022-05-03 16:58:24 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 16:58:29 info: 15 - Request method POST at path: /users/register
+2022-05-03 16:58:29 info: entering post
+2022-05-03 16:58:29 info: 16 - Request method GET at path: /users/login
+2022-05-03 16:58:29 info: rendering loggin in
+2022-05-03 16:58:29 info: 17 - Request method GET at path: /css/theme.css
+2022-05-03 16:58:33 info: 18 - Request method POST at path: /users/login
+2022-05-03 16:58:33 info: 19 - Request method GET at path: /
+2022-05-03 16:58:33 info: 20 - Request method GET at path: /css/theme.css
+2022-05-03 16:58:35 info: 21 - Request method GET at path: /users/logout
+2022-05-03 16:58:35 info: 22 - Request method GET at path: /users/login
+2022-05-03 16:58:35 info: rendering loggin in
+2022-05-03 16:58:35 info: 23 - Request method GET at path: /css/theme.css
+2022-05-03 16:59:28 info: 24 - Request method POST at path: /users/login
+2022-05-03 16:59:28 info: 25 - Request method GET at path: /
+2022-05-03 16:59:28 info: 26 - Request method GET at path: /css/theme.css
+2022-05-03 16:59:30 info: 27 - Request method GET at path: /
+2022-05-03 16:59:30 info: 28 - Request method GET at path: /css/theme.css
+2022-05-03 16:59:31 info: 29 - Request method GET at path: /
+2022-05-03 16:59:31 info: 30 - Request method GET at path: /css/theme.css
+2022-05-03 16:59:32 info: 31 - Request method GET at path: /users/logout
+2022-05-03 16:59:32 info: 32 - Request method GET at path: /users/login
+2022-05-03 16:59:32 info: rendering loggin in
+2022-05-03 16:59:32 info: 33 - Request method GET at path: /css/theme.css
+2022-05-03 17:00:34 info: logger setup and running
+2022-05-03 17:00:34 info: Authentication required loaded
+2022-05-03 17:00:35 info: Middleware loaded
+2022-05-03 17:00:35 info: Routes in place
+2022-05-03 17:00:35 warn: Server started on port 80
+2022-05-03 17:00:37 info: logger setup and running
+2022-05-03 17:00:37 info: Authentication required loaded
+2022-05-03 17:00:38 info: Middleware loaded
+2022-05-03 17:00:38 info: Routes in place
+2022-05-03 17:00:38 warn: Server started on port 80
+2022-05-03 17:00:38 info: Database connected successfully
+2022-05-03 17:00:50 info: logger setup and running
+2022-05-03 17:00:50 info: Authentication required loaded
+2022-05-03 17:00:51 info: Middleware loaded
+2022-05-03 17:00:51 info: Routes in place
+2022-05-03 17:00:51 warn: Server started on port 80
+2022-05-03 17:00:51 info: Database connected successfully
+2022-05-03 17:01:01 info: 1 - Request method POST at path: /users/login
+2022-05-03 17:01:01 info: incorrect username
+2022-05-03 17:01:01 info: 2 - Request method GET at path: /users/login
+2022-05-03 17:01:01 info: rendering loggin in
+2022-05-03 17:01:01 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 17:06:43 info: logger setup and running
+2022-05-03 17:06:43 info: Authentication required loaded
+2022-05-03 17:06:44 info: Middleware loaded
+2022-05-03 17:06:44 info: Routes in place
+2022-05-03 17:06:44 warn: Server started on port 80
+2022-05-03 17:06:44 info: Database connected successfully
+2022-05-03 17:06:55 info: 1 - Request method POST at path: /users/login
+2022-05-03 17:06:55 info: incorrect username
+2022-05-03 17:06:55 info: 2 - Request method GET at path: /users/login
+2022-05-03 17:06:55 info: rendering loggin in
+2022-05-03 17:06:55 info: undefined
+2022-05-03 17:06:56 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 17:15:17 info: logger setup and running
+2022-05-03 17:15:18 info: Authentication required loaded
+2022-05-03 17:15:19 info: Middleware loaded
+2022-05-03 17:15:19 info: Routes in place
+2022-05-03 17:15:19 warn: Server started on port 80
+2022-05-03 17:15:19 info: Database connected successfully
+2022-05-03 17:15:26 info: 1 - Request method POST at path: /users/login
+2022-05-03 17:15:26 info: incorrect username
+2022-05-03 17:15:26 info: 2 - Request method GET at path: /users/login
+2022-05-03 17:15:26 info: rendering loggin in
+2022-05-03 17:22:58 info: logger setup and running
+2022-05-03 17:22:58 info: Authentication required loaded
+2022-05-03 17:22:59 info: Middleware loaded
+2022-05-03 17:22:59 info: Routes in place
+2022-05-03 17:22:59 warn: Server started on port 80
+2022-05-03 17:22:59 info: Database connected successfully
+2022-05-03 17:23:15 info: 1 - Request method GET at path: /
+2022-05-03 17:23:16 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 17:23:18 info: 3 - Request method GET at path: /users/login
+2022-05-03 17:23:18 info: rendering loggin in
+2022-05-03 17:23:47 info: logger setup and running
+2022-05-03 17:23:47 info: Authentication required loaded
+2022-05-03 17:23:48 info: Middleware loaded
+2022-05-03 17:23:48 info: Routes in place
+2022-05-03 17:23:48 warn: Server started on port 80
+2022-05-03 17:23:48 info: Database connected successfully
+2022-05-03 17:24:42 info: logger setup and running
+2022-05-03 17:24:42 info: Authentication required loaded
+2022-05-03 17:24:43 info: Middleware loaded
+2022-05-03 17:24:43 info: Routes in place
+2022-05-03 17:24:43 warn: Server started on port 80
+2022-05-03 17:24:43 info: Database connected successfully
+2022-05-03 17:24:47 info: 1 - Request method GET at path: /users/login
+2022-05-03 17:24:47 info: rendering loggin in
+2022-05-03 17:24:47 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 17:24:50 info: 3 - Request method POST at path: /users/login
+2022-05-03 17:24:54 info: 4 - Request method POST at path: /users/login
+2022-05-03 17:26:07 info: logger setup and running
+2022-05-03 17:26:07 info: Authentication required loaded
+2022-05-03 17:26:08 info: Middleware loaded
+2022-05-03 17:26:08 info: Routes in place
+2022-05-03 17:26:08 warn: Server started on port 80
+2022-05-03 17:26:08 info: 1 - Request method POST at path: /users/login
+2022-05-03 17:26:08 info: Database connected successfully
+2022-05-03 17:26:09 info: 2 - Request method GET at path: /users/login
+2022-05-03 17:26:09 info: rendering loggin in
+2022-05-03 17:26:09 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 17:26:19 info: 4 - Request method POST at path: /users/login
+2022-05-03 17:26:19 info: 5 - Request method GET at path: /users/login
+2022-05-03 17:26:19 info: rendering loggin in
+2022-05-03 17:26:19 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 17:27:31 info: logger setup and running
+2022-05-03 17:27:31 info: Authentication required loaded
+2022-05-03 17:27:32 info: Middleware loaded
+2022-05-03 17:27:32 info: Routes in place
+2022-05-03 17:27:32 warn: Server started on port 80
+2022-05-03 17:27:33 info: Database connected successfully
+2022-05-03 17:30:28 info: logger setup and running
+2022-05-03 17:30:28 info: Authentication required loaded
+2022-05-03 17:30:29 info: Middleware loaded
+2022-05-03 17:30:29 info: Routes in place
+2022-05-03 17:30:29 warn: Server started on port 80
+2022-05-03 17:30:29 info: Database connected successfully
+2022-05-03 17:30:33 info: 1 - Request method POST at path: /users/login
+2022-05-03 17:30:56 info: logger setup and running
+2022-05-03 17:30:56 info: Authentication required loaded
+2022-05-03 17:30:57 info: Middleware loaded
+2022-05-03 17:30:57 info: Routes in place
+2022-05-03 17:30:57 warn: Server started on port 80
+2022-05-03 17:30:57 info: 1 - Request method POST at path: /users/login
+2022-05-03 17:30:57 info: Database connected successfully
+2022-05-03 17:30:58 info: 2 - Request method GET at path: /users/login
+2022-05-03 17:30:58 info: rendering loggin in
+2022-05-03 17:30:58 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 17:40:38 info: logger setup and running
+2022-05-03 17:40:39 info: Authentication required loaded
+2022-05-03 17:40:39 info: Middleware loaded
+2022-05-03 17:40:39 info: Routes in place
+2022-05-03 17:40:39 warn: Server started on port 80
+2022-05-03 17:40:40 info: Database connected successfully
+2022-05-03 17:40:47 info: 1 - Request method POST at path: /users/login
+2022-05-03 17:40:47 info: 2 - Request method GET at path: /failedLogin
+2022-05-03 17:40:47 info: Not found
+2022-05-03 17:40:47 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 17:41:23 info: logger setup and running
+2022-05-03 17:41:23 info: Authentication required loaded
+2022-05-03 17:41:23 info: Middleware loaded
+2022-05-03 17:41:23 info: Routes in place
+2022-05-03 17:41:23 warn: Server started on port 80
+2022-05-03 17:41:24 info: Database connected successfully
+2022-05-03 17:55:58 info: 1 - Request method GET at path: /users/failedLogin
+2022-05-03 17:55:58 info: Not found
+2022-05-03 17:55:58 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 17:56:02 info: 3 - Request method GET at path: /users/failedLogin
+2022-05-03 17:56:02 info: Not found
+2022-05-03 17:56:02 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 17:56:13 info: logger setup and running
+2022-05-03 17:56:13 info: Authentication required loaded
+2022-05-03 17:56:14 info: Middleware loaded
+2022-05-03 17:56:14 info: Routes in place
+2022-05-03 17:56:14 warn: Server started on port 80
+2022-05-03 17:56:14 info: Database connected successfully
+2022-05-03 17:56:23 info: 1 - Request method GET at path: /
+2022-05-03 17:56:24 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 17:56:25 info: 3 - Request method GET at path: /users/login
+2022-05-03 17:56:25 info: rendering loggin in
+2022-05-03 17:56:25 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 17:56:40 info: 5 - Request method POST at path: /users/login
+2022-05-03 17:56:40 info: 6 - Request method GET at path: /
+2022-05-03 17:56:40 info: 7 - Request method GET at path: /css/theme.css
+2022-05-03 17:56:42 info: 8 - Request method GET at path: /users/logout
+2022-05-03 17:56:42 info: 9 - Request method GET at path: /users/login
+2022-05-03 17:56:42 info: rendering loggin in
+2022-05-03 17:56:42 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 17:56:47 info: 11 - Request method POST at path: /users/login
+2022-05-03 17:56:47 info: 12 - Request method GET at path: /users/failedLogin
+2022-05-03 17:56:47 info: Not found
+2022-05-03 17:56:48 info: 13 - Request method GET at path: /css/theme.css
+2022-05-03 17:57:34 info: 14 - Request method GET at path: /
+2022-05-03 17:57:34 info: 15 - Request method GET at path: /css/theme.css
+2022-05-03 17:57:36 info: 16 - Request method GET at path: /users/register
+2022-05-03 17:57:36 info: rendering register
+2022-05-03 17:57:36 info: 17 - Request method GET at path: /css/theme.css
+2022-05-03 17:58:37 info: 18 - Request method GET at path: /users/login
+2022-05-03 17:58:37 info: rendering loggin in
+2022-05-03 17:58:37 info: 19 - Request method GET at path: /css/theme.css
+2022-05-03 17:58:38 info: 20 - Request method GET at path: /users/login
+2022-05-03 17:58:38 info: rendering loggin in
+2022-05-03 17:58:38 info: 21 - Request method GET at path: /css/theme.css
+2022-05-03 17:58:39 info: 22 - Request method GET at path: /users/register
+2022-05-03 17:58:39 info: rendering register
+2022-05-03 17:58:39 info: 23 - Request method GET at path: /css/theme.css
+2022-05-03 17:58:41 info: 24 - Request method GET at path: /users/register
+2022-05-03 17:58:41 info: rendering register
+2022-05-03 17:58:41 info: 25 - Request method GET at path: /css/theme.css
+2022-05-03 17:58:42 info: 26 - Request method GET at path: /users/login
+2022-05-03 17:58:42 info: rendering loggin in
+2022-05-03 17:58:42 info: 27 - Request method GET at path: /css/theme.css
+2022-05-03 17:58:43 info: 28 - Request method GET at path: /users/register
+2022-05-03 17:58:43 info: rendering register
+2022-05-03 17:58:43 info: 29 - Request method GET at path: /css/theme.css
+2022-05-03 17:58:44 info: 30 - Request method GET at path: /
+2022-05-03 17:58:44 info: 31 - Request method GET at path: /css/theme.css
+2022-05-03 17:58:46 info: 32 - Request method GET at path: /users/register
+2022-05-03 17:58:46 info: rendering register
+2022-05-03 17:58:46 info: 33 - Request method GET at path: /css/theme.css
+2022-05-03 18:00:54 info: logger setup and running
+2022-05-03 18:00:54 info: Authentication required loaded
+2022-05-03 18:00:55 info: Middleware loaded
+2022-05-03 18:00:55 info: Routes in place
+2022-05-03 18:00:55 warn: Server started on port 80
+2022-05-03 18:00:57 info: logger setup and running
+2022-05-03 18:00:57 info: Authentication required loaded
+2022-05-03 18:00:58 info: Middleware loaded
+2022-05-03 18:00:58 info: Routes in place
+2022-05-03 18:00:58 warn: Server started on port 80
+2022-05-03 18:00:59 info: Database connected successfully
+2022-05-03 18:01:00 info: logger setup and running
+2022-05-03 18:01:00 info: Authentication required loaded
+2022-05-03 18:01:01 info: Middleware loaded
+2022-05-03 18:01:01 info: Routes in place
+2022-05-03 18:01:01 warn: Server started on port 80
+2022-05-03 18:01:01 info: Database connected successfully
+2022-05-03 18:01:04 info: logger setup and running
+2022-05-03 18:01:04 info: Authentication required loaded
+2022-05-03 18:01:05 info: Middleware loaded
+2022-05-03 18:01:05 info: Routes in place
+2022-05-03 18:01:05 warn: Server started on port 80
+2022-05-03 18:01:05 info: Database connected successfully
+2022-05-03 18:01:09 info: 1 - Request method GET at path: /
+2022-05-03 18:01:09 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:11 info: 3 - Request method GET at path: /
+2022-05-03 18:01:11 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:13 info: 5 - Request method GET at path: /
+2022-05-03 18:01:13 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:28 info: 7 - Request method GET at path: /
+2022-05-03 18:01:28 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:28 info: 9 - Request method GET at path: /
+2022-05-03 18:01:28 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:32 info: 11 - Request method GET at path: /users/login
+2022-05-03 18:01:32 info: rendering loggin in
+2022-05-03 18:01:32 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:34 info: 13 - Request method GET at path: /users/register
+2022-05-03 18:01:34 info: rendering register
+2022-05-03 18:01:34 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:35 info: 15 - Request method GET at path: /users/register
+2022-05-03 18:01:35 info: rendering register
+2022-05-03 18:01:35 info: 16 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:36 info: 17 - Request method GET at path: /users/register
+2022-05-03 18:01:36 info: rendering register
+2022-05-03 18:01:36 info: 18 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:37 info: 19 - Request method GET at path: /users/login
+2022-05-03 18:01:37 info: rendering loggin in
+2022-05-03 18:01:37 info: 20 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:38 info: 21 - Request method GET at path: /users/login
+2022-05-03 18:01:38 info: rendering loggin in
+2022-05-03 18:01:38 info: 22 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:39 info: 23 - Request method GET at path: /
+2022-05-03 18:01:39 info: 24 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:40 info: 25 - Request method GET at path: /
+2022-05-03 18:01:40 info: 26 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:41 info: 27 - Request method GET at path: /
+2022-05-03 18:01:41 info: 28 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:42 info: 29 - Request method GET at path: /users/login
+2022-05-03 18:01:42 info: rendering loggin in
+2022-05-03 18:01:42 info: 30 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:43 info: 31 - Request method GET at path: /users/register
+2022-05-03 18:01:43 info: rendering register
+2022-05-03 18:01:43 info: 32 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:44 info: 33 - Request method GET at path: /users/register
+2022-05-03 18:01:44 info: rendering register
+2022-05-03 18:01:44 info: 34 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:46 info: 35 - Request method GET at path: /users/login
+2022-05-03 18:01:46 info: rendering loggin in
+2022-05-03 18:01:46 info: 36 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:46 info: 37 - Request method GET at path: /users/login
+2022-05-03 18:01:46 info: rendering loggin in
+2022-05-03 18:01:46 info: 38 - Request method GET at path: /css/theme.css
+2022-05-03 18:01:49 info: 39 - Request method POST at path: /users/login
+2022-05-03 18:01:49 info: 40 - Request method GET at path: /users/failedLogin
+2022-05-03 18:01:49 info: Not found
+2022-05-03 18:01:50 info: 41 - Request method GET at path: /css/theme.css
+2022-05-03 18:03:40 info: logger setup and running
+2022-05-03 18:03:40 info: Authentication required loaded
+2022-05-03 18:03:41 info: Middleware loaded
+2022-05-03 18:03:41 info: Routes in place
+2022-05-03 18:03:41 warn: Server started on port 80
+2022-05-03 18:03:42 info: Database connected successfully
+2022-05-03 18:04:09 info: logger setup and running
+2022-05-03 18:04:09 info: Authentication required loaded
+2022-05-03 18:04:10 info: Middleware loaded
+2022-05-03 18:04:10 info: Routes in place
+2022-05-03 18:04:10 warn: Server started on port 80
+2022-05-03 18:04:10 info: Database connected successfully
+2022-05-03 18:04:16 info: logger setup and running
+2022-05-03 18:04:16 info: Authentication required loaded
+2022-05-03 18:04:17 info: Middleware loaded
+2022-05-03 18:04:17 info: Routes in place
+2022-05-03 18:04:17 warn: Server started on port 80
+2022-05-03 18:04:17 info: Database connected successfully
+2022-05-03 18:04:22 info: 1 - Request method GET at path: /
+2022-05-03 18:04:23 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:24 info: 3 - Request method GET at path: /
+2022-05-03 18:04:24 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:31 info: 5 - Request method GET at path: /users/login
+2022-05-03 18:04:31 info: rendering loggin in
+2022-05-03 18:04:31 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:32 info: 7 - Request method GET at path: /users/register
+2022-05-03 18:04:32 info: rendering register
+2022-05-03 18:04:32 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:33 info: 9 - Request method GET at path: /users/register
+2022-05-03 18:04:33 info: rendering register
+2022-05-03 18:04:34 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:35 info: 11 - Request method GET at path: /users/login
+2022-05-03 18:04:35 info: rendering loggin in
+2022-05-03 18:04:35 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:36 info: 13 - Request method POST at path: /users/login
+2022-05-03 18:04:37 info: 14 - Request method GET at path: /
+2022-05-03 18:04:37 info: 15 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:39 info: 16 - Request method GET at path: /users/logout
+2022-05-03 18:04:39 info: 17 - Request method GET at path: /users/login
+2022-05-03 18:04:39 info: rendering loggin in
+2022-05-03 18:04:39 info: 18 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:45 info: 19 - Request method GET at path: /
+2022-05-03 18:04:45 info: 20 - Request method GET at path: /css/theme.css
+2022-05-03 18:04:46 info: 21 - Request method GET at path: /
+2022-05-03 18:04:46 info: 22 - Request method GET at path: /css/theme.css
+2022-05-03 18:05:06 info: 23 - Request method GET at path: /
+2022-05-03 18:05:06 info: 24 - Request method GET at path: /css/theme.css
+2022-05-03 18:05:07 info: 25 - Request method GET at path: /favicon.ico
+2022-05-03 18:05:08 info: 26 - Request method GET at path: /
+2022-05-03 18:05:08 info: 27 - Request method GET at path: /css/theme.css
+2022-05-03 18:07:03 info: logger setup and running
+2022-05-03 18:07:03 info: Authentication required loaded
+2022-05-03 18:07:04 info: Middleware loaded
+2022-05-03 18:07:04 info: Routes in place
+2022-05-03 18:07:04 warn: Server started on port 80
+2022-05-03 18:07:04 info: Database connected successfully
+2022-05-03 18:07:07 info: 1 - Request method GET at path: /
+2022-05-03 18:07:08 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 18:07:08 info: 3 - Request method GET at path: /
+2022-05-03 18:07:08 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:07:10 info: 5 - Request method GET at path: /users/login
+2022-05-03 18:07:10 info: rendering loggin in
+2022-05-03 18:07:10 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:07:11 info: 7 - Request method POST at path: /users/login
+2022-05-03 18:07:12 info: 8 - Request method GET at path: /
+2022-05-03 18:07:12 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 18:07:13 info: 10 - Request method GET at path: /users/logout
+2022-05-03 18:07:13 info: 11 - Request method GET at path: /users/login
+2022-05-03 18:07:13 info: rendering loggin in
+2022-05-03 18:07:13 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 18:07:19 info: 13 - Request method POST at path: /users/login
+2022-05-03 18:07:19 info: 14 - Request method GET at path: /users/login
+2022-05-03 18:07:19 info: rendering loggin in
+2022-05-03 18:07:19 info: 15 - Request method GET at path: /css/theme.css
+2022-05-03 18:12:49 info: logger setup and running
+2022-05-03 18:12:49 info: Authentication required loaded
+2022-05-03 18:12:50 info: Middleware loaded
+2022-05-03 18:12:50 info: Routes in place
+2022-05-03 18:12:50 warn: Server started on port 80
+2022-05-03 18:12:50 info: Database connected successfully
+2022-05-03 18:14:01 info: logger setup and running
+2022-05-03 18:14:01 info: Authentication required loaded
+2022-05-03 18:14:02 info: Middleware loaded
+2022-05-03 18:14:02 info: Routes in place
+2022-05-03 18:14:02 warn: Server started on port 80
+2022-05-03 18:14:02 info: Database connected successfully
+2022-05-03 18:14:18 info: logger setup and running
+2022-05-03 18:14:18 info: Authentication required loaded
+2022-05-03 18:14:19 info: Middleware loaded
+2022-05-03 18:14:19 info: Routes in place
+2022-05-03 18:14:19 warn: Server started on port 80
+2022-05-03 18:14:19 info: Database connected successfully
+2022-05-03 18:14:29 info: 1 - Request method POST at path: /users/login
+2022-05-03 18:14:29 info: 2 - Request method GET at path: /
+2022-05-03 18:14:29 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 18:14:30 info: 4 - Request method GET at path: /users/logout
+2022-05-03 18:14:31 info: 5 - Request method GET at path: /users/login
+2022-05-03 18:14:31 info: rendering loggin in
+2022-05-03 18:14:31 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:14:35 info: 7 - Request method POST at path: /users/login
+2022-05-03 18:14:35 info: 8 - Request method GET at path: /failedLogin
+2022-05-03 18:14:35 info: Not found
+2022-05-03 18:14:35 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 18:17:14 info: logger setup and running
+2022-05-03 18:17:14 info: Authentication required loaded
+2022-05-03 18:17:15 info: Middleware loaded
+2022-05-03 18:17:15 info: Routes in place
+2022-05-03 18:17:15 warn: Server started on port 80
+2022-05-03 18:17:15 info: Database connected successfully
+2022-05-03 18:17:22 info: 1 - Request method GET at path: /
+2022-05-03 18:17:22 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 18:17:24 info: 3 - Request method GET at path: /users/register
+2022-05-03 18:17:24 info: rendering register
+2022-05-03 18:17:24 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:17:26 info: 5 - Request method GET at path: /users/login
+2022-05-03 18:17:26 info: rendering loggin in
+2022-05-03 18:17:26 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:17:27 info: 7 - Request method POST at path: /users/login
+2022-05-03 18:17:27 info: 8 - Request method GET at path: /
+2022-05-03 18:17:27 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 18:17:28 info: 10 - Request method GET at path: /users/logout
+2022-05-03 18:17:28 info: 11 - Request method GET at path: /users/login
+2022-05-03 18:17:28 info: rendering loggin in
+2022-05-03 18:17:29 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 18:18:14 info: logger setup and running
+2022-05-03 18:18:15 info: Authentication required loaded
+2022-05-03 18:18:16 info: Middleware loaded
+2022-05-03 18:18:16 info: Routes in place
+2022-05-03 18:18:16 warn: Server started on port 80
+2022-05-03 18:18:16 info: Database connected successfully
+2022-05-03 18:18:19 info: 1 - Request method POST at path: /users/login
+2022-05-03 18:18:20 info: 2 - Request method GET at path: /
+2022-05-03 18:18:20 info: 3 - Request method GET at path: /css/theme.css
+2022-05-03 18:18:21 info: 4 - Request method GET at path: /users/logout
+2022-05-03 18:18:21 info: 5 - Request method GET at path: /users/login
+2022-05-03 18:18:21 info: rendering loggin in
+2022-05-03 18:18:21 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:18:24 info: 7 - Request method POST at path: /users/login
+2022-05-03 18:18:24 info: 8 - Request method GET at path: /failedLogin
+2022-05-03 18:18:24 info: Not found
+2022-05-03 18:18:24 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 18:19:06 info: logger setup and running
+2022-05-03 18:19:06 info: Authentication required loaded
+2022-05-03 18:19:07 info: Middleware loaded
+2022-05-03 18:19:07 info: Routes in place
+2022-05-03 18:19:07 warn: Server started on port 80
+2022-05-03 18:19:07 info: Database connected successfully
+2022-05-03 18:19:14 info: 1 - Request method GET at path: /
+2022-05-03 18:19:14 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 18:19:16 info: 3 - Request method GET at path: /users/login
+2022-05-03 18:19:16 info: rendering loggin in
+2022-05-03 18:19:16 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:19:17 info: 5 - Request method POST at path: /users/login
+2022-05-03 18:19:17 info: 6 - Request method GET at path: /
+2022-05-03 18:19:17 info: 7 - Request method GET at path: /css/theme.css
+2022-05-03 18:19:18 info: 8 - Request method GET at path: /users/logout
+2022-05-03 18:19:18 info: 9 - Request method GET at path: /users/login
+2022-05-03 18:19:18 info: rendering loggin in
+2022-05-03 18:19:18 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 18:19:21 info: 11 - Request method POST at path: /users/login
+2022-05-03 18:19:22 info: 12 - Request method GET at path: /failedLogin
+2022-05-03 18:19:22 info: Not found
+2022-05-03 18:19:22 info: 13 - Request method GET at path: /css/theme.css
+2022-05-03 18:20:12 info: logger setup and running
+2022-05-03 18:20:13 info: Authentication required loaded
+2022-05-03 18:20:13 info: Middleware loaded
+2022-05-03 18:20:13 info: Routes in place
+2022-05-03 18:20:13 warn: Server started on port 80
+2022-05-03 18:20:14 info: Database connected successfully
+2022-05-03 18:20:21 info: logger setup and running
+2022-05-03 18:20:21 info: Authentication required loaded
+2022-05-03 18:20:21 info: Middleware loaded
+2022-05-03 18:20:21 info: Routes in place
+2022-05-03 18:20:21 warn: Server started on port 80
+2022-05-03 18:20:22 info: Database connected successfully
+2022-05-03 18:20:31 info: 1 - Request method GET at path: /
+2022-05-03 18:20:31 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 18:20:32 info: 3 - Request method GET at path: /users/register
+2022-05-03 18:20:32 info: rendering register
+2022-05-03 18:20:32 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:20:33 info: 5 - Request method GET at path: /users/login
+2022-05-03 18:20:33 info: rendering loggin in
+2022-05-03 18:20:33 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:20:34 info: 7 - Request method POST at path: /users/login
+2022-05-03 18:20:35 info: 8 - Request method GET at path: /
+2022-05-03 18:20:35 info: 9 - Request method GET at path: /css/theme.css
+2022-05-03 18:20:36 info: 10 - Request method GET at path: /users/logout
+2022-05-03 18:20:36 info: 11 - Request method GET at path: /users/login
+2022-05-03 18:20:36 info: rendering loggin in
+2022-05-03 18:20:36 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 18:20:39 info: 13 - Request method POST at path: /users/login
+2022-05-03 18:20:39 info: 14 - Request method GET at path: /users/failedLogin
+2022-05-03 18:20:39 info: 15 - Request method GET at path: /users/login
+2022-05-03 18:20:39 info: rendering loggin in
+2022-05-03 18:20:40 info: 16 - Request method GET at path: /css/theme.css
+2022-05-03 18:21:28 info: logger setup and running
+2022-05-03 18:21:28 info: Authentication required loaded
+2022-05-03 18:21:29 info: Middleware loaded
+2022-05-03 18:21:29 info: Routes in place
+2022-05-03 18:21:29 warn: Server started on port 80
+2022-05-03 18:21:30 info: Database connected successfully
+2022-05-03 18:21:32 info: logger setup and running
+2022-05-03 18:21:33 info: Authentication required loaded
+2022-05-03 18:21:33 info: Middleware loaded
+2022-05-03 18:21:33 info: Routes in place
+2022-05-03 18:21:33 warn: Server started on port 80
+2022-05-03 18:21:34 info: Database connected successfully
+2022-05-03 18:21:38 info: 1 - Request method POST at path: /users/login
+2022-05-03 18:21:38 info: 2 - Request method GET at path: /users/failedLogin
+2022-05-03 18:21:38 info: 3 - Request method GET at path: /users/login
+2022-05-03 18:21:38 info: rendering loggin in
+2022-05-03 18:21:38 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:23:19 info: 5 - Request method GET at path: /
+2022-05-03 18:23:19 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:36:30 info: logger setup and running
+2022-05-03 18:36:30 info: Authentication required loaded
+2022-05-03 18:36:31 info: Middleware loaded
+2022-05-03 18:36:31 info: Routes in place
+2022-05-03 18:36:31 warn: Server started on port 80
+2022-05-03 18:36:32 info: Database connected successfully
+2022-05-03 18:36:36 info: 1 - Request method GET at path: /users/login
+2022-05-03 18:36:36 info: rendering loggin in
+2022-05-03 18:36:36 info: 2 - Request method GET at path: /css/theme.css
+2022-05-03 18:36:39 info: 3 - Request method POST at path: /users/login
+2022-05-03 18:36:39 info: 4 - Request method GET at path: /users/failedLogin
+2022-05-03 18:36:39 info: 5 - Request method GET at path: /users/login
+2022-05-03 18:36:39 info: rendering loggin in
+2022-05-03 18:36:39 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:37:58 info: 7 - Request method GET at path: /users/login
+2022-05-03 18:37:58 info: rendering loggin in
+2022-05-03 18:37:58 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 18:37:59 info: 9 - Request method POST at path: /users/login
+2022-05-03 18:38:00 info: 10 - Request method GET at path: /
+2022-05-03 18:38:00 info: 11 - Request method GET at path: /css/theme.css
+2022-05-03 18:38:01 info: 12 - Request method GET at path: /users/logout
+2022-05-03 18:38:01 info: 13 - Request method GET at path: /users/login
+2022-05-03 18:38:01 info: rendering loggin in
+2022-05-03 18:38:01 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 18:40:10 info: logger setup and running
+2022-05-03 18:40:10 info: Authentication required loaded
+2022-05-03 18:40:11 info: Middleware loaded
+2022-05-03 18:40:11 info: Routes in place
+2022-05-03 18:40:11 warn: Server started on port 80
+2022-05-03 18:40:11 info: Database connected successfully
+2022-05-03 18:40:17 info: 1 - Request method POST at path: /users/login
+2022-05-03 18:40:17 info: 2 - Request method GET at path: /users/failedLogin
+2022-05-03 18:40:17 info: 3 - Request method GET at path: /users/login
+2022-05-03 18:40:17 info: rendering loggin in
+2022-05-03 18:40:17 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:40:41 info: logger setup and running
+2022-05-03 18:40:41 info: Authentication required loaded
+2022-05-03 18:40:42 info: Middleware loaded
+2022-05-03 18:40:42 info: Routes in place
+2022-05-03 18:40:42 warn: Server started on port 80
+2022-05-03 18:40:42 info: Database connected successfully
+2022-05-03 18:42:42 info: 1 - Request method POST at path: /users/login
+2022-05-03 18:42:42 info: 2 - Request method GET at path: /users/failedLogin
+2022-05-03 18:42:42 info: 3 - Request method GET at path: /users/login
+2022-05-03 18:42:42 info: rendering loggin in
+2022-05-03 18:42:42 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:43:10 info: logger setup and running
+2022-05-03 18:43:10 info: Authentication required loaded
+2022-05-03 18:43:11 info: Middleware loaded
+2022-05-03 18:43:11 info: Routes in place
+2022-05-03 18:43:11 warn: Server started on port 80
+2022-05-03 18:43:11 info: Database connected successfully
+2022-05-03 18:43:16 info: 1 - Request method POST at path: /users/login
+2022-05-03 18:43:16 info: 2 - Request method GET at path: /users/failedLogin
+2022-05-03 18:43:16 info: 3 - Request method GET at path: /users/login
+2022-05-03 18:43:16 info: rendering loggin in
+2022-05-03 18:43:16 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 18:45:38 info: 5 - Request method GET at path: /users/login
+2022-05-03 18:45:38 info: rendering loggin in
+2022-05-03 18:45:38 info: 6 - Request method GET at path: /css/theme.css
+2022-05-03 18:45:41 info: 7 - Request method POST at path: /users/login
+2022-05-03 18:45:41 info: 8 - Request method GET at path: /users/failedLogin
+2022-05-03 18:45:41 info: 9 - Request method GET at path: /users/login
+2022-05-03 18:45:41 info: rendering loggin in
+2022-05-03 18:45:41 info: 10 - Request method GET at path: /css/theme.css
+2022-05-03 18:45:49 info: 11 - Request method POST at path: /users/login
+2022-05-03 18:45:49 info: 12 - Request method GET at path: /users/failedLogin
+2022-05-03 18:45:49 info: 13 - Request method GET at path: /users/login
+2022-05-03 18:45:49 info: rendering loggin in
+2022-05-03 18:45:49 info: 14 - Request method GET at path: /css/theme.css
+2022-05-03 18:51:30 info: 15 - Request method POST at path: /users/login
+2022-05-03 18:51:30 info: 16 - Request method GET at path: /users/failedLogin
+2022-05-03 18:51:30 info: 17 - Request method GET at path: /users/login
+2022-05-03 18:51:30 info: rendering loggin in
+2022-05-03 18:51:31 info: 18 - Request method GET at path: /css/theme.css
+2022-05-03 18:51:40 info: 19 - Request method POST at path: /users/login
+2022-05-03 18:51:40 info: 20 - Request method GET at path: /users/failedLogin
+2022-05-03 18:51:40 info: 21 - Request method GET at path: /users/login
+2022-05-03 18:51:40 info: rendering loggin in
+2022-05-03 18:51:40 info: 22 - Request method GET at path: /css/theme.css
+2022-05-03 18:52:17 info: 23 - Request method POST at path: /users/login
+2022-05-03 18:52:17 info: 24 - Request method GET at path: /users/failedLogin
+2022-05-03 18:52:17 info: 25 - Request method GET at path: /users/login
+2022-05-03 18:52:17 info: rendering loggin in
+2022-05-03 18:52:17 info: 26 - Request method GET at path: /css/theme.css
+2022-05-03 18:52:39 info: 27 - Request method POST at path: /users/login
+2022-05-03 18:52:39 info: 28 - Request method GET at path: /users/failedLogin
+2022-05-03 18:52:39 info: 29 - Request method GET at path: /users/login
+2022-05-03 18:52:39 info: rendering loggin in
+2022-05-03 18:52:39 info: 30 - Request method GET at path: /css/theme.css
+2022-05-03 18:52:47 info: 31 - Request method POST at path: /users/login
+2022-05-03 18:52:47 info: 32 - Request method GET at path: /users/failedLogin
+2022-05-03 18:52:47 info: 33 - Request method GET at path: /users/login
+2022-05-03 18:52:47 info: rendering loggin in
+2022-05-03 18:52:47 info: 34 - Request method GET at path: /css/theme.css
+2022-05-03 18:53:12 info: 35 - Request method POST at path: /users/login
+2022-05-03 18:53:12 info: 36 - Request method GET at path: /users/failedLogin
+2022-05-03 18:53:12 info: 37 - Request method GET at path: /users/login
+2022-05-03 18:53:12 info: rendering loggin in
+2022-05-03 18:53:12 info: 38 - Request method GET at path: /css/theme.css
+2022-05-03 18:53:32 info: 39 - Request method POST at path: /users/login
+2022-05-03 18:53:32 info: 40 - Request method GET at path: /users/failedLogin
+2022-05-03 18:53:32 info: 41 - Request method GET at path: /users/login
+2022-05-03 18:53:32 info: rendering loggin in
+2022-05-03 18:53:33 info: 42 - Request method GET at path: /css/theme.css
+2022-05-03 18:53:59 info: 43 - Request method POST at path: /users/login
+2022-05-03 18:53:59 info: 44 - Request method GET at path: /users/failedLogin
+2022-05-03 18:53:59 info: 45 - Request method GET at path: /users/login
+2022-05-03 18:53:59 info: rendering loggin in
+2022-05-03 18:53:59 info: 46 - Request method GET at path: /css/theme.css
+2022-05-03 18:54:04 info: 47 - Request method POST at path: /users/login
+2022-05-03 18:54:04 info: 48 - Request method GET at path: /users/failedLogin
+2022-05-03 18:54:04 info: 49 - Request method GET at path: /users/login
+2022-05-03 18:54:04 info: rendering loggin in
+2022-05-03 18:54:04 info: 50 - Request method GET at path: /css/theme.css
+2022-05-03 18:54:24 info: 51 - Request method POST at path: /users/login
+2022-05-03 18:54:24 info: 52 - Request method GET at path: /users/failedLogin
+2022-05-03 18:54:24 info: 53 - Request method GET at path: /users/login
+2022-05-03 18:54:24 info: rendering loggin in
+2022-05-03 18:54:24 info: 54 - Request method GET at path: /css/theme.css
+2022-05-03 18:54:33 info: 55 - Request method POST at path: /users/login
+2022-05-03 18:54:33 info: 56 - Request method GET at path: /users/failedLogin
+2022-05-03 18:54:33 info: 57 - Request method GET at path: /users/login
+2022-05-03 18:54:33 info: rendering loggin in
+2022-05-03 18:54:33 info: 58 - Request method GET at path: /css/theme.css
+2022-05-03 18:55:13 info: 59 - Request method POST at path: /users/login
+2022-05-03 18:55:13 info: 60 - Request method GET at path: /users/failedLogin
+2022-05-03 18:55:13 info: 61 - Request method GET at path: /users/login
+2022-05-03 18:55:13 info: rendering loggin in
+2022-05-03 18:55:13 info: 62 - Request method GET at path: /css/theme.css
+2022-05-03 18:55:29 info: 63 - Request method POST at path: /users/login
+2022-05-03 18:55:29 info: 64 - Request method GET at path: /users/failedLogin
+2022-05-03 18:55:29 info: 65 - Request method GET at path: /users/login
+2022-05-03 18:55:29 info: rendering loggin in
+2022-05-03 18:55:29 info: 66 - Request method GET at path: /css/theme.css
+2022-05-03 18:55:47 info: 67 - Request method POST at path: /users/login
+2022-05-03 18:55:47 info: 68 - Request method GET at path: /users/failedLogin
+2022-05-03 18:55:47 info: 69 - Request method GET at path: /users/login
+2022-05-03 18:55:47 info: rendering loggin in
+2022-05-03 18:55:47 info: 70 - Request method GET at path: /css/theme.css
+2022-05-03 18:56:08 info: 71 - Request method POST at path: /users/login
+2022-05-03 18:56:08 info: 72 - Request method GET at path: /users/failedLogin
+2022-05-03 18:56:08 info: 73 - Request method GET at path: /users/login
+2022-05-03 18:56:08 info: rendering loggin in
+2022-05-03 18:56:09 info: 74 - Request method GET at path: /css/theme.css
+2022-05-03 18:56:31 info: 75 - Request method GET at path: /
+2022-05-03 18:56:31 info: 76 - Request method GET at path: /css/theme.css
+2022-05-03 18:56:35 info: 77 - Request method GET at path: /users/login
+2022-05-03 18:56:35 info: rendering loggin in
+2022-05-03 18:56:35 info: 78 - Request method GET at path: /css/theme.css
+2022-05-03 18:57:04 info: 79 - Request method POST at path: /users/login
+2022-05-03 18:57:04 info: 80 - Request method GET at path: /users/failedLogin
+2022-05-03 18:57:04 info: 81 - Request method GET at path: /users/login
+2022-05-03 18:57:04 info: rendering loggin in
+2022-05-03 18:57:04 info: 82 - Request method GET at path: /css/theme.css
+2022-05-03 18:57:04 info: 83 - Request method POST at path: /users/login
+2022-05-03 18:57:04 info: 84 - Request method GET at path: /
+2022-05-03 18:57:04 info: 85 - Request method GET at path: /css/theme.css
+2022-05-03 18:57:06 info: 86 - Request method GET at path: /
+2022-05-03 18:57:06 info: 87 - Request method GET at path: /css/theme.css
+2022-05-03 18:57:07 info: 88 - Request method GET at path: /
+2022-05-03 18:57:07 info: 89 - Request method GET at path: /css/theme.css
+2022-05-03 18:57:08 info: 90 - Request method GET at path: /users/logout
+2022-05-03 18:57:08 info: 91 - Request method GET at path: /users/login
+2022-05-03 18:57:08 info: rendering loggin in
+2022-05-03 18:57:08 info: 92 - Request method GET at path: /css/theme.css
+2022-05-03 18:57:22 info: 93 - Request method POST at path: /users/login
+2022-05-03 18:57:22 info: 94 - Request method GET at path: /users/failedLogin
+2022-05-03 18:57:22 info: 95 - Request method GET at path: /users/login
+2022-05-03 18:57:22 info: rendering loggin in
+2022-05-03 18:57:22 info: 96 - Request method GET at path: /css/theme.css
+2022-05-03 19:01:09 info: 97 - Request method POST at path: /users/login
+2022-05-03 19:01:09 info: 98 - Request method GET at path: /users/failedLogin
+2022-05-03 19:01:09 info: 99 - Request method GET at path: /users/login
+2022-05-03 19:01:09 info: rendering loggin in
+2022-05-03 19:01:09 info: 100 - Request method GET at path: /css/theme.css
+2022-05-03 19:01:17 info: logger setup and running
+2022-05-03 19:01:17 info: Authentication required loaded
+2022-05-03 19:01:18 info: Middleware loaded
+2022-05-03 19:01:19 info: Routes in place
+2022-05-03 19:01:19 warn: Server started on port 80
+2022-05-03 19:01:20 info: logger setup and running
+2022-05-03 19:01:20 info: Authentication required loaded
+2022-05-03 19:01:20 info: Middleware loaded
+2022-05-03 19:01:20 info: Routes in place
+2022-05-03 19:01:21 warn: Server started on port 80
+2022-05-03 19:01:21 info: Database connected successfully
+2022-05-03 19:02:02 info: 1 - Request method POST at path: /users/login
+2022-05-03 19:02:02 info: 2 - Request method GET at path: /users/failedLogin
+2022-05-03 19:02:02 info: 3 - Request method GET at path: /users/login
+2022-05-03 19:02:02 info: rendering loggin in
+2022-05-03 19:02:02 info: 4 - Request method GET at path: /css/theme.css
+2022-05-03 19:03:00 info: 5 - Request method POST at path: /users/login
+2022-05-03 19:03:00 info: 6 - Request method GET at path: /users/failedLogin
+2022-05-03 19:03:00 info: 7 - Request method GET at path: /users/login
+2022-05-03 19:03:00 info: rendering loggin in
+2022-05-03 19:03:00 info: 8 - Request method GET at path: /css/theme.css
+2022-05-03 19:06:04 info: 9 - Request method POST at path: /users/login
+2022-05-03 19:06:04 info: 10 - Request method GET at path: /users/failedLogin
+2022-05-03 19:06:04 info: 11 - Request method GET at path: /users/login
+2022-05-03 19:06:04 info: rendering loggin in
+2022-05-03 19:06:04 info: 12 - Request method GET at path: /css/theme.css
+2022-05-03 19:06:22 info: 13 - Request method POST at path: /users/login
+2022-05-03 19:06:22 info: 14 - Request method GET at path: /users/failedLogin
+2022-05-03 19:06:22 info: 15 - Request method GET at path: /users/login
+2022-05-03 19:06:22 info: rendering loggin in
+2022-05-03 19:06:22 info: 16 - Request method GET at path: /css/theme.css
+2022-05-03 19:06:37 info: 17 - Request method POST at path: /users/login
+2022-05-03 19:06:37 info: 18 - Request method GET at path: /users/failedLogin
+2022-05-03 19:06:37 info: 19 - Request method GET at path: /users/login
+2022-05-03 19:06:37 info: rendering loggin in
+2022-05-03 19:06:37 info: 20 - Request method GET at path: /css/theme.css
+2022-05-03 19:07:52 info: 21 - Request method POST at path: /users/login
+2022-05-03 19:07:52 info: 22 - Request method GET at path: /users/failedLogin
+2022-05-03 19:07:52 info: 23 - Request method GET at path: /users/login
+2022-05-03 19:07:52 info: rendering loggin in
+2022-05-03 19:07:52 info: 24 - Request method GET at path: /css/theme.css
+2022-05-03 19:08:13 info: 25 - Request method POST at path: /users/login
+2022-05-03 19:08:13 info: 26 - Request method GET at path: /users/failedLogin
+2022-05-03 19:08:13 info: 27 - Request method GET at path: /users/login
+2022-05-03 19:08:13 info: rendering loggin in
+2022-05-03 19:08:13 info: 28 - Request method GET at path: /css/theme.css
+2022-05-03 19:08:25 info: 29 - Request method POST at path: /users/login
+2022-05-03 19:08:25 info: 30 - Request method GET at path: /users/failedLogin
+2022-05-03 19:08:25 info: 31 - Request method GET at path: /users/login
+2022-05-03 19:08:25 info: rendering loggin in
+2022-05-03 19:08:25 info: 32 - Request method GET at path: /css/theme.css
+2022-05-03 19:08:52 info: 33 - Request method POST at path: /users/login
+2022-05-03 19:08:52 info: 34 - Request method GET at path: /users/failedLogin
+2022-05-03 19:08:52 info: 35 - Request method GET at path: /users/login
+2022-05-03 19:08:52 info: rendering loggin in
+2022-05-03 19:08:52 info: 36 - Request method GET at path: /css/theme.css
+2022-05-03 19:09:33 info: 37 - Request method POST at path: /users/login
+2022-05-03 19:09:33 info: 38 - Request method GET at path: /users/failedLogin
+2022-05-03 19:09:33 info: 39 - Request method GET at path: /users/login
+2022-05-03 19:09:33 info: rendering loggin in
+2022-05-03 19:09:34 info: 40 - Request method GET at path: /css/theme.css
+2022-05-03 19:10:40 info: 41 - Request method POST at path: /users/login
+2022-05-03 19:10:40 info: 42 - Request method GET at path: /users/failedLogin
+2022-05-03 19:10:40 info: 43 - Request method GET at path: /users/login
+2022-05-03 19:10:40 info: rendering loggin in
+2022-05-03 19:10:40 info: 44 - Request method GET at path: /css/theme.css
+2022-05-03 19:11:04 info: 45 - Request method POST at path: /users/login
+2022-05-03 19:11:04 info: 46 - Request method GET at path: /users/failedLogin
+2022-05-03 19:11:04 info: 47 - Request method GET at path: /users/login
+2022-05-03 19:11:04 info: rendering loggin in
+2022-05-03 19:11:04 info: 48 - Request method GET at path: /css/theme.css
+2022-05-03 19:11:14 info: 49 - Request method POST at path: /users/login
+2022-05-03 19:11:14 info: 50 - Request method GET at path: /users/failedLogin
+2022-05-03 19:11:14 info: 51 - Request method GET at path: /users/login
+2022-05-03 19:11:14 info: rendering loggin in
+2022-05-03 19:11:14 info: 52 - Request method GET at path: /css/theme.css
+2022-05-03 19:14:41 info: 53 - Request method POST at path: /users/login
+2022-05-03 19:14:41 info: 54 - Request method GET at path: /users/failedLogin
+2022-05-03 19:14:41 info: 55 - Request method GET at path: /users/login
+2022-05-03 19:14:41 info: rendering loggin in
+2022-05-03 19:14:41 info: 56 - Request method GET at path: /css/theme.css
+2022-05-03 19:14:49 info: 57 - Request method POST at path: /users/login
+2022-05-03 19:14:49 info: 58 - Request method GET at path: /users/failedLogin
+2022-05-03 19:14:49 info: 59 - Request method GET at path: /users/login
+2022-05-03 19:14:49 info: rendering loggin in
+2022-05-03 19:14:49 info: 60 - Request method GET at path: /css/theme.css
+2022-05-03 19:15:09 info: 61 - Request method POST at path: /users/login
+2022-05-03 19:15:09 info: 62 - Request method GET at path: /users/failedLogin
+2022-05-03 19:15:09 info: 63 - Request method GET at path: /users/login
+2022-05-03 19:15:09 info: rendering loggin in
+2022-05-03 19:15:10 info: 64 - Request method GET at path: /css/theme.css
+2022-05-03 19:15:31 info: 65 - Request method POST at path: /users/login
+2022-05-03 19:15:31 info: 66 - Request method GET at path: /users/failedLogin
+2022-05-03 19:15:31 info: 67 - Request method GET at path: /users/login
+2022-05-03 19:15:31 info: rendering loggin in
+2022-05-03 19:15:31 info: 68 - Request method GET at path: /css/theme.css
+2022-05-03 19:15:43 info: 69 - Request method POST at path: /users/login
+2022-05-03 19:15:43 info: 70 - Request method GET at path: /users/failedLogin
+2022-05-03 19:15:43 info: 71 - Request method GET at path: /users/login
+2022-05-03 19:15:43 info: rendering loggin in
+2022-05-03 19:15:43 info: 72 - Request method GET at path: /css/theme.css
+2022-05-03 19:16:44 info: 73 - Request method GET at path: /users/login
+2022-05-03 19:16:44 info: rendering loggin in
+2022-05-03 19:16:44 info: 74 - Request method GET at path: /css/theme.css
+2022-05-03 19:16:49 info: 75 - Request method GET at path: /users/login
+2022-05-03 19:16:49 info: rendering loggin in
+2022-05-03 19:16:49 info: 76 - Request method GET at path: /css/theme.css
+2022-05-03 19:16:54 info: 77 - Request method POST at path: /users/login
+2022-05-03 19:16:54 info: 78 - Request method GET at path: /users/failedLogin
+2022-05-03 19:16:54 info: 79 - Request method GET at path: /users/login
+2022-05-03 19:16:54 info: rendering loggin in
+2022-05-03 19:16:54 info: 80 - Request method GET at path: /css/theme.css
+2022-05-03 19:17:33 info: 81 - Request method GET at path: /users/login
+2022-05-03 19:17:33 info: rendering loggin in
+2022-05-03 19:17:33 info: 82 - Request method GET at path: /css/theme.css
+2022-05-03 19:17:37 info: 83 - Request method POST at path: /users/login
+2022-05-03 19:17:37 info: 84 - Request method GET at path: /users/failedLogin
+2022-05-03 19:17:37 info: 85 - Request method GET at path: /users/login
+2022-05-03 19:17:37 info: rendering loggin in
+2022-05-03 19:17:37 info: 86 - Request method GET at path: /css/theme.css
+2022-05-03 19:18:14 info: 87 - Request method GET at path: /users/login
+2022-05-03 19:18:14 info: rendering loggin in
+2022-05-03 19:18:14 info: 88 - Request method GET at path: /css/theme.css
+2022-05-03 19:18:22 info: 89 - Request method POST at path: /users/login
+2022-05-03 19:18:22 info: 90 - Request method GET at path: /users/failedLogin
+2022-05-03 19:18:22 info: 91 - Request method GET at path: /users/login
+2022-05-03 19:18:22 info: rendering loggin in
+2022-05-03 19:18:22 info: 92 - Request method GET at path: /css/theme.css
+2022-05-03 19:18:37 info: 93 - Request method GET at path: /users/login
+2022-05-03 19:18:37 info: rendering loggin in
+2022-05-03 19:18:37 info: 94 - Request method GET at path: /css/theme.css
+2022-05-03 19:18:44 info: 95 - Request method POST at path: /users/login
+2022-05-03 19:18:44 info: 96 - Request method GET at path: /users/failedLogin
+2022-05-03 19:18:44 info: 97 - Request method GET at path: /users/login
+2022-05-03 19:18:44 info: rendering loggin in
+2022-05-03 19:18:44 info: 98 - Request method GET at path: /css/theme.css
+2022-05-03 19:18:58 info: 99 - Request method POST at path: /users/login
+2022-05-03 19:18:58 info: 100 - Request method GET at path: /users/failedLogin
+2022-05-03 19:18:58 info: 101 - Request method GET at path: /users/login
+2022-05-03 19:18:58 info: rendering loggin in
+2022-05-03 19:18:58 info: 102 - Request method GET at path: /css/theme.css
+2022-05-03 19:19:11 info: 103 - Request method POST at path: /users/login
+2022-05-03 19:19:11 info: 104 - Request method GET at path: /users/failedLogin
+2022-05-03 19:19:11 info: 105 - Request method GET at path: /users/login
+2022-05-03 19:19:11 info: rendering loggin in
+2022-05-03 19:19:11 info: 106 - Request method GET at path: /css/theme.css
+2022-05-03 19:19:48 info: 107 - Request method POST at path: /users/login
+2022-05-03 19:19:48 info: 108 - Request method GET at path: /users/failedLogin
+2022-05-03 19:19:48 info: 109 - Request method GET at path: /users/login
+2022-05-03 19:19:48 info: rendering loggin in
+2022-05-03 19:19:49 info: 110 - Request method GET at path: /css/theme.css
+2022-05-03 19:19:56 info: 111 - Request method GET at path: /css/theme.css
+2022-05-03 19:22:39 info: 112 - Request method GET at path: /users/login
+2022-05-03 19:22:39 info: rendering loggin in
+2022-05-03 19:22:39 info: 113 - Request method GET at path: /css/theme.css
+2022-05-03 19:22:45 info: 114 - Request method POST at path: /users/login
+2022-05-03 19:22:45 info: 115 - Request method GET at path: /users/failedLogin
+2022-05-03 19:22:45 info: 116 - Request method GET at path: /users/login
+2022-05-03 19:22:45 info: rendering loggin in
+2022-05-03 19:22:45 info: 117 - Request method GET at path: /css/theme.css
+2022-05-03 19:23:20 info: 118 - Request method POST at path: /users/login
+2022-05-03 19:23:20 info: 119 - Request method GET at path: /users/failedLogin
+2022-05-03 19:23:20 info: 120 - Request method GET at path: /users/login
+2022-05-03 19:23:20 info: rendering loggin in
+2022-05-03 19:23:20 info: 121 - Request method GET at path: /css/theme.css
+2022-05-03 19:23:53 info: 122 - Request method POST at path: /users/login
+2022-05-03 19:23:53 info: 123 - Request method GET at path: /users/failedLogin
+2022-05-03 19:23:53 info: 124 - Request method GET at path: /users/login
+2022-05-03 19:23:53 info: rendering loggin in
+2022-05-03 19:23:53 info: 125 - Request method GET at path: /css/theme.css
+2022-05-03 19:25:02 info: 126 - Request method POST at path: /users/login
+2022-05-03 19:25:02 info: 127 - Request method GET at path: /users/failedLogin
+2022-05-03 19:25:02 info: 128 - Request method GET at path: /users/login
+2022-05-03 19:25:02 info: rendering loggin in
+2022-05-03 19:25:03 info: 129 - Request method GET at path: /css/theme.css
+2022-05-03 19:25:17 info: 130 - Request method POST at path: /users/login
+2022-05-03 19:25:17 info: 131 - Request method GET at path: /users/failedLogin
+2022-05-03 19:25:17 info: 132 - Request method GET at path: /users/login
+2022-05-03 19:25:17 info: rendering loggin in
+2022-05-03 19:25:18 info: 133 - Request method GET at path: /css/theme.css
+2022-05-03 19:25:45 info: 134 - Request method POST at path: /users/login
+2022-05-03 19:25:45 info: 135 - Request method GET at path: /users/failedLogin
+2022-05-03 19:25:45 info: 136 - Request method GET at path: /users/login
+2022-05-03 19:25:45 info: rendering loggin in
+2022-05-03 19:25:45 info: 137 - Request method GET at path: /css/theme.css
+2022-05-03 19:26:40 info: 138 - Request method POST at path: /users/login
+2022-05-03 19:26:41 info: 139 - Request method GET at path: /users/failedLogin
+2022-05-03 19:26:41 info: 140 - Request method GET at path: /users/login
+2022-05-03 19:26:41 info: rendering loggin in
+2022-05-03 19:26:41 info: 141 - Request method GET at path: /css/theme.css
+2022-05-03 19:27:03 info: 142 - Request method POST at path: /users/login
+2022-05-03 19:27:03 info: 143 - Request method GET at path: /users/failedLogin
+2022-05-03 19:27:03 info: 144 - Request method GET at path: /users/login
+2022-05-03 19:27:03 info: rendering loggin in
+2022-05-03 19:27:03 info: 145 - Request method GET at path: /css/theme.css
+2022-05-03 19:27:21 info: 146 - Request method POST at path: /users/login
+2022-05-03 19:27:21 info: 147 - Request method GET at path: /users/failedLogin
+2022-05-03 19:27:21 info: 148 - Request method GET at path: /users/login
+2022-05-03 19:27:21 info: rendering loggin in
+2022-05-03 19:27:21 info: 149 - Request method GET at path: /css/theme.css
+2022-05-03 19:27:40 info: 150 - Request method POST at path: /users/login
+2022-05-03 19:27:40 info: 151 - Request method GET at path: /users/failedLogin
+2022-05-03 19:27:40 info: 152 - Request method GET at path: /users/login
+2022-05-03 19:27:40 info: rendering loggin in
+2022-05-03 19:27:40 info: 153 - Request method GET at path: /css/theme.css
+2022-05-03 19:28:11 info: 154 - Request method POST at path: /users/login
+2022-05-03 19:28:11 info: 155 - Request method GET at path: /users/failedLogin
+2022-05-03 19:28:11 info: 156 - Request method GET at path: /users/login
+2022-05-03 19:28:11 info: rendering loggin in
+2022-05-03 19:28:11 info: 157 - Request method GET at path: /css/theme.css
+2022-05-03 19:28:24 info: 158 - Request method POST at path: /users/login
+2022-05-03 19:28:24 info: 159 - Request method GET at path: /users/failedLogin
+2022-05-03 19:28:24 info: 160 - Request method GET at path: /users/login
+2022-05-03 19:28:24 info: rendering loggin in
+2022-05-03 19:28:24 info: 161 - Request method GET at path: /css/theme.css
+2022-05-03 19:28:50 info: 162 - Request method POST at path: /users/login
+2022-05-03 19:28:50 info: 163 - Request method GET at path: /users/failedLogin
+2022-05-03 19:28:50 info: 164 - Request method GET at path: /users/login
+2022-05-03 19:28:50 info: rendering loggin in
+2022-05-03 19:28:50 info: 165 - Request method GET at path: /css/theme.css
+2022-05-03 19:29:10 info: 166 - Request method POST at path: /users/login
+2022-05-03 19:29:10 info: 167 - Request method GET at path: /users/failedLogin
+2022-05-03 19:29:10 info: 168 - Request method GET at path: /users/login
+2022-05-03 19:29:10 info: rendering loggin in
+2022-05-03 19:29:11 info: 169 - Request method GET at path: /css/theme.css
+2022-05-03 19:29:20 info: 170 - Request method POST at path: /users/login
+2022-05-03 19:29:20 info: 171 - Request method GET at path: /users/failedLogin
+2022-05-03 19:29:20 info: 172 - Request method GET at path: /users/login
+2022-05-03 19:29:20 info: rendering loggin in
+2022-05-03 19:29:20 info: 173 - Request method GET at path: /css/theme.css
+2022-05-03 19:29:34 info: logger setup and running
+2022-05-03 19:29:34 info: Authentication required loaded
+2022-05-03 19:29:35 info: Middleware loaded
+2022-05-03 19:29:35 info: Routes in place
+2022-05-03 19:29:35 warn: Server started on port 80

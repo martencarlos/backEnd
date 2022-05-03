@@ -2,7 +2,7 @@
 var express = require('express');
 var router = express.Router();
 
-var logger = require('winston');
+const logger = require(process.cwd() + '/logs/logger.js');
   
 // Show 404
 router.all('*', function(req, res){

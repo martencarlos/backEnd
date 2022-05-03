@@ -17,6 +17,7 @@ const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 
+
 if (!process.env.HOST_HEROKU_DEPLOYED){
   require('dotenv').config({path: path.join(__dirname,'config/secrets.env')}); //load secrests to process environment
 }
@@ -24,12 +25,17 @@ if (!process.env.HOST_HEROKU_DEPLOYED){
 logger.info('Authentication required loaded');
 
 //Database
-const mongoose = require('mongoose');
-const dev_db_url = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
-const mongodbFullURL = process.env.MONGODB_URI || dev_db_url;
-mongoose.connect(mongodbFullURL, { useNewUrlParser: true, useCreateIndex:true });
 
-logger.info('Database connected successfully');
+const mongoose = require('mongoose');
+const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
+mongoose.connect(mongodbFullURL, {useNewUrlParser: true, useCreateIndex:true });
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", function () {
+  logger.info('Database connected successfully');
+});
+
 
 // View Engine Handlebars
 app.set('views', [path.join(__dirname,'views'),
@@ -38,13 +44,15 @@ app.set('views', [path.join(__dirname,'views'),
   path.join(__dirname,'products/users/register'),
   path.join(__dirname,'products/errors')
 ]);
-logger.info(path.join(__dirname,'views/layouts/partials'));
+
+//logger.info(path.join(__dirname,'views/layouts/partials'));
 app.engine( 'hbs', hbs( { 
   extname: 'hbs', 
   defaultLayout: 'main', 
   layoutsDir:  path.join(__dirname,"views/layouts"),
   partialsDir: './views/layouts/partials'
 } ) );
+
 app.set('view engine', 'hbs');
 
 // MIDDLEWARE

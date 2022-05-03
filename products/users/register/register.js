@@ -1,6 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
+const logger = require(process.cwd() + '/logs/logger.js');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -9,11 +10,13 @@ var User = require('../user');
 
 // Register
 router.get('/', function(req, res){
+	logger.info("rendering register");
 	res.render('register');
 });
 
 // Register User
-router.post('/register', function(req, res){
+router.post('/', function(req, res){
+	logger.info("entering post");
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
@@ -44,7 +47,7 @@ router.post('/register', function(req, res){
 
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
-			console.log(user);
+			
 		});
 
 		req.flash('success_msg', 'You are registered and can now login');
@@ -53,14 +56,13 @@ router.post('/register', function(req, res){
 	}
 });
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
+passport.use(new LocalStrategy(function(username, password, done) {
    User.getUserByUsername(username, function(err, user){
    	if(err) throw err;
    	if(!user){
-   		return done(null, false, {message: 'Unknown User'});
+   		return done(null, false, {message: 'Invalid username'});
    	}
-
+	
    	User.comparePassword(password, user.password, function(err, isMatch){
    		if(err) throw err;
    		if(isMatch){
@@ -69,7 +71,7 @@ passport.use(new LocalStrategy(
    			return done(null, false, {message: 'Invalid password'});
    		}
    	});
-   });
+	});
   }));
 
 passport.serializeUser(function(user, done) {
@@ -80,14 +82,6 @@ passport.deserializeUser(function(id, done) {
   User.getUserById(id, function(err, user) {
     done(err, user);
   });
-});
-
-router.get('/logout', function(req, res){
-	req.logout();
-
-	req.flash('success_msg', 'You are logged out');
-
-	res.redirect('/users/login');
 });
 
 module.exports = router;
