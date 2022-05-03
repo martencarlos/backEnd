@@ -3,4 +3,4 @@
 
 # Node modules (use 'npm install' to add them later)
 node_modules
-.env
+*.env
