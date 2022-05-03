@@ -1,6 +1,11 @@
 # mac/linux files
 .DS_*
 
+# Logs
+.log
+
 # Node modules (use 'npm install' to add them later)
 node_modules
 *.env
+
+
