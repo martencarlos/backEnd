@@ -25,7 +25,7 @@ logger.info('Authentication required loaded');
 
 //Database
 const mongoose = require('mongoose');
-const dev_db_url = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME;
+const dev_db_url = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
 const mongodbFullURL = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongodbFullURL, { useNewUrlParser: true, useCreateIndex:true });
 
