@@ -5,7 +5,7 @@ const app = express();
 
 //Basic
 const path = require('path');
-var favicon = require('serve-favicon')
+var favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 const logger = require('./logs/logger.js'); 
@@ -29,7 +29,6 @@ logger.info('Authentication required loaded');
 const mongoose = require('mongoose');
 const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
 mongoose.connect(mongodbFullURL, {useNewUrlParser: true, useCreateIndex:true });
-console.log(mongodbFullURL);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));

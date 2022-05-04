@@ -2,11 +2,11 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-//const logger = require(process.cwd() + '/logs/logger.js');
+const logger = require(process.cwd() + '/logs/logger.js');
 
 // Login
 router.get('/', function(req, res){
-  //logger.info("rendering loggin in");
+  logger.info("rendering loggin in");
 	res.render('login');
 });
 
