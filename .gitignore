@@ -4,6 +4,8 @@
 # Logs
 .log
 
+*.vscode
+
 # Node modules (use 'npm install' to add them later)
 node_modules
 *.env

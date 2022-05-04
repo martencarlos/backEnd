@@ -1,7 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
-const logger = require(process.cwd() + '/logs/logger.js');
+//const logger = require(process.cwd() + '/logs/logger.js');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -10,13 +10,13 @@ var User = require('../user');
 
 // Register
 router.get('/', function(req, res){
-	logger.info("rendering register");
+	//logger.info("rendering register");
 	res.render('register');
 });
 
 // Register User
 router.post('/', function(req, res){
-	logger.info("entering post");
+	//logger.info("entering post");
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
