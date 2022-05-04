@@ -2,7 +2,8 @@
 .DS_*
 
 # Logs
-.log
+logs/**
+logs/all-logs.log
 
 *.vscode
 
