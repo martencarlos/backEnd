@@ -1,4 +1,6 @@
 
+
+
 //Express
 const express = require('express');
 const app = express();
@@ -7,7 +9,7 @@ const app = express();
 const path = require('path');
 var favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
-const hbs = require('express-handlebars');
+var hbs = require('express-handlebars');
 const logger = require('./logs/logger.js'); 
 
 //Authentication
@@ -25,10 +27,9 @@ if (!process.env.HOST_HEROKU_DEPLOYED){
 logger.info('Authentication required loaded');
 
 //Database
-
 const mongoose = require('mongoose');
 const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
-mongoose.connect(mongodbFullURL, {useNewUrlParser: true, useCreateIndex:true });
+mongoose.connect(mongodbFullURL, {useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
@@ -46,7 +47,7 @@ app.set('views', [path.join(__dirname,'views'),
 ]);
 
 //logger.info(path.join(__dirname,'views/layouts/partials'));
-app.engine( 'hbs', hbs( { 
+app.engine( 'hbs', hbs.engine( { 
   extname: 'hbs', 
   defaultLayout: 'main', 
   layoutsDir:  path.join(__dirname,"views/layouts"),
@@ -82,22 +83,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      const namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
-
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+app.use(express.json());
 
 // Connect Flash
 app.use(flash());
