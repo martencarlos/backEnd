@@ -1,5 +1,7 @@
 
-<div class="container my-auto d-flex" style="height:80%">
+<link href="/css/register.css" rel="stylesheet" />
+
+<div style="height: 100%;" class="row  align-items-center align-items-center justify-content-center ">
   <form class="form-signin" method="post" action="/users/register">
       
       <h3 class="mb-4" style="margin-top: 10px" id="login-heading">Register</h3>
@@ -15,7 +17,9 @@
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="width:40px"><i class="fa fa-user fa-fw"></i></span>
+            <span class="input-group-text" style="width:40px">
+              <i class="bi-person-fill" role="img" aria-label="user"></i>
+              </span>
           </div>
           <input class="form-control" name="name" placeholder="Name" type="text" required="required">
         </div>
@@ -25,7 +29,9 @@
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="width:40px"><i class="fa fa-at fa-fw"></i></span>
+            <span class="input-group-text" style="width:40px">
+              <i class="bi-person-badge-fill" role="img" aria-label="user"></i>
+              </span>
           </div>
           <input class="form-control" name="username" placeholder="Username" type="text" required="required">
         </div>
@@ -35,7 +41,9 @@
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="width:40px"><i class="fa fa-envelope fa-fw"></i></span>
+            <span class="input-group-text" style="width:40px">
+              <i class="bi-envelope-fill" role="img" aria-label="user"></i>
+              </span>
           </div>
           <input class="form-control" name="email" placeholder="Email" type="email" required="required">
         </div>
@@ -45,16 +53,21 @@
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="width:40px"><i class="fa fa-key fa-fw"></i></span>
+            <span class="input-group-text" style="width:40px">
+              <i class="bi-key-fill" role="img" aria-label="user"></i>
+              </span>
           </div>
           <input class="form-control" name="password" placeholder="Password" type="password" required="required">
         </div>
       </div>
 
+      <!-- Re-Password -->
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="width:40px"><i class="fa fa-key fa-fw"></i></span>
+            <span class="input-group-text" style="width:40px">
+              <i class="bi-key-fill" role="img" aria-label="user"></i>
+              </span>
           </div>
           <input class="form-control" name="password2" placeholder="Re-Password" type="password" required="required">
         </div>
@@ -66,3 +79,4 @@
       
     </form>
   </div>
+  

@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  
-<!-- HEAD -->
-{{> header }}
 
-  <!-- BODY -->
-  <body>
-    <!-- Fixed top NAVBAR -->
+<html lang="en">
+  <!-- HEAD -->
+  {{> head }}
+
+  <body class="body">
+    <div class="container fullpage" id="full page">
+      <!-- Navbar -->
       {{> navbar }}
       <!-- NOTIFICATIONS -->
       {{> notifications }}
-
-      <main role="main"></main>
-        {{{body}}}
-      </main>
-
+      <!-- MAIN CONTENT -->
+      {{{body}}}
       <!-- FOOTER -->
       {{> footer }}
+    </div>
   </body>
 </html>

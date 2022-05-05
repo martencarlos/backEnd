@@ -1,0 +1,13 @@
+
+
+
+.form-signin {
+  max-width: 330px;
+  min-width: 330px;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

@@ -1,6 +1,8 @@
 
 var express = require('express');
+
 var router = express.Router();
+var { body, validationResult} = require('express-validator');
 const logger = require(process.cwd() + '/logs/logger.js');
 
 var passport = require('passport');
@@ -17,6 +19,7 @@ router.get('/', function(req, res){
 // Register User
 router.post('/', function(req, res){
 	logger.info("entering post");
+	
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
@@ -24,14 +27,14 @@ router.post('/', function(req, res){
 	var password2 = req.body.password2;
 
 	// Validation
-	req.checkBody('name', 'Name is required').notEmpty();
-	req.checkBody('email', 'Email is required').notEmpty();
-	req.checkBody('email', 'Email is not valid').isEmail();
-	req.checkBody('username', 'Username is required').notEmpty();
-	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+	body('name', 'Name is required').notEmpty();
+	body('email', 'Email is required').notEmpty();
+	body('email', 'Email is not valid').isEmail();
+	body('username', 'Username is required').notEmpty();
+	body('password', 'Password is required').notEmpty();
+	body('password2', 'Passwords do not match').equals(req.body.password);
 
-	var errors = req.validationErrors();
+	var errors = validationResult(req);
 
 	if(errors){
 		res.render('register',{

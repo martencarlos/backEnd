@@ -1,25 +1,28 @@
 
+
+<link href="/css/navbar.css" rel="stylesheet"/>
+
 <!-- Navbar -->
-<div class="container">
-  <nav class="navbar d-flex justify-content-center">
-    <a class="navbar-brand text-success" id="brand" href="{{path.home}}">{{site.title}}</a>
-    <div class="p-2 flex-grow-1">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-      </ul>
-    </div>
-    <div class="p-2">
-      {{#if user}}
-        <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href='{{path.home}}'">Dashboard</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='{{path.logout}}'">Logout</button>
-      {{else}}
-        <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href='{{path.login}}'">Login</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='{{path.register}}'">Sign-up</button>
-      {{/if}}
-    </div>
-  </nav>
+
+<div class="row mynavbar align-items-center justify-content-between redborder">
+  <div class="col-md-7   redborder">
+    <ul class="nav nav-pills">
+      <li class="nav-item my-auto"><a class="navbar-brand " id="brand" href="{{path.home}}">{{site.title}}</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4  text-end redborder">
+    {{#if user}}
+      <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href='{{path.home}}'">Dashboard</button>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='{{path.logout}}'">Logout</button>
+    {{else}}
+      <button type="button" class="btn btn-outline-primary me-2" onclick="window.location.href='{{path.login}}'">Login</button>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='{{path.register}}'">Sign-up</button>
+    {{/if}}
+  </div>
 </div>
+
+
 

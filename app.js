@@ -13,7 +13,6 @@ var hbs = require('express-handlebars');
 const logger = require('./logs/logger.js'); 
 
 //Authentication
-const expressValidator = require('express-validator');
 const session = require('express-session');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
@@ -82,8 +81,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Express Validator
-app.use(express.json());
 
 // Connect Flash
 app.use(flash());
