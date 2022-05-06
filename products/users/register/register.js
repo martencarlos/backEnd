@@ -1,14 +1,14 @@
 
 var express = require('express');
-
 var router = express.Router();
-var { body, validationResult} = require('express-validator');
+
 const logger = require(process.cwd() + '/logs/logger.js');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../user');
+
 
 // Register
 router.get('/', function(req, res){
@@ -21,22 +21,18 @@ router.post('/', function(req, res){
 	logger.info("entering post");
 	
 	var name = req.body.name;
-	var email = req.body.email;
+	var email = req.body.emails;
 	var username = req.body.username;
 	var password = req.body.password;
-	var password2 = req.body.password2;
-
+	
+	
 	// Validation
-	body('name', 'Name is required').notEmpty();
-	body('email', 'Email is required').notEmpty();
-	body('email', 'Email is not valid').isEmail();
-	body('username', 'Username is required').notEmpty();
-	body('password', 'Password is required').notEmpty();
-	body('password2', 'Passwords do not match').equals(req.body.password);
+	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
-	var errors = validationResult(req);
+	var errors = req.validationErrors();
 
 	if(errors){
+		logger.info("showing errors");
 		res.render('register',{
 			errors:errors
 		});

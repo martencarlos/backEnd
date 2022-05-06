@@ -13,6 +13,7 @@ var hbs = require('express-handlebars');
 const logger = require('./logs/logger.js'); 
 
 //Authentication
+const expressValidator = require('express-validator');
 const session = require('express-session');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
@@ -81,6 +82,23 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Validation
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      const namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
 // Connect Flash
 app.use(flash());
