@@ -3,14 +3,14 @@
 
 .fullpage{
   margin-top: 20px;
-  border: 1px solid rgb(4, 0, 236);
+  /*border: 1px solid rgb(4, 0, 236);*/
   position:relative;
   min-height: 100%;
   padding-bottom: 130px;
  
 }
 body{
-  border: 10px solid rgb(0, 0, 0);
+  /*border: 10px solid rgb(0, 0, 0);*/
   justify-content: center;
   display: flex;
   position: relative;
@@ -19,18 +19,18 @@ body{
 }
 
 .mynavbar{
-  border: 1px solid rgb(212, 0, 166);
+  /*border: 1px solid rgb(212, 0, 166);*/
   
 }
 
 .mymain{
-  border: 1px solid rgb(0, 195, 255);
+  /*border: 1px solid rgb(0, 195, 255);*/
   position: relative;
   padding:0;
   
 }
 .myfooter{
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   position:absolute;
   bottom: 0;
   width: 100%;

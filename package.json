@@ -38,6 +38,7 @@
     "winston-daily-rotate-file": "^3.5.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "livereload": "*"
   }
 }
