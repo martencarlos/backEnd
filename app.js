@@ -149,8 +149,39 @@ app.use('/users', users);
 app.get('/cards', function(req, res){
 	logger.info("getting cards");
   res.json(cards);
-
 });
+
+// Register User
+app.post('/cards', function(req, res){
+	logger.info("saving cards into db");
+	
+	// async required because of database query
+	run()
+	async function run(){
+
+    const Card = mongoose.model('Card', Schema({
+      title: String,
+      image: String,
+      stats:{
+          likes: Number,
+          views: Number,
+          downloads: Number
+      },
+      author:{
+          pic: String,
+          firstName: String,
+          lastName: String
+      }
+    }));
+    
+    const card = new Card(req.body);
+    await card.save();
+			
+		}
+	}
+	
+);
+
 app.use('/', errors); // always keep at the end of the routes
 
 logger.info('Routes in place');
