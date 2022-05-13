@@ -62,6 +62,7 @@ app.set('view engine', 'hbs');
 // MIDDLEWARE
 var nRequests = 0;
 app.use(function (req, res, next) {
+    res.header({"Access-Control-Allow-Origin": "*"});
     logger.info((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
     next();
 });
@@ -147,7 +148,6 @@ app.use('/', home);
 app.use('/users', users);
 app.get('/cards', function(req, res){
 	logger.info("getting cards");
-	console.log(cards)
   res.json(cards);
 
 });
