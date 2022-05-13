@@ -12,6 +12,9 @@ const bodyParser = require('body-parser');
 var hbs = require('express-handlebars');
 const logger = require('./logs/logger.js'); 
 
+//API
+const cards = require('./cardsData.js'); 
+
 //Authentication
 const expressValidator = require('express-validator');
 const session = require('express-session');
@@ -142,6 +145,12 @@ const errors = require('./products/errors/errors');
 
 app.use('/', home);
 app.use('/users', users);
+app.get('/cards', function(req, res){
+	logger.info("getting cards");
+	console.log(cards)
+  res.json(cards);
+
+});
 app.use('/', errors); // always keep at the end of the routes
 
 logger.info('Routes in place');
