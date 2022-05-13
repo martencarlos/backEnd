@@ -13,6 +13,7 @@ router.use('/login', login);
 // Failed login
 router.get('/failedLogin', function(req, res){
 	req.flash('error_msg', 'User unknown');
+	
 	res.redirect('/users/login');
 });
 
