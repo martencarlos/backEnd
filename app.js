@@ -13,7 +13,8 @@ var hbs = require('express-handlebars');
 const logger = require('./logs/logger.js'); 
 
 //API
-const cards = require('./cardsData.js'); 
+const cards = require('./cardsData.js');
+var Card = require('./products/card');
 
 //Authentication
 const expressValidator = require('express-validator');
@@ -62,7 +63,12 @@ app.set('view engine', 'hbs');
 // MIDDLEWARE
 var nRequests = 0;
 app.use(function (req, res, next) {
-    res.header({"Access-Control-Allow-Origin": "*"});
+    res.header({
+      'Access-Control-Allow-Origin': '*',
+      'origin':'x-requested-with',
+      'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
+      'Content-Type': 'application/json',
+    });
     logger.info((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
     next();
 });
@@ -148,39 +154,23 @@ app.use('/', home);
 app.use('/users', users);
 app.get('/cards', function(req, res){
 	logger.info("getting cards");
-  res.json(cards);
+  run()
+	async function run(){
+    const allCards = await Card.find({});
+    res.json(allCards);
+  }
 });
 
-// Register User
+
 app.post('/cards', function(req, res){
 	logger.info("saving cards into db");
-	
-	// async required because of database query
+	//async required because of database query
 	run()
 	async function run(){
-
-    const Card = mongoose.model('Card', Schema({
-      title: String,
-      image: String,
-      stats:{
-          likes: Number,
-          views: Number,
-          downloads: Number
-      },
-      author:{
-          pic: String,
-          firstName: String,
-          lastName: String
-      }
-    }));
-    
     const card = new Card(req.body);
     await card.save();
-			
 		}
-	}
-	
-);
+});
 
 app.use('/', errors); // always keep at the end of the routes
 
