@@ -13,8 +13,11 @@ var hbs = require('express-handlebars');
 const logger = require('./logs/logger.js'); 
 
 //API
-const cards = require('./cardsData.js');
+const bcrypt = require('bcrypt');
 var Card = require('./products/card');
+var User = require('./products/users/user');
+const mongoStore = require('connect-mongo')
+
 
 //Authentication
 const expressValidator = require('express-validator');
@@ -50,7 +53,7 @@ app.set('views', [path.join(__dirname,'views'),
   path.join(__dirname,'products/errors')
 ]);
 
-//logger.info(path.join(__dirname,'views/layouts/partials'));
+//Rendering engine HANDLEBARS
 app.engine( 'hbs', hbs.engine( { 
   extname: 'hbs', 
   defaultLayout: 'main', 
@@ -61,6 +64,8 @@ app.engine( 'hbs', hbs.engine( {
 app.set('view engine', 'hbs');
 
 // MIDDLEWARE
+
+//logger and CORS headers
 var nRequests = 0;
 app.use(function (req, res, next) {
     res.header({
@@ -73,9 +78,10 @@ app.use(function (req, res, next) {
     next();
 });
 
+// Favicon + BodyParser + CookieParser
 app.use(favicon(path.join(__dirname, 'public/img', 'favicon-anchor.ico')))
-app.use(bodyParser.json()); //puts a jason formatted body object in req object accessed by req.body 
-app.use(bodyParser.urlencoded({ extended: false })); //UTF-8 encoded only string or arrays
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(cookieParser());
 
 // Set Static Folder
@@ -83,9 +89,13 @@ app.use(express.static(path.join(__dirname,'public')));
 
 // Express Session
 app.use(session({
-    secret: 'secret',
+    secret: 'Casdfat On9 KeyB9ard',
     saveUninitialized: true,
-    resave: true
+    resave: false,
+    store: mongoStore.create({mongoUrl:mongodbFullURL, collectionName: "sessions"}),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24
+    }
 }));
 
 // Passport init
@@ -151,16 +161,95 @@ const users = require('./products/users/users');
 const errors = require('./products/errors/errors');
 
 app.use('/', home);
+
+app.post('/login', function(req, res) {
+    const {email, password} = req.body
+    run()
+	  async function run(){
+      const foundUser =  await User.find({email: email});
+      console.log(foundUser)
+      if(foundUser.length !==0){
+        bcrypt.compare(password, foundUser[0].password).then(function(result) {
+          if(result){
+            
+              
+              res.json(foundUser[0])
+            
+            
+          }else{
+            res.json({
+              password: "Incorrect password",
+              errors: "yes"
+            })
+          }
+        });
+      }else{
+        res.json({
+          email: "User not found",
+          errors:"yes"
+        })
+      }
+      
+    }
+    
+});
+
+app.post('/registeruser', function(req, res){
+	logger.info("checking user");
+	//async required because of database query
+	run()
+	async function run(){
+    const foundusername =  await User.find({username: req.body.username});
+		const foundemail =  await User.find({email: req.body.email});
+    
+    //validate user and email
+		if(foundemail.length!=0 ){
+      res.json({
+        email: "Email already registered",
+        username: ""
+      })
+    }else if(foundusername.length!=0){
+      res.json({
+        username: "username taken",
+        email:""
+      })
+		}else{
+      const user = new User(req.body);
+      bcrypt.hash(user.password, 10, function(err, hash) {
+        user.password = hash;
+        console.log(user)
+        user.save();
+      });
+      
+      
+      res.json({
+        success: "registered"
+      })
+    }
+		}
+});
+
 app.use('/users', users);
+
+function ensureAuthenticated(req, res, next){
+	console.log(req.session)
+  if(req.session.user){
+		return next();
+	} else {
+       
+	}
+}
+
+
 app.get('/cards', function(req, res){
-	logger.info("getting cards");
+	
+  logger.info("getting cards");
   run()
 	async function run(){
     const allCards = await Card.find({});
     res.json(allCards);
   }
 });
-
 
 app.post('/cards', function(req, res){
 	logger.info("saving cards into db");

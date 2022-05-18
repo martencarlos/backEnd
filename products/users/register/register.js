@@ -41,7 +41,7 @@ router.post('/', function(req, res){
 		const foundusername =  await User.find({username: username});
 		const foundemail =  await User.find({email: email});
 		
-		//validate user and password
+		//validate user and email
 		if(foundusername.length!=0 || foundemail.length!=0 ){
 			req.checkBody('username', 'User is already registered').equals("not me");
 		}
