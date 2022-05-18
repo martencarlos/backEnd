@@ -4,6 +4,8 @@
 //Express
 const express = require('express');
 const app = express();
+var cors = require('cors')
+
 
 //Basic
 const path = require('path');
@@ -17,14 +19,17 @@ const bcrypt = require('bcrypt');
 var Card = require('./products/card');
 var User = require('./products/users/user');
 const mongoStore = require('connect-mongo')
+const {ensureLoggedIn} = require('connect-ensure-login')
 
 
 //Authentication
 const expressValidator = require('express-validator');
-const session = require('express-session');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
+
+const session = require('express-session');
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy
 
 
 if (!process.env.HOST_HEROKU_DEPLOYED){
@@ -66,14 +71,15 @@ app.set('view engine', 'hbs');
 // MIDDLEWARE
 
 //logger and CORS headers
+app.use(cors())
 var nRequests = 0;
 app.use(function (req, res, next) {
-    res.header({
-      'Access-Control-Allow-Origin': '*',
-      'origin':'x-requested-with',
-      'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
-      'Content-Type': 'application/json',
-    });
+    // res.header({
+    //   'Access-Control-Allow-Origin': '*',
+    //   'origin':'x-requested-with',
+    //   'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
+    //   'Content-Type': 'application/json',
+    // });
     logger.info((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
     next();
 });
@@ -81,7 +87,7 @@ app.use(function (req, res, next) {
 // Favicon + BodyParser + CookieParser
 app.use(favicon(path.join(__dirname, 'public/img', 'favicon-anchor.ico')))
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(cookieParser());
 
 // Set Static Folder
@@ -99,8 +105,58 @@ app.use(session({
 }));
 
 // Passport init
+app.use(express.urlencoded({extended: false}))
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(new LocalStrategy({
+        usernameField: 'email',
+        passwordField: 'password'
+      },
+      function(email, password, done) {
+        run()
+        async function run(){
+          const foundUser =  await User.find({email: email});
+          if(foundUser.length !==0){
+            bcrypt.compare(password, foundUser[0].password).then(function(result) {
+              if(result){
+                return done(null, foundUser[0]);   
+              }else{
+                return done(null, false, {password: 'Invalid password',errors: "yes"});
+              }
+            });
+          }else{
+            return done(null, false, {email: 'Email not registered',errors:"yes"});
+          }
+        }
+        // User.find(email, function(err, user){
+        //   console.log("running local strategy")
+        //   if(err) throw err;
+        //   if(!user){
+        //     return done(null, false, {email: 'Email not registered '});
+        //   }
+      
+        //   User.comparePassword(password, user.password, function(err, isMatch){
+        //     if(err) throw err;
+        //     if(isMatch){
+        //       return done(null, user);
+        //     } else {
+        //       return done(null, false, {password: 'Invalid password'});
+        //     }
+        //   });
+        // });
+ }));
+
+passport.serializeUser(function(user, done) {
+ done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+ User.getUserById(id, function(err, user) {
+   done(err, user);
+ });
+});
+
 
 //Validation
 app.use(expressValidator({
@@ -162,35 +218,22 @@ const errors = require('./products/errors/errors');
 
 app.use('/', home);
 
-app.post('/login', function(req, res) {
-    const {email, password} = req.body
-    run()
-	  async function run(){
-      const foundUser =  await User.find({email: email});
-      console.log(foundUser)
-      if(foundUser.length !==0){
-        bcrypt.compare(password, foundUser[0].password).then(function(result) {
-          if(result){
-            
-              
-              res.json(foundUser[0])
-            
-            
-          }else{
-            res.json({
-              password: "Incorrect password",
-              errors: "yes"
-            })
-          }
-        });
-      }else{
-        res.json({
-          email: "User not found",
-          errors:"yes"
-        })
-      }
-      
-    }
+app.get("/dashboard", ensureLoggedIn('/login'), (req, res) => {
+  res.send("ok")
+});
+
+
+
+app.delete("/logout", (req,res) => {
+  req.logOut()
+  res.redirect("/login")
+  console.log(`-------> User Logged out`)
+})
+
+app.post('/login',passport.authenticate('local', {
+  successRedirect: "/dashboard",
+  failureRedirect: "/login",
+}), function(req, res) {
     
 });
 
@@ -229,16 +272,7 @@ app.post('/registeruser', function(req, res){
 		}
 });
 
-app.use('/users', users);
 
-function ensureAuthenticated(req, res, next){
-	console.log(req.session)
-  if(req.session.user){
-		return next();
-	} else {
-       
-	}
-}
 
 
 app.get('/cards', function(req, res){
@@ -260,7 +294,7 @@ app.post('/cards', function(req, res){
     await card.save();
 		}
 });
-
+app.use('/users', users);
 app.use('/', errors); // always keep at the end of the routes
 
 logger.info('Routes in place');
