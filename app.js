@@ -1,251 +1,68 @@
 
-
-
 //Express
 const express = require('express');
 const app = express();
-var cors = require('cors')
-
-
-//Basic
-const path = require('path');
-var favicon = require('serve-favicon');
-const bodyParser = require('body-parser');
-var hbs = require('express-handlebars');
-const logger = require('./logs/logger.js'); 
+var cors = require('cors');
 
 //API
 const bcrypt = require('bcrypt');
-var Card = require('./products/card');
-var User = require('./products/users/user');
-const mongoStore = require('connect-mongo')
-const {ensureLoggedIn} = require('connect-ensure-login')
-
+var User = require('./user');
+var Card = require('./card');
 
 //Authentication
-const expressValidator = require('express-validator');
-const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 
-const session = require('express-session');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy
-
-
+//load secrests to process environment
 if (!process.env.HOST_HEROKU_DEPLOYED){
-  require('dotenv').config({path: path.join(__dirname,'config/secrets.env')}); //load secrests to process environment
+  require('dotenv').config({path: process.cwd() + '/config/secrets.env'}); 
 }
-
-logger.info('Authentication required loaded');
+console.log('Authentication required loaded');
 
 //Database
-const mongoose = require('mongoose');
 const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
+
+const mongoose = require('mongoose');
 mongoose.connect(mongodbFullURL, {useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
-  logger.info('Database connected successfully');
+  console.log('Database connected successfully');
 });
-
-
-// View Engine Handlebars
-app.set('views', [path.join(__dirname,'views'),
-  path.join(__dirname,'products/home'),
-  path.join(__dirname,'products/users/login'),
-  path.join(__dirname,'products/users/register'),
-  path.join(__dirname,'products/errors')
-]);
-
-//Rendering engine HANDLEBARS
-app.engine( 'hbs', hbs.engine( { 
-  extname: 'hbs', 
-  defaultLayout: 'main', 
-  layoutsDir:  path.join(__dirname,"views/layouts"),
-  partialsDir: './views/layouts/partials'
-} ) );
-
-app.set('view engine', 'hbs');
 
 // MIDDLEWARE
 
-//logger and CORS headers
-app.use(cors())
+//CORS headers
+app.use(cors({origin: "http://localhost:3000", credentials: true, methods: "GET, POST, PUT, DELETE"}));
+
 var nRequests = 0;
 app.use(function (req, res, next) {
-    // res.header({
-    //   'Access-Control-Allow-Origin': '*',
-    //   'origin':'x-requested-with',
-    //   'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
-    //   'Content-Type': 'application/json',
-    // });
-    logger.info((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
-    next();
-});
-
-// Favicon + BodyParser + CookieParser
-app.use(favicon(path.join(__dirname, 'public/img', 'favicon-anchor.ico')))
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(cookieParser());
-
-// Set Static Folder
-app.use(express.static(path.join(__dirname,'public')));
-
-// Express Session
-app.use(session({
-    secret: 'Casdfat On9 KeyB9ard',
-    saveUninitialized: true,
-    resave: false,
-    store: mongoStore.create({mongoUrl:mongodbFullURL, collectionName: "sessions"}),
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24
-    }
-}));
-
-// Passport init
-app.use(express.urlencoded({extended: false}))
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.use(new LocalStrategy({
-        usernameField: 'email',
-        passwordField: 'password'
-      },
-      function(email, password, done) {
-        run()
-        async function run(){
-          const foundUser =  await User.find({email: email});
-          if(foundUser.length !==0){
-            bcrypt.compare(password, foundUser[0].password).then(function(result) {
-              if(result){
-                return done(null, foundUser[0]);   
-              }else{
-                return done(null, false, {password: 'Invalid password',errors: "yes"});
-              }
-            });
-          }else{
-            return done(null, false, {email: 'Email not registered',errors:"yes"});
-          }
-        }
-        // User.find(email, function(err, user){
-        //   console.log("running local strategy")
-        //   if(err) throw err;
-        //   if(!user){
-        //     return done(null, false, {email: 'Email not registered '});
-        //   }
-      
-        //   User.comparePassword(password, user.password, function(err, isMatch){
-        //     if(err) throw err;
-        //     if(isMatch){
-        //       return done(null, user);
-        //     } else {
-        //       return done(null, false, {password: 'Invalid password'});
-        //     }
-        //   });
-        // });
- }));
-
-passport.serializeUser(function(user, done) {
- done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
- User.getUserById(id, function(err, user) {
-   done(err, user);
- });
-});
-
-
-//Validation
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      const namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
-
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
-
-// Connect Flash
-app.use(flash());
-// Flash res variables
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Headers",
+  "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  console.log((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
+  console.log(req.headers.cookie)
   next();
 });
 
-logger.info('Middleware loaded');
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-// Application wide persisting global variables
-app.locals = {
-  site: {
-      title: 'WebFrame',
-      description: 'A boilerplate for a simple web application with a Node.JS and Express backend, with an Hdb template with using Twitter Bootstrap.'
-  },
-  path: {
-      //main
-      home: '/',
-      //users
-      login: '/users/login',
-      logout: '/users/logout',
-      register: '/users/register',
-      //errors
-      notFound: '/404'
-  },
-  author: {
-      name: 'Carlos Marten',
-      contact: 'martencarlos@gmail.com'
-  }
-};
+app.use(cookieParser())
+
+console.log('Middleware loaded');
 
 // Routes
-const home = require('./products/home/index');
-const users = require('./products/users/users');
-const errors = require('./products/errors/errors');
-
-app.use('/', home);
-
-app.get("/dashboard", ensureLoggedIn('/login'), (req, res) => {
-  res.send("ok")
-});
-
-
-
-app.delete("/logout", (req,res) => {
-  req.logOut()
-  res.redirect("/login")
-  console.log(`-------> User Logged out`)
-})
-
-app.post('/login',passport.authenticate('local', {
-  successRedirect: "/dashboard",
-  failureRedirect: "/login",
-}), function(req, res) {
-    
-});
-
 app.post('/registeruser', function(req, res){
 	logger.info("checking user");
-	//async required because of database query
+	
 	run()
 	async function run(){
     const foundusername =  await User.find({username: req.body.username});
 		const foundemail =  await User.find({email: req.body.email});
     
-    //validate user and email
 		if(foundemail.length!=0 ){
       res.json({
         email: "Email already registered",
@@ -263,8 +80,6 @@ app.post('/registeruser', function(req, res){
         console.log(user)
         user.save();
       });
-      
-      
       res.json({
         success: "registered"
       })
@@ -272,12 +87,50 @@ app.post('/registeruser', function(req, res){
 		}
 });
 
+app.post('/login',async(req, res) => {
+  const foundUser =  await User.find({email: req.body.email});
+    if(foundUser.length !==0){
+      bcrypt.compare(req.body.password, foundUser[0].password).then(function(result) {
+        if(result){
+          
+          res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false, sameSite: "None",secure:true })
+          
+          
+          res.send(foundUser[0])
+        }else{
+           res.json({password: 'Invalid password',errors: "yes"});
+        }
+      });
+    }else{
+       res.json( {email: 'Email not registered',errors:"yes"});
+    }
+})
 
 
+app.get('/dashboard', checkAuthenticated, (req, res) => {
+  res.json({ name: req.user.name })
+})
 
-app.get('/cards', function(req, res){
+function checkAuthenticated(req, res, next) {
+  
+  if (req.headers.cookie) {
+      next();
+  } else {
+      console.log("not authenticated error")
+      res.json({error: "not authenticated"})
+  }
+}
+
+// app.delete("/logout", (req,res) => {
+//   req.logOut()
+//   res.redirect("/login")
+//   console.log(`-------> User Logged out`)
+// })
+
+
+app.get('/cards',checkAuthenticated, function(req, res){
 	
-  logger.info("getting cards");
+  console.log("getting cards");
   run()
 	async function run(){
     const allCards = await Card.find({});
@@ -286,7 +139,7 @@ app.get('/cards', function(req, res){
 });
 
 app.post('/cards', function(req, res){
-	logger.info("saving cards into db");
+	console.log("saving cards into db");
 	//async required because of database query
 	run()
 	async function run(){
@@ -294,13 +147,12 @@ app.post('/cards', function(req, res){
     await card.save();
 		}
 });
-app.use('/users', users);
-app.use('/', errors); // always keep at the end of the routes
 
-logger.info('Routes in place');
+
+console.log('Routes in place');
 
 // Start Server
 app.set('port', (process.env.PORT || 80));
 app.listen(app.get('port'), function(){
-  logger.warn('Server started on port '+ app.get('port'));
+  console.log('Server started on port '+ app.get('port'));
 });

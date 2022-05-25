@@ -1,46 +1,24 @@
 {
-  "name": "basicapp",
+  "name": "webframe_server",
   "main": "app.js",
   "version": "1.0.0",
   "description": "Carlos Marten - One frame to rule them all",
   "author": "Carlos Marten",
-  "license": "ISC",
+  "license": "GPL3",
   "scripts": {
     "start": "node ./app.js",
-    "dev": "nodemon ./app.js",
-    "test": "newman run ./tests/api-tests.postman.json -e ./tests/env-api-tests.postman.json",
-    "stop": "lsof -ti :3000 | xargs kill"
+    "dev": "nodemon ./app.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "bcryptjs": "*",
-    "body-parser": "*",
-    "bootstrap": "^4.6.1",
-    "bootstrap-icons": "^1.8.1",
-    "connect-ensure-login": "^0.1.1",
-    "connect-flash": "*",
-    "connect-mongo": "^4.6.0",
-    "cookie-parser": "^1.4.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^6.2.0",
-    "eslint": "^5.16.0",
-    "express": "*",
-    "express-handlebars": "^6.0.5",
-    "express-messages": "*",
-    "express-session": "*",
-    "express-validator": "^5.3.1",
-    "jquery": "^3.6.0",
-    "mongodb": "^4.5.0",
-    "mongoose": "^6.3.2",
-    "node-dev": "^3.1.1",
-    "passport": "*",
-    "passport-local": "*",
-    "path": "^0.12.7",
-    "serve-favicon": "^2.5.0",
-    "winston": "^3.1.0",
-    "winston-daily-rotate-file": "^3.5.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.9"
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.3.4",
+    "nodemon": "^2.0.16",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
   }
 }
