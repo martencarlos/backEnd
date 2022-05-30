@@ -3,11 +3,14 @@
 const express = require('express');
 const app = express();
 var cors = require('cors');
+const path = require('path');
+const fs = require("fs");
 
 //API
 const bcrypt = require('bcrypt');
 var User = require('./user');
 var Card = require('./card');
+const fileUpload = require('express-fileupload');
 
 //Authentication
 const cookieParser = require('cookie-parser');
@@ -22,6 +25,8 @@ console.log('Authentication required loaded');
 const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
 
 const mongoose = require('mongoose');
+const { send } = require('process');
+const { encode } = require('punycode');
 mongoose.connect(mongodbFullURL, {useNewUrlParser: true});
 
 const db = mongoose.connection;
@@ -43,14 +48,18 @@ app.use(function (req, res, next) {
   "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   console.log((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
-  console.log(req.headers.cookie)
+  if(req.header.cookie)
+    console.log("cookie in header")
   next();
 });
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
 
-app.use(cookieParser())
+app.use(fileUpload());
+app.use(express.static('Public')); 
+
 
 console.log('Middleware loaded');
 
@@ -92,10 +101,7 @@ app.post('/login',async(req, res) => {
     if(foundUser.length !==0){
       bcrypt.compare(req.body.password, foundUser[0].password).then(function(result) {
         if(result){
-          
           res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false, sameSite: "None",secure:true })
-          
-          
           res.send(foundUser[0])
         }else{
            res.json({password: 'Invalid password',errors: "yes"});
@@ -136,6 +142,40 @@ app.get('/cards',checkAuthenticated, function(req, res){
     const allCards = await Card.find({});
     res.json(allCards);
   }
+});
+
+app.post('/getProfileImage',checkAuthenticated, async function(req, res){
+	// console.log("body:"+req.body)
+  const foundUser =  await User.find({_id: req.body._id});
+    if(foundUser.length !==0){
+      // var filePath = path.join(__dirname,"Public","Images","Profiles/")
+      const filePath = "http://localhost/Images/Profiles/"+req.body._id+".png"+"?" + Date.now();
+      console.log(filePath)
+      res.send(filePath)
+    }
+    else{
+       console.log("not found user")
+    }
+});
+
+app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
+	console.log("setting image profile");
+  
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('No files were uploaded.');
+  }
+  const file = req.files.profile_image;
+  var imageType=file.mimetype.substring(file.mimetype.length-3,file.mimetype.length)
+  if(imageType==="peg")
+    imageType="jpg"
+  const filePath= path.join(__dirname,"Public","Images","Profiles")
+  
+  const user = JSON.parse(decodeURIComponent(req.headers.cookie).substring(7))
+  file.mv(`${filePath}/${user._id+'.'+imageType}`,(err)=>{
+    if(err) console.log("error saving image into file"+err)
+  })
+  res.status(200).send('image uploaded')
+
 });
 
 app.post('/cards', function(req, res){
