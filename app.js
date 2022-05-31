@@ -38,12 +38,12 @@ db.once("open", function () {
 // MIDDLEWARE
 
 //CORS headers
-app.use(cors({origin: "http://localhost:3000", credentials: true, methods: "GET, POST, PUT, DELETE"}));
+app.use(cors({origin: process.env.FRONTEND, credentials: true, methods: "GET, POST, PUT, DELETE"}));
 
 var nRequests = 0;
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", process.env.FRONTEND);
   res.header("Access-Control-Allow-Headers",
   "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
@@ -152,7 +152,7 @@ app.post('/getProfileImage',checkAuthenticated, async function(req, res){
   const foundUser =  await User.find({_id: req.body._id});
     if(foundUser.length !==0){
       // var filePath = path.join(__dirname,"Public","Images","Profiles/")
-      const filePath = "http://localhost/Images/Profiles/"+req.body._id+".png"+"?" + Date.now();
+      const filePath = process.env.SERVER+"Images/Profiles/"+req.body._id+".png"+"?" + Date.now();
       console.log(filePath)
       res.send(filePath)
     }

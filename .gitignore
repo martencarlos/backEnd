@@ -4,7 +4,7 @@
 # Logs
 logs/**
 logs/all-logs.log
-
+Public/**
 *.vscode
 
 # Node modules (use 'npm install' to add them later)
