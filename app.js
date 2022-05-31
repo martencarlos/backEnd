@@ -112,6 +112,9 @@ app.post('/login',async(req, res) => {
     }
 })
 
+app.get('/', (req, res) => {
+  res.send("Server is live")
+})
 
 app.get('/dashboard', checkAuthenticated, (req, res) => {
   res.json({ name: req.user.name })
