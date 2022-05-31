@@ -36,7 +36,7 @@ db.once("open", function () {
 });
 
 // MIDDLEWARE
-
+app.set("trust proxy", 1);
 //CORS headers
 app.use(cors({origin: process.env.FRONTEND, credentials: true, methods: "GET, POST, PUT, DELETE"}));
 
