@@ -65,7 +65,7 @@ console.log('Middleware loaded');
 
 // Routes
 app.post('/registeruser', function(req, res){
-	logger.info("checking user");
+	
 	
 	run()
 	async function run(){
