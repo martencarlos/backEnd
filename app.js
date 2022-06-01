@@ -146,7 +146,6 @@ app.get('/cards',checkAuthenticated, function(req, res){
 
 app.post('/getProfileImage',checkAuthenticated, async function(req, res){
 	// console.log("body:"+req.body)
-  console.log(process.env)
   const foundUser =  await User.find({_id: req.body._id});
     if(foundUser.length !==0){
       // var filePath = path.join(__dirname,"Public","Images","Profiles/")
