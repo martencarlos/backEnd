@@ -25,8 +25,6 @@ console.log('Authentication required loaded');
 const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
 
 const mongoose = require('mongoose');
-const { send } = require('process');
-const { encode } = require('punycode');
 mongoose.connect(mongodbFullURL, {useNewUrlParser: true});
 
 const db = mongoose.connection;
@@ -37,6 +35,7 @@ db.once("open", function () {
 
 // MIDDLEWARE
 app.set("trust proxy", 1);
+
 //CORS headers
 app.use(cors({origin: process.env.FRONTEND, credentials: true, methods: "GET, POST, PUT, DELETE"}));
 
