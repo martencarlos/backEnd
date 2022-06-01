@@ -60,7 +60,6 @@ app.use(fileUpload());
 app.use(express.static('Public')); 
 
 console.log('Middleware loaded');
-
 // Routes
 app.post('/registeruser', function(req, res){
 	
