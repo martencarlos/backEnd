@@ -59,7 +59,6 @@ app.use(cookieParser());
 app.use(fileUpload());
 app.use(express.static('Public')); 
 
-
 console.log('Middleware loaded');
 
 // Routes
