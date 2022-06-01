@@ -64,7 +64,6 @@ console.log('Middleware loaded');
 // Routes
 app.post('/registeruser', function(req, res){
 	
-	
 	run()
 	async function run(){
     const foundusername =  await User.find({username: req.body.username});
