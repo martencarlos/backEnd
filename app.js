@@ -162,6 +162,23 @@ app.post('/getProfileImage',checkAuthenticated, async function(req, res){
     }
 });
 
+function parseCookies (request) {
+  const list = {};
+  const cookieHeader = request.headers?.cookie;
+  if (!cookieHeader) return list;
+
+  cookieHeader.split(`;`).forEach(function(cookie) {
+      let [ name, ...rest] = cookie.split(`=`);
+      name = name?.trim();
+      if (!name) return;
+      const value = rest.join(`=`).trim();
+      if (!value) return;
+      list[name] = decodeURIComponent(value);
+  });
+
+  return list;
+}
+
 app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
 	console.log("setting image profile");
   
@@ -173,8 +190,9 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
   if(imageType==="peg")
     imageType="jpg"
   const filePath= path.join(__dirname,"Public","Images","Profiles")
-  
-  const user = JSON.parse(decodeURIComponent(req.headers.cookie).substring(7))
+
+  const cookies = parseCookies(req)
+  const user = JSON.parse(cookies["user"].substring(2))
   file.mv(`${filePath}/${user._id+'.'+imageType}`,(err)=>{
     if(err) console.log("error saving image into file"+err)
   })
