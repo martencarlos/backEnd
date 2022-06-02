@@ -99,7 +99,7 @@ app.post('/login',async(req, res) => {
     if(foundUser.length !==0){
       bcrypt.compare(req.body.password, foundUser[0].password).then(function(result) {
         if(result){
-          res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false, sameSite: "None",secure:true })
+          res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false })
           // res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false })
           res.send(foundUser[0])
         }else{
