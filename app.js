@@ -27,11 +27,31 @@ const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env
 const mongoose = require('mongoose');
 mongoose.connect(mongodbFullURL, {useNewUrlParser: true});
 
+
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log('Database connected successfully');
 });
+
+// Import the functions you need from the SDKs you need
+const { initializeApp } = require ('firebase/app');
+const { getStorage,ref,uploadBytesResumable,getDownloadURL } =require ('firebase/storage');
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDIhP5WDO8s6Z_6Aiw7VqoqRqsqLKsZW9w",
+  authDomain: "api.webframe.one",
+  projectId: "webframebase",
+  storageBucket: "webframebase.appspot.com",
+  messagingSenderId: "1053445254999",
+  appId: "1:1053445254999:web:b95f31ce4dd07ba0405812"
+};
+
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
 
 // MIDDLEWARE
 app.set("trust proxy", 1);
@@ -47,8 +67,8 @@ app.use(function (req, res, next) {
   "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   console.log((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
-  if(req.header.cookie)
-    console.log("cookie in header")
+  // if(req.header.cookie)
+  //   console.log("cookie in header")
   next();
 });
 
@@ -84,7 +104,7 @@ app.post('/registeruser', function(req, res){
       const user = new User(req.body);
       bcrypt.hash(user.password, 10, function(err, hash) {
         user.password = hash;
-        console.log(user)
+        // console.log(user)
         user.save();
       });
       res.json({
@@ -149,11 +169,11 @@ app.get('/cards',checkAuthenticated, function(req, res){
 app.post('/getProfileImage',checkAuthenticated, async function(req, res){
 	const testFolder = './Public/Images/Profiles/';
 
-  fs.readdir(testFolder, (err, files) => {
-    files.forEach(file => {
-      console.log(file);
-    });
-  });
+  // fs.readdir(testFolder, (err, files) => {
+  //   files.forEach(file => {
+  //     console.log(file);
+  //   });
+  // });
   
   // console.log("body:"+req.body)
   const foundUser =  await User.find({_id: req.body._id});
@@ -161,9 +181,9 @@ app.post('/getProfileImage',checkAuthenticated, async function(req, res){
       // var filePath = path.join(__dirname,"Public","Images","Profiles/")
       const filePath = process.env.SERVER+"/Images/Profiles/"+req.body._id+".png"+"?" + Date.now();
       // const filePath = filePath+req.body._id+".png"+"?" + Date.now();
-
-      console.log(filePath)
-      res.send(filePath)
+     
+      // console.log(filePath)
+      res.send(foundUser[0].profilepic)
     }
     else{
        console.log("not found user")
@@ -187,25 +207,100 @@ function parseCookies (request) {
   return list;
 }
 
+
 app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
 	console.log("setting image profile");
   
+  //files are empty error handling
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('No files were uploaded.');
   }
+  
   const file = req.files.profile_image;
-  var imageType=file.mimetype.substring(file.mimetype.length-3,file.mimetype.length)
-  if(imageType==="peg")
-    imageType="jpg"
-  const filePath= path.join(__dirname,"Public","Images","Profiles")
+  console.log(file)
 
   
+  
   const cookies = parseCookies(req)
-  const user = JSON.parse(cookies["user"].substring(2))
-  file.mv(`${filePath}/${user._id+'.'+imageType}`,(err)=>{ //
-    if(err) console.log("error saving image into file"+err)
-  })
-  //https://api.webframe.one/Images/Profiles/6284efc732f45ea94c213da6.png?1654176173522
+  var user = JSON.parse(cookies["user"].substring(2))
+
+  const storage = getStorage(firebaseApp);
+
+  const metadata = {
+    contentType: file.mimetype
+  };
+  
+  // Upload file and metadata to the object 'images/mountains.jpg'
+  const storageRef = ref(storage, 'profiles/' + user._id+ '-'+file.name);
+  const uploadTask = uploadBytesResumable(storageRef, file.data, metadata);
+  
+  // Listen for state changes, errors, and completion of the upload.
+  uploadTask.on('state_changed',
+    (snapshot) => {
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+      switch (snapshot.state) {
+        case 'paused':
+          console.log('Upload is paused');
+          break;
+        case 'running':
+          console.log('Upload is running');
+          break;
+      }
+    }, 
+    (error) => {
+      // A full list of error codes is available at
+      // https://firebase.google.com/docs/storage/web/handle-errors
+      switch (error.code) {
+        case 'storage/unauthorized':
+          console.log("not authorized")
+          break;
+        case 'storage/canceled':
+          console.log("cancelled")
+          break;
+  
+        // ...
+  
+        case 'storage/unknown':
+        console.log("unknown error")  
+        // Unknown error occurred, inspect error.serverResponse
+          break;
+      }
+    }, 
+    () => {
+      // Upload completed successfully, now we can get the download URL
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+      
+      var conditions = {
+        _id : user._id 
+        }
+
+      user.profilepic = downloadURL
+  
+      User.findOneAndUpdate(conditions,user,function(error,result){
+        if(error){
+          // handle error
+        }else{
+          console.log("updated");
+        }
+      });
+
+      });
+    }
+  );
+
+  
+
+
+
+
+  
+  
+  
+  // file.mv(`${filePath}/${user._id+'.'+imageType}`,(err)=>{ //
+  //   if(err) console.log("error saving image into file"+err)
+  // })
   res.status(200).send('image uploaded')
 
 });

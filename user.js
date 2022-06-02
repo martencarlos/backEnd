@@ -14,6 +14,9 @@ var UserSchema =  mongoose.Schema({
 	},
 	email: {
 		type: String
+	},
+	profilepic:{
+		type: String
 	}
 	
 });
