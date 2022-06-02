@@ -65,6 +65,7 @@ console.log('Middleware loaded');
 
 app.get('/.well-known/acme-challenge/:id', function(req, res, next) {
   console.log(req.params.id+'.'+process.env.SSL_KEY)
+  console.log("change")
   res.send(req.params.id+'.'+process.env.SSL_KEY);
 });
 
