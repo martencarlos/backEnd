@@ -63,12 +63,6 @@ console.log('Middleware loaded');
 // Routes
 
 
-app.get('/.well-known/acme-challenge/:id', function(req, res, next) {
-  console.log(process.env.SSL_KEY)
-  res.send(process.env.SSL_KEY);
-});
-
-
 app.post('/registeruser', function(req, res){
 	
 	run()
