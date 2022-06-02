@@ -7,7 +7,7 @@ const path = require('path');
 const fs = require("fs");
 
 //API
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 var User = require('./user');
 var Card = require('./card');
 const fileUpload = require('express-fileupload');
