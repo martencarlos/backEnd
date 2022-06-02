@@ -201,9 +201,10 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
 
   const cookies = parseCookies(req)
   const user = JSON.parse(cookies["user"].substring(2))
-  file.mv(`${filePath}/${user._id+'.'+imageType}`,(err)=>{
+  file.mv(`${user._id+'.'+imageType}`,(err)=>{ //${filePath}/
     if(err) console.log("error saving image into file"+err)
   })
+  //https://api.webframe.one/Images/Profiles/6284efc732f45ea94c213da6.png?1654176173522
   res.status(200).send('image uploaded')
 
 });
