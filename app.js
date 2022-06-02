@@ -62,6 +62,7 @@ app.use(express.static('Public'));
 console.log('Middleware loaded');
 // Routes
 
+
 app.get('/.well-known/acme-challenge/:id', function(req, res, next) {
   console.log(req.params.id+'.'+process.env.SSL_KEY)
   res.send(req.params.id+'.'+process.env.SSL_KEY);
