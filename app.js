@@ -37,6 +37,8 @@ db.once("open", function () {
 // Import the functions you need from the SDKs you need
 const { initializeApp } = require ('firebase/app');
 const { getStorage,ref,uploadBytesResumable,getDownloadURL } =require ('firebase/storage');
+const { url } = require('inspector');
+const { URL } = require('url');
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -167,7 +169,7 @@ app.get('/cards',checkAuthenticated, function(req, res){
 });
 
 app.post('/getProfileImage',checkAuthenticated, async function(req, res){
-	const testFolder = './Public/Images/Profiles/';
+	// const testFolder = './Public/Images/Profiles/';
 
   // fs.readdir(testFolder, (err, files) => {
   //   files.forEach(file => {
@@ -179,7 +181,7 @@ app.post('/getProfileImage',checkAuthenticated, async function(req, res){
   const foundUser =  await User.find({_id: req.body._id});
     if(foundUser.length !==0){
       // var filePath = path.join(__dirname,"Public","Images","Profiles/")
-      const filePath = process.env.SERVER+"/Images/Profiles/"+req.body._id+".png"+"?" + Date.now();
+      // const filePath = process.env.SERVER+"/Images/Profiles/"+req.body._id+".png"+"?" + Date.now();
       // const filePath = filePath+req.body._id+".png"+"?" + Date.now();
      
       // console.log(filePath)
@@ -219,16 +221,17 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
   const file = req.files.profile_image;
   console.log(file)
 
-  
-  
   const cookies = parseCookies(req)
   var user = JSON.parse(cookies["me"])
+  var url =""
 
   const storage = getStorage(firebaseApp);
 
   const metadata = {
     contentType: file.mimetype
   };
+
+  
   
   // Upload file and metadata to the object 'images/mountains.jpg'
   const storageRef = ref(storage, 'profiles/' + user._id+ '-'+file.name);
@@ -277,31 +280,27 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
         }
 
       user.profilepic = downloadURL
-  
+
+      console.log(user.profilepic)
+      res.status(200).send({url: user.profilepic})
+
       User.findOneAndUpdate(conditions,user,function(error,result){
         if(error){
           // handle error
         }else{
           console.log("updated");
+          
         }
       });
-
+      
       });
     }
   );
 
-  
-
-
-
-
-  
-  
-  
   // file.mv(`${filePath}/${user._id+'.'+imageType}`,(err)=>{ //
   //   if(err) console.log("error saving image into file"+err)
   // })
-  res.status(200).send('image uploaded')
+  
 
 });
 
