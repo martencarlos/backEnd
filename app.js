@@ -222,6 +222,7 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
   console.log(file)
 
   const cookies = parseCookies(req)
+  console.log(cookies)
   var user = JSON.parse(cookies["me"])
   var url =""
 
@@ -258,6 +259,7 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
       switch (error.code) {
         case 'storage/unauthorized':
           console.log("not authorized")
+          
           break;
         case 'storage/canceled':
           console.log("cancelled")
