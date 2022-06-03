@@ -223,9 +223,9 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
 
   const cookies = parseCookies(req)
   console.log(cookies)
-  console.log(cookies["me"])
-
-  var user = cookies["me"]
+  console.log(cookies["user"])
+  console.log(cookies["user"].slice(2))
+  var user = cookies["user"]
   var url =""
 
   const storage = getStorage(firebaseApp);
