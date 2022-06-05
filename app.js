@@ -63,11 +63,11 @@ app.use(cors({origin: process.env.FRONTEND, credentials: true, methods: "GET, PO
 
 var nRequests = 0;
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Origin", process.env.FRONTEND);
-  res.header("Access-Control-Allow-Headers",
-  "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  // res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Origin", process.env.FRONTEND);
+  // res.header("Access-Control-Allow-Headers",
+  // "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
+  // res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   console.log((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
   // if(req.header.cookie)
   //   console.log("cookie in header")
