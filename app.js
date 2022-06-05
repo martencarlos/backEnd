@@ -209,8 +209,7 @@ function parseCookies (request) {
   return list;
 }
 
-
-app.p4ost('/setImageProfile',checkAuthenticated, (req, res)=>{
+app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
 	console.log("setting image profile");
   
   //files are empty error handling
