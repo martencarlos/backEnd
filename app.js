@@ -222,8 +222,6 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
 
   const cookies = parseCookies(req)
   console.log(cookies)
-  console.log(cookies["user"])
-  console.log(JSON.parse(cookies["user"].slice(2)))
   var user = JSON.parse(cookies["user"].slice(2))
   var url =""
 
@@ -234,9 +232,8 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
   };
 
   
-  
   // Upload file and metadata to the object 'images/mountains.jpg'
-  const storageRef = ref(storage, 'profiles/' + user._id+ '-'+file.name);
+  const storageRef = ref(storage, 'profiles/' + user._id);
   const uploadTask = uploadBytesResumable(storageRef, file.data, metadata);
   
   // Listen for state changes, errors, and completion of the upload.
