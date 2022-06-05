@@ -59,7 +59,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 app.set("trust proxy", 1);
 
 //CORS headers
-app.use(cors({origin: process.env.FRONTEND, credentials: true, methods: "GET, POST, PUT, DELETE"}));
+app.use(cors({origin: process.env.FRONTEND+"/*", credentials: true, methods: "GET, POST, PUT, DELETE"}));
 
 var nRequests = 0;
 app.use(function (req, res, next) {
