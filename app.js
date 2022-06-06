@@ -158,7 +158,7 @@ function checkAuthenticated(req, res, next) {
 // })
 
 
-app.get('/cards',checkAuthenticated, function(req, res){
+app.get('/cards', function(req, res){
 	
   console.log("getting cards");
   run()
