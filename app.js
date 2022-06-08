@@ -84,6 +84,27 @@ app.use(express.static('Public'));
 console.log('Middleware loaded');
 // Routes
 
+app.post('/deletecard', async function(req, res){
+	
+  const {userID,cardID}= req.body
+  // const foundUsername =  await User.find({_id: userID});
+  const foundCard =  await Card.find({_id: cardID});
+
+  if(userID===foundCard[0].author.authorid){
+    Card.deleteOne({_id:cardID}, function (err) {
+      if (err) return handleError(err);
+    });
+    res.json({
+      message: "card deleted"
+    })
+    
+  }else{
+    res.json({
+      message: "only the user that created the card can delete it"
+    })
+    
+  }
+});
 
 app.post('/registeruser', function(req, res){
 	

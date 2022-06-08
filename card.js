@@ -12,7 +12,8 @@ var CardSchema = mongoose.Schema({
     author:{
         pic: String,
         firstName: String,
-        lastName: String
+        lastName: String,
+        authorid:String
     }
   });
 
