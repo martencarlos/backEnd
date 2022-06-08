@@ -399,10 +399,15 @@ app.post('/cards', function(req, res){
 	//async required because of database query
 	run()
 	async function run(){
-    const card = new Card(req.body);
-    await card.save();
-		}
-});
+    try {
+      const card = new Card(req.body);
+      await card.save();
+		
+  } catch (error) {
+     res.json({message: "error: "+error}) 
+  }
+  res.json({message: "success"}) 
+}});
 
 
 console.log('Routes in place');
