@@ -87,23 +87,30 @@ console.log('Middleware loaded');
 app.post('/deletecard', async function(req, res){
 	
   const {userID,cardID}= req.body
-  // const foundUsername =  await User.find({_id: userID});
-  const foundCard =  await Card.find({_id: cardID});
+  if(userID && cardID){
+      // const foundUsername =  await User.find({_id: userID});
+      const foundCard =  await Card.find({_id: cardID});
 
-  if(userID===foundCard[0].author.authorid){
-    Card.deleteOne({_id:cardID}, function (err) {
-      if (err) return handleError(err);
-    });
-    res.json({
-      message: "card deleted"
-    })
-    
-  }else{
-    res.json({
-      message: "Only the user that created the card can delete it"
-    })
-    
-  }
+      if(userID===foundCard[0].author.authorid){
+        Card.deleteOne({_id:cardID}, function (err) {
+          if (err) return handleError(err);
+        });
+        res.json({
+          message: "card deleted"
+        })
+        
+      }else{
+        res.json({
+          message: "Only the user that created the card can delete it"
+        })
+        
+      }
+    }else{
+      res.json({
+        message: "Error encountered. Please refresh the page and try again"
+      })
+    }
+
 });
 
 app.post('/registeruser', function(req, res){
