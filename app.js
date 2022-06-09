@@ -100,7 +100,7 @@ app.post('/deletecard', async function(req, res){
     
   }else{
     res.json({
-      message: "only the user that created the card can delete it"
+      message: "Only the user that created the card can delete it"
     })
     
   }
