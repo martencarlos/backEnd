@@ -192,7 +192,7 @@ function checkAuthenticated(req, res, next) {
 app.get('/medium', (req, res) => {
   
   // Make a request for a user with a given ID
-  axios.get('https://medium.com/feed/@martencarlos')
+  axios.get('https://medium.com/@ajaykapoor1509/feed')
   .then(function (response) {
     // handle success
     //console.log(response);
