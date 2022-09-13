@@ -121,20 +121,21 @@ app.post('/registeruser', function(req, res){
 	
 	run()
 	async function run(){
+   
     const foundusername =  await User.find({username: req.body.username});
 		const foundemail =  await User.find({email: req.body.email});
     
-		if(foundemail.length!=0 ){
-      res.json({
-        email: "Email already registered",
-        username: ""
-      })
-    }else if(foundusername.length!=0){
+		if(foundusername.length!=0){
       res.json({
         username: "username taken",
         email:""
       })
-		}else{
+		}else if(foundemail.length!=0 ){
+      res.json({
+        email: "Email already registered",
+        username: ""
+      })
+    }else{
       const user = new User(req.body);
       bcrypt.hash(user.password, 10, function(err, hash) {
         user.password = hash;
