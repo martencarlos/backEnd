@@ -144,11 +144,19 @@ app.post('/registeruser', function(req, res){
         user.createDate= Date.now();
         user.lastUpdate= Date.now();
         // console.log(user)
-        user.save();
-      });
-      res.json({
-        success: "registered"
+        user.save(function(err,result){
+          if (err){
+              console.log(err);
+          }
+          else{
+              console.log(result)
+              res.json({
+                success: "registered"
+              })
+          }
       })
+      });
+      
     }
 		}
 });
