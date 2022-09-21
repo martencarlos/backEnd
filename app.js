@@ -13,6 +13,7 @@ const bcrypt = require('bcryptjs');
 var User = require('./user');
 var Card = require('./card');
 const fileUpload = require('express-fileupload');
+const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframebase.appspot.com/o/profiles%2Fdefault.jpeg?alt=media&token=a220a7a4-ab49-4b95-ac02-d024b1ccb5db"
 
 //Authentication
 const cookieParser = require('cookie-parser');
@@ -139,6 +140,9 @@ app.post('/registeruser', function(req, res){
       const user = new User(req.body);
       bcrypt.hash(user.password, 10, function(err, hash) {
         user.password = hash;
+        user.profilePic= defaultProfilePic;
+        user.createDate= Date.now();
+        user.lastUpdate= Date.now();
         // console.log(user)
         user.save();
       });
@@ -151,6 +155,7 @@ app.post('/registeruser', function(req, res){
 
 app.post('/login',async(req, res) => {
   const foundUser =  await User.find({email: req.body.email});
+    console.log(foundUser)
     if(foundUser.length !==0){
       bcrypt.compare(req.body.password, foundUser[0].password).then(function(result) {
         if(result){
@@ -209,9 +214,6 @@ app.get('/medium', (req, res) => {
     // always executed
   });
 
-  
-
- 
 });
 
 app.get('/cards', function(req, res){
@@ -241,7 +243,7 @@ app.post('/getProfileImage',checkAuthenticated, async function(req, res){
       // const filePath = filePath+req.body._id+".png"+"?" + Date.now();
      
       // console.log(filePath)
-      res.send(foundUser[0].profilepic)
+      res.send(foundUser[0].profilePic)
     }
     else{
        console.log("not found user")
@@ -335,10 +337,11 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
         _id : user._id 
         }
 
-      user.profilepic = downloadURL
+      user.profilePic = downloadURL
+      user.lastUpdate = Date.now()
 
-      console.log(user.profilepic)
-      res.status(200).send({url: user.profilepic})
+      console.log(user.profilePic)
+      res.status(200).send({url: user.profilePic})
 
       User.findOneAndUpdate(conditions,user,function(error,result){
         if(error){

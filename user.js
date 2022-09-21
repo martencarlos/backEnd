@@ -15,8 +15,14 @@ var UserSchema =  mongoose.Schema({
 	email: {
 		type: String
 	},
-	profilepic:{
+	profilePic:{
 		type: String
+	},
+	createDate:{
+		type: Date
+	},
+	lastUpdate:{
+		type: Date
 	}
 	
 });
