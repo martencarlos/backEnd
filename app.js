@@ -349,14 +349,13 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
       user.lastUpdate = Date.now()
 
       console.log(user.profilePic)
-      res.status(200).send({url: user.profilePic})
-
+      
       User.findOneAndUpdate(conditions,user,function(error,result){
         if(error){
           // handle error
         }else{
           console.log("updated");
-          
+          res.status(200).send({url: user.profilePic})
         }
       });
       
