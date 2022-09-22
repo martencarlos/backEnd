@@ -76,6 +76,9 @@ app.use(function (req, res, next) {
   console.log((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
   // if(req.header.cookie)
   //   console.log("cookie in header")
+  console.log(req.socket.remoteAddress)
+  console.log(req.headers['x-forwarded-for'])
+  
   next();
 });
 
