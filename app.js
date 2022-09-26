@@ -6,7 +6,7 @@ var cors = require('cors');
 const path = require('path');
 const fs = require("fs");
 const axios = require('axios').default;
-
+const  cheerio =require('cheerio');
 
 //API
 const bcrypt = require('bcryptjs');
@@ -456,6 +456,40 @@ app.post('/cards', function(req, res){
   }
   res.json({message: "success"}) 
 }});
+
+app.get('/laptops', (req, res) => {
+  
+  const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
+  
+  
+  axios(URL)
+        .then(response => {
+            const htmlData = response.data
+            const $ = cheerio.load(htmlData)
+            const articles = []
+            let pos;
+
+            $('.zg-grid-general-faceout', htmlData).each((index, element) => {
+              pos=1+index;
+              const title = $(element).find('._cDEzb_p13n-sc-css-line-clamp-3_g3dy1').text()
+              const price = $(element).find('._cDEzb_p13n-sc-price_3mJ9Z').text()
+              const imgSrc = $(element).find('._cDEzb_noop_3Xbw5 > img').attr('src')
+              const url ="https://www.amazon.es"+ $(element).find('a').attr('href')
+
+              articles.push({
+                  pos,
+                  title,
+                  price,
+                  imgSrc,
+                  url
+              })
+            })
+
+            res.set('Content-Type', 'application/json')
+            res.send(articles)
+        }).catch(err => console.error(err))
+
+})
 
 
 console.log('Routes in place');
