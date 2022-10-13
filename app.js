@@ -69,7 +69,6 @@ var nRequests = 0;
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Origin", process.env.FRONTEND);
-  //res.header("Access-Control-Allow-Origin", 'https://medium.com');
   res.header("Access-Control-Allow-Headers",
   "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
@@ -226,6 +225,31 @@ app.get('/medium', (req, res) => {
   });
 
 });
+
+app.get('/wordpress', (req, res) => {
+  
+  // Make a request for a user with a given ID
+  // axios.get('https://crowierose.wordpress.com/feed/')
+  axios.get('https://webframe247611193.wordpress.com/feed/')
+  
+  .then(function (response) {
+    // handle success
+    //console.log(response);
+    
+    res.set('Content-Type', 'application/rss+xml')
+    res.send(response.data)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function (response) {
+    // always executed
+  });
+
+});
+
+
 
 app.get('/cards', function(req, res){
 	
