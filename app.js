@@ -481,7 +481,11 @@ app.post('/cards', function(req, res){
   res.json({message: "success"}) 
 }});
 
-
+app.get('/users', async (req, res) => {
+  console.log("getting all users");
+  const allUsers =  await User.find({});
+  res.json(allUsers);
+});
 
 
 
@@ -492,7 +496,7 @@ app.get('/laptops', (req, res) => {
   const { q } = req.query;
   const keys = ["title"];
   
-  
+
   
   axios(URL)
         .then(response => {
