@@ -120,6 +120,33 @@ app.post('/deletecard', async function(req, res){
 
 });
 
+app.post('/deleteUser', checkAuthenticated, async function(req, res){
+	  
+    const {deleteUserId,adminUserId}= req.body
+
+    const adminUser =  await User.find({_id: adminUserId});
+    console.log(adminUser)
+    if(adminUser[0].role === "admin"){
+    
+      if(deleteUserId === adminUserId){
+        res.json({
+          message: "You can't delete yourself"
+        })
+      }else{
+        User.deleteOne({_id:deleteUserId}, function (err) {
+          if (err) return handleError(err);
+        });
+        res.json({
+          message: "user deleted"
+        })
+      }
+    }else{
+      res.json({
+        message: "Only website administrators can delete users"
+      })
+    }
+});
+
 app.post('/registeruser', function(req, res){
 	
 	run()
