@@ -125,7 +125,7 @@ app.post('/deleteUser', checkAuthenticated, async function(req, res){
     const {deleteUserId,adminUserId}= req.body
 
     const adminUser =  await User.find({_id: adminUserId});
-    console.log(adminUser)
+    
     if(adminUser[0].role === "admin"){
     
       if(deleteUserId === adminUserId){
