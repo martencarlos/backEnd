@@ -6,6 +6,9 @@ var UserSchema =  mongoose.Schema({
 		type: String,
 		index:true
 	},
+	role: {
+		type: String
+	},
 	name: {
 		type: String
 	},
@@ -23,6 +26,12 @@ var UserSchema =  mongoose.Schema({
 	},
 	lastUpdate:{
 		type: Date
+	},
+	lastLogin:{
+		type: Date
+	},
+	logins:{
+		type: Number
 	}
 	
 });

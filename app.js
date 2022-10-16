@@ -145,6 +145,8 @@ app.post('/registeruser', function(req, res){
         user.profilePic= defaultProfilePic;
         user.createDate= Date.now();
         user.lastUpdate= Date.now();
+        user.logins=0;
+        user.role= "user";
         // console.log(user)
         user.save(function(err,result){
           if (err){
@@ -164,13 +166,39 @@ app.post('/registeruser', function(req, res){
 });
 
 app.post('/login',async(req, res) => {
-  const foundUser =  await User.find({email: req.body.email});
-    console.log(foundUser)
+  
+   var foundUser =  await User.find({email: req.body.email});
+    
     if(foundUser.length !==0){
       bcrypt.compare(req.body.password, foundUser[0].password).then(function(result) {
         if(result){
+          console.log(foundUser)
+          console.log(foundUser[0]._id)
+          //conditions
+          var conditions = {
+            _id : foundUser[0]._id 
+          }
+          //changes
+          foundUser[0].lastLogin= Date.now();
+          if(foundUser[0].logins)
+            foundUser[0].logins= foundUser[0].logins+1;
+          else
+            foundUser[0].logins=1;
+    
+          //find and update
+          User.findOneAndUpdate(conditions,foundUser[0],function(error,result){
+            if(error){
+              console.log(error)
+            }else{
+              console.log("updated");
+              
+            }
+          });
+           
+          //update last login date
+          
+
           res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false })
-          // res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false })
           res.send(foundUser[0])
         }else{
            res.json({password: 'Invalid password',errors: "yes"});
@@ -473,7 +501,7 @@ app.post('/cards', function(req, res){
 	async function run(){
     try {
       const card = new Card(req.body);
-      await card.save();
+      await card.save()
 		
   } catch (error) {
      res.json({message: "error: "+error}) 
