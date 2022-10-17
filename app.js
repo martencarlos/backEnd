@@ -147,6 +147,112 @@ app.post('/deleteUser', checkAuthenticated, async function(req, res){
     }
 });
 
+app.post('/updateUser', checkAuthenticated, async function(req, res){
+	  
+    const formData= req.body
+    var errors = {};
+    let message="";
+    let hasChanges = false;
+    
+    //get user from database
+    const foundUserArray =  await User.find({_id: formData.id});
+    const foundUser = foundUserArray[0];
+
+    if(foundUser){
+      //conditions
+      var conditions = {
+        _id : foundUser._id 
+      }
+      //changes
+      if(formData.name !== foundUser.name){
+       
+        hasChanges = true;
+        foundUser.name = formData.name;
+      }
+      if(formData.username !== foundUser.username){
+        hasChanges = true;
+        const userNameExists =  await User.find({username: formData.username});
+        
+        if(userNameExists.length!==0){
+          errors.username = "Username already exists";
+          message="errors found"
+        }else
+          foundUser.username = formData.username;
+      }
+        
+      if(formData.email !== foundUser.email){
+        hasChanges = true;
+        const emailExists =  await User.find({email: formData.email});
+        if(emailExists.length!==0){
+            errors.email= "Email is already in use";
+            message="errors found"
+        }else
+          foundUser.email = formData.email;
+      }
+
+      if(formData.password !==''){
+        bcrypt.compare(formData.password, foundUser.password).then(function(result) {
+          if(!result){
+            console.log("passwords do not match")
+            hasChanges = true;
+            bcrypt.hash(formData.password, 10, function(err, hash) {
+              foundUser.password = hash;
+              sendReply()
+            });
+          }else{
+            console.log("passwords match")
+            if(hasChanges){
+              if(JSON.stringify(errors) !== '{}'){
+                message="errors found"
+              }
+            }else{
+                message= "No changes made"
+            }
+            sendReply()
+          }
+        }).catch(function(err) {
+              message= err
+        });  
+      }else{
+        if(!hasChanges)
+          message= "No changes made"
+        sendReply()
+      }
+        
+    }else{
+      message= "Error - user not found"
+      sendReply()
+    }
+
+    //find and update
+    function sendReply(){
+      if(!message && JSON.stringify(errors) === '{}'){
+        foundUser.lastUpdate= Date.now();
+        User.findOneAndUpdate(conditions,foundUser,function(error,result){
+          if(error){
+            message=error
+            res.json({
+              message: message,
+              errors
+            })
+          }else{
+              message="User updated"
+              res.json({
+                message: message,
+                errors,
+                user: foundUser
+              })
+          }
+        });
+      }else{
+        res.json({
+          message: message,
+          errors
+        })
+      }
+    }
+});
+
 app.post('/registeruser', function(req, res){
 	
 	run()
@@ -199,8 +305,7 @@ app.post('/login',async(req, res) => {
     if(foundUser.length !==0){
       bcrypt.compare(req.body.password, foundUser[0].password).then(function(result) {
         if(result){
-          console.log(foundUser)
-          console.log(foundUser[0]._id)
+   
           //conditions
           var conditions = {
             _id : foundUser[0]._id 
@@ -357,7 +462,7 @@ function parseCookies (request) {
   return list;
 }
 
-app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
+app.post('/setImageProfile',checkAuthenticated, async (req, res)=>{
 	console.log("setting image profile");
   
   //files are empty error handling
@@ -366,20 +471,20 @@ app.post('/setImageProfile',checkAuthenticated, (req, res)=>{
   }
   
   const file = req.files.profile_image;
-  console.log(file)
+  
 
   const cookies = parseCookies(req)
   console.log(cookies)
-  var user = JSON.parse(cookies["user"].slice(2))
+  var cookieUser = JSON.parse(cookies["user"].slice(2))
   var url =""
-
+  var userArray = await User.find({_id: cookieUser._id})
+  var user = userArray[0]
   const storage = getStorage(firebaseApp);
 
   const metadata = {
     contentType: file.mimetype
   };
 
-  
   // Upload file and metadata to the object 'images/mountains.jpg'
   const storageRef = ref(storage, 'profiles/' + user._id);
   const uploadTask = uploadBytesResumable(storageRef, file.data, metadata);
