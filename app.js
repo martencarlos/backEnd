@@ -147,6 +147,23 @@ app.post('/deleteUser', checkAuthenticated, async function(req, res){
     }
 });
 
+app.post('/deleteAccount', checkAuthenticated, async function(req, res){
+	  
+  const {userId}= req.body
+
+  const foundUserArray =  await User.find({_id: userId});
+  const foundUser = foundUserArray[0];
+  
+  User.deleteOne({_id:foundUser}, function (err) {
+    if (err) return handleError(err);
+  });
+
+  res.json({
+    message: "account deleted"
+  })
+    
+});
+
 app.post('/updateUser', checkAuthenticated, async function(req, res){
 	  
     const formData= req.body
@@ -349,10 +366,17 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
   res.json({ name: req.user.name })
 })
 
-function checkAuthenticated(req, res, next) {
-  
+async function checkAuthenticated(req, res, next) {
+
   if (req.headers.cookie) {
+    const cookies = parseCookies(req)
+    
+    var cookieUser = JSON.parse(cookies["user"].slice(2))
+    var userArray = await User.find({_id: cookieUser._id})
+    if(userArray.length!==0)
       next();
+    else
+      res.json({error: "not authenticated"})
   } else {
       console.log("not authenticated error")
       res.json({error: "not authenticated"})
