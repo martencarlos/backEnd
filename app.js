@@ -69,7 +69,7 @@ var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'martencarlos3@gmail.com',
-    pass: 'cd%9qgCm7$$Xkjd%'
+    pass: 'cuknrzlcnsriuabz'
   }
 });
 
@@ -93,26 +93,10 @@ var mailOptions = {
 
 const articles = []
 var firstPlace ={};
-var task =  cron.schedule('1 * * * *', async () => {
-  console.log('running a task every minute');
-  await retrieveArticle()
-  
-  if(articles[0] !== firstPlace){
-    firstPlace = articles[0]
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
-  }
-  
-  
-});
-task.start();
 
-async function retrieveArticle(){
+var task =  cron.schedule('47 * * * *', async () => {
+  console.log('running a task every minute');
+  
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
   axios(URL)
     .then(response => {
@@ -136,10 +120,27 @@ async function retrieveArticle(){
               url
           })
         })
-        // res.set('Content-Type', 'application/json')
-        // res.send(articles)
+
+        console.log(articles[0])
+        console.log(firstPlace)
+        
+        if(articles[0] !== firstPlace){
+          firstPlace = articles[0]
+         
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+        }
+        
     }).catch(err => console.error(err))
-}
+});
+task.start();
+
+
 
 // MIDDLEWARE
 
