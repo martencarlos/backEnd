@@ -59,8 +59,89 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
-// MIDDLEWARE
+//TASKS
 
+var cron = require('node-cron');
+var nodemailer = require('nodemailer');
+
+//email config
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'martencarlos3@gmail.com',
+    pass: 'cd%9qgCm7$$Xkjd%'
+  }
+});
+
+var mailOptions = {
+  from: 'martencarlos3@gmail.com',
+  to: 'martencarlos@gmail.com',
+  subject: 'The top article has changed',
+  text: 'check it out: https://www.webframe.one/projects/webScrap'
+};
+
+// # ┌────────────── second (optional)
+// # │ ┌──────────── minute
+// # │ │ ┌────────── hour
+// # │ │ │ ┌──────── day of month
+// # │ │ │ │ ┌────── month
+// # │ │ │ │ │ ┌──── day of week
+// # │ │ │ │ │ │
+// # │ │ │ │ │ │
+// # * * * * * *
+//https://github.com/ncb000gt/node-cron
+
+const articles = []
+var firstPlace ={};
+var task =  cron.schedule('1 * * * *', async () => {
+  console.log('running a task every minute');
+  await retrieveArticle()
+  
+  if(articles[0] !== firstPlace){
+    firstPlace = articles[0]
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  }
+  
+  
+});
+task.start();
+
+async function retrieveArticle(){
+  const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
+  axios(URL)
+    .then(response => {
+        const htmlData = response.data
+        const $ = cheerio.load(htmlData)
+        
+        let pos;
+
+        $('.zg-grid-general-faceout', htmlData).each((index, element) => {
+          pos=1+index;
+          const title = $(element).find('._cDEzb_p13n-sc-css-line-clamp-3_g3dy1').text()
+          const price = $(element).find('._cDEzb_p13n-sc-price_3mJ9Z').text()
+          const imgSrc = $(element).find('._cDEzb_noop_3Xbw5 > img').attr('src')
+          const url ="https://www.amazon.es"+ $(element).find('a').attr('href')
+
+          articles.push({
+              pos,
+              title,
+              price,
+              imgSrc,
+              url
+          })
+        })
+        // res.set('Content-Type', 'application/json')
+        // res.send(articles)
+    }).catch(err => console.error(err))
+}
+
+// MIDDLEWARE
 
 //CORS headers
 app.use(cors({origin: process.env.FRONTEND, credentials: true, methods: "GET, POST, PUT, DELETE"}));
@@ -675,46 +756,17 @@ app.get('/users', async (req, res) => {
 
 app.get('/laptops', (req, res) => {
   // const URL = "https://www.amazon.es/gp/bestsellers/shoes/2008177031?ref_=Oct_d_obs_S&pd_rd_w=tDehD&content-id=amzn1.sym.0cde40b7-98fa-4b31-a03b-17a732646b9b&pf_rd_p=0cde40b7-98fa-4b31-a03b-17a732646b9b&pf_rd_r=B33J77067WYMVPZA1YBK&pd_rd_wg=qQltQ&pd_rd_r=a97d94ec-1284-451e-b83b-8250049c8425"
-  const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
   
   const { q } = req.query;
   const keys = ["title"];
   
-
+  const search = (data) => {
+    return data.filter((item) =>
+      keys.some((key) => item[key].toLowerCase().includes(q))
+    );
+  };
+  q ? res.json(search(articles).slice(0, 30)) : res.json(articles.slice(0, 30));
   
-  axios(URL)
-        .then(response => {
-            const htmlData = response.data
-            const $ = cheerio.load(htmlData)
-            const articles = []
-            let pos;
-
-            $('.zg-grid-general-faceout', htmlData).each((index, element) => {
-              pos=1+index;
-              const title = $(element).find('._cDEzb_p13n-sc-css-line-clamp-3_g3dy1').text()
-              const price = $(element).find('._cDEzb_p13n-sc-price_3mJ9Z').text()
-              const imgSrc = $(element).find('._cDEzb_noop_3Xbw5 > img').attr('src')
-              const url ="https://www.amazon.es"+ $(element).find('a').attr('href')
-
-              articles.push({
-                  pos,
-                  title,
-                  price,
-                  imgSrc,
-                  url
-              })
-            })
-
-            const search = (data) => {
-              return data.filter((item) =>
-                keys.some((key) => item[key].toLowerCase().includes(q))
-              );
-            };
-            q ? res.json(search(articles).slice(0, 30)) : res.json(articles.slice(0, 30));
-            // res.set('Content-Type', 'application/json')
-            // res.send(articles)
-        }).catch(err => console.error(err))
-
 })
 
 

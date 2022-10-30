@@ -21,6 +21,8 @@
     "express-session": "^1.17.3",
     "firebase": "^9.8.2",
     "mongoose": "^6.3.4",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.8.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
