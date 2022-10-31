@@ -94,7 +94,7 @@ var mailOptions = {
 var articles = []
 var firstPlace ={};
 
-var task =  cron.schedule('* * * * *', async () => {
+cron.schedule('* * * * *', () => {
   console.log('running a task every minute');
   
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
@@ -139,7 +139,7 @@ var task =  cron.schedule('* * * * *', async () => {
     }).catch(err => console.error(err))
 });
 
-app.use(task.start());
+
 
 
 // MIDDLEWARE
