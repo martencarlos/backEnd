@@ -94,7 +94,7 @@ var mailOptions = {
 const articles = []
 var firstPlace ={};
 
-var task =  cron.schedule('2 * * * *', async () => {
+var task =  cron.schedule('* * * * *', async () => {
   console.log('running a task every minute');
   
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
