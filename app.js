@@ -94,7 +94,7 @@ var mailOptions = {
 var articles = []
 var firstPlace ={};
 
-cron.schedule('* * * * *', () => {
+const task = cron.schedule('* * * * *', () => {
   console.log('running a task every minute');
   
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
@@ -760,7 +760,11 @@ app.get('/laptops', (req, res) => {
   
   const { q } = req.query;
   const keys = ["title"];
-  
+  console.log(task)
+  // if(!task.scheduled){
+    task.start();
+  // }
+  console.log(task)
   const search = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(q))
