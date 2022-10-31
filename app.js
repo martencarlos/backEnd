@@ -91,7 +91,7 @@ var mailOptions = {
 // # * * * * * *
 //https://github.com/ncb000gt/node-cron
 
-var articles = []
+const articles = []
 var firstPlace ={};
 
 const task = cron.schedule('* * * * *', () => {
@@ -99,7 +99,7 @@ const task = cron.schedule('* * * * *', () => {
   
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
   axios.get(URL)
-    .then(function response()  {
+    .then( response => {
         const htmlData = response.data
         const $ = cheerio.load(htmlData)
         
@@ -120,9 +120,6 @@ const task = cron.schedule('* * * * *', () => {
               url
           })
         })
-
-        console.log(articles[0])
-        console.log(firstPlace)
         
         if(articles[0] !== firstPlace){
           firstPlace = articles[0]
@@ -138,6 +135,7 @@ const task = cron.schedule('* * * * *', () => {
         
     }).catch(err => console.error(err))
 });
+task.start();
 
 
 
@@ -760,16 +758,12 @@ app.get('/laptops', (req, res) => {
   
   const { q } = req.query;
   const keys = ["title"];
-  console.log(task)
-  // if(!task.scheduled){
-    task.start();
-  // }
-  console.log(task)
   const search = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(q))
     );
   };
+
   q ? res.json(search(articles).slice(0, 30)) : res.json(articles.slice(0, 30));
   
 })
