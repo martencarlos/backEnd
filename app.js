@@ -91,15 +91,15 @@ var mailOptions = {
 // # * * * * * *
 //https://github.com/ncb000gt/node-cron
 
-const articles = []
+var articles = []
 var firstPlace ={};
 
 var task =  cron.schedule('* * * * *', async () => {
   console.log('running a task every minute');
   
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
-  axios(URL)
-    .then(response => {
+  axios.get(URL)
+    .then(function response()  {
         const htmlData = response.data
         const $ = cheerio.load(htmlData)
         
@@ -138,8 +138,8 @@ var task =  cron.schedule('* * * * *', async () => {
         
     }).catch(err => console.error(err))
 });
-task.start();
 
+app.use(task.start());
 
 
 // MIDDLEWARE
