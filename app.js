@@ -156,7 +156,9 @@ function getBlogEntries(){
   axios.get('https://webframe247611193.wordpress.com/feed/')
     .then(function (response) {
       // handle success
-      blogEntries =  JSON.parse(JSON.stringify(response.data))
+      if(blogEntries !== response.data)
+        blogEntries =  JSON.parse(JSON.stringify(response.data))
+      
     })
     .catch(function (error) {
       // handle error
