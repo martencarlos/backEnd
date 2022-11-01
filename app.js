@@ -8,6 +8,8 @@ const fs = require("fs");
 const axios = require('axios').default;
 const  cheerio =require('cheerio');
 
+
+
 //API
 const bcrypt = require('bcryptjs');
 var User = require('./user');
@@ -77,7 +79,7 @@ var mailOptions = {
   from: 'martencarlos3@gmail.com',
   to: 'martencarlos@gmail.com',
   subject: 'The top article has changed',
-  text: 'check it out: https://www.webframe.one/projects/webScrap'
+  
 };
 
 // # ┌────────────── second (optional)
@@ -129,6 +131,30 @@ function getArticles(){
         
         if(articles[0] !== firstPlace){
           firstPlace = articles[0]
+
+          mailOptions.html = `
+          <div className="table"> 
+            <table>
+            <tbody>
+            <tr className="header">
+                <th>Position</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Img</th>
+                <th>Link</th>
+            </tr>
+            
+            <tr key=${firstPlace.pos}>
+            <td className="pos">${firstPlace.pos}</td>
+            <td>${firstPlace.title}</td>
+            <td>${firstPlace.price}</td>
+            <td><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${firstPlace.imgSrc} alt="product"></img></td>
+            <td><a href=${firstPlace.url} className="link" underline="always">Amazon</a></td>
+            </tr>
+          
+            </tbody>
+          </table>
+          </div>`
           
           transporter.sendMail(mailOptions, function(error, info){
             if (error) {
