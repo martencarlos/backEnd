@@ -94,9 +94,13 @@ var mailOptions = {
 const articles = []
 var firstPlace ={};
 
-const task = cron.schedule('16 * * * *', () => {
+// const task = cron.schedule('16 * * * *', () => {
+
+setInterval(() => getArticles(), 1000*60*60)
+
+function getArticles(){
   console.log('running a task every minute');
-  
+
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
   axios.get(URL)
     .then( response => {
@@ -120,10 +124,12 @@ const task = cron.schedule('16 * * * *', () => {
               url
           })
         })
+        console.log("scheduler")
+        console.log(articles)
         
         if(articles[0] !== firstPlace){
           firstPlace = articles[0]
-         
+          
           transporter.sendMail(mailOptions, function(error, info){
             if (error) {
               console.log(error);
@@ -134,8 +140,9 @@ const task = cron.schedule('16 * * * *', () => {
         }
         
     }).catch(err => console.error(err))
-});
-task.start();
+}
+// });
+// task.start();
 
 
 
@@ -763,7 +770,8 @@ app.get('/laptops', (req, res) => {
       keys.some((key) => item[key].toLowerCase().includes(q))
     );
   };
-
+  console.log("laptops")
+  console.log(articles)
   q ? res.json(search(articles).slice(0, 30)) : res.json(articles.slice(0, 30));
   
 })
