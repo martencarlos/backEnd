@@ -81,7 +81,7 @@ getArticles() // get articles on start
 setInterval(() => getArticles(), 1000*60*60) // after first hour, every hour
 
 function getArticles(){
-  console.log('repetitive task - running get webscrapping articles every hour');
+  console.log('repetitive task - Getting webscrapping products every hour');
 
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
   axios.get(URL)
@@ -147,14 +147,16 @@ function getArticles(){
 }
 
 // 2 - Blog entries
-const blogEntries = []
+var blogEntries = []
 getBlogEntries() // get articles on start
 setInterval(() => getBlogEntries(), 1000*60*60) // after first hour, every hour
 function getBlogEntries(){
+
+  console.log('repetitive task - Getting blog articles every hour');
   axios.get('https://webframe247611193.wordpress.com/feed/')
     .then(function (response) {
       // handle success
-      blogEntries = (response.data).map(a => {return {...a}})
+      blogEntries =  JSON.parse(JSON.stringify(response.data))
     })
     .catch(function (error) {
       // handle error
