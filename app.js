@@ -142,7 +142,6 @@ function getArticles(){
             }
           });
         }
-        
     }).catch(err => console.error(err))
 }
 
