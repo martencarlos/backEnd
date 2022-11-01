@@ -8,8 +8,6 @@ const fs = require("fs");
 const axios = require('axios').default;
 const  cheerio =require('cheerio');
 
-
-
 //API
 const bcrypt = require('bcryptjs');
 var User = require('./user');
@@ -20,7 +18,7 @@ const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframeb
 //Authentication
 const cookieParser = require('cookie-parser');
 
-//load secrests to process environment
+//load secrets to process environment
 if (!process.env.HOST_HEROKU_DEPLOYED){
   require('dotenv').config({path: process.cwd() + '/config/secrets.env'}); 
 }
@@ -28,10 +26,8 @@ console.log('Authentication required loaded');
 
 //Database
 const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
-
 const mongoose = require('mongoose');
 mongoose.connect(mongodbFullURL, {useNewUrlParser: true});
-
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
@@ -39,16 +35,11 @@ db.once("open", function () {
   console.log('Database connected successfully');
 });
 
-// Import the functions you need from the SDKs you need
+// Firebase imports
 const { initializeApp } = require ('firebase/app');
 const { getStorage,ref,uploadBytesResumable,getDownloadURL } =require ('firebase/storage');
-const { url } = require('inspector');
-const { URL } = require('url');
-const { request } = require('https');
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDIhP5WDO8s6Z_6Aiw7VqoqRqsqLKsZW9w",
   authDomain: "api.webframe.one",
@@ -61,12 +52,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
-//TASKS
-
-var cron = require('node-cron');
+// Nodemailer
 var nodemailer = require('nodemailer');
 
-//email config
+// Email source
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -75,34 +64,24 @@ var transporter = nodemailer.createTransport({
   }
 });
 
+// Email options
 var mailOptions = {
   from: 'martencarlos3@gmail.com',
   to: 'martencarlos@gmail.com',
   subject: 'The top article has changed',
-  
 };
 
-// # ┌────────────── second (optional)
-// # │ ┌──────────── minute
-// # │ │ ┌────────── hour
-// # │ │ │ ┌──────── day of month
-// # │ │ │ │ ┌────── month
-// # │ │ │ │ │ ┌──── day of week
-// # │ │ │ │ │ │
-// # │ │ │ │ │ │
-// # * * * * * *
-//https://github.com/ncb000gt/node-cron
 
+// REPETITIVE TASKS
+// 1 - Webscrap articles
 const articles = []
 var firstPlace ={};
 
-// const task = cron.schedule('16 * * * *', () => {
-
-getArticles()
-setInterval(() => getArticles(), 1000*60*60)
+getArticles() // get articles on start
+setInterval(() => getArticles(), 1000*60*60) // after first hour, every hour
 
 function getArticles(){
-  console.log('running a task every hour');
+  console.log('repetitive task - running get webscrapping articles every hour');
 
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
   axios.get(URL)
@@ -127,34 +106,33 @@ function getArticles(){
               url
           })
         })
-  
         
-        if(articles[0] !== firstPlace){
+        if(articles[0].title !== firstPlace.title || articles[0].price !== firstPlace.price){
           firstPlace = articles[0]
 
           mailOptions.html = `
-          <div className="table"> 
-            <table>
-            <tbody>
-            <tr className="header">
-                <th>Position</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Img</th>
-                <th>Link</th>
-            </tr>
-            
-            <tr key=${firstPlace.pos}>
-            <td className="pos">${firstPlace.pos}</td>
-            <td>${firstPlace.title}</td>
-            <td>${firstPlace.price}</td>
-            <td><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${firstPlace.imgSrc} alt="product"></img></td>
-            <td><a href=${firstPlace.url} className="link" underline="always">Amazon</a></td>
-            </tr>
-          
-            </tbody>
-          </table>
-          </div>`
+            <div className="table"> 
+              <table>
+                <tbody>
+                <tr className="header">
+                    <th>Position</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Img</th>
+                    <th>Link</th>
+                </tr>
+                
+                <tr key=${firstPlace.pos}>
+                <td className="pos">${firstPlace.pos}</td>
+                <td>${firstPlace.title}</td>
+                <td>${firstPlace.price}</td>
+                <td><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${firstPlace.imgSrc} alt="product"></img></td>
+                <td><a href=${firstPlace.url} className="link" underline="always">Amazon</a></td>
+                </tr>
+              
+                </tbody>
+              </table>
+            </div>`
           
           transporter.sendMail(mailOptions, function(error, info){
             if (error) {
@@ -167,10 +145,25 @@ function getArticles(){
         
     }).catch(err => console.error(err))
 }
-// });
-// task.start();
 
-
+// 2 - Blog entries
+const blogEntries = []
+getBlogEntries() // get articles on start
+setInterval(() => getBlogEntries(), 1000*60*60) // after first hour, every hour
+function getBlogEntries(){
+  axios.get('https://webframe247611193.wordpress.com/feed/')
+    .then(function (response) {
+      // handle success
+      blogEntries = (response.data).map(a => {return {...a}})
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function (response) {
+      // always executed
+  });
+}
 
 
 // MIDDLEWARE
@@ -524,26 +517,9 @@ app.get('/medium', (req, res) => {
 });
 
 app.get('/wordpress', (req, res) => {
+  res.set('Content-Type', 'application/rss+xml')
+  res.send(blogEntries)
   
-  // Make a request for a user with a given ID
-  // axios.get('https://crowierose.wordpress.com/feed/')
-  axios.get('https://webframe247611193.wordpress.com/feed/')
-  
-  .then(function (response) {
-    // handle success
-    //console.log(response);
-    
-    res.set('Content-Type', 'application/rss+xml')
-    res.send(response.data)
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function (response) {
-    // always executed
-  });
-
 });
 
 
