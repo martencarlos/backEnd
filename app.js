@@ -150,12 +150,11 @@ var blogEntries = []
 getBlogEntries() // get articles on start
 setInterval(() => getBlogEntries(), 1000*60*60) // after first hour, every hour
 function getBlogEntries(){
-
   console.log('repetitive task - Getting blog articles every hour');
   axios.get('https://webframe247611193.wordpress.com/feed/')
     .then(function (response) {
       // handle success
-      if(blogEntries !== response.data)
+      // if(blogEntries !== response.data)
         blogEntries =  JSON.parse(JSON.stringify(response.data))
       
     })
@@ -522,7 +521,6 @@ app.get('/medium', (req, res) => {
 app.get('/wordpress', (req, res) => {
   res.set('Content-Type', 'application/rss+xml')
   res.send(blogEntries)
-  
 });
 
 
@@ -770,6 +768,7 @@ app.get('/laptops', (req, res) => {
   
   const { q } = req.query;
   const keys = ["title"];
+
   const search = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(q))
