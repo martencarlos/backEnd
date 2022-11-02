@@ -116,10 +116,17 @@ function getArticles(){
             console.log("saving articles for the first time")
         }else if(newArticles[0].title !== savedArticles[0].articles[0].title || newArticles[0].price !== savedArticles[0].articles[0].price){
           
-          const article = new Article({articles: newArticles});
-          article.findOneAndUpdate({},{articles: newArticles});
+          const conditions = {
+            _id : savedArticles[0]._id 
+          }
+          Article.findOneAndUpdate(conditions,{articles: newArticles},function(error,result){
+            if(error){
+              console.log(error)
+            }else{
+              console.log("articles updated")
+            }
+          });
           
-              
           mailOptions.html = `
             <div className="table"> 
               <table>
@@ -132,12 +139,12 @@ function getArticles(){
                     <th>Link</th>
                 </tr>
                 
-                <tr key=${firstPlace.pos}>
-                <td className="pos">${firstPlace.pos}</td>
-                <td>${firstPlace.title}</td>
-                <td>${firstPlace.price}</td>
-                <td><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${firstPlace.imgSrc} alt="product"></img></td>
-                <td><a href=${firstPlace.url} className="link" underline="always">Amazon</a></td>
+                <tr key=${newArticles[0].pos}>
+                <td className="pos">${newArticles[0].pos}</td>
+                <td>${newArticles[0].title}</td>
+                <td>${newArticles[0].price}</td>
+                <td><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${newArticles[0].imgSrc} alt="product"></img></td>
+                <td><a href=${newArticles[0].url} className="link" underline="always">Amazon</a></td>
                 </tr>
               
                 </tbody>
