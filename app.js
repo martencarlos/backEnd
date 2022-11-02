@@ -12,6 +12,8 @@ const  cheerio =require('cheerio');
 const bcrypt = require('bcryptjs');
 var User = require('./user');
 var Card = require('./card');
+var Article = require('./Article');
+
 const fileUpload = require('express-fileupload');
 const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframebase.appspot.com/o/profiles%2Fdefault.jpeg?alt=media&token=a220a7a4-ab49-4b95-ac02-d024b1ccb5db"
 
@@ -74,8 +76,7 @@ var mailOptions = {
 
 // REPETITIVE TASKS
 // 1 - Webscrap articles
-const articles = []
-var firstPlace ={};
+
 
 getArticles() // get articles on start
 setInterval(() => getArticles(), 1000*60*60) // after first hour, every hour
@@ -85,10 +86,10 @@ function getArticles(){
 
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
   axios.get(URL)
-    .then( response => {
+    .then(async (response) => {
         const htmlData = response.data
         const $ = cheerio.load(htmlData)
-        
+        const newArticles = []
         let pos;
 
         $('.zg-grid-general-faceout', htmlData).each((index, element) => {
@@ -98,7 +99,7 @@ function getArticles(){
           const imgSrc = $(element).find('._cDEzb_noop_3Xbw5 > img').attr('src')
           const url ="https://www.amazon.es"+ $(element).find('a').attr('href')
 
-          articles.push({
+          newArticles.push({
               pos,
               title,
               price,
@@ -106,10 +107,19 @@ function getArticles(){
               url
           })
         })
-        
-        if(articles[0].title !== firstPlace.title || articles[0].price !== firstPlace.price){
-          firstPlace = articles[0]
+  
+        const savedArticles = await Article.find({}) 
 
+        if(savedArticles[0]=== undefined){
+            const article = new Article({articles: newArticles});
+            article.save();
+            console.log("saving articles for the first time")
+        }else if(newArticles[0].title !== savedArticles[0].articles[0].title || newArticles[0].price !== savedArticles[0].articles[0].price){
+          
+          const article = new Article({articles: newArticles});
+          article.findOneAndUpdate({},{articles: newArticles});
+          
+              
           mailOptions.html = `
             <div className="table"> 
               <table>
@@ -763,11 +773,12 @@ app.get('/users', async (req, res) => {
 
 
 
-app.get('/laptops', (req, res) => {
+app.get('/laptops', async (req, res) => {
   // const URL = "https://www.amazon.es/gp/bestsellers/shoes/2008177031?ref_=Oct_d_obs_S&pd_rd_w=tDehD&content-id=amzn1.sym.0cde40b7-98fa-4b31-a03b-17a732646b9b&pf_rd_p=0cde40b7-98fa-4b31-a03b-17a732646b9b&pf_rd_r=B33J77067WYMVPZA1YBK&pd_rd_wg=qQltQ&pd_rd_r=a97d94ec-1284-451e-b83b-8250049c8425"
   
   const { q } = req.query;
   const keys = ["title"];
+  const savedArticles = await Article.find({}) 
 
   const search = (data) => {
     return data.filter((item) =>
@@ -775,7 +786,7 @@ app.get('/laptops', (req, res) => {
     );
   };
 
-  q ? res.json(search(articles).slice(0, 30)) : res.json(articles.slice(0, 30));
+  q ? res.json(search(savedArticles[0].articles).slice(0, 30)) : res.json(savedArticles[0].articles.slice(0, 30));
   
 })
 
