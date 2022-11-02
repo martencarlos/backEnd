@@ -12,7 +12,7 @@ const  cheerio =require('cheerio');
 const bcrypt = require('bcryptjs');
 var User = require('./user');
 var Card = require('./card');
-var Article = require('./Article');
+var Article = require('./article');
 
 const fileUpload = require('express-fileupload');
 const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframebase.appspot.com/o/profiles%2Fdefault.jpeg?alt=media&token=a220a7a4-ab49-4b95-ac02-d024b1ccb5db"
