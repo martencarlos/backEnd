@@ -23,6 +23,8 @@ const cookieParser = require('cookie-parser');
 //load secrets to process environment
 if (!process.env.HOST_HEROKU_DEPLOYED){
   require('dotenv').config({path: process.cwd() + '/config/secrets.env'}); 
+}else{
+
 }
 console.log('Authentication required loaded');
 
@@ -801,7 +803,7 @@ app.get('/laptops', async (req, res) => {
 console.log('Routes in place');
 
 // Start Server
-app.set('port', (process.env.PORT || 80));
+app.set('port', (process.env.PORT || 8000));
 app.listen(app.get('port'), function(){
   console.log('Server started on port '+ app.get('port'));
 });
