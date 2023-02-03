@@ -793,13 +793,13 @@ app.get('/laptops', async (req, res) => {
   const keys = ["title"];
   const savedArticles = await Article.find({}) 
 
-  
+
   const search = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(q))
     );
   };
-
+  res.header("Access-Control-Allow-Origin", "*");
   q ? res.json(search(savedArticles[0].articles).slice(0, 30)) : res.json(savedArticles[0].articles.slice(0, 30));
   
 })
