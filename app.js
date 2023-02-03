@@ -793,6 +793,7 @@ app.get('/laptops', async (req, res) => {
   const keys = ["title"];
   const savedArticles = await Article.find({}) 
 
+  
   const search = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(q))
