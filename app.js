@@ -116,11 +116,12 @@ function getArticles(){
             const article = new Article({articles: newArticles});
             article.save();
             console.log("saving articles for the first time")
-        }else if(newArticles[0].title !== savedArticles[0].articles[0].title || newArticles[0].price !== savedArticles[0].articles[0].price){
+        }else if(JSON.stringify(newArticles) !== JSON.stringify(savedArticles)){
           
           const conditions = {
             _id : savedArticles[0]._id 
           }
+          
           Article.findOneAndUpdate(conditions,{articles: newArticles},function(error,result){
             if(error){
               console.log(error)
@@ -129,37 +130,40 @@ function getArticles(){
             }
           });
           
-          mailOptions.html = `
-            <div className="table"> 
-              <table>
-                <tbody>
-                <tr className="header">
-                    <th>Position</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Img</th>
-                    <th>Link</th>
-                </tr>
+          //Only send email if the top article has changed
+          if(newArticles[0].title !== savedArticles[0].articles[0].title || newArticles[0].price !== savedArticles[0].articles[0].price){
+            mailOptions.html = `
+              <div className="table"> 
+                <table>
+                  <tbody>
+                  <tr className="header">
+                      <th>Position</th>
+                      <th>Title</th>
+                      <th>Price</th>
+                      <th>Img</th>
+                      <th>Link</th>
+                  </tr>
+                  
+                  <tr key=${newArticles[0].pos}>
+                  <td className="pos">${newArticles[0].pos}</td>
+                  <td>${newArticles[0].title}</td>
+                  <td>${newArticles[0].price}</td>
+                  <td><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${newArticles[0].imgSrc} alt="product"></img></td>
+                  <td><a href=${newArticles[0].url} className="link" underline="always">Amazon</a></td>
+                  </tr>
                 
-                <tr key=${newArticles[0].pos}>
-                <td className="pos">${newArticles[0].pos}</td>
-                <td>${newArticles[0].title}</td>
-                <td>${newArticles[0].price}</td>
-                <td><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${newArticles[0].imgSrc} alt="product"></img></td>
-                <td><a href=${newArticles[0].url} className="link" underline="always">Amazon</a></td>
-                </tr>
-              
-                </tbody>
-              </table>
-            </div>`
-          
-          transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-              console.log(error);
-            } else {
-              console.log('Email sent: ' + info.response);
-            }
-          });
+                  </tbody>
+                </table>
+              </div>`
+            
+            transporter.sendMail(mailOptions, function(error, info){
+              if (error) {
+                console.log(error);
+              } else {
+                console.log('Email sent: ' + info.response);
+              }
+            });
+          }
         }
     }).catch(err => console.error(err))
 }
