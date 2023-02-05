@@ -79,13 +79,11 @@ var mailOptions = {
 // Cron Jobs
 // 1 - Webscrap articles
 app.get('/updatewebscrap', (req, res) => {
-  getArticles() // get articles 
+  updateDBArticles() // get articles 
   res.send("updated")
 })
 
-function getArticles(){
-  console.log('repetitive task - Getting webscrapping products every hour');
-
+function updateDBArticles(){
   const URL = 'https://www.amazon.es/gp/bestsellers/computers/30117744031/ref=zg_bs_nav_computers_2_938008031'
   axios.get(URL)
     .then(async (response) => {
@@ -163,25 +161,30 @@ function getArticles(){
             if(error){
               console.log(error)
             }else{
-              console.log("articles updated")
+              console.log("repetitive task - articles updated")
             }
           });
         }
     }).catch(err => console.error(err))
 }
 
-// 2 - Blog entries
+// 2 - Blog entries Daily
+app.get('/updateblogentries', (req, res) => {
+  updateMemoryBlogEntries() 
+  res.send("updated blogentries")
+})
+
 var blogEntries = []
-getBlogEntries() // get articles on start
-setInterval(() => getBlogEntries(), 1000*60*60) // after first hour, every hour
-function getBlogEntries(){
-  console.log('repetitive task - Getting blog articles every hour');
+updateMemoryBlogEntries() //get it at start of server
+function updateMemoryBlogEntries(){
+  
   axios.get('https://webframe247611193.wordpress.com/feed/')
     .then(function (response) {
       // handle success
       if(blogEntries !== response.data)
         blogEntries =  JSON.parse(JSON.stringify(response.data))
       
+        console.log("repetitive task - blog entries updated")
     })
     .catch(function (error) {
       // handle error
