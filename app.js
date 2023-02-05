@@ -112,23 +112,24 @@ function getArticles(){
   
         const savedArticles = await Article.find({}) 
 
-        if(savedArticles[0]=== undefined){
-            const article = new Article({articles: newArticles});
-            article.save();
-            console.log("saving articles for the first time")
-        }else if(JSON.stringify(newArticles) !== JSON.stringify(savedArticles)){
+        // if(savedArticles[0]=== undefined){
+        //     const article = new Article({articles: newArticles});
+        //     article.save();
+        //     console.log("saving articles for the first time")
+        // }else 
+        if(JSON.stringify(newArticles) !== JSON.stringify(savedArticles)){
           
-          const conditions = {
-            _id : savedArticles[0]._id 
-          }
+          // const conditions = {
+          //   _id : savedArticles[0]._id 
+          // }
           
-          Article.findOneAndUpdate(conditions,{articles: newArticles},function(error,result){
-            if(error){
-              console.log(error)
-            }else{
-              console.log("articles updated")
-            }
-          });
+          // Article.findOneAndUpdate(conditions,{articles: newArticles},function(error,result){
+          //   if(error){
+          //     console.log(error)
+          //   }else{
+          //     console.log("articles updated")
+          //   }
+          // });
           
           //Only send email if the top article has changed
           if(newArticles[0].title !== savedArticles[0].articles[0].title || newArticles[0].price !== savedArticles[0].articles[0].price){
