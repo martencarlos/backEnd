@@ -76,12 +76,12 @@ var mailOptions = {
 };
 
 
-// REPETITIVE TASKS
+// Cron Jobs
 // 1 - Webscrap articles
-
-
-getArticles() // get articles on start
-setInterval(() => getArticles(), 1000*60*60) // after first hour, every hour
+app.get('/updatewebscrap', (req, res) => {
+  getArticles() // get articles 
+  res.send("updated")
+})
 
 function getArticles(){
   console.log('repetitive task - Getting webscrapping products every hour');
@@ -112,24 +112,12 @@ function getArticles(){
   
         const savedArticles = await Article.find({}) 
 
-        // if(savedArticles[0]=== undefined){
-        //     const article = new Article({articles: newArticles});
-        //     article.save();
-        //     console.log("saving articles for the first time")
-        // }else 
+        if(savedArticles[0]=== undefined){
+            const article = new Article({articles: newArticles});
+            article.save();
+            console.log("saving articles for the first time")
+        }else 
         if(JSON.stringify(newArticles) !== JSON.stringify(savedArticles)){
-          
-          // const conditions = {
-          //   _id : savedArticles[0]._id 
-          // }
-          
-          // Article.findOneAndUpdate(conditions,{articles: newArticles},function(error,result){
-          //   if(error){
-          //     console.log(error)
-          //   }else{
-          //     console.log("articles updated")
-          //   }
-          // });
           
           //Only send email if the top article has changed
           if(newArticles[0].title !== savedArticles[0].articles[0].title || newArticles[0].price !== savedArticles[0].articles[0].price){
@@ -165,6 +153,19 @@ function getArticles(){
               }
             });
           }
+
+          //Update entire list
+          const conditions = {
+            _id : savedArticles[0]._id 
+          }
+          
+          Article.findOneAndUpdate(conditions,{articles: newArticles},function(error,result){
+            if(error){
+              console.log(error)
+            }else{
+              console.log("articles updated")
+            }
+          });
         }
     }).catch(err => console.error(err))
 }
@@ -489,6 +490,8 @@ app.post('/login',async(req, res) => {
        res.json( {email: 'Email not registered',errors:"yes"});
     }
 })
+
+
 
 app.get('/', (req, res) => {
   res.send("Server is live")
