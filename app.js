@@ -195,7 +195,6 @@ function updateMemoryBlogEntries(){
   });
 }
 
-
 // MIDDLEWARE
 
 //CORS headers
