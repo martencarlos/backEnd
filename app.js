@@ -833,6 +833,12 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
  async function getProductInfo(url,userID,res){
   
   //get camel url
+  try {
+    (url.split('/dp/')[1]).split('/')[0]
+  } catch (error) {
+    res.json({message:"URL is not a product page"})
+    return false
+  }
   let productNumber = (url.split('/dp/')[1]).split('/')[0]
   let countryCode = (url.split('www.amazon.')[1]).substring(0, 2)
   let camelurl= "https://"+countryCode+".camelcamelcamel.com/product/"+productNumber
