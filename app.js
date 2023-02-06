@@ -13,6 +13,7 @@ const bcrypt = require('bcryptjs');
 var User = require('./user');
 var Card = require('./card');
 var Article = require('./article');
+var PriceTracker = require('./pricetracker');
 
 const fileUpload = require('express-fileupload');
 const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframebase.appspot.com/o/profiles%2Fdefault.jpeg?alt=media&token=a220a7a4-ab49-4b95-ac02-d024b1ccb5db"
@@ -58,6 +59,8 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 // Nodemailer
 var nodemailer = require('nodemailer');
+const { isFunction } = require('util');
+const { rejects } = require('assert');
 
 // Email source
 var transporter = nodemailer.createTransport({
@@ -810,6 +813,148 @@ app.get('/laptops', async (req, res) => {
   
 })
 
+app.post('/newtracker',checkAuthenticated, async (req, res) => {
+  const {userID, url}= req.body
+  const existingTracker =  await PriceTracker.find({url: url});
+
+  //check if a price tracker with the url exists
+  if(existingTracker.length !==0){
+    if(existingTracker[0].userID.equals(mongoose.Types.ObjectId(userID)))
+      res.json({message: "user tracker already exists"})
+
+   }else{
+
+    getProductInfo(url,userID,res)
+    
+   }
+  
+})
+
+ async function getProductInfo(url,userID,res){
+  
+  //get camel url
+  let productNumber = (url.split('/dp/')[1]).split('/')[0]
+  let countryCode = (url.split('www.amazon.')[1]).substring(0, 2)
+  let camelurl= "https://"+countryCode+".camelcamelcamel.com/product/"+productNumber
+
+  axios.get(camelurl)
+    .then(async (response) => {
+      
+        const htmlData = await response.data
+        const $ = cheerio.load(htmlData)
+        var productInfo = {
+          productNumber: String,
+          title: String,
+          price: Number,
+          imgSrc: String,
+          camelurl: String,
+          prices: [{
+            date: Date,
+            price: Number
+          }]
+        }
+        
+        //working webscraping of title and image directly from amazon
+        // productInfo.title= $('#productTitle').text()
+        // productInfo.imgSrc= $('#imgTagWrapperId').find('img').attr('src');
+        // console.log(productInfo.title)
+        // console.log(productInfo.imgSrc)
+
+        productInfo.productNumber=productNumber
+        productInfo.title= ($('h2 > a').first().text()).substring(0,($('h2 > a').first().text()).length-(productNumber.length+2));
+        productInfo.imgSrc= $('img').attr('src');
+        productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
+        productInfo.camelurl = camelurl
+        productInfo.prices[0].date= (new Date().toLocaleDateString())
+        productInfo.prices[0].price= productInfo.price
+
+        console.log(productInfo.prices[0].date)
+      
+       
+        
+        const newTracker = new PriceTracker({userID: mongoose.Types.ObjectId(userID), createDate: Date.now(), url:url,productInfo: productInfo});
+        await newTracker.save();
+        const newTrackersWithNewID =  await PriceTracker.find({url: url, userID:userID});
+        
+        res.json(newTrackersWithNewID[0])
+      
+        return productInfo;
+      }
+  ).catch(err => console.error(err))
+}
+
+app.post('/deletetracker',checkAuthenticated, async (req, res) => {
+  const {id} = req.body
+
+  foundTrackers= await PriceTracker.find({_id: id});
+  
+  if(foundTrackers[0].length !==0){
+    PriceTracker.deleteOne({_id:id}, function (err) {
+      if (err) return handleError(err);
+      res.send("deleted")
+    });
+  }else
+    res.send("error")
+})
+
+app.get('/mytrackers',checkAuthenticated, async (req, res) => {
+ 
+  const cookies = parseCookies(req)
+  var cookieUser = JSON.parse(cookies["user"].slice(2))
+  const userID = cookieUser._id
+  const existingTrackers =  await PriceTracker.find({userID: userID});
+
+  res.send(existingTrackers)
+  
+})
+
+app.get('/updateTrackers', async (req, res) => {
+  let trackerCounter=0;
+ 
+  async function updatePrice(tracker) {
+    
+    const response = await axios.get(tracker.productInfo.camelurl);
+    const $ = cheerio.load(response.data);
+    
+    const latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
+    
+    cloneTracker = JSON.parse(JSON.stringify(tracker))
+    
+    if(latestPrice !== cloneTracker.productInfo.price){
+      cloneTracker.productInfo.price = latestPrice
+      cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
+      const newTracker = new PriceTracker(cloneTracker);
+      
+      //Update entire list
+      const conditions = {
+        _id : tracker._id 
+      }
+
+      PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
+        if(error){
+          console.log(error)
+        }else{
+          console.log(trackerCounter++)
+        }
+      });
+    }else{
+      console.log("no price change")
+    }
+  }
+  
+    const existingTrackers =  await PriceTracker.find({});
+    
+    existingTrackers.forEach((tracker) => {
+      updatePrice(tracker)
+    })
+
+    setTimeout(() => {
+      console.log("trackers updated: "+trackerCounter)
+      console.log("all trackers updated")
+      res.send("trackers updated: "+ trackerCounter)
+    }, 10000);
+
+})
 
 console.log('Routes in place');
 
