@@ -865,7 +865,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         productInfo.imgSrc= $('img').attr('src');
         productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
         productInfo.camelurl = camelurl
-        productInfo.prices[0].date= (new Date().toLocaleDateString())
+        productInfo.prices[0].date= new Date()
         productInfo.prices[0].price= productInfo.price
 
         console.log(productInfo.prices[0].date)

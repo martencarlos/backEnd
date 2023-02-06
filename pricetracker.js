@@ -13,7 +13,7 @@ var PriceTrackerSchema = mongoose.Schema({
       imgSrc: String,
       camelurl: String,
       prices: [{
-        date: String,
+        date: Date,
         price: Number
       }]
     }
