@@ -455,6 +455,7 @@ app.post('/registeruser', function(req, res){
 
 app.post('/login',async(req, res) => {
   
+  
    var foundUser =  await User.find({email: req.body.email});
     
     if(foundUser.length !==0){
@@ -482,10 +483,11 @@ app.post('/login',async(req, res) => {
             }
           });
            
-          //update last login date
+          if(req.body.keepLoggedIn)
+            res.cookie('user', foundUser[0], { maxAge: 3600000*24*7, httpOnly: false }) //1 week
+          else
+            res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false }) //1 hour
           
-
-          res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false })
           res.send(foundUser[0])
         }else{
            res.json({password: 'Invalid password',errors: "yes"});
