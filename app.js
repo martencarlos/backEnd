@@ -821,13 +821,10 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
   if(existingTracker.length !==0){
     if(existingTracker[0].userID.equals(mongoose.Types.ObjectId(userID)))
       res.json({message: "user tracker already exists"})
-
-   }else{
-
-    getProductInfo(url,userID,res)
-    
-   }
-  
+    else
+      getProductInfo(url,userID,res)
+   }else
+      getProductInfo(url,userID,res)
 })
 
  async function getProductInfo(url,userID,res){
@@ -837,7 +834,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
     (url.split('/dp/')[1]).split('/')[0]
   } catch (error) {
     res.json({message:"URL is not a product page"})
-    return false
+    return true
   }
   let productNumber = (url.split('/dp/')[1]).split('/')[0]
   let countryCode = (url.split('www.amazon.')[1]).substring(0, 2)
