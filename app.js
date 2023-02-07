@@ -815,14 +815,12 @@ app.get('/laptops', async (req, res) => {
 
 app.post('/newtracker',checkAuthenticated, async (req, res) => {
   const {userID, url}= req.body
-  const existingTracker =  await PriceTracker.find({url: url});
+  const userTrackers =  await PriceTracker.find({userID:userID,url: url});
+  // console.log(mongoose.Types.ObjectId(userID))
 
-  //check if a price tracker with the url exists
-  if(existingTracker.length !==0){
-    if(existingTracker[0].userID.equals(mongoose.Types.ObjectId(userID)))
+  //check if the user is already traking the product
+  if(userTrackers.length !==0){
       res.json({message: "user tracker already exists"})
-    else
-      getProductInfo(url,userID,res)
    }else
       getProductInfo(url,userID,res)
 })
@@ -836,10 +834,12 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
     res.json({message:"URL is not a product page"})
     return true
   }
+  
   let productNumber = (url.split('/dp/')[1]).split('/')[0]
   let countryCode = (url.split('www.amazon.')[1]).substring(0, 2)
   let camelurl= "https://"+countryCode+".camelcamelcamel.com/product/"+productNumber
 
+  // axios.get(url)
   axios.get(camelurl)
     .then(async (response) => {
       
@@ -858,10 +858,9 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         }
         
         //working webscraping of title and image directly from amazon
-        // productInfo.title= $('#productTitle').text()
+        // productInfo.title= $('#productTitle').text().trim()
         // productInfo.imgSrc= $('#imgTagWrapperId').find('img').attr('src');
-        // console.log(productInfo.title)
-        // console.log(productInfo.imgSrc)
+        // productInfo.price = $("[id*='corePriceDisplay']").first().find('.a-price-whole').text();
 
         productInfo.productNumber=productNumber
         productInfo.title= ($('h2 > a').first().text()).substring(0,($('h2 > a').first().text()).length-(productNumber.length+2));
@@ -870,11 +869,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         productInfo.camelurl = camelurl
         productInfo.prices[0].date= new Date()
         productInfo.prices[0].price= productInfo.price
-
-        console.log(productInfo.prices[0].date)
       
-       
-        
         const newTracker = new PriceTracker({userID: mongoose.Types.ObjectId(userID), createDate: Date.now(), url:url,productInfo: productInfo});
         await newTracker.save();
         const newTrackersWithNewID =  await PriceTracker.find({url: url, userID:userID});
@@ -905,9 +900,9 @@ app.get('/mytrackers',checkAuthenticated, async (req, res) => {
   const cookies = parseCookies(req)
   var cookieUser = JSON.parse(cookies["user"].slice(2))
   const userID = cookieUser._id
-  const existingTrackers =  await PriceTracker.find({userID: userID});
+  const userTrackerss =  await PriceTracker.find({userID: userID});
 
-  res.send(existingTrackers)
+  res.send(userTrackerss)
   
 })
 
@@ -945,9 +940,9 @@ app.get('/updateTrackers', async (req, res) => {
     }
   }
   
-    const existingTrackers =  await PriceTracker.find({});
+    const userTrackerss =  await PriceTracker.find({});
     
-    existingTrackers.forEach((tracker) => {
+    userTrackerss.forEach((tracker) => {
       updatePrice(tracker)
     })
 
