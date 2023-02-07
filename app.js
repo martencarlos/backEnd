@@ -20,6 +20,7 @@ const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframeb
 
 //Authentication
 const cookieParser = require('cookie-parser');
+const uuidv4 = require("uuid4")
 
 //load secrets to process environment
 if (!process.env.HOST_HEROKU_DEPLOYED){
@@ -468,6 +469,14 @@ app.post('/login',async(req, res) => {
           }
           //changes
           foundUser[0].lastLogin= Date.now();
+
+          //Session
+          foundUser[0].session.sessionID= uuidv4()
+          if(req.body.keepLoggedIn)
+            foundUser[0].session.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
+          else
+            foundUser[0].session.expireDate=new Date((new Date()).getTime() + 1 * 60 * 60 * 1000); // 1 hour
+          
           if(foundUser[0].logins)
             foundUser[0].logins= foundUser[0].logins+1;
           else
@@ -512,15 +521,31 @@ async function checkAuthenticated(req, res, next) {
 
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
-    
-    var cookieUser = JSON.parse(cookies["user"].slice(2))
-    var userArray = await User.find({_id: cookieUser._id})
-    if(userArray.length!==0)
-      next();
-    else
+    if(cookies["user"]){
+      var cookieUser = JSON.parse(cookies["user"].slice(2))
+      var userArray = await User.find({_id: cookieUser._id})
+
+      if(userArray.length!==0)
+        if(Date.now() < userArray[0].session.expireDate &&
+          userArray[0].session.sessionID === cookieUser.session.sessionID)
+          next();
+        else{
+          res.cookie('user', "", { maxAge: -1, httpOnly: false }) //expired
+          res.json({error: "not authenticated"})
+        }
+          
+      else{
+        res.cookie('user', "", { maxAge: -1, httpOnly: false }) //expired
+        res.json({error: "not authenticated"})
+      }
+    }else{
+      res.cookie('user', "", { maxAge: -1, httpOnly: false }) //expired
       res.json({error: "not authenticated"})
+    }
+    
+      
   } else {
-      console.log("not authenticated error")
+      res.cookie('user', "", { maxAge: -1, httpOnly: false }) //expired
       res.json({error: "not authenticated"})
   }
 }
