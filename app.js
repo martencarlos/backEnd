@@ -513,9 +513,14 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
 })
 
 async function checkAuthenticated(req, res, next) {
-
+  console.log("#################")
+  console.log(req.headers.cookie)
+  
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
+    console.log(cookies)
+    console.log(JSON.parse(cookies["me"]))
+    console.log("#################")
     if(cookies["me"]){
       var cookieUser = JSON.parse(cookies["me"])
       var userArray = await User.find({_id: cookieUser._id, password:cookieUser.password})
