@@ -492,10 +492,10 @@ app.post('/login',async(req, res) => {
             }
           });
            
-          if(req.body.keepLoggedIn)
-            res.cookie('user', foundUser[0], { maxAge: 3600000*24*7, httpOnly: false }) //1 week
-          else
-            res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false }) //1 hour
+          // if(req.body.keepLoggedIn)
+          //   res.cookie('user', foundUser[0], { maxAge: 3600000*24*7, httpOnly: false }) //1 week
+          // else
+          //   res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false }) //1 hour
           
           res.send(foundUser[0])
         }else{
@@ -522,7 +522,7 @@ async function checkAuthenticated(req, res, next) {
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
     if(cookies["me"]){
-      var cookieUser = JSON.parse(cookies["me"].slice(2))
+      var cookieUser = JSON.parse(cookies["me"])
       var userArray = await User.find({_id: cookieUser._id, password:cookieUser.password})
 
       if(userArray.length!==0)
@@ -545,7 +545,7 @@ async function checkAuthenticated(req, res, next) {
     
       
   } else {
-      res.cookie('user', "", { maxAge: -1, httpOnly: false }) //expired
+      res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
       res.json({error: "not authenticated"})
   }
 }
@@ -602,6 +602,7 @@ app.post('/getProfileImage',checkAuthenticated, async function(req, res){
   //     console.log(file);
   //   });
   // });
+
   
   // console.log("body:"+req.body)
   const foundUser =  await User.find({_id: req.body._id});
@@ -648,7 +649,7 @@ app.post('/setImageProfile',checkAuthenticated, async (req, res)=>{
 
   const cookies = parseCookies(req)
   console.log(cookies)
-  var cookieUser = JSON.parse(cookies["me"].slice(2))
+  var cookieUser = JSON.parse(cookies["me"])
   var url =""
   var userArray = await User.find({_id: cookieUser._id})
   var user = userArray[0]
@@ -742,7 +743,7 @@ app.post('/setCardCoverImage',checkAuthenticated, (req, res)=>{
   console.log(file)
 
   const cookies = parseCookies(req)
-  var user = JSON.parse(cookies["me"].slice(2))
+  var user = JSON.parse(cookies["me"])
   var url =""
 
   const storage = getStorage(firebaseApp);
@@ -929,7 +930,7 @@ app.post('/deletetracker',checkAuthenticated, async (req, res) => {
 app.get('/mytrackers',checkAuthenticated, async (req, res) => {
  
   const cookies = parseCookies(req)
-  var cookieUser = JSON.parse(cookies["me"].slice(2))
+  var cookieUser = JSON.parse(cookies["me"])
   const userID = cookieUser._id
   const userTrackerss =  await PriceTracker.find({userID: userID});
 
