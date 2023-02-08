@@ -515,18 +515,14 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
 })
 
 async function checkAuthenticated(req, res, next) {
-  console.log("#################")
-  
+
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
-    console.log("not sliced cookie:")
-    console.log(cookies["me"])
-    console.log("sliced and parsed cookie:")
-    console.log(JSON.parse((cookies["me"].slice(2))))
-    // console.log(JSON.parse(cookies["me"].slice(2)))
-    console.log("#################")
     if(cookies["me"]){
-      var cookieUser = JSON.parse((cookies["me"].slice(2)))
+      if(process.env.SERVER === "http://localhost")
+        var cookieUser = JSON.parse((cookies["me"]))
+      else
+        var cookieUser = JSON.parse((cookies["me"].slice(2)))
       var userArray = await User.find({_id: cookieUser._id, password:cookieUser.password})
 
       if(userArray.length!==0)
@@ -934,7 +930,10 @@ app.post('/deletetracker',checkAuthenticated, async (req, res) => {
 app.get('/mytrackers',checkAuthenticated, async (req, res) => {
  
   const cookies = parseCookies(req)
-  var cookieUser = JSON.parse(cookies["me"].slice(2))
+  if(process.env.SERVER === "http://localhost")
+    var cookieUser = JSON.parse(cookies["me"])
+  else
+    var cookieUser = JSON.parse(cookies["me"].slice(2))
   const userID = cookieUser._id
   const userTrackerss =  await PriceTracker.find({userID: userID});
 
