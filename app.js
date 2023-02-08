@@ -492,11 +492,6 @@ app.post('/login',async(req, res) => {
             }
           });
            
-          // if(req.body.keepLoggedIn)
-          //   res.cookie('user', foundUser[0], { maxAge: 3600000*24*7, httpOnly: false }) //1 week
-          // else
-          //   res.cookie('user', foundUser[0], { maxAge: 3600000, httpOnly: false }) //1 hour
-          
           res.send(foundUser[0])
         }else{
            res.json({password: 'Invalid password',errors: "yes"});
