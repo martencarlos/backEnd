@@ -472,7 +472,8 @@ app.post('/login',async(req, res) => {
 
           //Session
           foundUser[0].session.sessionID= uuidv4()
-          res.cookie("me", foundUser[0],7 * 24 * 60 * 60 * 1000 )
+          
+          res.cookie('me', foundUser[0], { maxAge: 3600000, httpOnly: false, sameSite: 'none', secure:true })
           if(req.body.keepLoggedIn)
             foundUser[0].session.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
           else
