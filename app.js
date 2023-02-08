@@ -649,7 +649,10 @@ app.post('/setImageProfile',checkAuthenticated, async (req, res)=>{
 
   const cookies = parseCookies(req)
   console.log(cookies)
-  var cookieUser = JSON.parse(cookies["me"])
+  if(process.env.SERVER==="http://localhost")
+    var cookieUser = JSON.parse(cookies["me"])
+  else
+    var cookieUser = JSON.parse(cookies["me"].slice(2))
   var url =""
   var userArray = await User.find({_id: cookieUser._id})
   var user = userArray[0]
@@ -743,7 +746,10 @@ app.post('/setCardCoverImage',checkAuthenticated, (req, res)=>{
   console.log(file)
 
   const cookies = parseCookies(req)
-  var user = JSON.parse(cookies["me"])
+  if(process.env.SERVER==="http://localhost")
+    var user = JSON.parse(cookies["me"])
+  else
+    var user = JSON.parse(cookies["me"].slice(2))
   var url =""
 
   const storage = getStorage(firebaseApp);
