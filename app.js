@@ -519,8 +519,11 @@ async function checkAuthenticated(req, res, next) {
   
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
-    console.log("parsed cookie:")
-    console.log(JSON.parse(cookies["me"].slice(2)))
+    console.log("not sliced cookie:")
+    console.log(cookies["me"])
+    console.log("sliced cookie:")
+    console.log(cookies["me"].slice(2))
+    // console.log(JSON.parse(cookies["me"].slice(2)))
     console.log("#################")
     if(cookies["me"]){
       var cookieUser = JSON.parse(cookies["me"].slice(2))
