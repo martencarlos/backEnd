@@ -895,17 +895,21 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
         productInfo.camelurl = camelurl
         productInfo.prices[0].date= new Date()
-        productInfo.prices[0].price= productInfo.price
-      
+        productInfo.prices[0].price=productInfo.price
+        console.log(productInfo)
+        
         const newTracker = new PriceTracker({userID: mongoose.Types.ObjectId(userID), createDate: Date.now(), url:url,productInfo: productInfo});
         await newTracker.save();
         const newTrackersWithNewID =  await PriceTracker.find({url: url, userID:userID});
         
         res.json(newTrackersWithNewID[0])
+       
       
         return productInfo;
       }
-  ).catch(err => console.error(err))
+  ).catch(err => console.error(err)).then(
+
+  )
 }
 
 app.post('/deletetracker',checkAuthenticated, async (req, res) => {
