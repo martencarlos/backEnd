@@ -472,6 +472,7 @@ app.post('/login',async(req, res) => {
 
           //Session
           foundUser[0].session.sessionID= uuidv4()
+          res.cookie("me", foundUser[0],7 * 24 * 60 * 60 * 1000 )
           if(req.body.keepLoggedIn)
             foundUser[0].session.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
           else
@@ -515,6 +516,7 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
 async function checkAuthenticated(req, res, next) {
   console.log("#################")
   console.log(req.headers.cookie)
+  console.log(req.body)
   
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
