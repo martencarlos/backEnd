@@ -934,7 +934,7 @@ app.post('/deletetracker',checkAuthenticated, async (req, res) => {
 app.get('/mytrackers',checkAuthenticated, async (req, res) => {
  
   const cookies = parseCookies(req)
-  var cookieUser = JSON.parse(cookies["me"])
+  var cookieUser = JSON.parse(cookies["me"].slice(2))
   const userID = cookieUser._id
   const userTrackerss =  await PriceTracker.find({userID: userID});
 
