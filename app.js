@@ -525,7 +525,7 @@ async function checkAuthenticated(req, res, next) {
     console.log(JSON.parse(cookies["me"]))
     console.log("#################")
     if(cookies["me"]){
-      var cookieUser = JSON.parse(cookies["me"])
+      var cookieUser = JSON.parse(cookies["me"].slice(2))
       var userArray = await User.find({_id: cookieUser._id, password:cookieUser.password})
 
       if(userArray.length!==0)
