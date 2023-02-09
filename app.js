@@ -955,33 +955,37 @@ app.get('/updateTrackers', async (req, res) => {
   let trackerCounter=0;
  
   async function updatePrice(tracker) {
-    
-    const response = await axios.get(tracker.productInfo.camelurl);
-    const $ = cheerio.load(response.data);
-    
-    const latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
-    
-    cloneTracker = JSON.parse(JSON.stringify(tracker))
-    
-    if(latestPrice !== cloneTracker.productInfo.price){
-      cloneTracker.productInfo.price = latestPrice
-      cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
-      const newTracker = new PriceTracker(cloneTracker);
+    try {
+      const response = await axios.get(tracker.productInfo.camelurl);
+      const $ = cheerio.load(response.data);
       
-      //Update entire list
-      const conditions = {
-        _id : tracker._id 
-      }
-
-      PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
-        if(error){
-          console.log(error)
-        }else{
-          console.log(trackerCounter++)
+      const latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
+      
+      cloneTracker = JSON.parse(JSON.stringify(tracker))
+      
+      if(latestPrice !== cloneTracker.productInfo.price){
+        cloneTracker.productInfo.price = latestPrice
+        cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
+        const newTracker = new PriceTracker(cloneTracker);
+        
+        //Update entire list
+        const conditions = {
+          _id : tracker._id 
         }
-      });
-    }else{
-      console.log("no price change")
+
+        PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
+          if(error){
+            console.log(error)
+          }else{
+            console.log(trackerCounter++)
+          }
+        });
+      }else{
+        console.log("no price change")
+      }
+    }catch (error) {
+      console.error("updating tracker catched error: ");
+      console.error(error);
     }
   }
   
@@ -995,7 +999,7 @@ app.get('/updateTrackers', async (req, res) => {
       console.log("trackers updated: "+trackerCounter)
       console.log("all trackers updated")
       res.send("trackers updated: "+ trackerCounter)
-    }, 10000);
+    }, 15000);
 
 })
 
