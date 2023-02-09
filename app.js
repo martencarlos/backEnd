@@ -923,11 +923,9 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
           res.json({message:"Product is out of stock - no price found"})
         }
         
-        return productInfo;
+        // return productInfo;
       }
-  ).catch(err => console.error(err)).then(
-
-  )
+    ).catch(err => console.error(err))
 }
 
 app.post('/deletetracker',checkAuthenticated, async (req, res) => {
