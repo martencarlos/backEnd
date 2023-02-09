@@ -473,11 +473,15 @@ app.post('/login',async(req, res) => {
           //Session
           foundUser[0].session.sessionID= uuidv4()
           
-          res.cookie('me', foundUser[0], { maxAge: 3600000, httpOnly: false, sameSite: 'none', secure:true })
-          if(req.body.keepLoggedIn)
+          
+          if(req.body.keepLoggedIn){
+            res.cookie('me', foundUser[0], { maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
             foundUser[0].session.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
-          else
+          }else{
             foundUser[0].session.expireDate=new Date((new Date()).getTime() + 1 * 60 * 60 * 1000); // 1 hour
+            res.cookie('me', foundUser[0], { maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+          }
+            
           
           if(foundUser[0].logins)
             foundUser[0].logins= foundUser[0].logins+1;
