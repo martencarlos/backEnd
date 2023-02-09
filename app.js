@@ -525,26 +525,29 @@ async function checkAuthenticated(req, res, next) {
         var cookieUser = JSON.parse((cookies["me"].slice(2)))
       var userArray = await User.find({_id: cookieUser._id, password:cookieUser.password})
 
-      if(userArray.length!==0)
+      if(userArray.length!==0){
         if(Date.now() < userArray[0].session.expireDate &&
           userArray[0].session.sessionID === cookieUser.session.sessionID)
           next();
         else{
+          console.log("cookie deletion reason: expired date")
           res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
           res.json({error: "not authenticated"})
         }
-          
-      else{
+      }else{
+        console.log("cookie deletion reason: user not found")
         res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
         res.json({error: "not authenticated"})
       }
     }else{
+      console.log("cookie deletion reason: cookie ME not found")
       res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
       res.json({error: "not authenticated"})
     }
     
       
   } else {
+      console.log("cookie deletion reason: No cookies found")
       res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
       res.json({error: "not authenticated"})
   }
