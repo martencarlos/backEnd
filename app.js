@@ -1009,7 +1009,7 @@ app.get('/updateTrackers', async (req, res) => {
       console.log("trackers updated: "+trackerCounter)
       console.log("all trackers updated")
       res.send("trackers updated: "+ trackerCounter)
-    }, 15000);
+    }, 30000);
 
 })
 
