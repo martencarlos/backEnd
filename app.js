@@ -456,7 +456,6 @@ app.post('/registeruser', function(req, res){
 
 app.post('/login',async(req, res) => {
   
-  
    var foundUser =  await User.find({email: req.body.email});
     
     if(foundUser.length !==0){
@@ -473,7 +472,6 @@ app.post('/login',async(req, res) => {
           //Session
           foundUser[0].session.sessionID= uuidv4()
           
-          
           if(req.body.keepLoggedIn){
             res.cookie('me', foundUser[0], { maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
             foundUser[0].session.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
@@ -482,7 +480,6 @@ app.post('/login',async(req, res) => {
             res.cookie('me', foundUser[0], { maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
           }
             
-          
           if(foundUser[0].logins)
             foundUser[0].logins= foundUser[0].logins+1;
           else
@@ -907,7 +904,10 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         productInfo.productNumber=productNumber
         productInfo.title= ($('h2 > a').first().text()).substring(0,($('h2 > a').first().text()).length-(productNumber.length+2));
         productInfo.imgSrc= $('img').attr('src');
-        productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
+        if(isNaN($('.green').first().text()).replace(".",""))
+          productInfo.price= 0
+        else
+          productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
         productInfo.camelurl = camelurl
         productInfo.prices[0].date= new Date()
         productInfo.prices[0].price=productInfo.price
