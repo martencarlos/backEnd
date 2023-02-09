@@ -983,7 +983,7 @@ app.get('/updateTrackers', async (req, res) => {
           _id : tracker._id 
         }
 
-        PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
+        await PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
           if(error){
             console.log(error)
           }else{
@@ -995,7 +995,7 @@ app.get('/updateTrackers', async (req, res) => {
       }
     }catch (error) {
       console.error("updating tracker catched error: ");
-      console.error(error);
+      console.error(error.code);
     }
   }
   
@@ -1007,7 +1007,7 @@ app.get('/updateTrackers', async (req, res) => {
 
     setTimeout(() => {
       console.log("trackers updated: "+trackerCounter)
-      console.log("all trackers updated")
+      
       res.send("trackers updated: "+ trackerCounter)
     }, 30000);
 
