@@ -913,13 +913,16 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         productInfo.prices[0].price=productInfo.price
         console.log(productInfo)
         
-        const newTracker = new PriceTracker({userID: mongoose.Types.ObjectId(userID), createDate: Date.now(), url:url,productInfo: productInfo});
-        await newTracker.save();
-        const newTrackersWithNewID =  await PriceTracker.find({url: url, userID:userID});
+        if(productInfo.price !==0){
+          //save in db
+          const newTracker = new PriceTracker({userID: mongoose.Types.ObjectId(userID), createDate: Date.now(), url:url,productInfo: productInfo});
+          await newTracker.save();
+          const newTrackersWithNewID =  await PriceTracker.find({url: url, userID:userID});
+          res.json(newTrackersWithNewID[0])
+        }else{
+          res.json({message:"Product is out of stock - no price found"})
+        }
         
-        res.json(newTrackersWithNewID[0])
-       
-      
         return productInfo;
       }
   ).catch(err => console.error(err)).then(
