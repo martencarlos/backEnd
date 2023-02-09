@@ -904,7 +904,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         productInfo.productNumber=productNumber
         productInfo.title= ($('h2 > a').first().text()).substring(0,($('h2 > a').first().text()).length-(productNumber.length+2));
         productInfo.imgSrc= $('img').attr('src');
-        if(isNaN(($('.green').first().text()).replace(".","")))
+        if(isNaN(parseFloat(($('.green').first().text()))))
           productInfo.price= 0
         else
           productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
@@ -967,7 +967,7 @@ app.get('/updateTrackers', async (req, res) => {
       const $ = cheerio.load(response.data);
       
       var latestPrice=-1
-      if(isNaN(($('.green').first().text()).replace(".","")))
+      if(isNaN(parseFloat(($('.green').first().text()))))
         latestPrice= 0
       else{
         latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
