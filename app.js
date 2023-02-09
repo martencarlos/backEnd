@@ -963,11 +963,16 @@ app.get('/updateTrackers', async (req, res) => {
       const response = await axios.get(tracker.productInfo.camelurl);
       const $ = cheerio.load(response.data);
       
-      const latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
-      
+      var latestPrice=-1
+      if(isNaN(($('.green').first().text()).replace(".","")))
+        latestPrice= 0
+      else{
+        latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
+      }
+        
       cloneTracker = JSON.parse(JSON.stringify(tracker))
       
-      if(latestPrice !== cloneTracker.productInfo.price){
+      if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
         cloneTracker.productInfo.price = latestPrice
         cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
         const newTracker = new PriceTracker(cloneTracker);
