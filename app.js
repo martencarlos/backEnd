@@ -542,14 +542,14 @@ async function checkAuthenticated(req, res, next) {
       }
     }else{
       console.log("cookie deletion reason: cookie ME not found")
-      res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
+      // res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
       res.json({error: "not authenticated"})
     }
     
       
   } else {
       console.log("cookie deletion reason: No cookies found")
-      res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
+      // res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
       res.json({error: "not authenticated"})
   }
 }
