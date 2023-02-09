@@ -519,6 +519,7 @@ async function checkAuthenticated(req, res, next) {
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
     if(cookies["me"]){
+      console.log(cookies["me"])
       if(process.env.SERVER === "http://localhost")
         var cookieUser = JSON.parse((cookies["me"]))
       else
