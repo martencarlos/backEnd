@@ -959,9 +959,9 @@ app.get('/mytrackers',checkAuthenticated, async (req, res) => {
 app.get('/updateTrackers', async (req, res) => {
   let trackerCounter=0;
  
-  async function updatePrice(tracker) {
+  async function updatePrice(tracker,i) {
     
-      setTimeout(async (tracker) => {
+      setTimeout(async () => {
         try {
         const response = await axios.get(tracker.productInfo.camelurl);
         const $ = cheerio.load(response.data);
@@ -996,7 +996,6 @@ app.get('/updateTrackers', async (req, res) => {
           console.log("no price change")
         }
       }catch (error) {
-        console.error("updating tracker catched error: ");
         console.error(error.code);
       }
       }, 1000);
@@ -1005,7 +1004,7 @@ app.get('/updateTrackers', async (req, res) => {
   
     const userTrackerss =  await PriceTracker.find({});
     
-    userTrackerss.forEach((tracker) => {
+    userTrackerss.forEach((tracker,i) => {
       updatePrice(tracker)
     })
 
