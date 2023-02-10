@@ -62,6 +62,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 var nodemailer = require('nodemailer');
 const { isFunction } = require('util');
 const { rejects } = require('assert');
+const { Http2ServerRequest } = require('http2');
 
 // Email source
 var transporter = nodemailer.createTransport({
@@ -963,14 +964,35 @@ app.get('/updateTrackers', async (req, res) => {
   res.send("Tracker request received. Updating trackers...")
   
   async function updatePrice(tracker,i) {
-    if(i % 1 == 0){
-      await new Promise(resolve => setTimeout(resolve, 3000));//wait for 1 second
-    }
+    // if(i % 1 == 0){
+    //   await new Promise(resolve => setTimeout(resolve, 3000));//wait for 1 second
+    // }
     
     // setTimeout(async () => {
       console.log(i)
-       try {
-         const response = await axios.get(tracker.productInfo.camelurl);
+      var response
+
+      if(i % 5 == 0){
+        await new Promise(resolve => setTimeout(resolve, 15000));//wait for 15 second
+      }
+      try {
+         response = await axios.get(tracker.productInfo.camelurl,{
+            headers:{
+              'User-agent': 'API web'
+            }
+         });
+        }catch (error) {
+          console.log(error.code)
+          // if(i % 1 == 0){
+          //     await new Promise(resolve => setTimeout(resolve, 15000));//wait for 3 second
+          //     response = await axios.get(tracker.productInfo.camelurl,{
+          //       headers:{
+          //         'User-agent': 'API web'
+          //       }
+          //    });
+          //   }
+        }
+
          const $ = cheerio.load(response.data);
          
          var latestPrice=-1
@@ -1006,10 +1028,7 @@ app.get('/updateTrackers', async (req, res) => {
           console.log("not updated")
            return "not updated"
          }
-     }catch (error) {
-        console.log(error.code)
-        return error.code
-     }
+     
   //  }, 1000); //wait a second to avoid too many requests error from server
    
   }
