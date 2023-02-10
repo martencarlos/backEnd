@@ -972,39 +972,44 @@ app.get('/updateTrackers', async (req, res) => {
       console.log(i)
       var response
 
-      if(i % 5 == 0){
-        await new Promise(resolve => setTimeout(resolve, 15000));//wait for 15 second
-      }
+      // if(i % 5 == 0){
+      //   await new Promise(resolve => setTimeout(resolve, 15000));//wait for 15 second
+      // }
       try {
-         response = await axios.get(tracker.productInfo.camelurl,{
+         response = await axios.get(tracker.url,{
             headers:{
               'User-agent': 'API web'
             }
          });
         }catch (error) {
           console.log(error.code)
-          // if(i % 1 == 0){
-          //     await new Promise(resolve => setTimeout(resolve, 15000));//wait for 3 second
-          //     response = await axios.get(tracker.productInfo.camelurl,{
-          //       headers:{
-          //         'User-agent': 'API web'
-          //       }
-          //    });
-          //   }
+          if(i % 1 == 0){
+              await new Promise(resolve => setTimeout(resolve, 8000));//wait for 3 second
+              response = await axios.get(tracker.url,{
+                headers:{
+                  'User-agent': 'API web'
+                }
+             });
+            }
         }
 
          const $ = cheerio.load(response.data);
          
-         var latestPrice=-1
-         if(isNaN(parseFloat(($('.green').first().text()))))
+         var latestPrice=0
+        //  if(isNaN(parseFloat(($('.green').first().text()))))
+        if(isNaN(parseFloat($("[id*='corePriceDisplay']").first().find('.a-price-whole').text())))
            latestPrice= 0
          else{
-           latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
+          //  latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
+          latestPrice= parseFloat($("[id*='corePriceDisplay']").first().find('.a-price-whole').text().replace(".",""))
          }
         
          cloneTracker = JSON.parse(JSON.stringify(tracker))
          
+        //  console.log("current price:")
         //  console.log(cloneTracker.productInfo.price)
+        //  console.log("lates tPrice:")
+        //  console.log(latestPrice)
          if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
            cloneTracker.productInfo.price = latestPrice
            cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
@@ -1014,18 +1019,18 @@ app.get('/updateTrackers', async (req, res) => {
            const conditions = {
              _id : tracker._id 
            }
-           console.log("here")
+           
            await PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
              if(error){
                console.log(error)
              }else{
-               console.log(trackerCounter++)
+              //  console.log("updated counter: "+ trackerCounter++)
                return "updated"
              }
-           });
+           }).clone();
            
          }else{
-          console.log("not updated")
+          // console.log("not updated")
            return "not updated"
          }
      
