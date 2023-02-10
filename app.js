@@ -978,17 +978,17 @@ app.get('/updateTrackers', async (req, res) => {
       try {
          response = await axios.get(tracker.url,{
             headers:{
-              'User-agent': 'API web'
+              'User-agent': ''
             }
          });
         }catch (error) {
           console.log(error.code)
           if(i % 1 == 0){
             try {
-              await new Promise(resolve => setTimeout(resolve, 8000));//wait for 3 second
+              await new Promise(resolve => setTimeout(resolve, 10000));//wait for 8 second
               response = await axios.get(tracker.url,{
                 headers:{
-                  'User-agent': 'API web'
+                  'User-agent': ''
                 }
              });}catch (error) {
               console.log(error)
