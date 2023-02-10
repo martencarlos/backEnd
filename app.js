@@ -1012,7 +1012,7 @@ app.get('/updateTrackers', async (req, res) => {
     setTimeout(() => {
       console.log("trackers updated: "+trackerCounter)
       res.send("trackers updated: "+ trackerCounter)
-    }, 30000);
+    }, 15000);
 
 })
 
