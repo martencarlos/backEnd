@@ -956,62 +956,82 @@ app.get('/mytrackers',checkAuthenticated, async (req, res) => {
   
 })
 
-app.get('/updateTrackers', async (req, res) => {
-  let trackerCounter=0;
- 
-  async function updatePrice(tracker,i) {
-    
-      setTimeout(async () => {
-        try {
-        const response = await axios.get(tracker.productInfo.camelurl);
-        const $ = cheerio.load(response.data);
-        
-        var latestPrice=-1
-        if(isNaN(parseFloat(($('.green').first().text()))))
-          latestPrice= 0
-        else{
-          latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
-        }
-          
-        cloneTracker = JSON.parse(JSON.stringify(tracker))
-        
-        if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
-          cloneTracker.productInfo.price = latestPrice
-          cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
-          const newTracker = new PriceTracker(cloneTracker);
-          
-          //Update entire list
-          const conditions = {
-            _id : tracker._id 
-          }
-  
-          await PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
-            if(error){
-              console.log(error)
-            }else{
-              console.log(trackerCounter++)
-            }
-          });
-        }else{
-          console.log("no price change")
-        }
-      }catch (error) {
-        console.error(error.code);
-      }
-      }, 1000);
-      
-  }
-  
-    const userTrackerss =  await PriceTracker.find({});
-    
-    userTrackerss.forEach((tracker,i) => {
-      updatePrice(tracker)
-    })
 
-    setTimeout(() => {
-      console.log("trackers updated: "+trackerCounter)
-      res.send("trackers updated: "+ trackerCounter)
-    }, 15000);
+
+app.get('/updateTrackers', async (req, res) => {
+  
+  res.send("Tracker request received. Updating trackers...")
+  
+  async function updatePrice(tracker,i) {
+    if(i % 1 == 0){
+      await new Promise(resolve => setTimeout(resolve, 3000));//wait for 1 second
+    }
+    
+    // setTimeout(async () => {
+      console.log(i)
+       try {
+         const response = await axios.get(tracker.productInfo.camelurl);
+         const $ = cheerio.load(response.data);
+         
+         var latestPrice=-1
+         if(isNaN(parseFloat(($('.green').first().text()))))
+           latestPrice= 0
+         else{
+           latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
+         }
+        
+         cloneTracker = JSON.parse(JSON.stringify(tracker))
+         
+        //  console.log(cloneTracker.productInfo.price)
+         if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
+           cloneTracker.productInfo.price = latestPrice
+           cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
+           const newTracker = new PriceTracker(cloneTracker);
+           
+           //Update entire list
+           const conditions = {
+             _id : tracker._id 
+           }
+           console.log("here")
+           await PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
+             if(error){
+               console.log(error)
+             }else{
+               console.log(trackerCounter++)
+               return "updated"
+             }
+           });
+           
+         }else{
+          console.log("not updated")
+           return "not updated"
+         }
+     }catch (error) {
+        console.log(error.code)
+        return error.code
+     }
+  //  }, 1000); //wait a second to avoid too many requests error from server
+   
+  }
+
+  let trackerCounter=0;
+  const userTrackerss =  await PriceTracker.find({});
+  
+  for (const [i,tracker] of userTrackerss.entries()) {
+    const result = await updatePrice(tracker,i)
+    // console.log(result);
+  }
+
+  console.log("trackers updated: "+trackerCounter)
+    
+    // userTrackerss.forEach(async (tracker,i) => {
+    //    var result = await updatePrice(tracker)
+    // })
+
+    // setTimeout(() => {
+    //   console.log("trackers updated: "+trackerCounter)
+      
+    // }, 15000);
 
 })
 
