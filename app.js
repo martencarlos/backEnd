@@ -960,43 +960,47 @@ app.get('/updateTrackers', async (req, res) => {
   let trackerCounter=0;
  
   async function updatePrice(tracker) {
-    try {
-      const response = await axios.get(tracker.productInfo.camelurl);
-      const $ = cheerio.load(response.data);
-      
-      var latestPrice=-1
-      if(isNaN(parseFloat(($('.green').first().text()))))
-        latestPrice= 0
-      else{
-        latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
-      }
+    
+      setTimeout(async (tracker) => {
+        try {
+        const response = await axios.get(tracker.productInfo.camelurl);
+        const $ = cheerio.load(response.data);
         
-      cloneTracker = JSON.parse(JSON.stringify(tracker))
-      
-      if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
-        cloneTracker.productInfo.price = latestPrice
-        cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
-        const newTracker = new PriceTracker(cloneTracker);
-        
-        //Update entire list
-        const conditions = {
-          _id : tracker._id 
+        var latestPrice=-1
+        if(isNaN(parseFloat(($('.green').first().text()))))
+          latestPrice= 0
+        else{
+          latestPrice= (parseFloat(($('.green').first().text()).replace(".","")));
         }
-
-        await PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
-          if(error){
-            console.log(error)
-          }else{
-            console.log(trackerCounter++)
+          
+        cloneTracker = JSON.parse(JSON.stringify(tracker))
+        
+        if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
+          cloneTracker.productInfo.price = latestPrice
+          cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
+          const newTracker = new PriceTracker(cloneTracker);
+          
+          //Update entire list
+          const conditions = {
+            _id : tracker._id 
           }
-        });
-      }else{
-        console.log("no price change")
+  
+          await PriceTracker.findOneAndUpdate(conditions,newTracker,function(error,result){
+            if(error){
+              console.log(error)
+            }else{
+              console.log(trackerCounter++)
+            }
+          });
+        }else{
+          console.log("no price change")
+        }
+      }catch (error) {
+        console.error("updating tracker catched error: ");
+        console.error(error.code);
       }
-    }catch (error) {
-      console.error("updating tracker catched error: ");
-      console.error(error.code);
-    }
+      }, 1000);
+      
   }
   
     const userTrackerss =  await PriceTracker.find({});
@@ -1007,7 +1011,6 @@ app.get('/updateTrackers', async (req, res) => {
 
     setTimeout(() => {
       console.log("trackers updated: "+trackerCounter)
-      
       res.send("trackers updated: "+ trackerCounter)
     }, 30000);
 
