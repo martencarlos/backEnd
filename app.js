@@ -535,7 +535,11 @@ async function checkAuthenticated(req, res, next) {
       var userArray = await User.find({_id: cookieUser._id, password:cookieUser.password})
 
       if(userArray.length!==0){
-        const activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"])).sessionID);
+        var activeSession = {}
+        if(process.env.SERVER === "http://localhost")
+           activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"])).sessionID);
+        else
+           activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"].slice(2))).sessionID);
         
         if (activeSession){
           if(Date.now() < activeSession.expireDate)
