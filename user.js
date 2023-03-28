@@ -9,10 +9,11 @@ var UserSchema =  mongoose.Schema({
 	role: {
 		type: String
 	},
-	session: {
+	sessions: [
+		{
 		sessionID: String,
 		expireDate: Date
-	},
+	}],
 	name: {
 		type: String
 	},

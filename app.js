@@ -471,16 +471,22 @@ app.post('/login',async(req, res) => {
           foundUser[0].lastLogin= Date.now();
 
           //Session
-          foundUser[0].session.sessionID= uuidv4()
-          
+          var newSession ={}
+          newSession.sessionID= uuidv4()
+         
           if(req.body.keepLoggedIn){
-            res.cookie('me', foundUser[0], { maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
-            foundUser[0].session.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
+            newSession.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
+            foundUser[0].sessions.push(newSession)
+            res.cookie("me", foundUser[0], { maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+            res.cookie("ssid",newSession.sessionID,{ maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
           }else{
-            foundUser[0].session.expireDate=new Date((new Date()).getTime() + 1 * 60 * 60 * 1000); // 1 hour
-            res.cookie('me', foundUser[0], { maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+            newSession.expireDate=new Date((new Date()).getTime() + 1 * 60 * 60 * 1000); // 1 hour
+            foundUser[0].sessions.push(newSession)
+            res.cookie("me", foundUser[0], { maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+            res.cookie("ssid",newSession.sessionID,{ maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
           }
-            
+          
+          // update logins counter
           if(foundUser[0].logins)
             foundUser[0].logins= foundUser[0].logins+1;
           else
@@ -492,7 +498,6 @@ app.post('/login',async(req, res) => {
               console.log(error)
             }else{
               console.log("updated");
-              
             }
           });
            
@@ -520,7 +525,8 @@ async function checkAuthenticated(req, res, next) {
 
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
-    if(cookies["me"]){
+    
+    if(cookies["me"] && cookies["ssid"]){
       console.log(cookies["me"])
       if(process.env.SERVER === "http://localhost")
         var cookieUser = JSON.parse((cookies["me"]))
@@ -529,13 +535,16 @@ async function checkAuthenticated(req, res, next) {
       var userArray = await User.find({_id: cookieUser._id, password:cookieUser.password})
 
       if(userArray.length!==0){
-        if(Date.now() < userArray[0].session.expireDate &&
-          userArray[0].session.sessionID === cookieUser.session.sessionID)
-          next();
-        else{
-          console.log("cookie deletion reason: expired date")
-          res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
-          res.json({error: "not authenticated"})
+        const activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"])).sessionID);
+        
+        if (activeSession){
+          if(Date.now() < activeSession.expireDate)
+            next();
+          else{
+            console.log("cookie deletion reason: expired date")
+            res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
+            res.json({error: "not authenticated"})
+          }
         }
       }else{
         console.log("cookie deletion reason: user not found")
