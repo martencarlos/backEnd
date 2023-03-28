@@ -478,12 +478,12 @@ app.post('/login',async(req, res) => {
             newSession.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
             foundUser[0].sessions.push(newSession)
             res.cookie("me", foundUser[0], { maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
-            res.cookie("ssid",newSession.sessionID,{ maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+            res.cookie("ssid",newSession,{ maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
           }else{
             newSession.expireDate=new Date((new Date()).getTime() + 1 * 60 * 60 * 1000); // 1 hour
             foundUser[0].sessions.push(newSession)
             res.cookie("me", foundUser[0], { maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
-            res.cookie("ssid",newSession.sessionID,{ maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+            res.cookie("ssid",newSession,{ maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
           }
           
           // update logins counter
@@ -511,8 +511,6 @@ app.post('/login',async(req, res) => {
     }
 })
 
-
-
 app.get('/', (req, res) => {
   res.send("Server is live")
 })
@@ -537,11 +535,8 @@ async function checkAuthenticated(req, res, next) {
       if(userArray.length!==0){
         var activeSession = {}
         console.log("parsing active session cookie:")
-        console.log(cookies["ssid"].slice(2))
-        if(process.env.SERVER === "http://localhost")
-           activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"])).sessionID);
-        else
-           activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"].slice(2))).sessionID);
+        console.log(cookies["ssid"])
+        activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"])).sessionID);
         
         if (activeSession){
           if(Date.now() < activeSession.expireDate)
