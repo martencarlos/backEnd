@@ -536,6 +536,8 @@ async function checkAuthenticated(req, res, next) {
 
       if(userArray.length!==0){
         var activeSession = {}
+        console.log("parsing active session cookie:")
+        console.log(cookies["ssid"].slice(2))
         if(process.env.SERVER === "http://localhost")
            activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"])).sessionID);
         else
