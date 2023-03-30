@@ -526,10 +526,10 @@ async function checkAuthenticated(req, res, next) {
 
     if(cookies["uid"] && cookies["ssid"]){
       console.log(cookies["uid"])
-      // if(process.env.SERVER === "http://localhost")
+      if(process.env.SERVER === "http://localhost")
         var activeUid = JSON.parse((cookies["uid"]))
-      // else
-      //   var activeUid = JSON.parse((cookies["uid"].slice(2)))
+      else
+        var activeUid = JSON.parse((cookies["uid"].slice(2)))
       var userArray = await User.find({_id: activeUid})
 
       if(userArray.length!==0){
@@ -766,10 +766,10 @@ app.post('/setCardCoverImage',checkAuthenticated, (req, res)=>{
   console.log(file)
 
   const cookies = parseCookies(req)
-  // if(process.env.SERVER==="http://localhost")
+  if(process.env.SERVER==="http://localhost")
     var uid = JSON.parse(cookies["uid"])
-  // else
-  //   var uid = JSON.parse(cookies["uid"].slice(2))
+  else
+    var uid = JSON.parse(cookies["uid"].slice(2))
   var url =""
 
   const storage = getStorage(firebaseApp);
