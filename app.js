@@ -477,12 +477,12 @@ app.post('/login',async(req, res) => {
           if(req.body.keepLoggedIn){
             newSession.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
             foundUser[0].sessions.push(newSession)
-            res.cookie("me", foundUser[0], { maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+            res.cookie("uid", foundUser[0]._id, { maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
             res.cookie("ssid",newSession,{ maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
           }else{
             newSession.expireDate=new Date((new Date()).getTime() + 1 * 60 * 60 * 1000); // 1 hour
             foundUser[0].sessions.push(newSession)
-            res.cookie("me", foundUser[0], { maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+            res.cookie("uid", foundUser[0]._id, { maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
             res.cookie("ssid",newSession,{ maxAge: (1 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
           }
           
@@ -523,14 +523,14 @@ async function checkAuthenticated(req, res, next) {
 
   if (req.headers.cookie) {
     const cookies = parseCookies(req)
-    
-    if(cookies["me"] && cookies["ssid"]){
-      console.log(cookies["me"])
-      if(process.env.SERVER === "http://localhost")
-        var cookieUser = JSON.parse((cookies["me"]))
-      else
-        var cookieUser = JSON.parse((cookies["me"].slice(2)))
-      var userArray = await User.find({_id: cookieUser._id, password:cookieUser.password})
+
+    if(cookies["uid"] && cookies["ssid"]){
+      console.log(cookies["uid"])
+      // if(process.env.SERVER === "http://localhost")
+        var activeUid = JSON.parse((cookies["uid"]))
+      // else
+      //   var activeUid = JSON.parse((cookies["uid"].slice(2)))
+      var userArray = await User.find({_id: activeUid})
 
       if(userArray.length!==0){
         var activeSession = {}
@@ -541,23 +541,23 @@ async function checkAuthenticated(req, res, next) {
         else
           activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"].slice(2))).sessionID);
         
-        
         if (activeSession){
           if(Date.now() < activeSession.expireDate)
             next();
           else{
             console.log("cookie deletion reason: expired date")
-            res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
+            res.cookie('uid', "", { maxAge: -1, httpOnly: false }) //expired
             res.json({error: "not authenticated"})
           }
         }
       }else{
         console.log("cookie deletion reason: user not found")
-        res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
+        res.cookie('uid', "", { maxAge: -1, httpOnly: false }) //expired
         res.json({error: "not authenticated"})
       }
-    }else{
-      console.log("cookie deletion reason: cookie ME not found")
+    }
+    else{
+      console.log("cookie deletion reason: cookie 'uid' not found")
       // res.cookie('me', "", { maxAge: -1, httpOnly: false }) //expired
       res.json({error: "not authenticated"})
     }
@@ -670,11 +670,11 @@ app.post('/setImageProfile',checkAuthenticated, async (req, res)=>{
   const cookies = parseCookies(req)
   console.log(cookies)
   if(process.env.SERVER==="http://localhost")
-    var cookieUser = JSON.parse(cookies["me"])
+    var activeUid = JSON.parse(cookies["uid"])
   else
-    var cookieUser = JSON.parse(cookies["me"].slice(2))
+    var activeUid = JSON.parse(cookies["uid"].slice(2))
   var url =""
-  var userArray = await User.find({_id: cookieUser._id})
+  var userArray = await User.find({_id: activeUid})
   var user = userArray[0]
   const storage = getStorage(firebaseApp);
 
@@ -766,10 +766,10 @@ app.post('/setCardCoverImage',checkAuthenticated, (req, res)=>{
   console.log(file)
 
   const cookies = parseCookies(req)
-  if(process.env.SERVER==="http://localhost")
-    var user = JSON.parse(cookies["me"])
-  else
-    var user = JSON.parse(cookies["me"].slice(2))
+  // if(process.env.SERVER==="http://localhost")
+    var uid = JSON.parse(cookies["uid"])
+  // else
+  //   var uid = JSON.parse(cookies["uid"].slice(2))
   var url =""
 
   const storage = getStorage(firebaseApp);
@@ -779,7 +779,7 @@ app.post('/setCardCoverImage',checkAuthenticated, (req, res)=>{
   };
 
   // Upload file and metadata to the object 'images/mountains.jpg'
-  const storageRef = ref(storage, user._id+'/cardImages/'+Date.now()+'-'+file.name);
+  const storageRef = ref(storage, uid+'/cardImages/'+Date.now()+'-'+file.name);
   const uploadTask = uploadBytesResumable(storageRef, file.data, metadata);
   
   // Listen for state changes, errors, and completion of the upload.
@@ -961,10 +961,10 @@ app.get('/mytrackers',checkAuthenticated, async (req, res) => {
  
   const cookies = parseCookies(req)
   if(process.env.SERVER === "http://localhost")
-    var cookieUser = JSON.parse(cookies["me"])
+    var uid = JSON.parse(cookies["uid"])
   else
-    var cookieUser = JSON.parse(cookies["me"].slice(2))
-  const userID = cookieUser._id
+    var uid = JSON.parse(cookies["uid"].slice(2))
+  const userID = uid
   const userTrackerss =  await PriceTracker.find({userID: userID});
 
   res.send(userTrackerss)
