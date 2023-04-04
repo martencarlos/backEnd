@@ -253,6 +253,8 @@ app.post('/deletecard', async function(req, res){
         
       }
     }else{
+      console.log("debug - author ID: "+ cardID)
+      console.log("debug - userID: " + userID)
       res.json({
         message: "Error encountered. Please refresh the page and try again"
       })
@@ -826,20 +828,19 @@ app.post('/setCardCoverImage',checkAuthenticated, (req, res)=>{
   );
 });
 
-app.post('/cards', function(req, res){
+app.post('/cards', async function(req, res){
 	console.log("saving cards into db");
 	//async required because of database query
-	run()
-	async function run(){
-    try {
-      const card = new Card(req.body);
-      await card.save()
-		
+  const card = new Card(req.body);
+  try {
+    await card.save()
   } catch (error) {
      res.json({message: "error: "+error}) 
   }
-  res.json({message: "success"}) 
-}});
+  const foundCard =  await Card.find({authorid: card.author.authorid}).sort({_id:-1}).limit(1)
+ 
+  res.json(foundCard[0]) 
+});
 
 app.get('/users', async (req, res) => {
   console.log("getting all users");
