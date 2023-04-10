@@ -956,7 +956,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
   if((url.split('www.amazon.')[1]).substring(0, 3)==='com'){
     countryCode ="us"
   }else if((url.split('www.amazon.')[1]).substring(0, 5)==='co.uk'){
-    countryCode ="co.uk"
+    countryCode ="uk"
   }
   else
     {countryCode = (url.split('www.amazon.')[1]).substring(0, 2)}
@@ -979,6 +979,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
           title: String,
           price: Number,
           countryCode: String,
+          currency: String,
           imgSrc: String,
           camelurl: String,
           prices: [{
@@ -998,12 +999,15 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         // console.log("DEBUG - price in us:")
         // console.log(($('.green').first().text()))
         productInfo.countryCode= countryCode
-        if(countryCode === "us"){
+        
+        if(countryCode === "us" || countryCode === "uk"){
+          productInfo.currency= ($('.green').first().text()).charAt(0)
           if(isNaN(parseFloat(($('.green').first().text()).substring(1))))
             productInfo.price= 0
           else
             productInfo.price= parseFloat(($('.green').first().text()).substring(1));
         }else{
+          productInfo.currency= "€"
           if(isNaN(parseFloat(($('.green').first().text()))))
             productInfo.price= 0
           else
