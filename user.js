@@ -14,6 +14,10 @@ var UserSchema =  mongoose.Schema({
 		sessionID: String,
 		expireDate: Date
 	}],
+	trackers: [
+		{
+		trackerId: String
+	}],
 	name: {
 		type: String
 	},

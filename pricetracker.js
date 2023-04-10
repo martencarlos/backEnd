@@ -10,6 +10,7 @@ var PriceTrackerSchema = mongoose.Schema({
       productNumber: String,
       title: String,
       price: Number,
+      countryCode: String,
       imgSrc: String,
       camelurl: String,
       prices: [{

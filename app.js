@@ -869,31 +869,105 @@ app.get('/laptops', async (req, res) => {
 })
 
 app.post('/newtracker',checkAuthenticated, async (req, res) => {
-  const {userID, url}= req.body
-  const userTrackers =  await PriceTracker.find({userID:userID,url: url});
+  let {userID, url}= req.body
+  console.log("before first AXIOOOOOS")
+  try {
+    await axios.get(url).then(async response => {
+      url=response.request._redirectable._currentUrl
+      // console.log(response.request._redirectable._currentUrl); // Final URL after redirections
+    });
+  } catch (error) {
+    url=error.request.res.responseUrl
+  }
+  
+  console.log("After first AXIOOOOOS")
+  // console.log("debug - response URL")
+  // console.log(url)
+  //check if tracker is already in the user trackers
+  const user =  await User.find({_id:userID});
+  let userTrackerAlreadyExist = false;
   // console.log(mongoose.Types.ObjectId(userID))
 
+  async function asyncForEach(trackers) {
+    for (let index = 0; index < trackers.length; index++) {
+      if((await PriceTracker.find({_id: trackers[index].trackerId})).length !==0){
+        if(((await PriceTracker.find({_id: trackers[index].trackerId}))[0]).productInfo.productNumber === (url.split('/dp/')[1]).slice(0,10)){
+        userTrackerAlreadyExist = true;
+      }
+      }
+      
+    }
+  }
+  await asyncForEach(user[0].trackers)
+
+  // user[0].trackers.forEach(async function(tracker) {
+  //   var fullPriceTracker = await PriceTracker.find({_id:tracker.trackerId})
+  //   if(typeof fullPriceTracker[0] !== "undefined"){
+  //     if(fullPriceTracker[0].url ===url){
+  //       userTrackerAlreadyExist = true;
+  //     }
+  //   }
+  // });
+ 
+  const foundTracker =  await PriceTracker.find({"productInfo.productNumber": (url.split('/dp/')[1]).slice(0,10)});
+  // console.log("DEBUG - product number:")
+  // console.log((url.split('/dp/')[1]).slice(0,10))
+  // console.log("DEBUG - found tracker:")
+  // console.log(foundTracker)
+  // userTrackers.length !==0
   //check if the user is already traking the product
-  if(userTrackers.length !==0){
+  
+  if(userTrackerAlreadyExist){
       res.json({message: "user tracker already exists"})
-   }else
+   }else if(foundTracker.length !==0){
+      // console.log("Debug - found tracker:")
+      user[0].trackers.push({trackerId:foundTracker[0]._id})
+      // console.log(user[0])
+      await User.findOneAndUpdate({_id : user[0]._id },user[0],function(error,result){
+        if(error){
+          // handle error
+        }else{
+          console.log("updated user trackers with existing tracker");
+        }
+      }).clone();
+      res.json(foundTracker[0])
+   }
+   else{
+      console.log("Debug - getting the new tracker info")
       getProductInfo(url,userID,res)
+   }
+      
 })
 
  async function getProductInfo(url,userID,res){
   
   //get camel url
   try {
-    (url.split('/dp/')[1]).split('/')[0]
+    (url.split('/dp/')[1]).slice(0,10)
+    // (url.split('/dp/')[1]).split('/')[0]
   } catch (error) {
     res.json({message:"URL is not a product page"})
     return true
   }
   
-  let productNumber = (url.split('/dp/')[1]).split('/')[0]
-  let countryCode = (url.split('www.amazon.')[1]).substring(0, 2)
-  let camelurl= "https://"+countryCode+".camelcamelcamel.com/product/"+productNumber
+  let productNumber = (url.split('/dp/')[1]).slice(0,10)
+  // let productNumber = (url.split('/dp/')[1]).split('/')[0]
+  let countryCode;
+  if((url.split('www.amazon.')[1]).substring(0, 3)==='com'){
+    countryCode ="us"
+  }else if((url.split('www.amazon.')[1]).substring(0, 5)==='co.uk'){
+    countryCode ="co.uk"
+  }
+  else
+    {countryCode = (url.split('www.amazon.')[1]).substring(0, 2)}
+  let camelurl;
+  if(countryCode === "us")
+    camelurl= "https://camelcamelcamel.com/product/"+productNumber
+  else
+    camelurl= "https://"+countryCode+".camelcamelcamel.com/product/"+productNumber
 
+  console.log("DEBUG - Camel URL")
+  console.log(camelurl)
   // axios.get(url)
   axios.get(camelurl)
     .then(async (response) => {
@@ -904,6 +978,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
           productNumber: String,
           title: String,
           price: Number,
+          countryCode: String,
           imgSrc: String,
           camelurl: String,
           prices: [{
@@ -920,20 +995,48 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         productInfo.productNumber=productNumber
         productInfo.title= ($('h2 > a').first().text()).substring(0,($('h2 > a').first().text()).length-(productNumber.length+2));
         productInfo.imgSrc= $('img').attr('src');
-        if(isNaN(parseFloat(($('.green').first().text()))))
-          productInfo.price= 0
-        else
-          productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
+        // console.log("DEBUG - price in us:")
+        // console.log(($('.green').first().text()))
+        productInfo.countryCode= countryCode
+        if(countryCode === "us"){
+          if(isNaN(parseFloat(($('.green').first().text()).substring(1))))
+            productInfo.price= 0
+          else
+            productInfo.price= parseFloat(($('.green').first().text()).substring(1));
+        }else{
+          if(isNaN(parseFloat(($('.green').first().text()))))
+            productInfo.price= 0
+          else
+            productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
+        }
+        
         productInfo.camelurl = camelurl
         productInfo.prices[0].date= new Date()
         productInfo.prices[0].price=productInfo.price
-        console.log(productInfo)
+        // console.log(productInfo)
         
+
         if(productInfo.price !==0){
           //save in db
-          const newTracker = new PriceTracker({userID: mongoose.Types.ObjectId(userID), createDate: Date.now(), url:url,productInfo: productInfo});
+          const newTracker = new PriceTracker({ createDate: Date.now(), url:url,productInfo: productInfo});
+          // userID: mongoose.Types.ObjectId(userID),
           await newTracker.save();
-          const newTrackersWithNewID =  await PriceTracker.find({url: url, userID:userID});
+          const newTrackersWithNewID =  await PriceTracker.find({url: url});
+          
+          // Add tracker to user
+          const updatedUser =  await User.find({_id:userID});
+          // console.log("DEBUG - user info:")
+          // console.log(updatedUser[0])
+          updatedUser[0].trackers.push({trackerId:newTrackersWithNewID[0]._id})
+          // console.log("DEBUG - user info with new tracker:")
+          // console.log(updatedUser[0])
+          await User.findOneAndUpdate({_id : userID },updatedUser[0],function(error,result){
+            if(error){
+              // handle error
+            }else{
+              console.log("updated");
+            }
+          }).clone();
           res.json(newTrackersWithNewID[0])
         }else{
           res.json({message:"Product is out of stock - no price found"})
@@ -945,17 +1048,36 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
 }
 
 app.post('/deletetracker',checkAuthenticated, async (req, res) => {
-  const {id} = req.body
+  const {userID,trackerID} = req.body
 
-  foundTrackers= await PriceTracker.find({_id: id});
+  foundUser= await User.find({_id: userID});
   
-  if(foundTrackers[0].length !==0){
-    PriceTracker.deleteOne({_id:id}, function (err) {
-      if (err) return handleError(err);
+  // Find the index of the object 
+  let index = foundUser[0].trackers.findIndex(obj => obj.trackerId === trackerID);
+
+  // If the index is found, remove the object from the array
+  if (index !== -1) {
+    foundUser[0].trackers.splice(index, 1);
+  }
+
+  await User.findOneAndUpdate({_id : userID },foundUser[0],function(error,result){
+    if(error){
+      res.send("error")
+    }else{
+      console.log("user tracker deleted");
       res.send("deleted")
-    });
-  }else
-    res.send("error")
+    }
+  }).clone();
+
+  // foundTrackers= await PriceTracker.find({_id: trackerID});
+  
+  // if(foundTrackers[0].length !==0){
+  //   PriceTracker.deleteOne({_id:trackerID}, function (err) {
+  //     if (err) return handleError(err);
+  //     res.send("deleted")
+  //   });
+  // }else
+  //   res.send("error")
 })
 
 app.get('/mytrackers',checkAuthenticated, async (req, res) => {
@@ -966,13 +1088,22 @@ app.get('/mytrackers',checkAuthenticated, async (req, res) => {
   else
     var uid = JSON.parse(cookies["uid"].slice(2))
   const userID = uid
-  const userTrackerss =  await PriceTracker.find({userID: userID});
+  const user =  await User.find({_id: userID});
+  var myTrackers=[];
+  // console.log("Debug - user trackers:")
+  // console.log(user[0].trackers)
 
-  res.send(userTrackerss)
+  async function asyncForEach(trackers) {
+    for (let index = 0; index < trackers.length; index++) {
+      myTrackers.push((await PriceTracker.find({_id: trackers[index].trackerId}))[0])
+    }
+  }
+  await asyncForEach(user[0].trackers)
   
+  // console.log("Debug - My trackers:")
+  // console.log(myTrackers)
+  res.send(myTrackers)
 })
-
-
 
 app.get('/updateTrackers', async (req, res) => {
   
