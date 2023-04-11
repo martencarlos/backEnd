@@ -1088,7 +1088,10 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
   console.log("DEBUG - Camel URL")
   console.log(camelurl)
   // axios.get(url)
-  axios.get(camelurl)
+  // camelURL()
+  amazonURL()
+  function camelURL(){
+    axios.get(camelurl)
     .then(async (response) => {
       
         const htmlData = await response.data
@@ -1166,8 +1169,94 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         }
         
         // return productInfo;
-      }
-    ).catch(err => console.error(err))
+    }).catch(err => console.error(err))
+  }
+  function amazonURL(){
+    console.log(url)
+    axios.get(url)
+    .then(async (response) => {
+        
+        const htmlData = await response.data
+        const $ = cheerio.load(htmlData)
+        var productInfo = {
+          productNumber: String,
+          title: String,
+          price: Number,
+          countryCode: String,
+          currency: String,
+          imgSrc: String,
+          camelurl: String,
+          prices: [{
+            date: Date,
+            price: Number
+          }]
+        }
+        
+        //working webscraping of title and image directly from amazon
+        productInfo.title= $('#productTitle').text().trim()
+        productInfo.imgSrc= $('#imgTagWrapperId').find('img').attr('src');
+        // productInfo.price = $("[id*='corePriceDisplay']").first().find('.a-price-whole').text();
+        productInfo.price = $(".a-price").children().first().text();
+
+        console.log()
+        productInfo.productNumber=productNumber
+        // productInfo.title= ($('h2 > a').first().text()).substring(0,($('h2 > a').first().text()).length-(productNumber.length+2));
+        // productInfo.imgSrc= $('img').attr('src');
+        // console.log("DEBUG - price in us:")
+        // console.log(($('.green').first().text()))
+        productInfo.countryCode= countryCode
+        
+        // console.log(productInfo.price)
+
+        if(countryCode === "us" || countryCode === "uk"){
+          productInfo.currency= productInfo.price.charAt(0)
+          if(isNaN(parseFloat(productInfo.price.substring(1))))
+            productInfo.price= 0
+          else
+            productInfo.price= parseFloat(productInfo.price.substring(1));
+        }else{
+          productInfo.currency= "€"
+          if(isNaN(parseFloat(productInfo.price)))
+            productInfo.price= 0
+          else
+            productInfo.price= parseFloat(productInfo.price.replace(".",""));
+        }
+        
+        productInfo.camelurl = camelurl
+        productInfo.prices[0].date= new Date()
+        productInfo.prices[0].price=productInfo.price
+        // console.log(productInfo)
+        
+
+        if(productInfo.price !==0){
+          //save in db
+          const newTracker = new PriceTracker({ createDate: Date.now(), url:url,productInfo: productInfo});
+          // userID: mongoose.Types.ObjectId(userID),
+          await newTracker.save();
+          const newTrackersWithNewID =  await PriceTracker.find({url: url});
+          
+          // Add tracker to user
+          const updatedUser =  await User.find({_id:userID});
+          // console.log("DEBUG - user info:")
+          // console.log(updatedUser[0])
+          updatedUser[0].trackers.push({trackerId:newTrackersWithNewID[0]._id})
+          // console.log("DEBUG - user info with new tracker:")
+          // console.log(updatedUser[0])
+          await User.findOneAndUpdate({_id : userID },updatedUser[0],function(error,result){
+            if(error){
+              // handle error
+            }else{
+              console.log("updated");
+            }
+          }).clone();
+          res.json(newTrackersWithNewID[0])
+        }else{
+          res.json({message:"Product is out of stock - no price found"})
+        }
+        
+        // return productInfo;
+    }).catch(err => console.error(err))
+  }
 }
 
 app.post('/deletetracker',checkAuthenticated, async (req, res) => {
