@@ -87,7 +87,8 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
   from: 'notifications@webframe.one',
   to: 'martencarlos@gmail.com',
-  subject: 'The top article has changed'
+  subject: 'The top article has changed',
+  html:'test'
 };
 
 
@@ -95,7 +96,14 @@ var mailOptions = {
 // 1 - Webscrap articles
 app.get('/updatewebscrap', (req, res) => {
   console.log("updating webscrap")
-  updateDBArticles() // get articles 
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+  // updateDBArticles() // get articles 
   res.send("updated")
 })
 
