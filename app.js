@@ -537,8 +537,9 @@ app.post('/expressLogin',async(req, res) => {
 app.post('/login',async(req, res) => {
   
    var foundUser =  await User.find({email: req.body.email});
-    
-    if(foundUser.length !==0){
+    if(foundUser[0].role ==="googleUser"){
+      res.json( {email: 'Email linked to google Sign-in. Use google Sign-in ',errors:"yes"});
+    }else if(foundUser.length !==0){
       bcrypt.compare(req.body.password, foundUser[0].password).then(function(result) {
         if(result){
    
