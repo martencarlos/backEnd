@@ -656,6 +656,35 @@ async function checkAuthenticated(req, res, next) {
 //   console.log(`-------> User Logged out`)
 // })
 
+app.post('/logout', async (req, res) => {
+  console.log("Logout")
+  const {userID,sessionID} = req.body
+  console.log(userID)
+  console.log(sessionID)
+
+  var foundUser =  await User.find({_id: userID});
+
+  // Find the index of the object in the array
+  const index = foundUser[0].sessions.findIndex(obj => obj.sessionID === sessionID);
+
+  // If the object was found, update its value
+  if (index !== -1) {
+    foundUser[0].sessions[index].expireDate = new Date((new Date()).getTime()-1);
+  }
+  console.log(foundUser[0].sessions[index])
+
+  User.findOneAndUpdate({_id:userID},foundUser[0],function(error,result){
+    if(error){
+      console.log(error)
+    }else{
+      console.log("active session removed");
+      res.json("active session removed")
+    }
+  });
+
+  
+})
+
 app.get('/medium', (req, res) => {
   
   // Make a request for a user with a given ID
