@@ -460,10 +460,9 @@ app.post('/registeruser', function(req, res){
 app.post('/expressLogin',async(req, res) => {
   
   let {name, given_name, email, picture} = req.body;
-  var foundUser =  await User.find({email: email});
+  var foundUser1 =  await User.find({email: email});
   
-  //if user found -> Login
-  if(foundUser.length !==0){
+  async function expressLogin(foundUser){
     //conditions
     var conditions = {
       _id : foundUser[0]._id 
@@ -497,8 +496,12 @@ app.post('/expressLogin',async(req, res) => {
     });
           
     res.send(foundUser[0])
-       
-   }else{
+  }
+
+  //if user found -> Login
+  if(foundUser1.length !==0){
+    expressLogin(foundUser1)
+  }else{
       //If user not found -> REGISTER USER without pass
       const user = new User();
       const foundusername =  await User.find({username: given_name});
@@ -524,8 +527,8 @@ app.post('/expressLogin',async(req, res) => {
         }
         else{
             console.log(result)
-            var foundUser =  await User.find({email: email});
-            res.send(foundUser[0])
+            var foundUser2 =  await User.find({email: email});
+            expressLogin(foundUser2)
         }
     })
     }
