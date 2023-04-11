@@ -65,17 +65,27 @@ const { rejects } = require('assert');
 const { Http2ServerRequest } = require('http2');
 
 // Email source
+// var transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: 'martencarlos3@gmail.com',
+//     pass: 'cuknrzlcnsriuabz'
+//   }
+// });
+
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.zoho.com',
+  port: 465,
+  secure: true, // use SSL
   auth: {
-    user: 'martencarlos3@gmail.com',
-    pass: 'cuknrzlcnsriuabz'
+    user: 'notifications@webframe.one',
+    pass: 'AQT76qt#7RtLre3#5WUY*#L'
   }
 });
 
 // Email options
 var mailOptions = {
-  from: 'martencarlos3@gmail.com',
+  from: 'notifications@webframe.one',
   to: 'martencarlos@gmail.com',
   subject: 'The top article has changed',
 };
