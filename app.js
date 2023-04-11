@@ -74,12 +74,12 @@ const { Http2ServerRequest } = require('http2');
 // });
 
 var transporter = nodemailer.createTransport({
-  host: 'smtp.zoho.com',
+  host: 'smtp.zoho.eu',
   port: 465,
   secure: true, // use SSL
   auth: {
     user: 'notifications@webframe.one',
-    pass: 'AQT76qt#7RtLre3#5WUY*#L'
+    pass: process.env.EMAIL_PASS
   }
 });
 
@@ -87,13 +87,14 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
   from: 'notifications@webframe.one',
   to: 'martencarlos@gmail.com',
-  subject: 'The top article has changed',
+  subject: 'The top article has changed'
 };
 
 
 // Cron Jobs
 // 1 - Webscrap articles
 app.get('/updatewebscrap', (req, res) => {
+  console.log("updating webscrap")
   updateDBArticles() // get articles 
   res.send("updated")
 })
@@ -134,6 +135,7 @@ function updateDBArticles(){
           
           //Only send email if the top article has changed
           if(newArticles[0].title !== savedArticles[0].articles[0].title || newArticles[0].price !== savedArticles[0].articles[0].price){
+            console.log("send email")
             mailOptions.html = `
               <div className="table"> 
                 <table>
