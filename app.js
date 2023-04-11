@@ -457,6 +457,80 @@ app.post('/registeruser', function(req, res){
 		}
 });
 
+app.post('/expressLogin',async(req, res) => {
+  
+  let {name, given_name, email, picture} = req.body;
+  var foundUser =  await User.find({email: email});
+  
+  //if user found -> Login
+  if(foundUser.length !==0){
+    //conditions
+    var conditions = {
+      _id : foundUser[0]._id 
+    }
+    //changes
+    foundUser[0].lastLogin= Date.now();
+
+    //Session
+    var newSession ={}
+    newSession.sessionID= uuidv4()
+        
+    //Login for a week
+    newSession.expireDate=new Date((new Date()).getTime() + 7 * 24 * 60 * 60 * 1000); //1 week
+    foundUser[0].sessions.push(newSession)
+    res.cookie("uid", foundUser[0]._id, { maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+    res.cookie("ssid",newSession,{ maxAge: (7 * 24 * 60 * 60 * 1000), httpOnly: false, sameSite: 'none', secure:true })
+              
+    // update logins counter
+    if(foundUser[0].logins)
+      foundUser[0].logins= foundUser[0].logins+1;
+    else
+      foundUser[0].logins=1;
+   
+    //find and update user statistics
+    User.findOneAndUpdate(conditions,foundUser[0],function(error,result){
+      if(error){
+        console.log(error)
+      }else{
+        console.log("updated");
+      }
+    });
+          
+    res.send(foundUser[0])
+       
+   }else{
+      //If user not found -> REGISTER USER without pass
+      const user = new User();
+      const foundusername =  await User.find({username: given_name});
+      if(foundusername.length ===0){
+        user.username= given_name+"-google";
+      }else{
+        user.username= given_name;
+      }
+      
+      user.username= given_name;
+      user.name = name;
+      //no password
+      user.email = email;
+      user.profilePic= picture;
+      user.createDate= Date.now();
+      user.lastUpdate= Date.now();
+      user.logins=0;
+      user.role= "googleUser";
+      // console.log(user)
+      user.save(async function(err,result){
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log(result)
+            var foundUser =  await User.find({email: email});
+            res.send(foundUser[0])
+        }
+    })
+    }
+})
+
 app.post('/login',async(req, res) => {
   
    var foundUser =  await User.find({email: req.body.email});
