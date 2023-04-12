@@ -1084,12 +1084,10 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
     camelurl= "https://camelcamelcamel.com/product/"+productNumber
   else
     camelurl= "https://"+countryCode+".camelcamelcamel.com/product/"+productNumber
-
-  console.log("DEBUG - Camel URL")
-  console.log(camelurl)
-  // axios.get(url)
+  
   // camelURL()
   amazonURL()
+  
   function camelURL(){
     axios.get(camelurl)
     .then(async (response) => {
@@ -1172,12 +1170,12 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
     }).catch(err => console.error(err))
   }
   function amazonURL(){
-    console.log(url)
     axios.get(url)
     .then(async (response) => {
         
         const htmlData = await response.data
         const $ = cheerio.load(htmlData)
+        console.log($(".a-price").children().first().text())
         var productInfo = {
           productNumber: String,
           title: String,
@@ -1198,7 +1196,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
         // productInfo.price = $("[id*='corePriceDisplay']").first().find('.a-price-whole').text();
         productInfo.price = $(".a-price").children().first().text();
 
-        console.log()
+        
         productInfo.productNumber=productNumber
         // productInfo.title= ($('h2 > a').first().text()).substring(0,($('h2 > a').first().text()).length-(productNumber.length+2));
         // productInfo.imgSrc= $('img').attr('src');
@@ -1247,9 +1245,10 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
               // handle error
             }else{
               console.log("updated");
+              res.json(newTrackersWithNewID[0])
             }
           }).clone();
-          res.json(newTrackersWithNewID[0])
+          
         }else{
           res.json({message:"Product is out of stock - no price found"})
         }
