@@ -7,6 +7,7 @@ const path = require('path');
 const fs = require("fs");
 const axios = require('axios').default;
 const  cheerio =require('cheerio');
+const https = require('https');
 
 //API
 const bcrypt = require('bcryptjs');
@@ -987,21 +988,50 @@ app.get('/laptops', async (req, res) => {
   
 })
 
+function getFinalUrl(shortUrl) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(shortUrl, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        // If the status code is a redirect, follow the redirect
+        resolve(getFinalUrl(res.headers.location));
+      } else {
+        // If the status code is not a redirect, return the current URL
+        resolve(res.client.parser.outgoing.host+res.client.parser.outgoing.path);
+      }
+    });
+
+    req.on('error', (err) => {
+      // Handle any errors
+      reject(err);
+    });
+
+    req.end();
+  });
+}
+
+
 app.post('/newtracker',checkAuthenticated, async (req, res) => {
   let {userID, url}= req.body
   console.log("before first AXIOOOOOS")
-  try {
-    await axios.get(url).then(async response => {
-      url=response.request._redirectable._currentUrl
-      // console.log(response.request._redirectable._currentUrl); // Final URL after redirections
-    });
-  } catch (error) {
-    url=error.request.res.responseUrl
-  }
+  // try {
+  //   await axios.get(url).then(async response => {
+  //     url=response.request._redirectable._currentUrl
+  //     // console.log(response.request._redirectable._currentUrl); // Final URL after redirections
+  //   });
+  // } catch (error) {
+  //   url=error.request.res.responseUrl
+  // }
+
   
-  console.log("After first AXIOOOOOS")
+  try {
+    url = await getFinalUrl(url);
+  } catch (err) {
+    console.error(err);
+  }
+ 
   // console.log("debug - response URL")
   // console.log(url)
+
   //check if tracker is already in the user trackers
   const user =  await User.find({_id:userID});
   let userTrackerAlreadyExist = false;
@@ -1012,28 +1042,18 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
       if((await PriceTracker.find({_id: trackers[index].trackerId})).length !==0){
         if(((await PriceTracker.find({_id: trackers[index].trackerId}))[0]).productInfo.productNumber === (url.split('/dp/')[1]).slice(0,10)){
         userTrackerAlreadyExist = true;
+        }
       }
-      }
-      
     }
   }
   await asyncForEach(user[0].trackers)
-
-  // user[0].trackers.forEach(async function(tracker) {
-  //   var fullPriceTracker = await PriceTracker.find({_id:tracker.trackerId})
-  //   if(typeof fullPriceTracker[0] !== "undefined"){
-  //     if(fullPriceTracker[0].url ===url){
-  //       userTrackerAlreadyExist = true;
-  //     }
-  //   }
-  // });
  
   const foundTracker =  await PriceTracker.find({"productInfo.productNumber": (url.split('/dp/')[1]).slice(0,10)});
   // console.log("DEBUG - product number:")
   // console.log((url.split('/dp/')[1]).slice(0,10))
   // console.log("DEBUG - found tracker:")
   // console.log(foundTracker)
-  // userTrackers.length !==0
+
   //check if the user is already traking the product
   
   if(userTrackerAlreadyExist){
@@ -1084,14 +1104,14 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
     camelurl= "https://camelcamelcamel.com/product/"+productNumber
   else
     camelurl= "https://"+countryCode+".camelcamelcamel.com/product/"+productNumber
-  
+  console.log("entering camel")
   camelURL()
   // amazonURL()
   
   function camelURL(){
     axios.get(camelurl)
     .then(async (response) => {
-      
+        console.log("camel response")
         const htmlData = await response.data
         const $ = cheerio.load(htmlData)
         var productInfo = {
