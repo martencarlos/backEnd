@@ -1085,8 +1085,8 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
   else
     camelurl= "https://"+countryCode+".camelcamelcamel.com/product/"+productNumber
   
-  // camelURL()
-  amazonURL()
+  camelURL()
+  // amazonURL()
   
   function camelURL(){
     axios.get(camelurl)
