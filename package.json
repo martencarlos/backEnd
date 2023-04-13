@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "description": "Carlos Marten - One frame to rule them all",
   "author": "Carlos Marten",
-  "license": "GPL3",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js"
   },
   "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.0",
+    "@tensorflow/tfjs": "^4.4.0",
+    "@tensorflow/tfjs-node": "^4.4.0",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "cheerio": "^1.0.0-rc.12",
@@ -20,6 +23,7 @@
     "express-fileupload": "^1.4.0",
     "express-session": "^1.17.3",
     "firebase": "^9.8.2",
+    "get-image-data": "^5.0.0",
     "mongoose": "^6.7.0",
     "node-cron": "^3.0.2",
     "nodemailer": "^6.8.0",
