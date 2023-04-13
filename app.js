@@ -20,7 +20,7 @@ var PriceTracker = require('./pricetracker');
 const tf = require("@tensorflow/tfjs");
 const tfcore = require("@tensorflow/tfjs-node");
 const mobilenet = require("@tensorflow-models/mobilenet");
-// const image = require("get-image-data");
+const image = require("get-image-data");
 
 const fileUpload = require('express-fileupload');
 const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframebase.appspot.com/o/profiles%2Fdefault.jpeg?alt=media&token=a220a7a4-ab49-4b95-ac02-d024b1ccb5db"
