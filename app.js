@@ -1491,6 +1491,7 @@ app.get('/updateTrackers', async (req, res) => {
 
 })
 
+
 console.log('Routes in place');
 
 // Start Server
