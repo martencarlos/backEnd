@@ -17,10 +17,10 @@ var Article = require('./article');
 var PriceTracker = require('./pricetracker');
 
 //AI
-const tf = require("@tensorflow/tfjs");
-const tfcore = require("@tensorflow/tfjs-node");
-const mobilenet = require("@tensorflow-models/mobilenet");
-const image = require("get-image-data");
+// const tf = require("@tensorflow/tfjs");
+// const tfcore = require("@tensorflow/tfjs-node");
+// const mobilenet = require("@tensorflow-models/mobilenet");
+// const image = require("get-image-data");
 
 const fileUpload = require('express-fileupload');
 const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframebase.appspot.com/o/profiles%2Fdefault.jpeg?alt=media&token=a220a7a4-ab49-4b95-ac02-d024b1ccb5db"
@@ -990,20 +990,20 @@ app.post('/cards', async function(req, res){
 	console.log("saving cards into db");
   let imageExtractedTitle=""
 
-  await whatIsThis(req.body.image)
-  .then((imageClassification) => {
-    console.log(imageClassification)
-    // console.log(imageClassification[0].className)
-    imageExtractedTitle = imageClassification[0].className
-    // console.log(imageClassification[0].probability)
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+  // await whatIsThis(req.body.image)
+  // .then((imageClassification) => {
+  //   console.log(imageClassification)
+  //   // console.log(imageClassification[0].className)
+  //   imageExtractedTitle = imageClassification[0].className
+  //   // console.log(imageClassification[0].probability)
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  // });
 
 	//async required because of database query
   const card = new Card(req.body);
-  card.title = imageExtractedTitle
+  // card.title = imageExtractedTitle
   try {
     await card.save()
   } catch (error) {
