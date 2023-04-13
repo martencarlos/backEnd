@@ -17,9 +17,9 @@ var Article = require('./article');
 var PriceTracker = require('./pricetracker');
 
 //AI
-// const tf = require("@tensorflow/tfjs");
-// const tfcore = require("@tensorflow/tfjs-node");
-// const mobilenet = require("@tensorflow-models/mobilenet");
+const tf = require("@tensorflow/tfjs");
+const tfcore = require("@tensorflow/tfjs-node");
+const mobilenet = require("@tensorflow-models/mobilenet");
 // const image = require("get-image-data");
 
 const fileUpload = require('express-fileupload');
