@@ -23,6 +23,7 @@
     "express-fileupload": "^1.4.0",
     "express-session": "^1.17.3",
     "firebase": "^9.8.2",
+    "firebase-tools": "^11.26.0",
     "get-image-data": "^5.0.0",
     "mongoose": "^6.7.0",
     "node-cron": "^3.0.2",
