@@ -8,6 +8,8 @@ const fs = require("fs");
 const axios = require('axios').default;
 const  cheerio =require('cheerio');
 const https = require('https');
+const http = require('http');
+const url = require('url');
 
 //API
 const bcrypt = require('bcryptjs');
@@ -989,6 +991,49 @@ function whatIsThis(url) {
 app.post('/cards', async function(req, res){
 	console.log("saving cards into db");
   let imageExtractedTitle=""
+
+  //python test
+  const imageUrl = req.body.image;
+
+  //get extension
+  const parsedUrl = url.parse(imageUrl);
+  console.log(parsedUrl)
+  const ext = path.extname(parsedUrl.pathname).slice(1);
+  console.log(ext)
+
+  // // Set up the POST request options
+  // const options = {
+  //   host: '127.0.0.1',
+  //   port: 5000,
+  //   path: '/detect_objects',
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  // };
+
+  // // Set up the request body
+  // const postData = JSON.stringify({
+  //   image_url: imageUrl,
+  //   image_ext: ext
+  // });
+
+  // // Send the POST request
+  // const request = http.request(options, (res) => {
+  //   console.log(`statusCode: ${res.statusCode}`);
+
+  //   res.on('data', (data) => {
+  //     const jsonResponse = JSON.parse(data);
+  //     console.log(jsonResponse);
+  //   });
+  // });
+
+  // request.on('error', (error) => {
+  //   console.error(error);
+  // });
+
+  // request.write(postData);
+  // request.end();
 
   await whatIsThis(req.body.image)
   .then((imageClassification) => {

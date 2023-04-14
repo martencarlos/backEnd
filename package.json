@@ -5,6 +5,7 @@
   "description": "Carlos Marten - One frame to rule them all",
   "author": "Carlos Marten",
   "license": "UNLICENSED",
+  
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js"
