@@ -1053,7 +1053,7 @@ app.post('/cards', async function(req, res){
 
 	//async required because of database query
   const card = new Card(req.body);
-  card.title = imageExtractedTitle
+  card.title = (imageExtractedTitle.split(",")[0].trim()).replace(/^\w/, c => c.toUpperCase())
   try {
     await card.save()
   } catch (error) {
