@@ -557,10 +557,14 @@ app.post('/expressLogin',async(req, res) => {
 
 app.post('/login',async(req, res) => {
   
-   var foundUser =  await User.find({email: req.body.email});
-    if(foundUser[0].role ==="googleUser"){
-      res.json( {email: 'Email linked to google Sign-in. Use google Sign-in ',errors:"yes"});
-    }else if(foundUser.length !==0){
+  var foundUser =  await User.find({email: req.body.email});
+  console.log(req.body)
+  console.log(foundUser[0])
+    
+  if(foundUser.length !==0){
+      if(foundUser[0].role ==="googleUser"){
+        res.json( {email: 'Email linked to google Sign-in. Use google Sign-in ',errors:"yes"});
+      }else{
       bcrypt.compare(req.body.password, foundUser[0].password).then(function(result) {
         if(result){
    
@@ -607,9 +611,10 @@ app.post('/login',async(req, res) => {
            res.json({password: 'Invalid password',errors: "yes"});
         }
       });
-    }else{
-       res.json( {email: 'Email not registered',errors:"yes"});
     }
+  }else{
+    res.json( {email: 'Email not registered',errors:"yes"});
+  }
 })
 
 app.get('/', (req, res) => {
