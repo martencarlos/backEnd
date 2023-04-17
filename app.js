@@ -1654,7 +1654,7 @@ app.get('/updateTrackers', async (req, res) => {
           //******************************************************
           //Send email to users that are subscribed to this tracker
           //******************************************************
-          await sendPriceUpdates(tracker)
+          await sendPriceUpdates(newTracker)
            
          }else{
           // console.log("not updated")
