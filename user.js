@@ -16,7 +16,8 @@ var UserSchema =  mongoose.Schema({
 	}],
 	trackers: [
 		{
-		trackerId: String
+		trackerId: String,
+		subscribed:Boolean
 	}],
 	name: {
 		type: String

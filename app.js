@@ -1143,7 +1143,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
     for (let index = 0; index < trackers.length; index++) {
       if((await PriceTracker.find({_id: trackers[index].trackerId})).length !==0){
         if(((await PriceTracker.find({_id: trackers[index].trackerId}))[0]).productInfo.productNumber === (url.split('/dp/')[1]).slice(0,10)){
-        userTrackerAlreadyExist = true;
+          userTrackerAlreadyExist = true;
         }
       }
     }
@@ -1162,7 +1162,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
       res.json({message: "user tracker already exists"})
    }else if(foundTracker.length !==0){
       // console.log("Debug - found tracker:")
-      user[0].trackers.push({trackerId:foundTracker[0]._id})
+      user[0].trackers.push({trackerId:foundTracker[0]._id, subscribed:false})
       // console.log(user[0])
       await User.findOneAndUpdate({_id : user[0]._id },user[0],function(error,result){
         if(error){
@@ -1273,7 +1273,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
           const updatedUser =  await User.find({_id:userID});
           // console.log("DEBUG - user info:")
           // console.log(updatedUser[0])
-          updatedUser[0].trackers.push({trackerId:newTrackersWithNewID[0]._id})
+          updatedUser[0].trackers.push({trackerId:newTrackersWithNewID[0]._id, subscribed:false})
           // console.log("DEBUG - user info with new tracker:")
           // console.log(updatedUser[0])
           await User.findOneAndUpdate({_id : userID },updatedUser[0],function(error,result){
@@ -1359,7 +1359,7 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
           const updatedUser =  await User.find({_id:userID});
           // console.log("DEBUG - user info:")
           // console.log(updatedUser[0])
-          updatedUser[0].trackers.push({trackerId:newTrackersWithNewID[0]._id})
+          updatedUser[0].trackers.push({trackerId:newTrackersWithNewID[0]._id, subscribed:false})
           // console.log("DEBUG - user info with new tracker:")
           // console.log(updatedUser[0])
           await User.findOneAndUpdate({_id : userID },updatedUser[0],function(error,result){
@@ -1412,6 +1412,54 @@ app.post('/deletetracker',checkAuthenticated, async (req, res) => {
   // }else
   //   res.send("error")
 })
+
+app.post('/tracker-subscribe',checkAuthenticated, async (req, res) => {
+  const {userID,trackerID} = req.body
+
+  foundUser= await User.find({_id: userID});
+  
+  // Find the index of the object 
+  let index = foundUser[0].trackers.findIndex(obj => obj.trackerId === trackerID);
+
+  // If the index is found, remove the object from the array
+  if (index !== -1) {
+    console.log(foundUser[0].trackers[index])
+  }
+
+  if(foundUser[0].trackers[index].length !==0){
+    if(foundUser[0].trackers[index].subscribed)
+      foundUser[0].trackers[index].subscribed = !foundUser[0].trackers[index].subscribed
+    else
+      foundUser[0].trackers[index].subscribed = true
+    
+    await User.findOneAndUpdate({_id : userID },foundUser[0],function(error,result){
+      if(error){
+        res.send("DB error - could not update tracker")
+      }else{
+        console.log("tracke subscribed toggle ");
+        if(foundUser[0].trackers[index].subscribed)
+          res.send("Subscribed")
+        else
+          res.send("Unsubscribed")
+      }
+    }).clone();
+    
+  }else
+    res.send("tracker not found")
+
+  
+  // foundTrackers= await PriceTracker.find({_id: trackerID});
+  
+  // if(foundTrackers[0].length !==0){
+  //   PriceTracker.deleteOne({_id:trackerID}, function (err) {
+  //     if (err) return handleError(err);
+  //     res.send("deleted")
+  //   });
+  // }else
+  //   res.send("error")
+})
+
+
 
 app.get('/mytrackers',checkAuthenticated, async (req, res) => {
  
