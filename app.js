@@ -1486,6 +1486,98 @@ app.get('/mytrackers',checkAuthenticated, async (req, res) => {
   res.send(myTrackers)
 })
 
+async function sendPriceUpdates(tracker){
+  var transporter = nodemailer.createTransport({
+    host: 'smtp.zoho.eu',
+    port: 465,
+    secure: true, // use SSL
+    auth: {
+      user: 'notifications@webframe.one',
+      pass: process.env.EMAIL_PASS
+    }
+  });
+
+  // Email options
+  var mailOptions = {
+    from: 'notifications@webframe.one',
+  };
+  
+  const users =  await User.find({"trackers.trackerId":tracker._id,"trackers.subscribed":true});
+  console.log(users.length)
+  for (let i = 0; i < users.length; i++) {
+    console.log(users[i].email)
+    mailOptions.to= users[i].email
+    mailOptions.subject = 'Price updated: '+ tracker.productInfo.title
+    mailOptions.html = `
+              <br></br>          
+              <h3>One of your Amazon products has a new price! </h3>
+              <p>Dear<b> ${users[i].name}</b>, </p>
+              <p>we wanted to inform you that the price of your subscribed product <b><i>#${tracker.productInfo.productNumber}</b></i> on Amazon has been updated.
+              Check out the table below for details</p>
+              
+              <br></br>
+              <br></br>
+              <div className="table"> 
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tbody>
+                  <tr className="header">
+                      <th style="width:40%; word-wrap:break-word">Title</th>
+                      <th>Price</th>
+                      <th style="width:100px;">Img</th>
+                      <th>Link</th>
+                  </tr>
+                  
+                  <tr key=${1}>
+                  <td style="width:40%; word-wrap:break-word">${tracker.productInfo.title}</td>
+                  <td style= "text-align: center;"><p><s>${tracker.productInfo.prices.at(-2)+tracker.productInfo.currency}</s></p><p><b>${tracker.productInfo.price+tracker.productInfo.currency}</b></p></td>
+                  <td style="width:100px;text-align: center;"><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${tracker.productInfo.imgSrc} alt="product"></img></td>
+                  <td style= "text-align: center;"><a href=${tracker.url} className="link" underline="always">Amazon</a></td>
+                  </tr>
+                
+                  </tbody>
+                </table>
+                <br></br>
+                <p>Check out all your trackers details: <a href=${"https://www.webframe.one/projects/priceTracker"} className="link" underline="always">Webframe - My trackers</a></p>
+                <br></br>
+                <br></br>
+                Thank you for your trust in us.
+                <br></br>
+                <br></br>
+                Sincerely,<br>
+                Webframe support team
+                </div>`
+    
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  }
+}
+
+// app.get('/sendSubscribedNotifications', async (req, res) => {
+
+//   var tracker ={
+//     _id:"",
+//     url:"",
+//     productInfo:{prices:[]}
+// }
+//   tracker._id = "6433d1822275d0b4109e2883"
+//   tracker.url = "https://www.amazon.co.uk/dp/B01L31KAGI?tag=camelproducts-21&linkCode=ogi&th=1&psc=1&language=en_GB"
+
+//   tracker.productInfo.title = "title of product about this length maybe abit more"
+//   tracker.productInfo.price = 26
+//   tracker.productInfo.currency= "€"
+//   tracker.productInfo.productNumber= "B01L31KAGI"
+//   tracker.productInfo.imgSrc = "https://m.media-amazon.com/images/I/51XADA+t7qL._UL320_.jpg"
+//   tracker.productInfo.prices=[37, 44, 67, 35, 26]
+//   console.log(tracker)
+//   sendPriceUpdates(tracker)
+//   res.json("done")
+// });
+
 app.get('/updateTrackers', async (req, res) => {
   
   res.send("Tracker request received. Updating trackers...")
@@ -1534,7 +1626,7 @@ app.get('/updateTrackers', async (req, res) => {
           latestPrice= parseFloat($("[id*='corePriceDisplay']").first().find('.a-price-whole').text().replace(".",""))
          }
         
-         cloneTracker = JSON.parse(JSON.stringify(tracker))
+         var cloneTracker = JSON.parse(JSON.stringify(tracker))
          
         //  console.log("current price:")
         //  console.log(cloneTracker.productInfo.price)
@@ -1558,6 +1650,11 @@ app.get('/updateTrackers', async (req, res) => {
                return "updated"
              }
            }).clone();
+
+          //******************************************************
+          //Send email to users that are subscribed to this tracker
+          //******************************************************
+          await sendPriceUpdates(tracker)
            
          }else{
           // console.log("not updated")
