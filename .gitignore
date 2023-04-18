@@ -11,4 +11,8 @@ logs/all-logs.log
 node_modules
 *.env
 
+#images
+*.png
+
+
 
