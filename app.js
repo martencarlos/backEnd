@@ -1763,6 +1763,36 @@ app.get('/updateTrackers', async (req, res) => {
 
 })
 
+//ElevenLabs
+function converToAudio(text){
+  const options = {
+    method: 'POST',
+    url: 'https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL',
+    headers: {
+      'accept': 'audio/mpeg',
+      'xi-api-key': process.env.ELEVENLABS_API_KEY,
+      'Content-Type': 'application/json'
+    },
+    data: {
+      "text": text,
+      "voice_settings": {
+        "stability": 1,
+        "similarity_boost": 1
+      }
+    }
+  };
+  
+  axios(options)
+  .then(response => {
+    console.log(response);
+    return (response.data)
+  })
+  .catch(error => {
+    console.error(error);
+    return (error)
+  });
+}
+
 app.post('/openai',checkAuthenticated, async (req, res) => {
   const {prompt} = req.body
   var response ={type:"", result:""}
