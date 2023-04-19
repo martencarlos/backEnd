@@ -12,6 +12,7 @@ const http = require('http');
 const url = require('url');
 // const request = require('request');
 const FormData = require('form-data');
+
  
 const outputFile = `${__dirname}/out/img-removed-from-file.png`;
 
@@ -28,6 +29,7 @@ const tf = require("@tensorflow/tfjs");
 const tfcore = require("@tensorflow/tfjs-node");
 const mobilenet = require("@tensorflow-models/mobilenet");
 const image = require("get-image-data");
+const { Configuration, OpenAIApi } = require("openai");
 
 const fileUpload = require('express-fileupload');
 const defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/webframebase.appspot.com/o/profiles%2Fdefault.jpeg?alt=media&token=a220a7a4-ab49-4b95-ac02-d024b1ccb5db"
@@ -1759,6 +1761,48 @@ app.get('/updateTrackers', async (req, res) => {
       
     // }, 15000);
 
+})
+
+app.post('/openai',checkAuthenticated, async (req, res) => {
+  const {prompt} = req.body
+  var response ={type:"", result:""}
+  console.log(prompt)
+  
+  //openai config
+  const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+  const openai = new OpenAIApi(configuration);
+  
+  const command = prompt.substring(0, 9).trim();
+  const imagePrompt = prompt.substring(10);
+  
+  if(command === "/imagine"){
+    //create an image
+    
+    const images = await openai.createImage({
+      prompt: imagePrompt,
+      n: 1,
+      size: "512x512",
+    });
+    console.log(images.data.data);
+    response.type= "image"
+    response.result= images.data.data[0].url
+  }
+  else{
+    //create chat response
+    const completion = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [{role: "user", content: prompt}],
+    });
+    console.log(completion.data.choices[0].message.content);
+    response.type= "chat"
+    response.result = completion.data.choices[0].message.content
+  }
+  
+  // console.log(response.data)
+  res.send(response)
+  
 })
 
 
