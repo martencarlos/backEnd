@@ -1607,7 +1607,7 @@ async function sendPriceUpdates(tracker){
                   
                   <tr key=${1}>
                   <td style="width:40%; word-wrap:break-word">${tracker.productInfo.title}</td>
-                  <td style= "text-align: center;"><p><s>${tracker.productInfo.prices.at(-2)+tracker.productInfo.currency}</s></p><p><b>${tracker.productInfo.price+tracker.productInfo.currency}</b></p></td>
+                  <td style= "text-align: center;"><p><s>${tracker.productInfo.prices[tracker.productInfo.prices.length - 2]+tracker.productInfo.currency}</s></p><p><b>${tracker.productInfo.price+tracker.productInfo.currency}</b></p></td>
                   <td style="width:100px;text-align: center;"><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${tracker.productInfo.imgSrc} alt="product"></img></td>
                   <td style= "text-align: center;"><a href=${tracker.url} className="link" underline="always">Amazon</a></td>
                   </tr>
