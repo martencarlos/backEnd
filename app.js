@@ -1766,7 +1766,7 @@ app.get('/updateTrackers', async (req, res) => {
       console.log(chunk);
     }
   }
-  const processNextChunk = processArrayInChunks(userTrackerss.entries(), 25);
+  const processNextChunk = processArrayInChunks(userTrackerss, 25);
   processNextChunk();
 
   console.log("trackers updated: "+trackerCounter)
