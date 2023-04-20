@@ -1762,7 +1762,10 @@ app.get('/updateTrackers', async (req, res) => {
       const chunk = array.slice(lastIndexProcessed, lastIndexProcessed + chunkSize);
       lastIndexProcessed += chunkSize;
       // Do something with the current chunk of 25 elements
-      await updatePrice(tracker,i)
+      for (const [i,tracker] of userTrackerss.entries()) {
+        const result = await updatePrice(tracker,i)
+        // console.log(result);
+      }
       console.log(chunk);
     }
   }
