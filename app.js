@@ -1691,6 +1691,7 @@ app.get('/updateTrackers', async (req, res) => {
              });}catch (error) {
               console.log("error in second attempt to get price while updating trackers")
               console.log(error.code)
+              return 0;
              }
             }
         }
