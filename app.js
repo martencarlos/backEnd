@@ -1774,6 +1774,7 @@ app.get('/updateTrackers', async (req, res) => {
       'xi-api-key': process.env.ELEVENLABS_API_KEY,
       'Content-Type': 'application/json'
     },
+    responseType: 'arraybuffer', //very important
     data: {
       "text": text,
       "voice_settings": {
@@ -1782,14 +1783,23 @@ app.get('/updateTrackers', async (req, res) => {
       }
     }
   };
-  
    axios(options)
   .then(response => {
-    res.setHeader('Content-Type', 'audio/mpeg');
-    
     console.log(response.data)
-    res.send(response.data)
+
+    //SAVE TO FILE
+    // fs.writeFile('audio.mp3', response.data, 'binary', (err) => {
+    //   if (err) {
+    //     console.error(`Error saving audio file: ${err}`);
+    //   } else {
+    //     console.log('Audio file saved successfully');
+    //   }
+    // });
+    // Set the response headers
+    res.set('Content-Type', 'audio/mpeg');
+    res.set('Content-Disposition', 'attachment; filename="audio.mp3"');
     
+    res.send(response.data)
   })
   .catch(error => {
     console.error(error);
@@ -1837,7 +1847,7 @@ app.post('/openai',checkAuthenticated, async (req, res) => {
     // });
     // completion.data.choices[0].message.content
     //convert text to audio
-    await converToAudio(commandPrompt,res)
+     converToAudio(commandPrompt,res)
     // console.log(audio)
   }
   else{
