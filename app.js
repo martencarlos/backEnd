@@ -1655,6 +1655,7 @@ async function sendPriceUpdates(tracker){
 //   sendPriceUpdates(tracker)
 //   res.json("done")
 // });
+let lastIndexProcessed = 0;
 
 app.get('/updateTrackers', async (req, res) => {
   
@@ -1750,27 +1751,35 @@ app.get('/updateTrackers', async (req, res) => {
 
   let trackerCounter=0;
   const userTrackerss =  await PriceTracker.find({});
-  
-  // for (const [i,tracker] of userTrackerss.entries()) {
-  //   const result = await updatePrice(tracker,i)
-  //   // console.log(result);
-  // }
 
-  function processArrayInChunks(array, chunkSize) {
-    let lastIndexProcessed = 0;
-    return async function() {
-      const chunk = array.slice(lastIndexProcessed, lastIndexProcessed + chunkSize);
-      lastIndexProcessed += chunkSize;
-      // Do something with the current chunk of 25 elements
-      for (const [i,tracker] of userTrackerss.entries()) {
-        const result = await updatePrice(tracker,i)
-        // console.log(result);
-      }
-      console.log(chunk);
-    }
+  if(userTrackerss.length <=lastIndexProcessed+25){
+    array= userTrackerss.slice(lastIndexProcessed, lastIndexProcessed + 25);
+  }else{
+    array= userTrackerss.slice(lastIndexProcessed, userTrackerss.length);
+    lastIndexProcessed = 0;
   }
-  const processNextChunk = processArrayInChunks(userTrackerss, 25);
-  processNextChunk();
+  
+  for (const [i,tracker] of array.entries()) {
+    const result = await updatePrice(tracker,i)
+    // console.log(result);
+  }
+
+  // function processArrayInChunks(array, chunkSize) {
+    
+  //   return async function() {
+  //     const chunk = array.slice(lastIndexProcessed, lastIndexProcessed + chunkSize);
+  //     lastIndexProcessed += chunkSize;
+  //     // Do something with the current chunk of 25 elements
+  //     for (let i = 0; i < chunk.length; i++) {
+  //     for (const [i,tracker] of userTrackerss.entries()) {
+  //       const result = await updatePrice(tracker,i)
+  //       // console.log(result);
+  //     }
+  //     console.log(chunk);
+  //   }
+  // }
+  // const processNextChunk = processArrayInChunks(userTrackerss, 25);
+  // processNextChunk();
 
   console.log("trackers updated: "+trackerCounter)
     
