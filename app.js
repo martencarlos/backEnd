@@ -80,6 +80,7 @@ const { isFunction } = require('util');
 const { rejects } = require('assert');
 const { Http2ServerRequest } = require('http2');
 
+
 // Email source
 // var transporter = nodemailer.createTransport({
 //   service: 'gmail',
@@ -1764,7 +1765,7 @@ app.get('/updateTrackers', async (req, res) => {
 })
 
 //ElevenLabs
-function converToAudio(text){
+ function converToAudio(text,res){
   const options = {
     method: 'POST',
     url: 'https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL',
@@ -1782,10 +1783,13 @@ function converToAudio(text){
     }
   };
   
-  axios(options)
+   axios(options)
   .then(response => {
-    console.log(response);
-    return (response.data)
+    res.setHeader('Content-Type', 'audio/mpeg');
+    
+    console.log(response.data)
+    res.send(response.data)
+    
   })
   .catch(error => {
     console.error(error);
@@ -1795,6 +1799,7 @@ function converToAudio(text){
 
 app.post('/openai',checkAuthenticated, async (req, res) => {
   const {prompt} = req.body
+  var audio
   var response ={type:"", result:""}
   console.log(prompt)
   
@@ -1803,21 +1808,37 @@ app.post('/openai',checkAuthenticated, async (req, res) => {
     apiKey: process.env.OPENAI_API_KEY,
   });
   const openai = new OpenAIApi(configuration);
+ 
+  const startIndex = prompt.indexOf('/');
+  const endIndex = prompt.indexOf(' ', startIndex);
+  const command = prompt.substring(startIndex, endIndex);
   
-  const command = prompt.substring(0, 9).trim();
-  const imagePrompt = prompt.substring(10);
+ 
+  const commandPrompt = prompt.substring(endIndex).trim();
   
   if(command === "/imagine"){
     //create an image
     
     const images = await openai.createImage({
-      prompt: imagePrompt,
+      prompt: commandPrompt,
       n: 1,
       size: "512x512",
     });
     console.log(images.data.data);
     response.type= "image"
     response.result= images.data.data[0].url
+    res.send(response)
+  }
+  else if(command === "/speak"){
+    // //create chat response
+    // const completion = await openai.createChatCompletion({
+    //   model: "gpt-3.5-turbo",
+    //   messages: [{role: "user", content: prompt}],
+    // });
+    // completion.data.choices[0].message.content
+    //convert text to audio
+    await converToAudio(commandPrompt,res)
+    // console.log(audio)
   }
   else{
     //create chat response
@@ -1828,10 +1849,10 @@ app.post('/openai',checkAuthenticated, async (req, res) => {
     console.log(completion.data.choices[0].message.content);
     response.type= "chat"
     response.result = completion.data.choices[0].message.content
+    res.send(response)
   }
   
-  // console.log(response.data)
-  res.send(response)
+    
   
 })
 
