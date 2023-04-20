@@ -1624,7 +1624,7 @@ async function sendPriceUpdates(tracker){
                 Sincerely,<br>
                 Webframe support team
                 </div>`
-    
+    console.log("about to send the email")
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
@@ -1679,6 +1679,7 @@ app.get('/updateTrackers', async (req, res) => {
             }
          });
         }catch (error) {
+          console.log("error in first attempt to get price while updating trackers")
           console.log(error.code)
           if(i % 1 == 0){
             try {
@@ -1688,14 +1689,15 @@ app.get('/updateTrackers', async (req, res) => {
                   'User-agent': ''
                 }
              });}catch (error) {
-              console.log(error)
+              console.log("error in second attempt to get price while updating trackers")
+              console.log(error.code)
              }
             }
         }
 
-         const $ = cheerio.load(response.data);
+        const $ = cheerio.load(response.data);
          
-         var latestPrice=0
+        var latestPrice=0
         //  if(isNaN(parseFloat(($('.green').first().text()))))
         if(isNaN(parseFloat($("[id*='corePriceDisplay']").first().find('.a-price-whole').text())))
            latestPrice= 0
@@ -1711,6 +1713,7 @@ app.get('/updateTrackers', async (req, res) => {
         //  console.log("lates tPrice:")
         //  console.log(latestPrice)
          if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
+          console.log("updating the tracker price when updating trackers")
            cloneTracker.productInfo.price = latestPrice
            cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
            const newTracker = new PriceTracker(cloneTracker);
@@ -1732,6 +1735,7 @@ app.get('/updateTrackers', async (req, res) => {
           //******************************************************
           //Send email to users that are subscribed to this tracker
           //******************************************************
+          console.log("sending email to users that are subscribed to this tracker")
           await sendPriceUpdates(newTracker)
            
          }else{
