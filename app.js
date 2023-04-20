@@ -1655,7 +1655,7 @@ async function sendPriceUpdates(tracker){
 //   sendPriceUpdates(tracker)
 //   res.json("done")
 // });
-let lastIndexProcessed = 0;
+global.lastIndexProcessed = 0;
 
 app.get('/updateTrackers', async (req, res) => {
   
@@ -1667,7 +1667,7 @@ app.get('/updateTrackers', async (req, res) => {
     // }
     
     // setTimeout(async () => {
-      console.log(i)
+      console.log(global.lastIndexProcessed-25+i)
       var response
 
       // if(i % 5 == 0){
@@ -1751,12 +1751,13 @@ app.get('/updateTrackers', async (req, res) => {
 
   let trackerCounter=0;
   const userTrackerss =  await PriceTracker.find({});
-
-  if(userTrackerss.length <=lastIndexProcessed+25){
-    array= userTrackerss.slice(lastIndexProcessed, lastIndexProcessed + 25);
+  console.log("last index processed: "+global.lastIndexProcessed)
+  if(userTrackerss.length >=global.lastIndexProcessed+25){
+    array= userTrackerss.slice(global.lastIndexProcessed, global.lastIndexProcessed + 25);
+    global.lastIndexProcessed = global.lastIndexProcessed + 25;
   }else{
-    array= userTrackerss.slice(lastIndexProcessed, userTrackerss.length);
-    lastIndexProcessed = 0;
+    array= userTrackerss.slice(global.lastIndexProcessed, userTrackerss.length);
+    global.lastIndexProcessed = 0;
   }
   
   for (const [i,tracker] of array.entries()) {
