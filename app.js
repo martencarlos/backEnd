@@ -76,9 +76,9 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 // Nodemailer
 var nodemailer = require('nodemailer');
-const { isFunction } = require('util');
-const { rejects } = require('assert');
-const { Http2ServerRequest } = require('http2');
+// const { isFunction } = require('util');
+// const { rejects } = require('assert');
+// const { Http2ServerRequest } = require('http2');
 
 
 // Email source
