@@ -79,7 +79,6 @@ var nodemailer = require('nodemailer');
 const { isFunction } = require('util');
 const { rejects } = require('assert');
 const { Http2ServerRequest } = require('http2');
-const { last } = require('cheerio/lib/api/traversing');
 
 
 // Email source
