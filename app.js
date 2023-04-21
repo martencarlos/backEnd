@@ -79,6 +79,7 @@ var nodemailer = require('nodemailer');
 const { isFunction } = require('util');
 const { rejects } = require('assert');
 const { Http2ServerRequest } = require('http2');
+const { last } = require('cheerio/lib/api/traversing');
 
 
 // Email source
@@ -1607,7 +1608,7 @@ async function sendPriceUpdates(tracker){
                   
                   <tr key=${1}>
                   <td style="width:40%; word-wrap:break-word">${tracker.productInfo.title}</td>
-                  <td style= "text-align: center;"><p><s>${tracker.productInfo.prices[tracker.productInfo.prices.length - 2]+tracker.productInfo.currency}</s></p><p><b>${tracker.productInfo.price+tracker.productInfo.currency}</b></p></td>
+                  <td style= "text-align: center;"><p><s>${tracker.productInfo.prices[tracker.productInfo.prices.length - 2].price+tracker.productInfo.currency}</s></p><p><b>${tracker.productInfo.price+tracker.productInfo.currency}</b></p></td>
                   <td style="width:100px;text-align: center;"><img style="max-width: 200px; max-height: 100px;" fetchpriority="high" src= ${tracker.productInfo.imgSrc} alt="product"></img></td>
                   <td style= "text-align: center;"><a href=${tracker.url} className="link" underline="always">Amazon</a></td>
                   </tr>
@@ -1654,11 +1655,18 @@ async function sendPriceUpdates(tracker){
 //   console.log(tracker)
 //   sendPriceUpdates(tracker)
 //   res.json("done")
-// });
-global.lastIndexProcessed = 0;
+// });ç
+
 
 app.get('/updateTrackers', async (req, res) => {
   
+  let lastIndexProcessed ;
+
+  let stringData = fs.readFileSync("globalvariables.json");
+  let jsonData = JSON.parse(stringData);
+  lastIndexProcessed = jsonData.lastIndexProcessed;
+  console.log(lastIndexProcessed);
+
   res.send("Tracker request received. Updating trackers...")
   
   async function updatePrice(tracker,i) {
@@ -1667,7 +1675,7 @@ app.get('/updateTrackers', async (req, res) => {
     // }
     
     // setTimeout(async () => {
-      console.log(global.lastIndexProcessed-25+i)
+      console.log(lastIndexProcessed+i)
       var response
 
       // if(i % 5 == 0){
@@ -1751,13 +1759,17 @@ app.get('/updateTrackers', async (req, res) => {
 
   let trackerCounter=0;
   const userTrackerss =  await PriceTracker.find({});
-  console.log("last index processed: "+global.lastIndexProcessed)
-  if(userTrackerss.length >=global.lastIndexProcessed+25){
-    array= userTrackerss.slice(global.lastIndexProcessed, global.lastIndexProcessed + 25);
-    global.lastIndexProcessed = global.lastIndexProcessed + 25;
+  console.log("last index processed: "+lastIndexProcessed)
+  if(userTrackerss.length >=lastIndexProcessed+25){
+    array= userTrackerss.slice(lastIndexProcessed, lastIndexProcessed + 25);
+    
+    jsonData.lastIndexProcessed = lastIndexProcessed+25;
+    fs.writeFileSync("globalvariables.json", JSON.stringify(jsonData));
+    
   }else{
-    array= userTrackerss.slice(global.lastIndexProcessed, userTrackerss.length);
-    global.lastIndexProcessed = 0;
+    array= userTrackerss.slice(lastIndexProcessed, userTrackerss.length);
+    jsonData.lastIndexProcessed = 0;
+    fs.writeFileSync("globalvariables.json", JSON.stringify(jsonData));
   }
   
   for (const [i,tracker] of array.entries()) {
