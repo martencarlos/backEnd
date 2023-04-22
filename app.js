@@ -9,9 +9,42 @@ const axios = require('axios').default;
 const  cheerio =require('cheerio');
 const https = require('https');
 const http = require('http');
+const request = require("request");
 const url = require('url');
 // const request = require('request');
 const FormData = require('form-data');
+
+// let proxy_host;
+// let proxy_port;
+// function proxyGenerator() {
+//   let ip_addresses = [];
+//   let port_numbers = [];
+//   let random_number = Math.floor(Math.random() * 100);
+  
+//   request("https://sslproxies.org/", function(error, response, html) {
+//     if (!error && response.statusCode == 200) {
+//       const $ = cheerio.load(html);
+
+//       $("td:nth-child(1)").each(function(index, value) {
+//         ip_addresses[index] = $(this).text();
+//       });
+
+//       $("td:nth-child(2)").each(function(index, value) {
+//         port_numbers[index] = $(this).text();
+//       });
+//         // console.log(ip_addresses);
+//         // console.log(port_numbers);
+//         proxy_host = ip_addresses[random_number];
+//         proxy_port = port_numbers[random_number];
+        
+//         console.log("proxy generated: "+proxy_host+":"+proxy_port);
+//     } else {
+//       console.log("Error loading proxy, please try again");
+//     }
+//   });
+
+ 
+// }
 
  
 const outputFile = `${__dirname}/out/img-removed-from-file.png`;
@@ -1656,19 +1689,20 @@ async function sendPriceUpdates(tracker){
 //   res.json("done")
 // });ç
 
-
+// proxyGenerator();
 app.get('/updateTrackers', async (req, res) => {
   
   let lastIndexProcessed ;
-
+  let array=[];
   let stringData = fs.readFileSync("globalvariables.json");
   let jsonData = JSON.parse(stringData);
   lastIndexProcessed = jsonData.lastIndexProcessed;
   console.log(lastIndexProcessed);
 
   res.send("Tracker request received. Updating trackers...")
-  
+
   async function updatePrice(tracker,i) {
+    
     // if(i % 1 == 0){
     //   await new Promise(resolve => setTimeout(resolve, 3000));//wait for 1 second
     // }
@@ -1682,7 +1716,13 @@ app.get('/updateTrackers', async (req, res) => {
       // }
       try {
          response = await axios.get(tracker.url,{
-            headers:{
+        //   proxy: {
+        //     protocol: 'https',
+        //     host: proxy_host,
+        //     port: proxy_port
+        // },  
+        // timeout: 1000, // only wait for 2s
+          headers:{
               'User-agent': ''
             }
          });
@@ -1691,7 +1731,7 @@ app.get('/updateTrackers', async (req, res) => {
           console.log(error.code)
           if(i % 1 == 0){
             try {
-              await new Promise(resolve => setTimeout(resolve, 10000));//wait for 8 second
+              await new Promise(resolve => setTimeout(resolve, 8000));//wait for 1 second
               response = await axios.get(tracker.url,{
                 headers:{
                   'User-agent': ''
@@ -1761,12 +1801,13 @@ app.get('/updateTrackers', async (req, res) => {
   console.log("last index processed: "+lastIndexProcessed)
   if(userTrackerss.length >=lastIndexProcessed+25){
     array= userTrackerss.slice(lastIndexProcessed, lastIndexProcessed + 25);
-    
+   
     jsonData.lastIndexProcessed = lastIndexProcessed+25;
     fs.writeFileSync("globalvariables.json", JSON.stringify(jsonData));
     
   }else{
     array= userTrackerss.slice(lastIndexProcessed, userTrackerss.length);
+ 
     jsonData.lastIndexProcessed = 0;
     fs.writeFileSync("globalvariables.json", JSON.stringify(jsonData));
   }
