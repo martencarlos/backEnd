@@ -4,7 +4,7 @@
 	"builds": [
         {
             "src": "app.js",
-            "use": "npm install --force"
+            "use": "@vercel/node"
         }
     ],
 	"routes": [
