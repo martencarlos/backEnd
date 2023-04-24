@@ -1,11 +1,12 @@
 {
 	"version": 2,
+	"name": "webframe",
 	"builds": [
 		{
-			"src": "**/*.js","use": "@vercel/node"
+			"src": "**/*.js","use": "@vercel/node --force"
 		},
 		{
-			"src": "Public/*","use": "@vercel/static"
+			"src": "Public/*","use": "@vercel/static --force"
 		}
 	],
 	"routes": [

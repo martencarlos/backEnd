@@ -1776,7 +1776,7 @@ app.get('/updateTrackers', async (req, res) => {
              if(error){
                console.log(error)
              }else{
-              //  console.log("updated counter: "+ trackerCounter++)
+              trackerCounter= trackerCounter++
                return "updated"
              }
            }).clone();
