@@ -56,6 +56,7 @@ var User = require('./user');
 var Card = require('./card');
 var Article = require('./article');
 var PriceTracker = require('./pricetracker');
+var GlobalVariable = require('./globalvariable');
 
 //AI
 const tf = require("@tensorflow/tfjs");
@@ -1694,9 +1695,18 @@ app.get('/updateTrackers', async (req, res) => {
   
   let lastIndexProcessed ;
   let array=[];
-  let stringData = fs.readFileSync("globalvariables.json");
-  let jsonData = JSON.parse(stringData);
-  lastIndexProcessed = jsonData.lastIndexProcessed;
+  let globalVariables =  await GlobalVariable.find({});
+  if(globalVariables.length === 0){
+    const globalVariable = new GlobalVariable({
+      lastIndexProcessed: 0
+    });
+    await globalVariable.save();
+    globalVariables = await GlobalVariable.find({});
+  }
+  // let stringData = fs.readFileSync("globalvariables.json");
+  // let jsonData = JSON.parse(stringData);
+  // lastIndexProcessed = jsonData.lastIndexProcessed;
+  lastIndexProcessed = globalVariables[0].lastIndexProcessed
   console.log(lastIndexProcessed);
 
   res.send("Tracker request received. Updating trackers...")
@@ -1757,12 +1767,14 @@ app.get('/updateTrackers', async (req, res) => {
         
          var cloneTracker = JSON.parse(JSON.stringify(tracker))
          
+        //  console.log(cloneTracker.productInfo.title)
+        //  console.log(cloneTracker.url)
         //  console.log("current price:")
         //  console.log(cloneTracker.productInfo.price)
-        //  console.log("lates tPrice:")
+        //  console.log("latest Price:")
         //  console.log(latestPrice)
          if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
-          console.log("updating the tracker price when updating trackers")
+           console.log("updating the tracker price when updating trackers")
            cloneTracker.productInfo.price = latestPrice
            cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
            const newTracker = new PriceTracker(cloneTracker);
@@ -1776,7 +1788,7 @@ app.get('/updateTrackers', async (req, res) => {
              if(error){
                console.log(error)
              }else{
-              trackerCounter= trackerCounter++
+              trackerCounter= trackerCounter+1;
                return "updated"
              }
            }).clone();
@@ -1799,17 +1811,31 @@ app.get('/updateTrackers', async (req, res) => {
   let trackerCounter=0;
   const userTrackerss =  await PriceTracker.find({});
   console.log("last index processed: "+lastIndexProcessed)
-  if(userTrackerss.length >=lastIndexProcessed+25){
-    array= userTrackerss.slice(lastIndexProcessed, lastIndexProcessed + 25);
-   
-    jsonData.lastIndexProcessed = lastIndexProcessed+25;
-    fs.writeFileSync("globalvariables.json", JSON.stringify(jsonData));
-    
+
+  if(userTrackerss.length >=lastIndexProcessed+75){
+    array= userTrackerss.slice(lastIndexProcessed, lastIndexProcessed + 75);
+    globalVariables[0].lastIndexProcessed = lastIndexProcessed+75;
+    await GlobalVariable.findOneAndUpdate({},{"lastIndexProcessed": globalVariables[0].lastIndexProcessed},function(error,result){
+      if(error){
+        console.log(error)
+      }else{
+        console.log("index updated +75")
+      }
+    }).clone();
+    // jsonData.lastIndexProcessed = lastIndexProcessed+25;
+    // fs.writeFileSync("globalvariables.json", JSON.stringify(jsonData));
   }else{
     array= userTrackerss.slice(lastIndexProcessed, userTrackerss.length);
- 
-    jsonData.lastIndexProcessed = 0;
-    fs.writeFileSync("globalvariables.json", JSON.stringify(jsonData));
+    globalVariables[0].lastIndexProcessed = 0;
+    await GlobalVariable.findOneAndUpdate({},{"lastIndexProcessed": globalVariables[0].lastIndexProcessed},function(error,result){
+      if(error){
+        console.log(error)
+      }else{
+        console.log("index updated to 0")
+      }
+    }).clone();
+    // jsonData.lastIndexProcessed = 0;
+    // fs.writeFileSync("globalvariables.json", JSON.stringify(jsonData));
   }
   
   for (const [i,tracker] of array.entries()) {
