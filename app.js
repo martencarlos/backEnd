@@ -278,8 +278,8 @@ app.use(function (req, res, next) {
   console.log((++nRequests) +' - '+'Request method '+ req.method + " at path: " + req.url );
   // if(req.header.cookie)
   //   console.log("cookie in header")
-  console.log(req.socket.remoteAddress)
-  console.log(req.headers['x-forwarded-for'])
+  // console.log(req.socket.remoteAddress)
+  // console.log(req.headers['x-forwarded-for'])
   
   next();
 });
@@ -673,7 +673,7 @@ async function checkAuthenticated(req, res, next) {
     const cookies = parseCookies(req)
 
     if(cookies["uid"] && cookies["ssid"]){
-      console.log(cookies["uid"])
+      // console.log(cookies["uid"])
       if(process.env.SERVER === "http://localhost")
         var activeUid = JSON.parse((cookies["uid"]))
       else
@@ -682,8 +682,8 @@ async function checkAuthenticated(req, res, next) {
 
       if(userArray.length!==0){
         var activeSession = {}
-        console.log("parsing active session cookie:")
-        console.log(cookies["ssid"])
+        // console.log("parsing active session cookie:")
+        // console.log(cookies["ssid"])
         if(process.env.SERVER === "http://localhost")
           activeSession = userArray[0].sessions.find(obj => obj.sessionID === JSON.parse((cookies["ssid"])).sessionID);
         else
@@ -1767,12 +1767,12 @@ app.get('/updateTrackers', async (req, res) => {
         
          var cloneTracker = JSON.parse(JSON.stringify(tracker))
          
-        //  console.log(cloneTracker.productInfo.title)
-        //  console.log(cloneTracker.url)
-        //  console.log("current price:")
-        //  console.log(cloneTracker.productInfo.price)
-        //  console.log("latest Price:")
-        //  console.log(latestPrice)
+         console.log(cloneTracker.productInfo.title)
+         console.log(cloneTracker.url)
+         console.log("current price:")
+         console.log(cloneTracker.productInfo.price)
+         console.log("latest Price:")
+         console.log(latestPrice)
          if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
            console.log("updating the tracker price when updating trackers")
            cloneTracker.productInfo.price = latestPrice
