@@ -10,6 +10,7 @@ var PriceTrackerSchema = mongoose.Schema({
       productNumber: String,
       title: String,
       price: Number,
+      outOfStock: Boolean,
       countryCode: String,
       currency:String,
       imgSrc: String,

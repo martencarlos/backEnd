@@ -1347,14 +1347,20 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
                 productInfo.currency= ($('.green').first().text()).charAt(0)
                 if(isNaN(parseFloat(($('.green').first().text()).substring(1))))
                   productInfo.price= 0
-                else
+                else{
                   productInfo.price= parseFloat(($('.green').first().text()).substring(1));
+                  productInfo.outOfStock = false;
+                }
+                  
               }else{
                 productInfo.currency= "€"
                 if(isNaN(parseFloat(($('.green').first().text()))))
                   productInfo.price= 0
-                else
+                else{
                   productInfo.price= parseFloat(($('.green').first().text()).replace(".",""));
+                  productInfo.outOfStock = false;
+                }
+                  
               }
               
               productInfo.camelurl = camelurl
@@ -1773,10 +1779,17 @@ app.get('/updateTrackers', async (req, res) => {
          console.log(cloneTracker.productInfo.price)
          console.log("latest Price:")
          console.log(latestPrice)
-         if(latestPrice !== cloneTracker.productInfo.price && latestPrice!==0){
+         if(latestPrice !== cloneTracker.productInfo.price){
            console.log("updating the tracker price when updating trackers")
-           cloneTracker.productInfo.price = latestPrice
-           cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
+           if(latestPrice!==0){
+            cloneTracker.productInfo.price = latestPrice
+            cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
+            cloneTracker.productInfo.outOfStock = false;
+            
+           }else{
+            cloneTracker.productInfo.outOfStock = true;
+           }
+           
            const newTracker = new PriceTracker(cloneTracker);
            
            //Update entire list
@@ -1793,12 +1806,13 @@ app.get('/updateTrackers', async (req, res) => {
              }
            }).clone();
 
-          //******************************************************
-          //Send email to users that are subscribed to this tracker
-          //******************************************************
-          console.log("sending email to users that are subscribed to this tracker")
-          await sendPriceUpdates(newTracker)
-           
+           if(latestPrice!==0){
+            //******************************************************
+            //Send email to users that are subscribed to this tracker
+            //******************************************************
+            console.log("sending email to users that are subscribed to this tracker")
+            await sendPriceUpdates(newTracker)
+           }
          }else{
           // console.log("not updated")
            return "not updated"
