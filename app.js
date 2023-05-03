@@ -1779,13 +1779,15 @@ app.get('/updateTrackers', async (req, res) => {
          console.log(cloneTracker.productInfo.price)
          console.log("latest Price:")
          console.log(latestPrice)
-         if(latestPrice !== cloneTracker.productInfo.price){
+         if(latestPrice !== cloneTracker.productInfo.price || (latestPrice!==0 && cloneTracker.productInfo.outOfStock===true)){
            console.log("updating the tracker price when updating trackers")
            if(latestPrice!==0){
-            cloneTracker.productInfo.price = latestPrice
-            cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
-            cloneTracker.productInfo.outOfStock = false;
-            
+            if(cloneTracker.productInfo.outOfStock===false){
+              cloneTracker.productInfo.price = latestPrice
+              cloneTracker.productInfo.prices.push({date: Date.now(),price:latestPrice})
+            }else{
+              cloneTracker.productInfo.outOfStock = false;
+            }
            }else{
             cloneTracker.productInfo.outOfStock = true;
            }
