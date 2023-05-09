@@ -59,8 +59,8 @@ var PriceTracker = require('./pricetracker');
 var GlobalVariable = require('./globalvariable');
 
 //AI
-const tf = require("@tensorflow/tfjs");
-const tfcore = require("@tensorflow/tfjs-node");
+// const tf = require("@tensorflow/tfjs");
+const tf = require("@tensorflow/tfjs-node");
 const mobilenet = require("@tensorflow-models/mobilenet");
 const image = require("get-image-data");
 const { Configuration, OpenAIApi } = require("openai");
@@ -81,9 +81,12 @@ if (!process.env.HOST_HEROKU_DEPLOYED){
 console.log('Authentication required loaded');
 
 //Database
+
 const mongodbFullURL = 'mongodb+srv://' + process.env.DB_USER + ':'+ process.env.DB_PASS +'@'+ process.env.DB_HOST + '/'+ process.env.DB_APPNAME+'?retryWrites=true&w=majority';
 const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
 mongoose.connect(mongodbFullURL, {useNewUrlParser: true});
+
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
@@ -1191,7 +1194,11 @@ app.post('/newtracker',checkAuthenticated, async (req, res) => {
       }
     }
   }
-  await asyncForEach(user[0].trackers)
+  //check if product number is found in url
+  if(url.split('/dp/')[1]){
+    await asyncForEach(user[0].trackers)
+  }
+  
  
   const foundTracker =  await PriceTracker.find({"productInfo.productNumber": (url.split('/dp/')[1]).slice(0,10)});
   // console.log("DEBUG - product number:")
@@ -1588,19 +1595,14 @@ app.get('/mytrackers',checkAuthenticated, async (req, res) => {
     var uid = JSON.parse(cookies["uid"].slice(2))
   const userID = uid
   const user =  await User.find({_id: userID});
-  var myTrackers=[];
-  // console.log("Debug - user trackers:")
-  // console.log(user[0].trackers)
 
-  async function asyncForEach(trackers) {
-    for (let index = 0; index < trackers.length; index++) {
-      myTrackers.push((await PriceTracker.find({_id: trackers[index].trackerId}))[0])
-    }
-  }
-  await asyncForEach(user[0].trackers)
+  //conver user tracker string ids to object ids
+  const userTrackerIds = await user[0].trackers.map(tracker=>{
+    return mongoose.Types.ObjectId(tracker.trackerId)
+  });
   
-  // console.log("Debug - My trackers:")
-  // console.log(myTrackers)
+  const myTrackers = await PriceTracker.find({ _id: { $in: userTrackerIds } });
+
   res.send(myTrackers)
 })
 
