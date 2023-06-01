@@ -1993,6 +1993,46 @@ app.post('/openai',checkAuthenticated, async (req, res) => {
   
 })
 
+app.post('/send-email', async (req, res) => {
+  const {name,email,message} = req.body
+
+  var transporter = nodemailer.createTransport({
+    host: 'smtp.zoho.eu',
+    port: 465,
+    secure: true, // use SSL
+    auth: {
+      user: 'notifications@webframe.one',
+      pass: process.env.EMAIL_PASS
+    }
+  });
+
+  // Email options
+  var mailOptions = {
+    from: 'notifications@webframe.one',
+    to: 'martencarlos@gmail.com',
+    subject: 'New lead from webframe.one',
+  };
+
+  mailOptions.html = `
+              <br></br>          
+              <h3>New Lead </h3>
+              <p><b>Name:</b> ${name}</p>
+              <p><b>Email:</b> ${email}</p>
+              <p><b>Message:</b> ${message}</p>
+              <br></br>  
+              `
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+      res.send("error")
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.send("success")
+    }
+  });
+
+})
 
 console.log('Routes in place');
 
