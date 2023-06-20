@@ -98,14 +98,14 @@ db.once("open", function () {
 const { initializeApp } = require ('firebase/app');
 const { getStorage,ref,uploadBytesResumable,getDownloadURL } =require ('firebase/storage');
 
-// Firebase configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDIhP5WDO8s6Z_6Aiw7VqoqRqsqLKsZW9w",
-  authDomain: "api.webframe.one",
-  projectId: "webframebase",
-  storageBucket: "webframebase.appspot.com",
-  messagingSenderId: "1053445254999",
-  appId: "1:1053445254999:web:b95f31ce4dd07ba0405812"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 };
 
 // Initialize Firebase
