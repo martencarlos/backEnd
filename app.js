@@ -60,9 +60,9 @@ var GlobalVariable = require('./globalvariable');
 
 //AI
 // const tf = require("@tensorflow/tfjs");
-const tf = require("@tensorflow/tfjs-node");
-const mobilenet = require("@tensorflow-models/mobilenet");
-const image = require("get-image-data");
+// const tf = require("@tensorflow/tfjs-node");
+// const mobilenet = require("@tensorflow-models/mobilenet");
+// const image = require("get-image-data");
 const { Configuration, OpenAIApi } = require("openai");
 
 const fileUpload = require('express-fileupload');
